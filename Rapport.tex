@@ -1,0 +1,195 @@
+\documentclass[10pt]{article}
+
+
+% Tous les packages prédéfinis
+\usepackage{introLatex}
+\usepackage{headfootLatex}
+\usepackage{shortcutLatex}
+\usepackage{envLatex}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%\usepackage{algpseudocode}
+
+\graphicspath{{logos/}{figures/}}
+
+\newcommand{\gam}[2]{\ensuremath{\Gamma^{(#1)}_{#2}}}
+\newcommand{\gamc}[3]{\ensuremath{\Gamma^{(#1)}_{#2}\[#3\]}}
+\newcommand{\gamp}[3]{\ensuremath{\Gamma^{(#1)}_{#2}\(#3\)}}
+\newcommand{\gamcf}[3]{\ensuremath{\hat{\Gamma}^{(#1)}_{#2}\[#3\]}}
+\newcommand{\gampf}[3]{\ensuremath{\hat{\Gamma}^{(#1)}_{#2}\(#3\)}}
+
+\makeatletter
+\def\hlinewd#1{%
+\noalign{\ifnum0=`}\fi\hrule \@height #1 %
+\futurelet\reserved@a\@xhline}
+\makeatother
+
+
+
+
+
+\begin{document}
+
+
+% Titre du document
+\vspace*{-22pt}
+\begin{center}
+\includegraphics[scale=0.35]{Logo_LPTMC.png}
+\hspace*{20pt}
+\includegraphics[scale=0.05]{Logo_ENSTA.jpg}
+\hspace*{20pt}
+\includegraphics[scale=0.10]{Logo_ENSC.jpg}
+\hspace*{20pt}
+\includegraphics[scale=0.15]{Logo_Versailles.png}
+\\
+\vspace*{20pt}
+\rule{10cm}{1pt}
+\vspace*{10pt} \\
+\textsc{\textbf{{\large Master 2 de mathématiques : Analyse, Modélisation, Simulation}}\\
+ Parcours : Modélisation Simulation}\\
+\rule{10cm}{1pt}
+\vspace*{20pt} \\
+\textbf{\Large Etude numérique des équations \og BMW \fg{} \\ du groupe de renormalisation non perturbatif}\\
+\vspace*{10pt}
+Gaétan Facchinetti \\
+Encadré par : Bertrand Delamotte  et Nicolas Dupuis
+{ \\
+\vspace*{15pt}
+\textit{Laboratoire de Physique Théorique de la Matièe Condensée},\\
+\vspace*{5pt}
+\textit{Université Paris-Saclay},\textit{Ecole Nationale Supérieure des Techniques Avancées}, \\
+\textit{Ecole Normale Supérieure de Cachan}, \textit{Université Versailles Saint Quentin}}\\
+\vspace*{20pt}
+{\small 27 février - 28 juillet 2017 }
+
+\end{center}
+
+
+\vfill
+\hfill
+\includegraphics[scale=0.25]{parisSaclay.jpg}
+\pagebreak
+
+%\vspace*{4pt}
+
+\tableofcontents
+
+\pagebreak
+\begin{multicols}{2}
+
+\section{Introduction}
+
+\subsection{Transitions de phases}
+
+En thermodynamique on appelle phase un milieu possédant des propriétés physiques et chimiques homogènes. Or, en modifiant certains paramètres (comme la témpérature, la pression, etc.) un système peut changer de phase lors de ce que l'on appelle une transition de phase. Ces transitions sont particulièrement étudiées \cite{bellac2012}. \cite{Delamotte2012, Ising2DNPRG, Blaizot, Clenshaw, Wetterich, TownsendThesis, Tchebychev, Dupuis2008, LeonardThesis, Onsager}
+
+\vspace*{11pt}
+\subsection{Un peu de thermodynamique et de physique statistique}
+
+Nous resumons dans cette sections quelques concepts fondamentaux permettant de comprendre la démarche derriere les résolutions numériques que nous aborderons plus tard.
+Considérons un système à $P$ corps (particules, spins, etc.) dans un volume à $d$ dimensions $\Omega$. On considère alors que l'ensemble des degrés de liberté de ces $P$ corps peuvent être décrit grâce à une fonction $\varphiv : \rv \in \Omega \rightarrow \varphiv(\rv) \in \R^d$, telle que $\varphiv \in \( \Cc^{\infty}(\Omega)\)^d$  \\
+
+
+La dynamique du système est alors régie par un hamiltonien $H[\varphiv]$ \footnote{La notation $[...]$ signifie que $H$ est une fonctionnelle de $\varphiv$}. Avec le formalisme canonique de la physique statistique nous savons que nous pouvons connaitre toutes l'information sur les propriétées macroscopiques du système en étudiant sa fonction de partition $\Zc$ définie par l'expression 
+ \begin{equation}
+\Zc = \int \Dc \varphiv \, \exp\left\{-\beta H[\varphiv]\right\}, 
+\end{equation} 
+où $\beta = 1/(k_BT)$. Cette intégrale est une intégrale fonctionnelle ... (note sur sa définition) sur l'ensemble des champs $\varphiv$ permis par le système (on peut aussi voir cela comme une somme continue sur l'ensemble des configurations possibles du système). Malheureusement elle ne peut pas être, de manière générale, calculée et nous l'utiliserons simplement pour extraire des grandeurs qui elles peuvent être à la fois calculée et observée expérimentalement comme détaillé ci-après.\\
+
+Considérons l'hypothèse physique selon laquelle $H$ peut se décomposer en deux parties distinctes,
+\begin{equation}
+H[\varphiv] = S[\varphiv] - \int_{\Omega^d} \hv \varphiv,
+\end{equation} 
+où $S$ est appellée l'action du système (il s'agit en fait de l'hamiltonien du système isolé) et le deuxième terme correspond à l'exitation du système par un champ $\hv$ extérieur. Ainsi $\Zc$ devient une fonctionnelle de $\hv$ et nous définissons l'énergie libre du système comme étant 
+\begin{equation}
+  W[\hv] = \text{ln}{\(\Zc[\hv]\)}
+\end{equation}
+En utilisant la notion de dérivée fonctionnelle sommairement rappellée en annexe nous pouvons alors introduire le tenseur des fonctions de correlations à $n \in \bbrac{1,N}$ points,  très importantes, puisque déterminable expérimentalement \cite{bellac2012}. Pour $j \in \bbrac{1,n}$, on pose $\{i_j\} \subset \bbrac{1,N}$ avec $\text{card}(\{i_j\}) =j$. 
+\begin{equation}
+  G^{(n)}_{\{i_j\}} [\{\rv_{j}\} ; \hv] = \derd{^n W[\hv]}{h_{i_1}(\rv_1) ... \delta h_{i_n}(\rv_n)}
+\end{equation}
+Or ces grandeurs ne se calculent par directement, pour cela on utilise le potentiel de Gibbs. Comme ... il s'agit d'une fonctionnelle du champ $\hv$ définie par transfomation de Legendre selon 
+\begin{equation}
+  \Gamma [\phiv] = - W[\hv] + \int_{\R^d} \hv \phiv,
+\end{equation}
+Avec, en notant $\left< ... \right>$ la moyenne thermodynamique,
+\begin{equation}
+  \phiv[\rv, \hv] = \left< \varphiv(\rv) \right> = \derd{W[\hv]}{\hv(\rv)}
+\end{equation}
+On utilise aussi alors beaucoup les dérivées fonctionnelles de $\Gamma$ définie par
+\begin{equation}
+  \Gamma^{(n)}_{\{i_j\}} [\{\xv_{j}\} ; \phiv] = \derd{^n \Gamma[\phiv]}{\phi_{i_1}(\xv_1) ... \delta \phi_{i_n}(\xv_n)}
+\end{equation}
+On montre alors \cite{Delamotte2012}, qu'au sens d'inverse d'opérateur, comme définie en annexe,
+\begin{equation}
+  G^{(2)}[\hv] = \(\Gamma^{(2)}[\phiv]\)^{-1}  
+\end{equation}
+Comme nous le verrons par la suite nous pourrons calculer les grandeurs observables reliées à la mesure de $G$ et étudiant seulement la fonctionnelle $\Gamma$ dont on sait extraire les équations permettant sa détermination. De plus mentionnons que l'on ne calculera jamais 
+
+\vspace*{11pt}
+\subsection{Le groupe de renormalisation (RG)}
+Le but du goupe de renormalisation est d'étudier la physique aux transitions de phase. 
+\vspace*{11pt}
+\subsection{Le groupe de renormalisation non perturbatif (NPRG)}
+Contrairement au RG le NPRG permet d'aller plus loin puisqu'il permet un calcul sans approximations a priori. En effet, toute l'astuce consiste à introduire une fonction $\Rc_k \in \Cc^\infty(\R^{d},\R)$ appellée régulateur pour $k \in [0, +\infty[$ puis une nouvelle fonction de partition modifiée  
+\begin{equation}
+  \Zc_k = \int \Dc \varphiv \, \exp\left\{-S[\varphiv] - \Delta S_k[\varphiv] + \int_{\rv} \hv \varphiv \right\} 
+\end{equation}
+Avec la définition
+\begin{equation}
+  \begin{split}
+  \Delta S_k[\varphiv]  & \equiv \frac{1}{2} \int_{\rv, \rv'} \varphi_i(\rv) \Rc_{k,ij}(\rv - \rv') \varphi_j(\rv') \\
+ & =  \frac{1}{2} \int_{\qv, \qv'} \varphi_i(-\qv) \Rc_{k,ij}(\qv) \varphi_j(\qv)
+\end{split}
+\end{equation}
+De cette manière en choisissant
+\begin{itemize}
+  \item Pour $k = 0$, $\Rc_k(\qv)  \rightarrow  +\infty$.
+  \item Pour $k \rightarrow +\infty$, $\Rc_k(\qv) \rightarrow 0$.
+\end{itemize}
+On peut geler les fluctuations 
+
+
+
+\pagebreak
+
+\section{Le modèle continu O(N)}
+\subsection{Equations de flots générales}
+\lipsum[1]
+\vspace*{11pt}
+\subsection{Approximation BMW}
+\lipsum[1]
+\vspace*{11pt}
+\subsection{Méthode de simulation}
+\lipsum[1]
+\vspace*{11pt}
+\subsection{Résultats}
+\lipsum[1]
+
+
+\pagebreak
+\section{Le modèle d'Ising en dimension 2}
+\subsection{Modélisation du problème avec des champs}
+\lipsum[1]
+\vspace*{11pt}
+\subsection{Etapes de la résolution numérique}
+\lipsum[1]
+\vspace*{11pt}
+\subsection{Méthodes et outils numériques}
+\lipsum[1]
+\vspace*{11pt}
+\subsection{Résultats} 
+\lipsum[1]
+
+
+
+\bibliographystyle{plain}
+\bibliography{Rapport}
+
+
+\end{multicols}
+
+
+
+\end{document}

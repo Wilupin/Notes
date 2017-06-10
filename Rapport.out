@@ -1,0 +1,15 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Transitions de phases}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Un peu de thermodynamique et de physique statistique}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Le groupe de renormalisation \(RG\)}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{Le groupe de renormalisation non perturbatif \(NPRG\)}{section.1}% 5
+\BOOKMARK [1][-]{section.2}{Le mod\350le continu O\(N\)}{}% 6
+\BOOKMARK [2][-]{subsection.2.1}{Equations de flots g\351n\351rales}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.2}{Approximation BMW}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.3}{M\351thode de simulation}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.4}{R\351sultats}{section.2}% 10
+\BOOKMARK [1][-]{section.3}{Le mod\350le d'Ising en dimension 2}{}% 11
+\BOOKMARK [2][-]{subsection.3.1}{Mod\351lisation du probl\350me avec des champs}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.2}{Etapes de la r\351solution num\351rique}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.3}{M\351thodes et outils num\351riques}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.4}{R\351sultats}{section.3}% 15
