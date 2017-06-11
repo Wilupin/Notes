@@ -1,0 +1,18 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Transitions de phases}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Int\IeC {\'e}r\IeC {\^e}t du groupe de renormalisation et des \IeC {\'e}quations BMW}{3}{subsection.1.2}
+\contentsline {section}{\numberline {2}Origine du mod\IeC {\`e}le}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Un peu de thermodynamique et de physique statistique}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Le groupe de renormalisation (RG)}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Le groupe de renormalisation non perturbatif (NPRG)}{5}{subsection.2.3}
+\contentsline {section}{\numberline {3}Le mod\IeC {\`e}le continu O(N)}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Equations de flots g\IeC {\'e}n\IeC {\'e}rales}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Approximation BMW}{6}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}M\IeC {\'e}thode de simulation}{6}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}R\IeC {\'e}sultats}{6}{subsection.3.4}
+\contentsline {section}{\numberline {4}Le mod\IeC {\`e}le d'Ising en dimension 2}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Mod\IeC {\'e}lisation du probl\IeC {\`e}me avec des champs}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Etapes de la r\IeC {\'e}solution num\IeC {\'e}rique}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}M\IeC {\'e}thodes et outils num\IeC {\'e}riques}{7}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}R\IeC {\'e}sultats}{7}{subsection.4.4}

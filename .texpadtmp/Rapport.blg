@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: /Users/facchinettigaetan/Documents/Etudes/Master 2 AMS (Paris-Saclay)/Stage/Notes/.texpadtmp/Rapport.aux
+The style file: plain.bst
+Database file #1: ../Rapport.bib
+Too many commas in name 1 of "Bernard Diu, Claudine Guthmann, Danielle Lederer, Bernard Roulet" for entry rohtuA
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Bernard Diu, Claudine Guthmann, Danielle Lederer, Bernard Roulet" for entry rohtuA
+while executing---line 1090 of file plain.bst
+Warning--can't use both author and editor fields in Delamotte2012
+You've used 13 entries,
+            2118 wiz_defined-function locations,
+            592 strings with 6255 characters,
+and the built_in function-call counts, 3657 in all, are:
+= -- 358
+> -- 147
+< -- 1
++ -- 61
+- -- 46
+* -- 230
+:= -- 641
+add.period$ -- 41
+call.type$ -- 13
+change.case$ -- 54
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 153
+empty$ -- 304
+format.name$ -- 46
+if$ -- 759
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 17
+newline$ -- 68
+num.names$ -- 26
+pop$ -- 67
+preamble$ -- 1
+purify$ -- 49
+quote$ -- 0
+skip$ -- 94
+stack$ -- 0
+substring$ -- 195
+swap$ -- 21
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 40
+warning$ -- 1
+while$ -- 36
+width$ -- 15
+write$ -- 145
+(There were 2 error messages)

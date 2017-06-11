@@ -82,42 +82,72 @@ Encadré par : Bertrand Delamotte  et Nicolas Dupuis
 
 \subsection{Transitions de phases}
 
-En thermodynamique on appelle phase un milieu possédant des propriétés physiques et chimiques homogènes. Or, en modifiant certains paramètres (comme la témpérature, la pression, etc.) un système peut changer de phase lors de ce que l'on appelle une transition de phase. Ces transitions sont particulièrement étudiées \cite{bellac2012}. \cite{Delamotte2012, Ising2DNPRG, Blaizot, Clenshaw, Wetterich, TownsendThesis, Tchebychev, Dupuis2008, LeonardThesis, Onsager}
+La physique statistique  \cite{rohtuA} offre un cadre permettant de calculer les grandeurs macroscopiques, dites aussi thermodynamiques, des problèmes mettant en jeu des systèmes avec un très grand nombre de corps (particules, molécules, etc.) interagissants tous ensemble. Nous allons nous intéresser ici plus particulièrement au problème que soulèvent les phénomènes de transitions de phase en commençant par décrire ce dont il s'agit, puis en explicitant ce qui va exactement nous intéresser dans ces transitions. \\
+
+En thermodynamique on appelle phase un milieu possédant des propriétés physiques et chimiques macroscopiques homogènes. Or, avec la modification de certains paramètres (comme la température, la pression, etc.), un système peut changer de phase lors de, ce que l'on appelle, une transition de phase. Le passage de l'eau de l'état liquide à l'état gazeux ou solide par modification de la température à pression constante en est un très bon exemple \cite{}. On s'intéresse alors ici aux phénomènes physiques particuliers qui se produisent lors de ces transitions. \\
+
+Pour comprendre quels sont ces phénomènes considérons un système que l'on peut faire changer de phase en imposant sa température $T$ seulement. On appelle $T_c$, température critique, la température à laquelle se produit la transition. Il est alors possible de définir sur ce système une fonction de corrélation $G^{(2)}(r)$ qui décrit quantitativement l'influence que deux corps du système séparés d'une distance $r$ ont l'un sur l'autre. Notons bien que plus la distance entre deux corps sera grande moins cette influence sera forte et donc plus la fonction de corrélation sera faible. A cette fonction, qu'il est possible de déterminer expérimentalement \cite{Bellac2012}, on y associe donc une longueur $\xi$ qui définit approximativement la distance à partir de laquelle deux corps du systèmes n'ont plus d'influence l'un sur l'autre.\\
+
+On observe qu'au moment de la transition, pour $|T-T_c| \rightarrow 0$, à la fois $\xi$ et $G^{(2)}$ divergent selon les lois 
+\begin{equation}
+	\xi \sim |T-T_c|^{-\nu} 	\quad \text{et} \quad G^{(2)}(r) \sim |r|^{2-d-\eta},
+\end{equation}
+où $d$ est la dimension physique du système et $\nu$ et $\eta$ sont deux réels positifs appelés les exposants critiques du système. Il existe comme cela plusieurs grandeurs desquelles ont peut extraire différents autres exposants critiques. Le point important est que tous les systèmes ayant les mêmes propriétés de symétries possèdent les mêmes exposants critiques, ont dit qu'ils appartiennent à la même classe d'universalité. Notons bien que la température critique n'est elle pas une grandeur universelle et dépend de la constitution exacte de chaque système.\\
+
+
+\subsection{Intérêt du groupe de renormalisation et des équations BMW}
+Le groupe de renormalisation (RG) permet à la fois de montrer l'effet d'universalité sur les exposants critiques et de les calculer. L'approche par le RG a permis d'obtenir déjà d'excellents résultats \cite{} pour différents systèmes étudiés comparé aux expériences et autres méthodes comme les simulations Monte-Carlo. Cependant elle reste limitée dans ces applications car elle se fonde sur des approximations de "théorie des perturbations" pour pouvoir mener les calculs qui ne permettent de ne calculer par exemple que les exposants universels critiques mais pas les grandeurs non universelles comme la température critique.\\
+
+Le groupe de renormalisation non perturbatif (NPRG) permet de répondre à ce problème en reprenant le principe du RG sous une approche différente permettant d'accéder à des équations exactes. Cependant, en pratique, ces équations ne sont pas solubles et il faut faire d'autres approximations, comme l'approximation BMW, pouvant être d'autre nature que celle de la théorie des perturbation pour pouvoir récupérer à la fois les exposants critiques et les grandeurs non universelles. Mais bien que cela soit possible le NPRG n'avais jamais été utilisé auparavant pour calculer une température critique. \\
+
+L'objectif premier de cette étude est donc de rependre une simulation d'équations intégro-différentielles non linéaires obtenues par l'approximation BMW des équations du NPRG déjà réalisée \cite{LeonardThesis} afin de déterminer des exposants critiques. Mais aussi, et pour la première fois, de l'adapter à un système d'Ising en dimension deux pour en calculer dans le cadre du NPRG, la température critique. \\
+
+Dans une première partie nous rappellerons donc les origines du modèle du RG et du NPRG puis nous l'utiliserons pour developper les équations BMW dans le cas de systèmes possédant une symétrie $O(N)$ et étudier numériquement leur résolution. Ensuite nous appliquerons le modèle BMW au système d'Ising en deux dimensions afin de tester s'il permet de retrouver la température et les exposants critiques que l'on connait par la résolution analytique faite par Onsager \cite{Onsager}. 
+
+\cite{Delamotte2012, Ising2DNPRG, Blaizot, Clenshaw, Wetterich, TownsendThesis, Tchebychev, Dupuis2008, LeonardThesis, Onsager}
 
 \vspace*{11pt}
+\vfill
+\phantom
+\pagebreak
+\section{Origine du modèle}
 \subsection{Un peu de thermodynamique et de physique statistique}
 
-Nous resumons dans cette sections quelques concepts fondamentaux permettant de comprendre la démarche derriere les résolutions numériques que nous aborderons plus tard.
-Considérons un système à $P$ corps (particules, spins, etc.) dans un volume à $d$ dimensions $\Omega$. On considère alors que l'ensemble des degrés de liberté de ces $P$ corps peuvent être décrit grâce à une fonction $\varphiv : \rv \in \Omega \rightarrow \varphiv(\rv) \in \R^d$, telle que $\varphiv \in \( \Cc^{\infty}(\Omega)\)^d$  \\
+Nous résumons dans cette sections quelques concepts fondamentaux de la thermodynamique et de la physique statistique \cite{diu2007thermodynamique} nécessaires à l'introduction du groupe de renormalisation. \\
+
+Considérons un système à $P$ corps dans un ouvert à $d$ dimensions $\Omega$ de volume $V$. On considère que l'ensemble des $N$ degrés de liberté de chacun de ces $P$ corps peuvent être décrit suivant leur position $\rv$ grâce à une fonction $\varphiv : \rv \in \Omega \rightarrow \varphiv(\rv) \in \R^d$, telle que $\varphiv \in \( \Cc^{\infty}(\Omega)\)^d$  \\
 
 
-La dynamique du système est alors régie par un hamiltonien $H[\varphiv]$ \footnote{La notation $[...]$ signifie que $H$ est une fonctionnelle de $\varphiv$}. Avec le formalisme canonique de la physique statistique nous savons que nous pouvons connaitre toutes l'information sur les propriétées macroscopiques du système en étudiant sa fonction de partition $\Zc$ définie par l'expression 
- \begin{equation}
-\Zc = \int \Dc \varphiv \, \exp\left\{-\beta H[\varphiv]\right\}, 
+La dynamique du système est alors régie par un une fonctionnelle de $\varphiv$ : l'hamiltonien $H[\varphiv]$. Avec le formalisme canonique de la physique statistique \cite{rohtuA} nous savons que nous pouvons connaitre toutes l'information sur les propriétés macroscopiques du système en étudiant sa fonction de partition $\Zc$ définie par l'expression 
+\begin{equation}
+\Zc \equiv \int \Dc \varphiv \, \exp\left\{- H[\varphiv]\right\}, 
 \end{equation} 
-où $\beta = 1/(k_BT)$. Cette intégrale est une intégrale fonctionnelle ... (note sur sa définition) sur l'ensemble des champs $\varphiv$ permis par le système (on peut aussi voir cela comme une somme continue sur l'ensemble des configurations possibles du système). Malheureusement elle ne peut pas être, de manière générale, calculée et nous l'utiliserons simplement pour extraire des grandeurs qui elles peuvent être à la fois calculée et observée expérimentalement comme détaillé ci-après.\\
+Cette intégrale est une intégrale fonctionnelle \cite{} sur l'ensemble des champs $\varphiv$ permis par le système (i.e. une somme continue sur l'ensemble des configurations possibles des $P\times N$ degrés de liberté du système). Cependant elle ne peut pas être, de manière générale, calculée pour un $H$ quelconque.\\
 
 Considérons l'hypothèse physique selon laquelle $H$ peut se décomposer en deux parties distinctes,
 \begin{equation}
-H[\varphiv] = S[\varphiv] - \int_{\Omega^d} \hv \varphiv,
+H[\varphiv] = S[\varphiv] - \int_{\Omega} \hv \varphiv,
 \end{equation} 
-où $S$ est appellée l'action du système (il s'agit en fait de l'hamiltonien du système isolé) et le deuxième terme correspond à l'exitation du système par un champ $\hv$ extérieur. Ainsi $\Zc$ devient une fonctionnelle de $\hv$ et nous définissons l'énergie libre du système comme étant 
+où $S$ est appelée l'action du système (il s'agit en fait de l'hamiltonien du système isolé) et le deuxième terme correspond à l'excitation du système par un champ $\hv$ extérieur. Ainsi $\Zc$ devient une fonctionnelle de $\hv$ et nous définissons l'énergie libre du système comme étant 
 \begin{equation}
   W[\hv] = \text{ln}{\(\Zc[\hv]\)}
 \end{equation}
-En utilisant la notion de dérivée fonctionnelle sommairement rappellée en annexe nous pouvons alors introduire le tenseur des fonctions de correlations à $n \in \bbrac{1,N}$ points,  très importantes, puisque déterminable expérimentalement \cite{bellac2012}. Pour $j \in \bbrac{1,n}$, on pose $\{i_j\} \subset \bbrac{1,N}$ avec $\text{card}(\{i_j\}) =j$. 
+En utilisant la notion de dérivée fonctionnelle nous pouvons alors introduire le tenseur des fonctions de corrélations à $n \in \bbrac{1,N}$ corps. Ces fonctions sont très importantes car, comme mentionné dans l'introduction, c'est celle à deux corps qui nous permet de déterminer les exposants critiques $\nu$ et $\eta$. Pour $j \in \bbrac{1,n}$, on pose $\{i_j\} \subset \bbrac{1,N}$ avec $\text{card}(\{i_j\}) = j$. 
 \begin{equation}
   G^{(n)}_{\{i_j\}} [\{\rv_{j}\} ; \hv] = \derd{^n W[\hv]}{h_{i_1}(\rv_1) ... \delta h_{i_n}(\rv_n)}
 \end{equation}
-Or ces grandeurs ne se calculent par directement, pour cela on utilise le potentiel de Gibbs. Comme ... il s'agit d'une fonctionnelle du champ $\hv$ définie par transfomation de Legendre selon 
+Or ces grandeurs ne peuvent pas se calculer directement, ce pourquoi on utilise le potentiel de Gibbs. Comme l'énergie libre est une fonction convexe \cite{diu2007thermodynamique} on peut définir le potentiel est Gibbs est une fonctionnelle du champ $\hv$ définie par transformation de Legendre selon la formule
 \begin{equation}
-  \Gamma [\phiv] = - W[\hv] + \int_{\R^d} \hv \phiv,
+  \Gamma [\phiv] = - W[\hv] + \int_{\Omega} \hv \phiv,
 \end{equation}
-Avec, en notant $\left< ... \right>$ la moyenne thermodynamique,
+Avec, en notant $\left< ... \right>$ la moyenne statistique,
 \begin{equation}
   \phiv[\rv, \hv] = \left< \varphiv(\rv) \right> = \derd{W[\hv]}{\hv(\rv)}
 \end{equation}
-On utilise aussi alors beaucoup les dérivées fonctionnelles de $\Gamma$ définie par
+\begin{equation}
+  \left< \varphiv(\rv) \right> = \frac{1}{\Zc} \int \Dc \varphiv \, \varphiv(\rv) \exp\left\{- H[\varphiv]\right\}, 
+\end{equation}
+On introduit aussi une notation pour les dérivées fonctionnelles de $\Gamma$ avec 
 \begin{equation}
   \Gamma^{(n)}_{\{i_j\}} [\{\xv_{j}\} ; \phiv] = \derd{^n \Gamma[\phiv]}{\phi_{i_1}(\xv_1) ... \delta \phi_{i_n}(\xv_n)}
 \end{equation}
@@ -125,11 +155,41 @@ On montre alors \cite{Delamotte2012}, qu'au sens d'inverse d'opérateur, comme d
 \begin{equation}
   G^{(2)}[\hv] = \(\Gamma^{(2)}[\phiv]\)^{-1}  
 \end{equation}
-Comme nous le verrons par la suite nous pourrons calculer les grandeurs observables reliées à la mesure de $G$ et étudiant seulement la fonctionnelle $\Gamma$ dont on sait extraire les équations permettant sa détermination. De plus mentionnons que l'on ne calculera jamais 
+Il faut donc retenir que la connaissance du potentiel de Gibbs équivaut à la connaissance de la fonction de corrélation à deux points et elle nous permet alors aussi de retrouver les exposants critiques qui nous intéressent. Développons à présent les théories du RG et du NPRG qui partent des quelques formules rappelées ici. 
 
 \vspace*{11pt}
 \subsection{Le groupe de renormalisation (RG)}
-Le but du goupe de renormalisation est d'étudier la physique aux transitions de phase. 
+Commençons par définir la transformée de Fourier du champ $\rv \rightarrow \varphiv(\rv)$ par 
+\begin{equation}
+\begin{split}
+\varphiv(\pv) = \frac{1}{\sqrt{V}}\int_\rv \varphiv(\rv) \, e^{-i \pv . \rv}, \\
+\varphiv(\rv) = \frac{1}{\sqrt{V}}\sum_\pv \varphiv(\pv) \, e^{i \pv  .\rv}
+\end{split} 	
+\end{equation}
+Avec la notation 
+\begin{equation}
+\int_\rv ...\, \equiv \int_\Omega	... \, \dd \, \rv
+\end{equation}
+
+Notons que c'est la variable utilisée qui nous permet de savoir si l'on travaille avec la transformée de Fourier ou la fonction. On suppose que pour $\pv$ supérieur à une certaine valeur notée $\Lambda$, la valeur $\varphiv(\pv)$ est suffisamment faible pour être pris comme nul, on considère donc $\pv \in [0, \Lambda]$. 
+
+L'idée du RG est alors de ne pas considérer tous les degrés de liberté sur le même pied d'égalité. En effet, on commence d'abord, pour calculer $\Zc$, par intégrer les degrés de libertés de haute impulsion $\pv$ entre $k$ et $\Lambda$ où $k \in [0,\Lambda]$. En pratique on sépare $\varphiv$ en deux fonctions $\varphiv_>$ et $\varphiv_<$ telles que $\varphiv(\pv) = \varphiv_>(\pv) + \varphiv_<(\pv)$ et
+\begin{align}
+	\varphiv_>(\pv)  = \quad & \varphiv(\pv) \quad \text{si} \quad \pv \in   [k,\Lambda] \\
+	 & 0 \quad \text{sinon}
+\end{align}
+Ainsi ceci permet de définir un Hamiltonien effectif $H_k$, 
+\begin{equation}
+	H_k[\varphiv_<] = \int \Dc \varphiv_>  \exp \{ H[\varphiv_>+ \varphiv_<] \},
+\end{equation}
+Et alors la fonction de partition s'écrit, 
+\begin{equation}
+\Zc = \int \Dc \varphiv_< \, \exp\left\{- H_k[\varphiv_<]\right\}, 
+\end{equation} 
+De manière générale on part d'un hamiltonien qui se développe avec une suite de 
+
+
+
 \vspace*{11pt}
 \subsection{Le groupe de renormalisation non perturbatif (NPRG)}
 Contrairement au RG le NPRG permet d'aller plus loin puisqu'il permet un calcul sans approximations a priori. En effet, toute l'astuce consiste à introduire une fonction $\Rc_k \in \Cc^\infty(\R^{d},\R)$ appellée régulateur pour $k \in [0, +\infty[$ puis une nouvelle fonction de partition modifiée  
@@ -140,16 +200,30 @@ Avec la définition
 \begin{equation}
   \begin{split}
   \Delta S_k[\varphiv]  & \equiv \frac{1}{2} \int_{\rv, \rv'} \varphi_i(\rv) \Rc_{k,ij}(\rv - \rv') \varphi_j(\rv') \\
- & =  \frac{1}{2} \int_{\qv, \qv'} \varphi_i(-\qv) \Rc_{k,ij}(\qv) \varphi_j(\qv)
+ & =  \frac{1}{2} \sum_{\qv} \varphi_i(-\qv) \Rc_{k,ij}(\qv) \varphi_j(\qv)
 \end{split}
 \end{equation}
-De cette manière en choisissant
-\begin{itemize}
-  \item Pour $k = 0$, $\Rc_k(\qv)  \rightarrow  +\infty$.
-  \item Pour $k \rightarrow +\infty$, $\Rc_k(\qv) \rightarrow 0$.
-\end{itemize}
-On peut geler les fluctuations 
 
+
+On reprend alors les différentes définitions données dans la section ... que l'on adapte ici pour prendre en compte la présence du régulateur. Tout d'abord, pour $k$ fixé on définit une énergie libre 
+\begin{equation}
+	  W_k[\hv] = \text{ln}{\(\Zc_k[\hv]\)}
+\end{equation}
+Et de même pour le tenseur des fonctions de corrélation, avec les mêmes notations qu'en ...
+\begin{equation}
+  G^{(n)}_{k,\{i_j\}} [\{\rv_{j}\} ; \hv] = \derd{^n W_k[\hv]}{h_{i_1}(\rv_1) ... \delta h_{i_n}(\rv_n)}
+\end{equation}
+En revanche, on ne définit plus exactement la fonctionnelle $\Gamma$ de la même façon, on ne réalise plus vraiment exactement une transformée de Legendre, mais
+\begin{equation}
+  \Gamma_k [\phiv] = - W_k[\hv] + \int_{\Omega} \hv \phiv - \Delta S_k[\phiv],
+\end{equation}
+
+
+Maintenant on doit choisir la fonction $\R_k$ le plus astucieusement possible. On prend, 
+\begin{itemize}
+  \item Pour $k = \Lambda$, $\Rc_{k, ij}(\qv)  \rightarrow  +\infty$.
+  \item Pour $k \rightarrow +\infty$, $\Rc_{k, ij}(\qv) \rightarrow 0$.
+\end{itemize}
 
 
 \pagebreak
