@@ -80,27 +80,28 @@ Encadré par : Bertrand Delamotte  et Nicolas Dupuis
 
 \section{Introduction}
 
-La physique statistique  \cite{rohtuA} offre un cadre permettant de calculer les grandeurs macroscopiques, dites aussi thermodynamiques, des problèmes mettant en jeu des systèmes avec un très grand nombre de degrés de degré de libertés en interaction. Pour donner une image de ce que cela signifie, on considère une mole d'eau enfermée dans une boite. Cette mole d'eau est constituée de $\simeq 6\times 10^{23}$ molécules qui peuvent vibrer, se déplacer ou tourner dans les trois directions de l'espace avec une certaine vitesse. La position d'une seule molécule représente trois de ses degrés de libertés (puisque l'on est en 3 dimensions), son orientation, ou sa vitesse aussi, etc. On remarque alors que l'on obtient, pour une seule môle, un nombre gigantesque de degrés de libertés qui peuvent interagir ensembles (ici par l'intermédiaire, entre autre, des collisions des molécules, de l'attraction gravitationnelle ou des interactions électromagnétiques). Il n'est donc pas possible de déterminer les propriétés physiques macroscopiques de cette môle d'eau en étudiant un à un la dynamique des degrés de libertés, ce pourquoi on a recours aux statistiques. 
+La physique statistique établit un cadre permettant de calculer les grandeurs macroscopiques, dites aussi thermodynamiques, des problèmes mettant en jeu des systèmes avec un très grand nombre de degrés de degré de libertés en interaction. Pour donner une image de ce que cela signifie, on considère un litre d'eau enfermée dans une boite. Ce litre d'eau est constitué de $\sim 10^{24}$ molécules qui peuvent vibrer, se déplacer ou tourner dans les trois directions de l'espace et avec une certaine vitesse. La position d'une seule de ces molécules représente trois degrés de libertés (puisque l'on est en 3 dimensions) du système total, son orientation, ou sa vitesse aussi, etc. On remarque alors que l'on obtient, pour une seule môle, un nombre gigantesque de degrés de libertés qui peuvent interagir ensembles (ici par l'intermédiaire, entre autre, des collisions des molécules, de l'attraction gravitationnelle ou des interactions électromagnétiques). Il n'est donc pas possible de déterminer les propriétés physiques macroscopiques de ce système en étudiant un à un la dynamique des degrés de libertés le constituant, ce pourquoi on a recours aux statistiques. 
 
-Nous allons nous intéresser ici plus particulièrement à un domaine particulier de la physique statistique et de la thermodynamique qu'est l'étude des transitions de phase. Pour cela commençons par décrire ce dont il s'agit, puis nous expliciterons ce qui nous intéresse dans ces transitions. \\
+Nous allons nous intéresser ici plus particulièrement à un domaine particulier de la physique statistique et de la thermodynamique qu'est l'étude des transitions de phase. Pour cela commençons par décrire ce dont il s'agit, puis nous expliciterons ce que que nous allons y étudier. \\
 
 
 \subsection{Transitions de phases}
 
-En thermodynamique on appelle phase un milieu possédant des propriétés physiques et chimiques macroscopiques homogènes. Or, avec la modification de certains paramètres (comme la température, la pression, etc.), un système peut changer de phase lors de, ce que l'on appelle, une transition de phase. Landau a classé ces transitions suivant deux types : celles du premier ordre et celles du second. \cite{}. Cette classification porte avant tout sur la façon donc certaines quantités physiques évoluent au moment de la transition. Le passage de l'eau de l'état liquide à l'état gazeux ou solide par modification de la température à pression constante est un bon exemple \cite{} de transition du premier ordre. La perte du caractère aimenté d'un métal lorsqu'on le chauffe au dessus d'une certaine température correspond, en revanche, à une transition de phase du second ordre. On s'intéresse plus particulièrement ici aux phénomènes physiques particuliers qui se produisent lors des transitions du second ordre. \\
+En thermodynamique on appelle phase un milieu possédant des propriétés physiques et chimiques macroscopiques homogènes. Or, avec la modification de certains paramètres (comme la température, la pression, etc.), un système peut changer de phase ; il se produit alors une transition de phase. Landau a classé ces transitions suivant deux types : celles du premier ordre et celles du second \cite{toledano1987landau}. Cette classification se fonde sur la continuité ou non de certaines fonctions thermodynamiques au moment de la transition. 
+Le passage de l'eau de l'état liquide à l'état gazeux par modification de la température à pression constante est un bon exemple \cite{} de transition du premier ordre. La perte du caractère aimanté d'un métal lorsqu'on le chauffe au dessus d'une certaine température à pression constante, correspond, en revanche, à une transition de phase du second ordre \cite{kochmanski2013curie}. On s'intéresse plus particulièrement ici aux phénomènes physiques particuliers qui se produisent lors des transitions du second ordre. \\
 
 Pour comprendre quels sont ces phénomènes considérons un système que l'on peut faire changer de phase en imposant sa température $T$. On appelle $T_c$, température critique, la température à laquelle se produit la transition. Il est alors possible de définir sur ce système une fonction de corrélation $G^{(2)}(r)$ qui décrit quantitativement l'influence que deux degrés de libertés du système séparés d'une distance $r$ ont l'un sur l'autre. Notons bien que plus la distance entre les deux sera grande moins cette influence sera forte et donc plus la fonction de corrélation sera faible. A cette fonction, qu'il est possible de déterminer expérimentalement \cite{Bellac2012}, on y associe une longueur $\xi$ qui définit approximativement la distance à partir de laquelle deux degrés de libertés du systèmes n'ont plus d'influence l'un sur l'autre.\\
 
-On observe expérimentalement qu'au moment de la transition, pour $|T-T_c| \rightarrow 0$, à la fois $\xi$ et $G^{(2)}$ divergent, selon les lois 
+On observe expérimentalement qu'au moment d'une transition de phase du second ordre, pour $|T-T_c| \rightarrow 0$, à la fois $\xi$ et $G^{(2)}$ divergent, selon les lois 
 \begin{equation}
 	\xi \sim |T-T_c|^{-\nu} 	\quad \text{et} \quad G^{(2)}(r) \sim |r|^{2-d-\eta},
 \end{equation}
-où $d$ est la dimension physique du système et $\nu$ et $\eta$ sont deux réels positifs appelés les exposants critiques. Notons qu'il existe aussi comme cela plusieurs autres grandeurs desquelles ont peut extraire différents exposants critiques. Cependant le point essentiel est que tous les systèmes ayant les mêmes propriétés de symétries possèdent les mêmes exposants critiques, ont dit qu'ils appartiennent à la même classe d'universalité.\\
+où $d$ est la dimension physique du système et $\nu$ et $\eta$ sont deux réels positifs appelés les \emph{exposants critiques}. Notons qu'il existe aussi comme cela plusieurs autres grandeurs desquelles ont peut extraire différents exposants critiques. Cependant le point essentiel est que tous les systèmes ayant les mêmes propriétés de symétries possèdent les mêmes exposants critiques, ont dit qu'ils appartiennent à la même classe d'universalité.\\
 
 
 \subsection{Intérêt du groupe de renormalisation et des équations BMW}
 
-Le groupe de renormalisation (RG) permet à la fois de montrer l'effet d'universalité sur les exposants critiques et de les calculer. L'approche par le RG a permis d'obtenir déjà d'excellents résultats \cite{} pour différents systèmes étudiés comparé aux expériences et autres méthodes comme les simulations Monte-Carlo. Cependant elle reste limitée dans ces applications car elle se fonde sur des approximations de "théorie des perturbations" pour pouvoir mener les calculs qui ne permettent de ne calculer par exemple que les exposants universels critiques mais pas les grandeurs non universelles comme la température critique.\\
+Le groupe de renormalisation (RG) permet de montrer l'effet d'universalité sur les exposants critiques et de les calculer. L'approche par le RG a permis d'obtenir déjà d'excellents résultats \cite{} pour différents systèmes étudiés comparé aux expériences et autres méthodes comme les simulations Monte-Carlo. Cependant elle reste limitée dans ces applications car elle se fonde sur des approximations de "théorie des perturbations" pour pouvoir mener les calculs qui ne permettent de ne calculer par exemple que les exposants universels critiques mais pas les grandeurs non universelles comme la température critique.\\
 
 Le groupe de renormalisation non perturbatif (NPRG) permet de répondre à ce problème en reprenant le principe du RG sous une approche différente permettant d'accéder à des équations exactes. Cependant, en pratique, ces équations ne sont pas solubles et il faut faire d'autres approximations, comme l'approximation BMW, pouvant être d'autre nature que celle de la théorie des perturbation pour pouvoir récupérer à la fois les exposants critiques et les grandeurs non universelles. Mais bien que cela soit possible le NPRG n'avais jamais été utilisé auparavant pour calculer une température critique. \\
 
@@ -108,7 +109,6 @@ L'objectif premier de cette étude est donc de rependre une simulation d'équati
 
 Dans une première partie nous rappellerons donc les origines du modèle du RG et du NPRG puis nous l'utiliserons pour developper les équations BMW dans le cas de systèmes possédant une symétrie $O(N)$ et étudier numériquement leur résolution. Ensuite nous appliquerons le modèle BMW au système d'Ising en deux dimensions afin de tester s'il permet de retrouver la température et les exposants critiques que l'on connait par la résolution analytique faite par Onsager \cite{Onsager}. 
 
-\cite{Delamotte2012, Ising2DNPRG, Blaizot, Clenshaw, Wetterich, TownsendThesis, Tchebychev, Dupuis2008, LeonardThesis, Onsager}
 
 \vspace*{11pt}
 
@@ -232,35 +232,487 @@ Maintenant on doit choisir la fonction $\R_k$ le plus astucieusement possible. O
 
 \pagebreak
 
+
+\section{Approximation BMW}
+
+
+On repart ici l'équation principale du NPRG qui est l'équation de flot de $\Gamma$, 
+\begin{equation}
+\partial_t \Gamma_{k, ij}	[\pv, \phiv] = \frac{1}{2} \int_\qv \partial_t \Rc_k(\qv) \, G^{(2)}_{k, ij}[\qv, -\qv, \phiv] \, ,
+\end{equation}
+Avec, on le rappelle :
+\begin{equation}
+G^{(2)}_{k, ij}[\qv, -\qv, \phiv] = {\(\Gamma^{(2)}_{k, ij}[\qv, -\qv, \phiv]  + \Rc_k(\qv) \)}^{-1}
+\end{equation}
+ 
+ 
+Le principe de l'approximation .. 
+
+On obtient finalement le système d'équation suivant 
+\begin{equation}
+\begin{split}
+	\partial_t \Gamma_{k, ij}^{(2)}(\pv, \phiv) = & J_3(\pv, \phiv) {\( \partial_\phi \Gamma_{k, ij}^{(2)}(\pv, \phiv) \)}^2 \\
+	& - \frac{1}{2}  I_2(\phiv) \, \partial_\phi^{2} \Gamma_{k, ij}^{(2)}(\pv, \phiv)
+\end{split}
+\end{equation}
+
+
+ 
 \section{Le modèle continu O(N)}
-\subsection{Equations de flots générales}
-\lipsum[1]
+
+\subsection{Présentation du modèle $\varphiv^4$}
+
+On dit qu'un modèle est $O(N)$ si jamais le système est invariant par l'action du groupe de rotation $O(N)$ sur ces degrés de libertés. Autrement dit faire tourner les degrés de libertés du 
+
+Il a été montré \cite{Bellac2012} que lorsque l'on cherche à déterminer les exposants critique d'un 
+
+L'ensemble des équations BMW pour un tel système ont été développées dans \cite{benitez2012nonperturbative}. 
+
+
 \vspace*{11pt}
-\subsection{Approximation BMW}
-\lipsum[1]
-\vspace*{11pt}
-\subsection{Méthode de simulation}
+\subsection{Les équations dans le cas $O(1) \simeq \mathbb{Z}_2$}
+
+Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$ et nous laissons le cas général en annexe par soucis de concision. Afin de trouver un point fixe du (RG) nous adimensionnons les quantités que l'on calcule. 
 \lipsum[1]
 \vspace*{11pt}
 \subsection{Résultats}
 \lipsum[1]
 
 
+\section{Méthodes numériques pour la résolution de ces équations}
+\subsection{Discrétisation en temps}
+\subsection{Discrétisation en champ}
+\subsection{Discrétisation en impulsion}
+\subsubsection{Interpolation de Tchbytchev }
+\subsubsection{Calcul de l'interpolé - méthode de Clenshaw}
+
+Afin de calculer l'interpolé des fonctions à une variable il est possible d'utiliser
+\subsection{Parallélisation}
+
+
+
+
+
+
 \pagebreak
 \section{Le modèle d'Ising en dimension 2}
+
+On considère le modèle d'Ising classique sur un réseau hypercubique de dimension $d$. Les longueurs seront exprimées en unité de pas du réseau. On note $\{\ev_\nu\}_{\nu\in\bbrac{1,d}}$ la base cartésienne de ce réseau. Le hamiltonien du système est alors donné par
+\begin{equation}
+H = -J\beta \sum_{\left<\rv, \rv'\right>}S_\rv S_{\rv'}
+\end{equation}
+Où $S_\rv$ est la valeur du spin à la position $\rv$, comprise dans $\{-1,1\}$. La notation $\left<\rv, \rv'\right>$ signifie que le terme $S_\rv S_{\rv'}$ contribue à la somme si et seulement si ce sont deux spins plus proches voisins du réseau (i.e s'il existe $\nu \in \bbrac{1,d}$ tel que $\rv' = \rv \pm \ev_\nu$). 
+
+\setlength{\unitlength}{1cm}
+\begin{figure}[H]
+\begin{center}
+\begin{picture}(6,3.8)
+
+\color{cyan}
+\put(0,0){\line(1,3){1.2}}
+\put(1,0){\line(1,3){1.2}}
+\put(2,0){\line(1,3){1.2}}
+\put(3,0){\line(1,3){1.2}}
+\put(4,0){\line(1,3){1.2}}
+\put(5,0){\line(1,3){1.2}}
+
+\put(-0.25,0.45){\line(1,0){5.7}}
+\put(0.05,1.25){\line(1,0){5.7}}
+\put(0.25,2.0){\line(1,0){5.7}}
+\put(0.45,2.70){\line(1,0){5.7}}
+\put(0.65,3.35){\line(1,0){5.7}}
+\color{red}
+\linethickness{0.35mm}
+
+
+\put(0.15,0.85){\vector(0,-1){0.8}}
+\put(1.15,0.05){\vector(0,1){0.8}}
+\put(2.15,0.85){\vector(0,-1){0.8}}
+\put(3.15,0.05){\vector(0,1){0.8}}
+\put(4.15,0.05){\vector(0,1){0.8}}
+\put(5.15,0.85){\vector(0,-1){0.8}}
+
+\put(0.4167,1.6){\vector(0,-1){0.7}}
+\put(1.4167,0.9){\vector(0,1){0.7}}
+\put(2.4167,0.9){\vector(0,1){0.7}}
+\put(3.4167,0.9){\vector(0,1){0.7}}
+\put(4.4167,1.6){\vector(0,-1){0.7}}
+\put(5.4167,0.9){\vector(0,1){0.7}}
+
+\put(0.667,1.7){\vector(0,1){0.6}}
+\put(1.667,1.7){\vector(0,1){0.6}}
+\put(2.667,2.3){\vector(0,-1){0.6}}
+\put(3.667,1.7){\vector(0,1){0.6}}
+\put(4.667,1.7){\vector(0,1){0.6}}
+\put(5.667,1.7){\vector(0,1){0.6}}
+
+\put(0.9,2.45){\vector(0,1){0.5}}
+\put(1.9,2.95){\vector(0,-1){0.5}}
+\put(2.9,2.45){\vector(0,1){0.5}}
+\put(3.9,2.45){\vector(0,1){0.5}}
+\put(4.9,2.95){\vector(0,-1){0.5}}
+\put(5.9,2.45){\vector(0,1){0.5}}
+
+\put(1.1167,3.55){\vector(0,-1){0.4}}
+\put(2.1167,3.15){\vector(0,1){0.4}}
+\put(3.1167,3.15){\vector(0,1){0.4}}
+\put(4.1167,3.55){\vector(0,-1){0.4}}
+\put(5.1167,3.55){\vector(0,-1){0.4}}
+\put(6.1167,3.15){\vector(0,1){0.4}}
+
+
+\end{picture}
+\end{center}
+\caption{Exemple de réseau d'Ising en dimension $d=2$. Le système est dans la phase haute température ($T>T_c$).}
+\end{figure}
+
+Sur un tel système nous observons une transition de phase du second ordre. En effet il existe une phase (dite de symétrie brisée, ou encore basse température) dans laquelle les spins tendent tous à s'aligner dans une direction privilégiée lorsque la température et faible et que les fluctuations thermiques ne jouent pas un rôle important. Lorsque l'on va dépasser la température critique $T_C$ les spins vont avoir une direction plus ou moins aléatoire et on se retrouve alors dans une nouvelle phase (dite symétrique). C'est ce modèle qui explique la perte d'aimantation d'un métal à haute température que nous avions mentionné dans l'introduction. 
+
+La particularité de ce modèle est aussi qu'il a déjà été complètement résolu analytiquement par Onsager \cite{Onsager} en 1944. Tout est donc déjà connu et notamment la température critique de la transition de phase. Avec l'approche BMW nous allons essayer de la retrouver pour valider la qualité de l'approximation et la possibilité de calculer des grandeurs non universelles comme $T_C$ par le NPRG. 
+
+
+\vspace*{11pt} 
+
 \subsection{Modélisation du problème avec des champs}
-\lipsum[1]
+
+Pour des raisons pratiques on définit maintenant un hamiltonien légerement modifié
+\begin{align}
+  H_\mu &= -J\beta \sum_{\left<\rv, \rv'\right>}S_\rv S_{\rv'} - \mu \beta N_S \\
+  H_\mu  &= -J\beta \sum_{\left<\rv, \rv'\right>}S_\rv S_{\rv'} - \mu \beta \sum_\rv S_\rv^2 
+\end{align}
+
+Où $N_S$ est le nombre total de spins. Physiquement cela ne change rien car cela ne fait que décaller l'origine des energies. En revanche cela a un avantage mathématique. En effet, on pose $A_{\rv, \rv'}^{(\mu)}$ la matrice définie implicitement dans $\mathscr{M}_{N_S}(\R)$ par
+\begin{equation}
+  H_\mu  = -\frac{1}{2} \sum_{\rv, \rv'} S_\rv A_{\rv, \rv'}^{(\mu)}S_{\rv'}
+\end{equation}
+
+Il est alors possible de choisir $\mu$ suffisament grand pour que $A_{\rv, \rv'}^{(\mu)}$ soit à diagonale strictement dominante et donc inversible. Par construction il suffit de prendre $\mu > dJ$. On peut alors réaliser une transformée de Hubbard-Stratanovitch. \\
+
+Pour cela commençons par écrire la fonction de partition du modèle
+\begin{equation}
+  \Zc = \sum_{\{S_\rv\}} e^{-H_{\mu}} =\sum_{\{S_\rv\}}  \exp\(\frac{1}{2} \sum_{\rv, \rv'} S_\rv A_{\rv, \rv'}^{(\mu)}S_{\rv'}\)
+\end{equation}
+
+Par integration gaussienne \textit{inverse} il vient, 
+
+\begin{equation}
+\begin{split}
+  \Zc & \propto \sum_{\{S_\rv\}} \int_\R \prod_{\rv} \, \dd \varphi_\rv \, e^{ -\frac{1}{2} \sum\limits_{\rv, \rv'} \varphi_\rv {(A_{\rv, \rv'}^{(\mu)})}^{-1} \varphi_{\rv'} +\sum\limits_\rv  \varphi_\rv S_\rv  } \\
+  \Zc & \propto \int_\R \prod_{\rv} \, \dd \varphi_\rv \, e^{ -\frac{1}{2} \sum\limits_{\rv, \rv'} \varphi_\rv {(A_{\rv, \rv'}^{(\mu)})}^{-1} \varphi_{\rv'} + \sum\limits_\rv \ln\(\cosh(\varphi_\rv)\) } \\
+\end{split}
+\end{equation}
+
+Cependant nous ne pouvons pas exprimer facilement ${(A_{\rv, \rv'}^{(\mu)})}^{-1}$ et pour cela il est pratique de réaliser une transformée de fourier semi-discrète en posant
+\begin{equation}
+  \hat{\varphi}(\qv) = \sum_\rv \varphi_\rv e^{-i\qv\rv} \quad \text{et} \quad \varphi_\rv = \int_\qv \hat{\varphi}(\qv)  e^{i\qv\rv}
+\end{equation}
+Il vient alors
+\begin{equation}
+\begin{split}
+  H_\mu = -J\beta & \sum_{\left<\rv, \rv'\right>} \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  e^{i(\qv\rv+\qv'\rv')} \\
+   -\mu\beta & \sum_\rv \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  e^{i(\qv+\qv')\rv}
+\end{split}
+\end{equation}
+\commentout{
+\begin{equation}
+\begin{split}
+  H_\mu = -J\beta & \sum_{\rv}\sum_{\nu}   \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  e^{i((\qv+\qv')\rv \pm \qv'\ev_\nu)} \\
+   -\mu\beta & \sum_\rv \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  e^{i(\qv+\qv')\rv}
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+  H_\mu = -J\beta & \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  \sum_{\rv}  e^{i(\qv+\qv')\rv} \sum_{\nu} e^{ \pm i \qv'\ev_\nu}  \\
+   -\mu\beta & \sum_\rv \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  e^{i(\qv+\qv')\rv}
+\end{split}
+\end{equation}
+}
+Notons donc simplement
+\begin{equation}
+  h_\mu(\qv) = -\beta \left\{ J\sum_{\nu} e^{ \pm i \qv \, \ev_\nu} +\mu \right\} 
+\end{equation}
+Ainsi, il vient, 
+\begin{equation}
+  H_\mu =   \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')   h_\mu(\qv')   \sum_{\rv}  e^{i(\qv+\qv')\rv} \\
+\end{equation}
+\begin{equation}
+  H_\mu =   \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')   h_\mu(\qv')   D_{N_S}(\qv+\qv') \\
+\end{equation}
+En définissant le noyaux de Dirichlet $D_{N_S}$ par
+\begin{equation}
+  \forall \pv \in [-\pi, \pi]^2 \quad D_{N_S} (\pv) =  \sum_{\rv} e^{i \pv \rv} 
+\end{equation}
+\commentout{
+\begin{equation}
+  \begin{split}
+  \sum_{x=0}^{N_x} e^{ix(\qv+\qv')_x }  = \frac{1 - e^{i(N_x+1)(\qv+\qv')_x}}{1-e^{i(\qv+\qv')_x }} \\
+  = \frac{\sin{\(  \frac{(N_x+1)}{2}(\qv+\qv')_x \)}}{\sin{\( \frac{1}{2}(\qv+\qv')_x \) }} e^{i\frac{N_x}{2}(\qv+\qv')_x }
+\end{split}
+\end{equation}}
+On note $\Dc = \Dc([-\pi, \pi]^2)$, soit $f \in \mathcal{D}$, $D_{N_S}$ étant une fonction de $L^2([-\pi, \pi]^2)$, il appartient à $\Dc'$. On montre alors que \cite{}
+\begin{equation}
+  \lim\limits_{N_S \rightarrow +\infty} \left< D_{N_S} , f \right>_{\Dc', \Dc} =  \left< \delta , f \right>_{\Dc', \Dc}
+\end{equation}
+
+
+Ainsi, en prenant la limite $N_S \rightarrow + \infty$ et en raisonnant au sens des distributions,
+\begin{equation}
+ \lim_{N_S \rightarrow + \infty} H_\mu = -\beta \int_\qv \hat{\varphi}(\qv)  \left\{ \sum\limits_{\nu=1}^{d}  Je^{\pm i\, \qv \, \ev_\nu} + \mu \right\}\hat{\varphi}(-\qv)
+\end{equation}
+Dans la suite nous ferons l'hypothese, comme souvent en physique, que $N_S$ est suffisament grand pour que l'on écrive, par abus de notation, $H_\mu = \lim\limits_{N_S \rightarrow + \infty} H_\mu$. \\
+Nous obtenons alors
+\begin{equation}
+  H_\mu = -\beta \int_\qv \hat{\varphi}(\qv)  \left\{ J \sum\limits_{\nu=1}^{d} \cos(q_\nu) + \mu \right\}\hat{\varphi}(-\qv)
+\end{equation}
+Et on en déduit que la transformée de Fourier de $A_{\rv, \rv'}^{(\mu)}$ qui est un opérateur de ... vérifie,
+\begin{align}
+  \hat{A}(\qv, \qv') = 
+  \begin{cases}
+    2J\beta \sum\limits_{\nu=1}^{d} \cos(q_\nu) + 2\beta\mu \quad & \text{si } \qv' = - \qv\\
+    0 \quad & \text{si } \qv' \neq - \qv
+  \end{cases}
+\end{align}
+
+Autrement dit, $\hat{A}$ est un operateur diagonal et bien inversible si $\mu > Jd$. Notons,
+\begin{align}
+\gamma(\qv ) & = \frac{1}{d} \sum\limits_{\nu=1}^{d} \cos(q_\nu) \\
+ \lambda_\mu(\qv) & = 2\beta\(J d \gamma(\qv) + \mu\)
+\end{align}
+En écrivant alors la conservation du produit scalaire de $\mathscr{l}^2$ dans $L^2(\R)$ opérée par la transformation de Fourier semi-discrète nous pouvons écrire : ...
+
+\begin{equation}
+  \Zc  \propto \int_\R \prod_{\rv} \, \dd \varphi_\rv \, e^{-S_\mu[\varphi] } \\
+\end{equation}
+Avec l'action $S$ s'écrivant :
+\begin{equation}
+  S_\mu[\varphi] = \frac{1}{2} \int_\qv \varphi(\qv) \frac{1}{\lambda_\mu(\qv)} \varphi(-\qv) - \sum\limits_\rv \ln\(\cosh(\varphi_\rv)\)
+\end{equation}
+Par isometrie de la transformation de Fourier, et donc par le théorème de Parseval, nous réecrivons $S$ sous la forme 
+\begin{equation}
+  \begin{split}
+    S_\mu[\varphi] & = \frac{1}{2} \int_\qv \varphi(\qv) \[\frac{1}{\lambda_\mu(\qv)} - \frac{1}{\lambda_\mu(0)}\] \varphi(-\qv) \\
+    &+ \sum\limits_\rv \[\frac{1}{2\lambda_\mu(0)}\varphi_\rv^2 - \ln\(\cosh(\varphi_\rv)\) \]
+  \end{split}
+\end{equation}
+Enfin, soit $\delta \in \R^+_*$, on pose le changement de variable, 
+\begin{equation}
+  \varphi \rightarrow \delta\sqrt{2 \beta J d} \, \varphi 
+\end{equation}
+On obtient alors 
+\begin{equation}
+S_\mu[\varphi] = \frac{1}{2} \int_\qv \hat{\varphi}(\qv)\eo(\qv)\hat{\varphi}(-\qv) + \sum_\rv U(\varphi(\rv))
+\end{equation}
+Avec, en posant $\tilde{\mu} = \mu/(Jd)$ et $\tilde{\beta} = \beta Jd$,
+\begin{equation}
+  \eo(\qv) = \delta^2\frac{1 - \gamma(\qv)}{(\gamma(\qv) + \tilde{\mu})(1+\tilde{\mu})}
+\end{equation}
+\begin{equation}
+  U(\phi) = \delta^2 \frac{1}{1+\tilde{\mu}} \frac{1}{2}\phi^2 - \ln\(\cosh\(\delta\sqrt{2\tilde{\beta}}\phi\)\)
+\end{equation}
+
+On se retrouve donc ici avec la formulation d'un problème de théorie des champs que l'on peut résoudre avec le groupe de renormalisation non perturbatif et notamment avec l'approximation BMW. La fonction $U$ représente ainsi le potentiel du système et $\eo$ s'appelle sa relation de dispersion.\\
+
+Remarquons de plus que la fonction $U$ est de classe $\Cc^\infty$ dérivable sur $[0,+\infty[$. Ainsi il vient 
+\begin{equation}
+X(\phi) = \partial_\phi^2 U(\phi) = \delta^2 \frac{1}{1+\tilde{\mu}} - 
+\end{equation}
+
+Ceci nous permet de récupérer la valeur que l'on aurait trouvé en calculant la température critique $\tilde{T}_c^{\text{MF}} = T_c^{\text{MF}}/(Jd) $ en s'appuyant sur une théorie de champ moyen. En effet, dans une théorie de champ moyen le potentiel du système est directement le potentiel $U$. Or on rappelle que la phase dans laquelle on se trouve dépend du potentiel, de la position de son minimum et de sa forme de manière générale. Nous savons qu'en dessous de la température critique $U$ est une fonction concave au voisinage de $\phi = 0$ et au dessus c'est une fonction convexe. Ainsi, à la transition $X(0) = 0$. Ceci nous donne
+\begin{equation}
+ \frac{1}{\tilde{T}_c^{\text{MF}}} = \tilde{\beta}_c^{\text{MF}} \simeq \frac{1}{2(1+\tilde{\mu})}
+\end{equation}
+Cette valeur nous donne déjà une borne supérieure sur la température critique que l'on recherche. En effet, on sait que la vraie température critique sera toujours plus faible que celle obtenue par approximation de champ moyen\footnote{Ceci s'explique en partie "avec les mains". En effet dans une approximation de champ moyen, comme son nom l'indique les fluctuations des degrés de libertés - ici l'orientation des spins - autour s'une position moyenne se trouvent être négligées. Or leur prise en compte pour la résolution complète du modèle implique que pour une même température le système complet est plus désordonné que ce que le calcul champ moyen nous donne. La température critique vraie sera donc plus basse que la température critique champ moyen} : $T_c < T_c^{\text{MF}}$.
+
+
+\vspace*{11pt}
+
 \vspace*{11pt}
 \subsection{Etapes de la résolution numérique}
-\lipsum[1]
-\vspace*{11pt}
-\subsection{Méthodes et outils numériques}
-\lipsum[1]
-\vspace*{11pt}
-\subsection{Résultats} 
-\lipsum[1]
+La résolution numérique du problème s'est déroulée en plusieurs étapes. Tout d'abord nous avons commencé comme en .. par écrire les équations BMW qui découlent de la forme de l'action précédemment déterminés. Cependant nous sommes passé par plusieurs étapes. \\
+
+Tout d'abord, contrairement au modèle O(N), nous avons commencé par écrire les équations BMW sans les adimmensionner. En effet possédant des  \\
+
+Malheureusement, après avoir écrit une première fois les équations selon la variable $\rho$ à cause d'instabilités numériques constatées au voisinage de $\rho = 0$ provenant probablement du calcul numérique instable des dérivées en ces points nous avons du les réecrire  
+
+\subsection{Les différents jeux d'équation}
+
+\pagebreak
+
+\section{Méthodes et outils numériques pour la résolution d'Ising 2D}
+
+Nous allons passé en revu et justifié ici les principales méthodes numériques que nous avons utilisé pour tenter de résoudre les équations. En grande partie nous avons repris ce qui avait déjà été fait pour la résolution du modèle $O(N)$ mais nous les avons adapter pour pouvoir être utiliser au mieux en deux dimensions.
 
 
+\subsection{Structure du code}
+
+
+
+% Mettre un diagramme
+
+\subsection{Interpolation de Tchebytchev}
+
+Afin de pouvoir calculer les intégrales $J$ avec précision apparaissant dans les équations il semble nécessaire d'interpoler la fonction $\Delta_k$ ainsi que ces dérivées dans le plan des impulsions. Pour cela nous réutilisons encore une interpolation de Tchébytchev en dimension 2. 
+
+\subsubsection{Théorème de décomposition}
+
+Nous rappelons ici un théorème justifiant l'utilisation des polynômes de Tchebytchev comme pôlynomes d'interpolation en dimension 2. Ce théorème et sa démonstrations se trouvent dans l'ouvrage \cite{Tchebychev}. 
+
+\begin{theorem}
+  Soit $f : [-1,1]^2 \rightarrow \C$ une fonction continue aux variations bornées (comme définies en \cite{Tchebychev}). On suppose que l'une des dérivées partielles de de $f$ existe et est bornée dans $[-1,1]$. Alors la série $f_N$ définie par :
+\begin{equation}
+f_N(x,y) = \sum_{i=0} ^{N} \sum_{j=0} ^{N} c_{ij} T_i(x)T_j(y)
+\end{equation}
+converge uniformément vers $f$ quand $N \rightarrow +\infty$.
+\end{theorem}
+
+La condition des variations bornées ne peut bien entendu pas être vérifiée sur nos fonctions mais ...
+
+\vspace*{11pt}
+
+\subsubsection{Décomposition méthode 1}
+
+Soit $f$ une fonction de $[0,\pi]^2$ dans $\R$. Dans un premier temps nous avons opté pour un algorithme de recherche direct des coefficients $c_{ij}$ de sa décomposition en série de polynômes de Tchebytchev très inspiré de la méthode 1D. Supposons, en effet, que l'on veuille effectuer une décomposition à l'ordre $N_C -1$ et donc écrire
+\begin{equation}
+  f(x,y) \simeq \sum_{i=0}^{N_C-1}\sum_{j=0}^{N_C-1} c_{ij} T_i(x)T_j(y)
+\end{equation}
+
+Pour trouver la valeur des coefficients de la matrice $((c_{i,j}))_{i,j}$ on prend les ensembles des racines du polynôme de Tchebytchev  de degré $N_C$, $\left\{x_m\right\}_{0\le m \le N_C-1}$ et $\left\{y_n\right\}_{0\le m \le N_C-1}$ et on impose,
+\begin{equation}
+  f(x_m, y_n) = \sum_{i=0}^{N_C-1}\sum_{j=0}^{N_C-1} c_{ij} T_i(x_m)T_j(y_n)
+\end{equation}
+En utilisant les relations des polynômes de Tchebytchev on peut alors determiner les coefficients de la matrice $((c_{ij}))_{i,j}$ avec les formules
+\begin{equation}
+ c_{ij} = \frac{A}{N_C^2} \sum_{m=0}^{Nc-1} \sum_{n=0}^{Nc-1} f(x_m, y_n)T_i(x_m)T_j(y_n)
+\end{equation}
+\begin{align}
+  A = 
+  \begin{cases}
+    1 \quad \text{si } i = j = 0 \\
+    2 \quad \text{si } i = 0 \text{ et } j \neq 0 \\
+    2 \quad \text{si } i \neq 0 \text{ et } j = 0 \\
+    4 \quad \text{si } i \neq 0 \text{ et } j \neq 0 \\
+  \end{cases}
+\end{align}
+
+Cette méthode est extrêmement couteuse puisque pour calculer l'ensemble des coefficients de $((c_{ij}))_{i,j}$ cela demande un algorithme de complexité évlouant en $\mathcal{O}(N_c^2)$ et dejà long pour de faibles valeurs de $N_c$. Ce pourquoi, afin d'obtenir de meilleures précisions sur les intégrales calculées tout en conservant un temps de calcul raisonnable nous avons implémenté la deuxième méthode suivante.
+
+
+\vspace*{11pt}
+
+\subsubsection{Décomposition méthode 2}
+En revanche, il existe une méthode plus astucieuse, inspirée de ce qui est mis en place dans le paquet \textit{chebfun} développé par ... qui permet justement de traiter les interpolations de Tchebytchev sous Matlab. Cette méthode est développée en détails dans \cite{TownsendThesis}. 
+
+Au lieu de faire directement une décomposition sur une base tensorielle de polynomes de Chebychev on commence par réaliser une approcximation de rang faible de la fonction que l'on souhaite approximer. Plus précisemment, on considère les ensembles des racines de Tchebytchev $\left\{x_m\right\}_{0\le m \le N_C-1}$ et $\left\{y_n\right\}_{0\le m \le N_C-1}$. Alors on peut former la matrice 
+\begin{equation}
+	\mat{F} =((f(x_m, y_n ))_{0\le m,n \le N_C-1}
+\end{equation}
+et faire de cette matrice une approximation de rang faible par élimination Gaussienne.
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \STATE Initialisation : $\mat{E}^0 = \mat{F}$; $\mat{F}_0 = 0$; $k = 1$;
+    \WHILE{ ${\| \mat{E}^k \|}_{\infty} < \varepsilon $ }
+    \STATE $(i_k, j_k) =  {\text{argmax}}_{(i,j)} \left\{\left| \mat{E}^{k-1}_{i,j} \right| \right\}$
+    \STATE $\mat{C}^k_{j} = \mat{E}^k_{i_k,j}$;  $\mat{R}^k_{i} = \mat{E}^k_{i,j_k}$; $d_k = \mat{E}^k_{i_k,j_k}$
+    \STATE $\mat{E}^k_{i,j} = \mat{E}^{k-1}_{i,j} - d_k^{-1}\mat{C}^k_{j}\mat{R}^k_{i}$
+    \STATE $\mat{F}^k_{i,j} = \mat{F}^{k-1}_{i,j} + d_k^{-1}\mat{C}^k_{j}\mat{R}^k_{i}$
+    \ENDWHILE
+  \end{algorithmic}
+\end{algorithm}
+
+Notons $Q$ le rang de l'approximation obetnue. On obtient alors une écriture de $f$ sous la forme 
+On obtient alors une expression de la forme 
+\begin{equation}
+\mat{F} \simeq \tilde{\mat{F}} = \sum_{j=1}^Q d_j \mat{C}^j \mat{R}^j
+\end{equation}
+Comme nous ne conaissons exactement la fonctions $f$ qu'aux points d'interpolation de Chebychev cela revient au même que d'écrire que nou avons décomposé $f$ comme une somme de produits de fonctions à une variable,
+\begin{equation}
+f(x,y) \simeq \sum_{j=1}^Q d_jc^j(y)r^j(x)
+\end{equation}
+On peut alors décomposer les fonctions $c_j$ et $r_j$ sur une base de polynômes de Chebychev comme on peut le faire pour toute fonction d'une seule variable. La décomposition est ainsi un une opération de produit tensoriel. \\
+
+
+
+
+
+
+
+\subsection{Le calcul des intégrales} 
+
+Pour calculer numériquement les différentes intégrales nous nous servons des propriétées de symétries des différentes fonctions. En effet pour tout $\rho \in \R^+$ les fonctions $\eo(.,.)$, $\Rc_k(.,.)$, $\Delta_k(.,.,\rho)$, ...
+
+
+\subsubsection{Le choix de la quadrature}
+
+On interpole les fonctions des polynômes de Tchebytchev et on utilise toujours une méthode pseudo-specrtrale\footnote{c'est à dire que l'on connait à chaque pas de temps la valeur de la fonction au points d'interpolation de Tchebythchev, ainsi que les coefficients de son développement en série de polynômes de Tchebytchev}. Il semble donc naturel de se demander si la quadrature de Gauss-Legendre est vraiment la mieux adaptée. En effet, pour gagner du temps et utiliser directement la connaissance de la fonction aux points d'interpolation nous avons penser au calcul d'intégrale par la \emph{première règle de Fejer} \cite{} qui permet cela.
+ 
+Cependant cette méthode c'est avérée être inéficace puisque il faut de manière générale plus de points pour obtenir la même précision qu'une quadrature de Gauss Legendre. Et de plus, afin d'assurer la compatibilité entre l'interpolation et la quadrature il est nécessaire que les deux se fassent sur le même nombre de point, ce qui est restrictif. 
+
+% Insert image of calculation by these two quadrature  
+
+
+
+
+
+\subsubsection{Calcul des intégrales $I$}
+
+Soit $f$ une fonction de $[-\pi, \pi] \times [-\pi, \pi]$ à valeurs dans $\R$. On suppose que $f$ est symétrique par rapport à l'axe des $x=0$, à l'axe des $y=0$ et à l'axe $x=y$. Nous cherchons alors une quadrature pour integrer $f$ sur son domaine de définition. Pour commencer, en utilisant les deux premières symétries,
+\begin{equation}
+\int_{-\pi}^{\pi} \int_{-\pi}^{\pi} f(x,y) \, \dd x \, \dd y = 4 \int_{0}^{\pi}  \int_{0}^{\pi} f(x,y) \, \dd x \, \dd y
+\end{equation} 
+On peut alors faire le changement de variable affine  $\(\tilde{x}, \tilde{y}\) \rightarrow \(2x/\pi -1, 2y/\pi -1\) $ donnant,  
+\begin{equation}
+\begin{split} 
+  \int_{0}^{\pi}  \int_{0}^{\pi}  f(x,y) \, & \dd x \, \dd y = \\
+ \frac{\pi^2}{4} \int_{-1}^{1} & \int_{-1}^{1} f\(\frac{\pi}{2}\(\tilde{x}+1\),\frac{\pi}{2}\(\tilde{y}+1\)\) \, \dd \tilde{x}  \, \dd \tilde{y} 
+\end{split}
+\end{equation}
+Les intégrales sur le carré unité $[-1,1] \times [-1, 1]$ sont alors calculées avec une quadrature \textit{tensorielle} obtenue à partir d'une quadrature 1D. Il vient des considérations précédentes, 
+\begin{equation}
+\begin{split}
+ \int_{-\pi}^{\pi} \int_{-\pi}^{\pi} f(x,y) \,&  \dd x \, \dd y \simeq \\ 
+ \pi^2\sum_{i=0}^{N_{GL}} & \sum_{j=0}^{N_{GL}}w_i w_j f(\frac{\pi}{2}\(\xi_i+1\), \frac{\pi}{2}\(\xi_j+1\))
+\end{split}
+\end{equation}
+Où $\{w_i\}_{i \in \bbrac {1, N_{GL}}}$ sont les poids d'intégration 1D et  $\{\xi_i\}_{i \in \bbrac {1, N_{GL}}}$ les poids d'intégration correspondants. Par construction, $((w_i w_j))_{i,j}$ est une matrice symétrique et par symétrie de $f$ par rapport à la première bissectrice nous pouvons alors réduire la double somme par, 
+\begin{equation}
+\begin{split}
+ \int_{-\pi}^{\pi} \int_{-\pi}^{\pi} f(x,y) \,&  \dd x \, \dd y \simeq \\ 
+ \pi^2\sum_{i=0}^{N_{GL}} & \sum_{j=0}^{i-1}w_i w_j 2 f(\frac{\pi}{2}\(\xi_i+1\), \frac{\pi}{2}\(\xi_j+1\)) \, + \\
+\pi^2\sum_{i=0}^{N_{GL}} & w_i^2f(\frac{\pi}{2}\(\xi_i+1\), \frac{\pi}{2}\(\xi_i+1\))
+\end{split}
+\end{equation}
+Ce qui permet de réduire le temps de calcul en réduisant légèrement la complexité algorithmique.
+
+\vspace*{11pt}
+
+
+
+
+\subsubsection{Calcul des intégrales $J$}
+
+Soit $(a,b) \in [0,\pi]\times [0,\pi]$. Soit maintenant $f$ et $h$ deux fonctions de $\R^2$ dans $\R$ et  $g$ définie sur  $[-\pi, \pi] \times [-\pi, \pi]$ par $g : (x,y) \rightarrow f(x+a, y+b)$. On suppose, comme précédemment, que $f$ et $h$ sont symétriques par rapport à l'axe $x=0$, à l'axe $y=0$ et à l'axe $x=y$. On fait aussi l'hypothèse qu'elles sont $2\pi$ periodiques. Nous cherchons alors une quadrature pour integrer $g\times h$ sur $[-\pi, \pi] \times [-\pi, \pi]$. Pour cela remarquons que
+\begin{equation}
+\begin{split}
+ & \int_{-\pi}^{\pi} \int_{-\pi}^{\pi} g(x,y) h(x,y) \,  \dd x \, \dd y  = \\
+ \int_{0}^{\pi} & \int_{0}^{\pi} [f(x+a, y+b) + f(x+a, y-b)] h(x,y) \, \dd x \, \dd y \, + \\ 
+\int_{0}^{\pi} & \int_{0}^{\pi} [f(x-a, y+b) + f(x-a, y-b)] h(x,y)  \, \dd x \, \dd y 
+\end{split}
+\end{equation}
+Et on adopte encore une quadrature de Gauss-Legendre.
+
+
+
+
+
+\subsection{Dérivées numériques}
+
+
+\subsection{Complexité algorithmique et parallélisation - problème de rapidité} 
+
+Comme pour le modèle continu $O(N)$ il est possible de paralléliser le code en utilisant de l'openMP \cite{} grain fin sur les boucles en champ. En revanche ici notre code, à cause de la quadrature précise que l'on souhaite avoir sur le calcul des intégrales $J$ le temps de calcul se trouve évoluer en $\mathcal{O}( Q_\text{max} \times N_C^3 \times N_{GL}^2)$. Il vient alors 
+
+\pagebreak
 
 \bibliographystyle{plain}
 \bibliography{Rapport}
