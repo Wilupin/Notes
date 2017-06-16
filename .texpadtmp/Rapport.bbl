@@ -19,6 +19,12 @@ Danielle Lederer Bernard~Roulet Bernard~Diu, Claudine~Guthmann.
 \newblock {\em Éléments de physique statistique}.
 \newblock Hermann, Juillet 1996.
 
+\bibitem{Blaizot}
+Jean-Paul Blaizot, Ramón Méndez-Galain, and Nicolás Wschebor.
+\newblock A new method to solve the non-perturbative renormalization group
+  equations.
+\newblock {\em Physics Letters B}, 632(4):571 -- 578, 2006.
+
 \bibitem{Delamotte2012}
 Bertrand Delamotte.
 \newblock {\em An Introduction to the Nonperturbative Renormalization Group},
@@ -61,5 +67,10 @@ JC~Toledano and P~Toledano.
 Alex Townsend.
 \newblock {\em Computing with functions in two dimensions}.
 \newblock PhD thesis, University of Oxford, 2014.
+
+\bibitem{wetterich}
+Christof Wetterich.
+\newblock Exact evolution equation for the effective potential.
+\newblock {\em Physics Letters B}, 301(1):94, 1993.
 
 \end{thebibliography}

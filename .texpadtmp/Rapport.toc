@@ -4,33 +4,34 @@
 \contentsline {subsection}{\numberline {1.2}Int\IeC {\'e}r\IeC {\^e}t du groupe de renormalisation et des \IeC {\'e}quations BMW}{3}{subsection.1.2}
 \contentsline {section}{\numberline {2}Origine du mod\IeC {\`e}le}{4}{section.2}
 \contentsline {subsection}{\numberline {2.1}Un peu de thermodynamique et de physique statistique}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Le groupe de renormalisation (RG)}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.2}Le groupe de renormalisation (RG)}{5}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Le groupe de renormalisation non perturbatif (NPRG)}{5}{subsection.2.3}
-\contentsline {section}{\numberline {3}Approximation BMW}{6}{section.3}
-\contentsline {section}{\numberline {4}Le mod\IeC {\`e}le continu O(N)}{6}{section.4}
-\contentsline {subsection}{\numberline {4.1}Pr\IeC {\'e}sentation du mod\IeC {\`e}le $\boldsymbol { \varphi }^4$}{6}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Les \IeC {\'e}quations dans le cas $O(1) \simeq \mathbb {Z}_2$}{6}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}R\IeC {\'e}sultats}{6}{subsection.4.3}
-\contentsline {section}{\numberline {5}M\IeC {\'e}thodes num\IeC {\'e}riques pour la r\IeC {\'e}solution de ces \IeC {\'e}quations}{6}{section.5}
-\contentsline {subsection}{\numberline {5.1}Discr\IeC {\'e}tisation en temps}{6}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Discr\IeC {\'e}tisation en champ}{6}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Discr\IeC {\'e}tisation en impulsion}{6}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Interpolation de Tchbytchev }{6}{subsubsection.5.3.1}
-\contentsline {subsubsection}{\numberline {5.3.2}Calcul de l'interpol\IeC {\'e} - m\IeC {\'e}thode de Clenshaw}{6}{subsubsection.5.3.2}
-\contentsline {subsection}{\numberline {5.4}Parall\IeC {\'e}lisation}{6}{subsection.5.4}
-\contentsline {section}{\numberline {6}Le mod\IeC {\`e}le d'Ising en dimension 2}{7}{section.6}
-\contentsline {subsection}{\numberline {6.1}Mod\IeC {\'e}lisation du probl\IeC {\`e}me avec des champs}{7}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Etapes de la r\IeC {\'e}solution num\IeC {\'e}rique}{9}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Les diff\IeC {\'e}rents jeux d'\IeC {\'e}quation}{9}{subsection.6.3}
-\contentsline {section}{\numberline {7}M\IeC {\'e}thodes et outils num\IeC {\'e}riques pour la r\IeC {\'e}solution d'Ising 2D}{10}{section.7}
-\contentsline {subsection}{\numberline {7.1}Structure du code}{10}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Interpolation de Tchebytchev}{10}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}Th\IeC {\'e}or\IeC {\`e}me de d\IeC {\'e}composition}{10}{subsubsection.7.2.1}
-\contentsline {subsubsection}{\numberline {7.2.2}D\IeC {\'e}composition m\IeC {\'e}thode 1}{10}{subsubsection.7.2.2}
-\contentsline {subsubsection}{\numberline {7.2.3}D\IeC {\'e}composition m\IeC {\'e}thode 2}{10}{subsubsection.7.2.3}
-\contentsline {subsection}{\numberline {7.3}Le calcul des int\IeC {\'e}grales}{11}{subsection.7.3}
-\contentsline {subsubsection}{\numberline {7.3.1}Le choix de la quadrature}{11}{subsubsection.7.3.1}
-\contentsline {subsubsection}{\numberline {7.3.2}Calcul des int\IeC {\'e}grales $I$}{11}{subsubsection.7.3.2}
-\contentsline {subsubsection}{\numberline {7.3.3}Calcul des int\IeC {\'e}grales $J$}{11}{subsubsection.7.3.3}
-\contentsline {subsection}{\numberline {7.4}D\IeC {\'e}riv\IeC {\'e}es num\IeC {\'e}riques}{11}{subsection.7.4}
-\contentsline {subsection}{\numberline {7.5}Complexit\IeC {\'e} algorithmique et parall\IeC {\'e}lisation - probl\IeC {\`e}me de rapidit\IeC {\'e}}{11}{subsection.7.5}
+\contentsline {subsubsection}{\numberline {2.3.1}G\IeC {\'e}n\IeC {\'e}ralit\IeC {\'e}s}{5}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Approximation BMW}{7}{subsubsection.2.3.2}
+\contentsline {section}{\numberline {3}Le mod\IeC {\`e}le continu O(N)}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Pr\IeC {\'e}sentation du mod\IeC {\`e}le $\boldsymbol { \varphi }^4$}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Les \IeC {\'e}quations dans le cas $O(1) \simeq \mathbb {Z}_2$}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}R\IeC {\'e}sultats}{7}{subsection.3.3}
+\contentsline {section}{\numberline {4}M\IeC {\'e}thodes num\IeC {\'e}riques pour la r\IeC {\'e}solution de ces \IeC {\'e}quations}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Structure de l'algorithme}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Discr\IeC {\'e}tisation en champ}{8}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Discr\IeC {\'e}tisation en impulsion}{8}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Interpolation de Tchbytchev}{8}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Calcul de l'interpol\IeC {\'e} - m\IeC {\'e}thode de Clenshaw}{8}{subsubsection.4.3.2}
+\contentsline {subsection}{\numberline {4.4}Parall\IeC {\'e}lisation}{8}{subsection.4.4}
+\contentsline {section}{\numberline {5}Le mod\IeC {\`e}le d'Ising en dimension 2}{9}{section.5}
+\contentsline {subsection}{\numberline {5.1}Mod\IeC {\'e}lisation du probl\IeC {\`e}me avec des champs}{9}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Etapes de la r\IeC {\'e}solution num\IeC {\'e}rique}{11}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Les diff\IeC {\'e}rents jeux d'\IeC {\'e}quation}{11}{subsection.5.3}
+\contentsline {section}{\numberline {6}M\IeC {\'e}thodes et outils num\IeC {\'e}riques pour la r\IeC {\'e}solution d'Ising 2D}{12}{section.6}
+\contentsline {subsection}{\numberline {6.1}Structure du code}{12}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Interpolation de Tchebytchev}{12}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Th\IeC {\'e}or\IeC {\`e}me de d\IeC {\'e}composition}{12}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}D\IeC {\'e}composition m\IeC {\'e}thode 1}{12}{subsubsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.3}D\IeC {\'e}composition m\IeC {\'e}thode 2}{12}{subsubsection.6.2.3}
+\contentsline {subsection}{\numberline {6.3}Le calcul des int\IeC {\'e}grales}{13}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Le choix de la quadrature}{13}{subsubsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.2}Calcul des int\IeC {\'e}grales $I$}{13}{subsubsection.6.3.2}
+\contentsline {subsubsection}{\numberline {6.3.3}Calcul des int\IeC {\'e}grales $J$}{13}{subsubsection.6.3.3}
+\contentsline {subsection}{\numberline {6.4}D\IeC {\'e}riv\IeC {\'e}es num\IeC {\'e}riques}{13}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Complexit\IeC {\'e} algorithmique et parall\IeC {\'e}lisation - probl\IeC {\`e}me de rapidit\IeC {\'e}}{13}{subsection.6.5}

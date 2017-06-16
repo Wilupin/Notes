@@ -3,50 +3,51 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: /Users/facchinettigaetan/Documents/Etudes/Master 2 AMS (Paris-Saclay)/Stage/Notes/.texpadtmp/Rapport.aux
 The style file: plain.bst
 Database file #1: ../Rapport.bib
+Warning--I didn't find a database entry for "wilson"
 Too many commas in name 1 of "Bernard Diu, Claudine Guthmann, Danielle Lederer, Bernard Roulet" for entry rohtuA
 while executing---line 1049 of file plain.bst
 Too many commas in name 1 of "Bernard Diu, Claudine Guthmann, Danielle Lederer, Bernard Roulet" for entry rohtuA
 while executing---line 1090 of file plain.bst
 Warning--can't use both author and editor fields in Delamotte2012
-You've used 11 entries,
+You've used 13 entries,
             2118 wiz_defined-function locations,
-            575 strings with 6030 characters,
-and the built_in function-call counts, 3172 in all, are:
-= -- 308
-> -- 137
+            590 strings with 6310 characters,
+and the built_in function-call counts, 3785 in all, are:
+= -- 367
+> -- 162
 < -- 2
-+ -- 57
-- -- 44
-* -- 194
-:= -- 556
-add.period$ -- 35
-call.type$ -- 11
-change.case$ -- 48
++ -- 68
+- -- 52
+* -- 242
+:= -- 661
+add.period$ -- 41
+call.type$ -- 13
+change.case$ -- 58
 chr.to.int$ -- 0
-cite$ -- 12
-duplicate$ -- 137
-empty$ -- 252
-format.name$ -- 44
-if$ -- 661
+cite$ -- 14
+duplicate$ -- 159
+empty$ -- 303
+format.name$ -- 52
+if$ -- 787
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 14
-newline$ -- 58
-num.names$ -- 22
-pop$ -- 62
+int.to.str$ -- 13
+missing$ -- 16
+newline$ -- 68
+num.names$ -- 26
+pop$ -- 68
 preamble$ -- 1
-purify$ -- 44
+purify$ -- 52
 quote$ -- 0
-skip$ -- 88
+skip$ -- 102
 stack$ -- 0
-substring$ -- 145
-swap$ -- 26
+substring$ -- 189
+swap$ -- 28
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 34
+type$ -- 42
 warning$ -- 1
-while$ -- 30
-width$ -- 13
-write$ -- 123
+while$ -- 36
+width$ -- 15
+write$ -- 145
 (There were 2 error messages)

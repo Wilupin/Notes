@@ -26,7 +26,8 @@
 \makeatother
 
 
-
+\usepackage{tikz}
+\tikzset { domaine/.style 2 args={domain=#1:#2} }
 
 
 \begin{document}
@@ -119,7 +120,7 @@ Dans une première partie nous rappellerons donc les origines du modèle du RG e
 
 Nous résumons dans cette sections quelques concepts fondamentaux de la thermodynamique et de la physique statistique \cite{diu2007thermodynamique} nécessaires à l'introduction du groupe de renormalisation. \\
 
-Considérons un système à $P$ corps dans un ouvert à $d$ dimensions $\Omega$ de volume $V$. On considère que l'ensemble des $N$ degrés de liberté de chacun de ces $P$ corps peuvent être décrit suivant leur position $\rv$ grâce à une fonction $\varphiv : \rv \in \Omega \rightarrow \varphiv(\rv) \in \R^d$, telle que $\varphiv \in \( \Cc^{\infty}(\Omega)\)^d$  \\
+Considérons un système à $P$ corps dans un ouvert à $d$ dimensions $\Omega$ de volume $|\Omega|$. On considère que l'ensemble des $N$ degrés de liberté de chacun de ces $P$ corps peuvent être décrit suivant leur position $\rv$ grâce à une fonction $\varphiv : \rv \in \Omega \rightarrow \varphiv(\rv) \in \R^d$, telle que $\varphiv \in \( \Cc^{\infty}(\Omega)\)^d$  \\
 
 
 La dynamique du système est alors régie par un une fonctionnelle de $\varphiv$ : l'hamiltonien $H[\varphiv]$. Avec le formalisme canonique de la physique statistique \cite{rohtuA} nous savons que nous pouvons connaitre toutes l'information sur les propriétés macroscopiques du système en étudiant sa fonction de partition $\Zc$ définie par l'expression 
@@ -140,7 +141,7 @@ En utilisant la notion de dérivée fonctionnelle nous pouvons alors introduire 
 \begin{equation}
   G^{(n)}_{\{i_j\}} [\{\rv_{j}\} ; \hv] = \derd{^n W[\hv]}{h_{i_1}(\rv_1) ... \delta h_{i_n}(\rv_n)}
 \end{equation}
-Or ces grandeurs ne peuvent pas se calculer directement, ce pourquoi on utilise le potentiel de Gibbs. Comme l'énergie libre est une fonction convexe \cite{diu2007thermodynamique} on peut définir le potentiel est Gibbs est une fonctionnelle du champ $\hv$ définie par transformation de Legendre selon la formule
+Or ces grandeurs ne peuvent pas se calculer directement, ce pourquoi on utilise le potentiel de Gibbs. Comme l'énergie libre est une fonction convexe \cite{diu2007thermodynamique} on peut définir le potentiel est Gibbs qui est une fonctionnelle du champ $\hv$ définie par transformation de Legendre selon la formule
 \begin{equation}
   \Gamma [\phiv] = - W[\hv] + \int_{\Omega} \hv \phiv,
 \end{equation}
@@ -157,17 +158,29 @@ On introduit aussi une notation pour les dérivées fonctionnelles de $\Gamma$ a
 \end{equation}
 On montre alors \cite{Delamotte2012}, qu'au sens d'inverse d'opérateur, comme définie en annexe,
 \begin{equation}
-  G^{(2)}[\hv] = \(\Gamma^{(2)}[\phiv]\)^{-1}  
+  G^{(2)}_{i_1 i_2}[\hv] = \(\Gamma^{(2)}_{i_1 i_2}[\phiv]\)^{-1}  
 \end{equation}
-Il faut donc retenir que la connaissance du potentiel de Gibbs équivaut à la connaissance de la fonction de corrélation à deux points et elle nous permet alors aussi de retrouver les exposants critiques qui nous intéressent. Développons à présent les théories du RG et du NPRG qui partent des quelques formules rappelées ici. 
+
+Il faut donc retenir que la connaissance du potentiel de Gibbs équivaut à la connaissance de la fonction de corrélation à deux points et elle nous permet alors aussi de retrouver les exposants critiques qui nous intéressent. \\
+
+En outre la connaissance de $\Gamma[\phiv]$ a aussi un autre avantage important puisqu'il correspond, lorsque $\phiv$ est uniforme, à un facteur de volume $|\Omega|$ près, au potentiel du système que l'on note $V$ selon :
+\begin{equation}
+	V(\phi) = \frac{1}{|\Omega|}\Gamma[\phiv],
+\end{equation}
+où $\phi$ est la norme de $\phiv$. Et ce sont la position du minimum global de $V$ noté $\phi_0$ qui nous informe sur la nature de la phase dans laquelle se trouve le système. Si jamais $\phi_0 \neq 0$ alors la température du système est inférieure à la température critique : on dit qu'il est dans la phase basse température. En revanche si  $\phi_0 = 0$ la température est au dessus de la température critique et le système est dans la phase haute température. La connaissance de $\Gamma$ est dont d'une très grande utilité.\\
+
+Développons à présent les théories du RG et du NPRG qui partent des quelques formules rappelées ici. 
+
+
 
 \vspace*{11pt}
 \subsection{Le groupe de renormalisation (RG)}
-Commençons par définir la transformée de Fourier du champ $\rv \rightarrow \varphiv(\rv)$ par 
+
+Nous rappelons ici de manière synthétiques les principales idées du RG développé par Wilson \cite{wilson}. Commençons pour cela par définir la transformée de Fourier du champ $\rv \rightarrow \varphiv(\rv)$ par 
 \begin{equation}
 \begin{split}
-\varphiv(\pv) = \frac{1}{\sqrt{V}}\int_\rv \varphiv(\rv) \, e^{-i \pv . \rv}, \\
-\varphiv(\rv) = \frac{1}{\sqrt{V}}\sum_\pv \varphiv(\pv) \, e^{i \pv  .\rv}
+\varphiv(\pv) = \frac{1}{\sqrt{|\Omega|}}\int_\rv \varphiv(\rv) \, e^{-i \pv . \rv}, \\
+\varphiv(\rv) = \frac{1}{\sqrt{|\Omega|}}\sum_\pv \varphiv(\pv) \, e^{i \pv  .\rv}
 \end{split} 	
 \end{equation}
 Avec la notation 
@@ -175,28 +188,40 @@ Avec la notation
 \int_\rv ...\, \equiv \int_\Omega	... \, \dd \, \rv
 \end{equation}
 
-Notons que c'est la variable utilisée qui nous permet de savoir si l'on travaille avec la transformée de Fourier ou la fonction. On suppose que pour $\pv$ supérieur à une certaine valeur notée $\Lambda$, la valeur $\varphiv(\pv)$ est suffisamment faible pour être pris comme nul, on considère donc $\pv \in [0, \Lambda]$. 
+Notons que c'est la variable utilisée $\rv$ ou $\pv$ (ou aussi parfois $\qv$ pour l'impulsion) qui nous permet de savoir si l'on travaille avec la fonction considérée ou sa transformée de Fourier . On suppose que pour $\pv$ supérieur à une certaine valeur notée $\Lambda$, la valeur $\varphiv(\pv)$ est suffisamment faible pour être pris comme nul, on considère donc $\pv \in [0, \Lambda]$. 
 
-L'idée du RG est alors de ne pas considérer tous les degrés de liberté sur le même pied d'égalité. En effet, on commence d'abord, pour calculer $\Zc$, par intégrer les degrés de libertés de haute impulsion $\pv$ entre $k$ et $\Lambda$ où $k \in [0,\Lambda]$. En pratique on sépare $\varphiv$ en deux fonctions $\varphiv_>$ et $\varphiv_<$ telles que $\varphiv(\pv) = \varphiv_>(\pv) + \varphiv_<(\pv)$ et
+L'idée du RG est alors de ne pas considérer tous les degrés de liberté sur le même pied d'égalité. En effet, on commence d'abord, pour calculer $\Zc$, par intégrer les degrés de libertés de haute impulsion $\pv$ entre $k = \Lambda/s$ et $\Lambda$ où $k \in [0,\Lambda]$ et $s>1$. En pratique on sépare $\varphiv$ en deux fonctions $\varphiv_>$ et $\varphiv_<$ telles que $\varphiv(\pv) = \varphiv_>(\pv) + \varphiv_<(\pv)$ et
 \begin{align}
 	\varphiv_>(\pv)  = \quad & \varphiv(\pv) \quad \text{si} \quad \pv \in   [k,\Lambda] \\
 	 & 0 \quad \text{sinon}
 \end{align}
-Ainsi ceci permet de définir un Hamiltonien effectif $H_k$, 
+Ceci permet de définir un Hamiltonien effectif $H_k$, 
 \begin{equation}
-	H_k[\varphiv_<] = \int \Dc \varphiv_>  \exp \{ H[\varphiv_>+ \varphiv_<] \},
+	H_k[\varphiv_<] \equiv \int \Dc \varphiv_>  \exp \{ H[\varphiv_>+ \varphiv_<] \},
 \end{equation}
-Et alors la fonction de partition s'écrit, 
+et de réécrire la fonction de partition comme 
 \begin{equation}
-\Zc = \int \Dc \varphiv_< \, \exp\left\{- H_k[\varphiv_<]\right\}, 
+\Zc = \int \Dc \varphiv_< \, \exp\left\{- H_k[\varphiv_<]\right\}. 
 \end{equation} 
-De manière générale on part d'un hamiltonien qui se développe avec une suite de 
+De manière générale on part d'un hamiltonien qui ne dépend pas seulement du champ $\varphiv$ mais entendu aussi de constante de couplage qui caractérise la physique a laquelle est soumise le champ. Ces constantes sont notées $\{g_i\}_i$ avec $i \in \N$. On écrit alors $H[\varphiv] = H[\varphiv, \{g_i\}]$. Ainsi le nouvel hamiltonien $H_k$ possèdent de nouvelles constantes de couplages notées  $\{g_{k,i}\}_i$. 
 
+On considère alors plutôt une intégration infinitésimale entre $[\Lambda - d\Lambda, \Lambda]$. On obtient alors un nouvel hamiltonien $H_{\Lambda - d\Lambda}$. Dans ce nouvel hamiltonien, sans changer sa valeur, on réalise un adimensionnement : toutes les longueurs sont multipliées par $k_{1} = \Lambda - d\Lambda$ et toutes les impulsions sont divisées par $k_{1}$. De plus on multiplie aussi par les bon facteur de $k_{1}$ pour que les constantes $\{g_{\Lambda - d\Lambda, i}\}$ se retrouvent sans dimensions. Ceci n'est que technique et ne change pas la valeur des expressions que l'on manipule mais elle permet cependant de faire comme si $H_{\Lambda - d\Lambda}$ était l'hamiltonien d'un nouveau système dans lequel toutes les échelles on été changée, et notamment les échelles de longueurs qui on été réduites. On rappelle qu'a la transition de phase du second ordre la longueur $\xi$ diverge, et donc notre système originel n'a plus vraiment d'échelle caractéristique de longueur. A la transition ce nouveau système est le premier possèdent donc bien la même physique.
 
+ Pour passer réaliser l'intégration complète sur $[0, \Lambda]$ on peut donc itérer ce processus de transformations infinitésimales. On introduit à l'itération $p \in \N$ - itération à laquelle on a intégré sur $[k_p, \Lambda]$ - l'opérateur $T_p$ qui envoie $\{g_i\}_i$ sur $\{g_{k_p,i}\}_i$. L'hypothèse fondamentale du RG, qui n'est pas prouvée mais toujours vérifiée, est qu'il existe un point fixe de $T_p$ pour $p \to \infty$, si l'on est à la température critique (et/ou pression critique, ...). Ceci signifie plus particulièrement qu'il existe $\{g^*_i\}_i$ tel que 
+ 
+ \begin{equation}
+ 	\lim\limits_{k \rightarrow \infty}  g_{k,i} = \lim\limits_{\substack{p \to \infty \\ d\Lambda \to 0 }}  g_{k_p,i} =  g^*_i
+ \end{equation} 
+ 
+ L'existence de ce points fixe explique alors l'universalité de exposants critiques \cite{Delamotte2012}. En effet, deux systèmes avec les mêmes propriétés de symétries auront le même point fixe et donc un comportement identique à la transition de phase, quand la longueur de corrélation est infinie. \\
+ 
+ Dans un calcul de RG on prend classiquement un nombre fini de constantes de couplage et on considère qu'elles sont suffisamment faibles pour faire des développement du hamiltonien en puissance de ces constantes à chaque itération. Ceci permet de faire des calcul mais limite les applications possibles et n'est pas forcément obligatoire, ce pourquoi on introduit le NPRG. Nous ne nous étendrons donc pas plus sur les calculs dans le RG.
 
 \vspace*{11pt}
 \subsection{Le groupe de renormalisation non perturbatif (NPRG)}
-Contrairement au RG le NPRG permet d'aller plus loin puisqu'il permet un calcul sans approximations a priori. En effet, toute l'astuce consiste à introduire une fonction $\Rc_k \in \Cc^\infty(\R^{d},\R)$ appellée régulateur pour $k \in [0, +\infty[$ puis une nouvelle fonction de partition modifiée  
+\subsubsection{Généralités}
+
+Contrairement au RG le NPRG développé par Wetterich \cite{wetterich} permet d'aller plus loin puisqu'il permet un calcul sans approximations a priori. L'idée reste la même que dans le RG en intégrant les hautes impulsions en  premier lieu. Cependant toute l'astuce consiste à faire cela en introduisant une fonction $\Rc_k \in \Cc^\infty(\R^{d},\R)$ appelée régulateur pour $k \in [0, \Lambda]$ puis une nouvelle fonction de partition modifiée  
 \begin{equation}
   \Zc_k = \int \Dc \varphiv \, \exp\left\{-S[\varphiv] - \Delta S_k[\varphiv] + \int_{\rv} \hv \varphiv \right\} 
 \end{equation}
@@ -208,6 +233,50 @@ Avec la définition
 \end{split}
 \end{equation}
 
+
+On doit choisit alors la fonction $\Rc_k$ le plus astucieusement possible.
+En effet, pour être conforme à la méthode du RG, il faut que l'on retrouve $\lim_{k \to 0}\Zc_k = \Zc$ et pour $k = \Lambda$ que l'expression de $\Zc_\Lambda$ puisse être calculée analytiquement. Il faut donc, 
+\begin{itemize}
+  \item Pour $k \rightarrow 0$, $\forall \qv$ $\, \Rc_{k, ij}(\qv) \rightarrow 0$  .
+  \item Pour $k = \Lambda$, $\forall \qv$ $\, \Rc_{k, ij}(\qv)  \rightarrow  +\infty$ .
+\end{itemize}
+
+Et il faut que l'évolution entre ces deux configurations soit continue.
+Ainsi, quand $k \to 0$, $\Delta S_k \to 0$ et l'on retrouve bien l'expression de $\Zc$. De plus quand $k = \Lambda$ prendre $\Rc_k$ comme étant infini permet de dire que ... 
+
+Etant donné que numériquement nous ne pouvons pas prendre en compte un $\Rc_k$ qui va vers l'infini quand $k = \Lambda$ nous nous contenterons de prendre $\Rc_\Lambda$ comme une fonction minorée par une valeur bien supérieure aux valeurs de constantes de couplage de H . En pratique il suffit de prendre $\Rc_\Lambda \sim \Lambda^2$.
+
+On pourrait prendre comme bon régulateur une fonction de Heaviside. Cependant, dans l'approximation BMW les régulateurs de Heaviside ne sont pas assez régulier et donnent des schéma numériques instables. On prend donc une expression définie sur $[0, \Lambda]$ de la forme
+\begin{equation}
+	\Rc_k(q) = \alpha \frac{q^2}{\exp{(q^2/k^2)}-1}
+\end{equation}
+Avec $\alpha$ un réel positif que l'on prend de l'ordre de l'unité et que l'on peut faire varier mais qui n'est pas supposer changer les résultats des calculs. Remarquons que l'on satisfait bien aux hypothèses imposées sur le régulateur car 
+\begin{equation}
+	\forall k \in [0,\Lambda],  \quad \text{sup} \left\{ \Rc_k(q) \right\} = \alpha k^2
+\end{equation}
+donc $\Rc_k$ converge même uniformément vers 0 quand $k \to 0$. En outre, la seconde condition est aussi validée puisque
+\begin{equation}
+	 \text{inf}\left\{ \Rc_\Lambda(q) \right\} = \alpha \frac{\Lambda^2}{e-1}
+\end{equation}
+
+
+
+\commentout{
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}
+\shorthandoff{:}
+\draw [very thick][->]  (0,0) -- (6,0);\draw (6,0) node[right] {$q$};\draw [very thick][->] (0,0) -- (0,2.9);\draw (0,2.9) node[above] {$\Rc_k(q)$};
+\draw (0,0) node[below] {$0$};
+\draw (3,0) node[below] {$k$};
+\draw (0,2.5) node[left] {$\sim k^2$};
+\draw [very thick][blue][domain=0.1:6] plot ( \x, {2.5*((\x*\x)/(1.8*1.8))*(1/(exp(\x*\x/(1.8*1.8))-1)} );
+\clip (0,3) rectangle (6,0);
+\end{tikzpicture}
+\end{center}
+\caption{Allure du régulateur choisi. On remarque que l'on n'arrête pas d'intégrer brutalement les grandes impulsions comme nous l'aurions fait avec une fonction de Heaviside. }
+\end{figure}
+}
 
 On reprend alors les différentes définitions données dans la section ... que l'on adapte ici pour prendre en compte la présence du régulateur. Tout d'abord, pour $k$ fixé on définit une énergie libre 
 \begin{equation}
@@ -222,31 +291,50 @@ En revanche, on ne définit plus exactement la fonctionnelle $\Gamma$ de la mêm
   \Gamma_k [\phiv] = - W_k[\hv] + \int_{\Omega} \hv \phiv - \Delta S_k[\phiv],
 \end{equation}
 
+Parce que l'on fait une pseudo transformée de Legendre et non pas une vraie, on conserve de cette manière la relation importante :
+\begin{equation}
+  G^{(2)}_{k, i_1 i_2}[\rv_{i_1}, \rv_{i_2} ; \hv] = \(\Gamma^{(2)}_{k, i_1 i_2}[\rv_{i_1}, \rv_{i_2}, \phiv]\)^{-1}  
+\end{equation}
+En outre on peut grâce à cela aussi définir, pour $\phiv$ uniforme, le potentiel effectif $V_k$ par
+\begin{equation}
+	V_k(\phi) = \frac{1}{|\Omega|} \Gamma_k[\phiv] 
+\end{equation}
 
-Maintenant on doit choisir la fonction $\R_k$ le plus astucieusement possible. On prend, 
-\begin{itemize}
-  \item Pour $k = \Lambda$, $\Rc_{k, ij}(\qv)  \rightarrow  +\infty$.
-  \item Pour $k \rightarrow +\infty$, $\Rc_{k, ij}(\qv) \rightarrow 0$.
-\end{itemize}
+
+On peut alors utiliser toutes les définitions que l'on vient de poser pour extraire l'équation fondamentale du NPRG que l'on appelle l'équation de flot. Il s'agit d'une équation valable pour $k \in ]0, \Lambda]$ décrivant l'évolution de $\Gamma$ avec $k$ lorsqu'on le fait évoluer de $\Lambda$ à $0$. Cette équation permet donc d'approcher ...
+\begin{equation}
+\partial_t \Gamma_{k, ij}	[\phiv] = \frac{1}{2|\Omega|} \sum_\qv \partial_t \Rc_k(\qv) \, G^{(2)}_{k, ij}[\qv, -\qv, \phiv] \, ,
+\end{equation}
+où $t$ est ce que l'on appelle le temps de RG, définit par $t = \ln(k/\Lambda)$. Avec $G^{(2)}_{k, ij}[\qv, -\qv, \phiv]$ la transformée de Fourier du tenseur $G^{(2)}$ définie en \refann{}. 
+
+En pratique, on suppose que comme dans la limite thermodynamique on étudie des systèmes macroscopiques et que $1/\Lambda$ est une grandeur microscopique $|\Omega|\gg 1/\Lambda^d$. Ainsi on fait l'approximation physique selon laquelle les impulsions ne sont plus de variables discrètes mais des variables continues et les sommes deviennent des intégrales avec la relation  
+ 
+\begin{equation}
+	\frac{1}{|\Omega|} \sum_{\qv} \rightarrow \frac{1}{(2\pi)^d} \int_{\R^d} ... \, \dd^d \, \qv  \equiv \int_\qv 
+\end{equation}
 
 
 \pagebreak
 
 
-\section{Approximation BMW}
+\subsubsection{Approximation BMW}
 
 
-On repart ici l'équation principale du NPRG qui est l'équation de flot de $\Gamma$, 
+On repart ici l'équation principale du NPRG qui est l'équation de flot de $\Gamma$ avec la notation intégrale, 
 \begin{equation}
 \partial_t \Gamma_{k, ij}	[\pv, \phiv] = \frac{1}{2} \int_\qv \partial_t \Rc_k(\qv) \, G^{(2)}_{k, ij}[\qv, -\qv, \phiv] \, ,
+\label{eq:Flot}
 \end{equation}
 Avec, on le rappelle :
 \begin{equation}
 G^{(2)}_{k, ij}[\qv, -\qv, \phiv] = {\(\Gamma^{(2)}_{k, ij}[\qv, -\qv, \phiv]  + \Rc_k(\qv) \)}^{-1}
 \end{equation}
  
- 
-Le principe de l'approximation .. 
+
+
+
+On commence par dériver deux fois \refeq{Flot} fonctionnellement par rapport à $\phi$ comme montré en \refann{}. On obtient alors une expression de $\partial_t \Gamma_{k, i_2 i_2}^{(2)}$ en fonction de $\Gamma_{k}$ 
+Le principe de l'approximation BMW \cite{Blaizot} est de considérer que certaines
 
 On obtient finalement le système d'équation suivant 
 \begin{equation}
@@ -256,7 +344,7 @@ On obtient finalement le système d'équation suivant
 \end{split}
 \end{equation}
 
-
+\vspace*{22pt}
  
 \section{Le modèle continu O(N)}
 
@@ -272,25 +360,95 @@ L'ensemble des équations BMW pour un tel système ont été développées dans 
 \vspace*{11pt}
 \subsection{Les équations dans le cas $O(1) \simeq \mathbb{Z}_2$}
 
-Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$ et nous laissons le cas général en annexe par soucis de concision. Afin de trouver un point fixe du (RG) nous adimensionnons les quantités que l'on calcule. 
-\lipsum[1]
+Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$ et nous laissons le cas général en annexe par soucis de concision. Comme nous le rappelons, le but de . 
+
+
+
 \vspace*{11pt}
 \subsection{Résultats}
 \lipsum[1]
 
 
 \section{Méthodes numériques pour la résolution de ces équations}
-\subsection{Discrétisation en temps}
+
+\subsection{Structure de l'algorithme}
+
+Nous avons a résoudre ici un système d'équations intégro-différentielle non linéaires couplées et sans conditions au bords. Pour cela nous utilisons différentes techniques numériques. 
+
+Pour la discrétisation en temps, nous sommes dans l'obligation d'utiliser un schéma explicite à cause de la structure complexe des termes de gauches des équations. Il a été montré qu'un schéma d'Euler explicite d'un pas de temps est suffisant pour obtenir une résolution stable, c'est donc ce qui est utilisé. 
+
+Ensuite nous allons différencier la dépendance en champs (i.e. en $\rho$) à celle en impulsion (i.e. $p$) des fonctions inconnues. Pour ce qui est de la dépendance en champ, il suffit de prendre une grille fixe régulièrement espacé de points. Les dérivées selon cette variable se calculent alors par des schémas de différences finies d'ordre 5. 
+
+Enfin pour la dépendance en impulsion c'est plus compliqué car il faut à la fois pouvoir facilement dériver selon $p$, mais aussi intégrer des expressions qui dépendent des fonctions inconnues - afin d'obtenir les intégrales $I$ et $J$. Au premières versions de ce code, la discrétisation se faisait aussi sur une grille fixe de points régulièrement espacés et les intégrales étaient calculées par des méthodes de Simpsons. Cependant cela c'est avéré ne pas être assez précis dans certaines configurations, les algorithmes n'étaient pas robustes. Pour palier à ce problème c'est une décomposition pseudo spectrale qui a été mise en place à l'aide de décomposition en série sur des polynômes de Tchebytchev associé à une intégration de Gauss-Legendre. 
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale = 0.7]{Diagramme_Code.pdf}
+		\caption{Schéma de la structure globale du code. L'ensemble des opérations .}
+		\label{figPhoto1}
+	\end{center}
+\end{figure}
+
+
 \subsection{Discrétisation en champ}
+
+Comme nous l'avons mentionné la discrétisation en champ se fait sur une grille fixe de points régulièrement espacés. Les dérivées sont calculées sur 5 points avec des schémas différences finis (\refann{}). Ce choix sur 5 points  a été fait pour essayer de calculer des dérivées le plus précisément possible. Le problème venant des points des bords de la grille de discrétisation, puisque ne possédant pas de condition de bords, nous utilisons des schémas complètements décentrés pour ne faire un calcul que sur les points connus dans la grille. Il s'avère que cette technique reste stable (nous verrons en \refsec{} que cela nous a quand même posé des problèmes pour le modèle d'Ising en deux dimensions). 
+
+Nous avons remarqué aussi que l'on retrouve l'équivalent d'une condition CFL pour le choix du pas de discrétisation $\delta \rho$. En effet le rapport $\delta t / \delta\rho$ doit rester inférieur à une certaine valeur pour conserver la stabilité du schéma.
+
+Enfin il pourrait sembler étranger d'utiliser une discrétisation en champ d'ordre 5 couplée à une discrétisation temporelle d'ordre 1. Cependant l'implémentation d'un schéma de Runge-Kutta a été testé sans pour autant permettre un calcul avec plus de précision ou une plus grande rapidité. 
+
 \subsection{Discrétisation en impulsion}
-\subsubsection{Interpolation de Tchbytchev }
+\subsubsection{Interpolation de Tchbytchev}
+
+Pour la discrétisation en impulsion 
+
+
 \subsubsection{Calcul de l'interpolé - méthode de Clenshaw}
 
-Afin de calculer l'interpolé des fonctions à une variable il est possible d'utiliser
+
+Afin de calculer la fonction aux points d'interpolation lorsque cela est nécessaire nous utilisons une méthode un peu plus astucieuse que celle consistant à calculer directement la somme de la série.
+
+\begin{proposition}{Algorithme de Clenshaw}.
+Soit, de manière générale, une suite de polynômes $\{\Pc_n\}_{n \in \N}$ liés par la relation
+\begin{equation}
+  \forall x \in \R \quad \Pc_{n+1}(x) = u_n(x)\Pc_n(x) + v_n(x)\Pc_{n-1}(x)
+\end{equation}
+On souhaite calculer, pour $x \in \R$ donné, 
+\begin{equation}
+  S = \sum_{l=0}^{N} a_l \Pc_l(x)
+\end{equation}
+On considère l'algorithme suivant :
+\vspace*{-11pt}
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \STATE $b_{N+2} = 0$ ; $b_{N+1} = 0$
+    \FOR{ $m = N .. 1$  }
+    \STATE $b_m = a_m + u_m(x)b_{m+1} + v_{m+1}(x)b_{m+2}$
+    \ENDFOR
+    \STATE $S_1 = a_0\Pc_0(x) + b_1\Pc_1(x) + b_2v_1(x)\Pc_0(x)$
+  \end{algorithmic}
+\end{algorithm}
+\vspace*{-11pt}
+\noindent
+Alors nous avons $S = S_1$. 
+\end{proposition}
+
+\begin{proof}
+Ce résultat ce démontre par récurrence sur $m \in \bbrac{1,N}$ en remarquant que,
+\begin{equation}
+S_1 = S_m +  b_{m+1}\Pc_{m+1}(x) + b_{m+2}v_{m+1}(x)\Pc_{m+2}(x)
+\end{equation}
+Avec la notation $S_m = \sum\limits_{l=0}^{m} a_l \Pc_l(x)$.
+\end{proof}
+
+
+
+
 \subsection{Parallélisation}
 
 
-
+Le code a été écrit de manière à rendre sa parallélisation très simple. En effet pour chaque point de la grille en champ on a une fonction discrétisé en impulsion qui est complètement indépendante des autres à l'exception du moment ou l'on calcule les dérivées par rapport à $\rho$. Ainsi il suffit de réaliser l'ensemble des calculs dans des boucles parcourant l'ensemble quasi-indépendant des points de la grille en champs. En utilisant une architecture à mémoire partagée comme openMP on la parallélisation de toutes les parties vertes de \refig{} se fait tout naturellement à l'aide de quelques instructions seulement. 
 
 
 

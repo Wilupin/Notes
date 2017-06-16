@@ -5,31 +5,32 @@
 \BOOKMARK [2][-]{subsection.2.1}{Un peu de thermodynamique et de physique statistique}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.2}{Le groupe de renormalisation \(RG\)}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.3}{Le groupe de renormalisation non perturbatif \(NPRG\)}{section.2}% 7
-\BOOKMARK [1][-]{section.3}{Approximation BMW}{}% 8
-\BOOKMARK [1][-]{section.4}{Le mod\350le continu O\(N\)}{}% 9
-\BOOKMARK [2][-]{subsection.4.1}{Pr\351sentation du mod\350le bold0mu mumu \040 Delamotte2012 \040 \0404}{section.4}% 10
-\BOOKMARK [2][-]{subsection.4.2}{Les \351quations dans le cas O\(1\) Z2}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.3}{R\351sultats}{section.4}% 12
-\BOOKMARK [1][-]{section.5}{M\351thodes num\351riques pour la r\351solution de ces \351quations}{}% 13
-\BOOKMARK [2][-]{subsection.5.1}{Discr\351tisation en temps}{section.5}% 14
-\BOOKMARK [2][-]{subsection.5.2}{Discr\351tisation en champ}{section.5}% 15
-\BOOKMARK [2][-]{subsection.5.3}{Discr\351tisation en impulsion}{section.5}% 16
-\BOOKMARK [3][-]{subsubsection.5.3.1}{Interpolation de Tchbytchev }{subsection.5.3}% 17
-\BOOKMARK [3][-]{subsubsection.5.3.2}{Calcul de l'interpol\351 - m\351thode de Clenshaw}{subsection.5.3}% 18
-\BOOKMARK [2][-]{subsection.5.4}{Parall\351lisation}{section.5}% 19
-\BOOKMARK [1][-]{section.6}{Le mod\350le d'Ising en dimension 2}{}% 20
-\BOOKMARK [2][-]{subsection.6.1}{Mod\351lisation du probl\350me avec des champs}{section.6}% 21
-\BOOKMARK [2][-]{subsection.6.2}{Etapes de la r\351solution num\351rique}{section.6}% 22
-\BOOKMARK [2][-]{subsection.6.3}{Les diff\351rents jeux d'\351quation}{section.6}% 23
-\BOOKMARK [1][-]{section.7}{M\351thodes et outils num\351riques pour la r\351solution d'Ising 2D}{}% 24
-\BOOKMARK [2][-]{subsection.7.1}{Structure du code}{section.7}% 25
-\BOOKMARK [2][-]{subsection.7.2}{Interpolation de Tchebytchev}{section.7}% 26
-\BOOKMARK [3][-]{subsubsection.7.2.1}{Th\351or\350me de d\351composition}{subsection.7.2}% 27
-\BOOKMARK [3][-]{subsubsection.7.2.2}{D\351composition m\351thode 1}{subsection.7.2}% 28
-\BOOKMARK [3][-]{subsubsection.7.2.3}{D\351composition m\351thode 2}{subsection.7.2}% 29
-\BOOKMARK [2][-]{subsection.7.3}{Le calcul des int\351grales}{section.7}% 30
-\BOOKMARK [3][-]{subsubsection.7.3.1}{Le choix de la quadrature}{subsection.7.3}% 31
-\BOOKMARK [3][-]{subsubsection.7.3.2}{Calcul des int\351grales I}{subsection.7.3}% 32
-\BOOKMARK [3][-]{subsubsection.7.3.3}{Calcul des int\351grales J}{subsection.7.3}% 33
-\BOOKMARK [2][-]{subsection.7.4}{D\351riv\351es num\351riques}{section.7}% 34
-\BOOKMARK [2][-]{subsection.7.5}{Complexit\351 algorithmique et parall\351lisation - probl\350me de rapidit\351}{section.7}% 35
+\BOOKMARK [3][-]{subsubsection.2.3.1}{G\351n\351ralit\351s}{subsection.2.3}% 8
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Approximation BMW}{subsection.2.3}% 9
+\BOOKMARK [1][-]{section.3}{Le mod\350le continu O\(N\)}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{Pr\351sentation du mod\350le bold0mu mumu \040 Blaizot \040 \0404}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Les \351quations dans le cas O\(1\) Z2}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.3}{R\351sultats}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{M\351thodes num\351riques pour la r\351solution de ces \351quations}{}% 14
+\BOOKMARK [2][-]{subsection.4.1}{Structure de l'algorithme}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.2}{Discr\351tisation en champ}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.3}{Discr\351tisation en impulsion}{section.4}% 17
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Interpolation de Tchbytchev}{subsection.4.3}% 18
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Calcul de l'interpol\351 - m\351thode de Clenshaw}{subsection.4.3}% 19
+\BOOKMARK [2][-]{subsection.4.4}{Parall\351lisation}{section.4}% 20
+\BOOKMARK [1][-]{section.5}{Le mod\350le d'Ising en dimension 2}{}% 21
+\BOOKMARK [2][-]{subsection.5.1}{Mod\351lisation du probl\350me avec des champs}{section.5}% 22
+\BOOKMARK [2][-]{subsection.5.2}{Etapes de la r\351solution num\351rique}{section.5}% 23
+\BOOKMARK [2][-]{subsection.5.3}{Les diff\351rents jeux d'\351quation}{section.5}% 24
+\BOOKMARK [1][-]{section.6}{M\351thodes et outils num\351riques pour la r\351solution d'Ising 2D}{}% 25
+\BOOKMARK [2][-]{subsection.6.1}{Structure du code}{section.6}% 26
+\BOOKMARK [2][-]{subsection.6.2}{Interpolation de Tchebytchev}{section.6}% 27
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Th\351or\350me de d\351composition}{subsection.6.2}% 28
+\BOOKMARK [3][-]{subsubsection.6.2.2}{D\351composition m\351thode 1}{subsection.6.2}% 29
+\BOOKMARK [3][-]{subsubsection.6.2.3}{D\351composition m\351thode 2}{subsection.6.2}% 30
+\BOOKMARK [2][-]{subsection.6.3}{Le calcul des int\351grales}{section.6}% 31
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Le choix de la quadrature}{subsection.6.3}% 32
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Calcul des int\351grales I}{subsection.6.3}% 33
+\BOOKMARK [3][-]{subsubsection.6.3.3}{Calcul des int\351grales J}{subsection.6.3}% 34
+\BOOKMARK [2][-]{subsection.6.4}{D\351riv\351es num\351riques}{section.6}% 35
+\BOOKMARK [2][-]{subsection.6.5}{Complexit\351 algorithmique et parall\351lisation - probl\350me de rapidit\351}{section.6}% 36
