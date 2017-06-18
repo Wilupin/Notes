@@ -91,7 +91,7 @@ Nous allons nous intéresser ici plus particulièrement à un domaine particulie
 En thermodynamique on appelle phase un milieu possédant des propriétés physiques et chimiques macroscopiques homogènes. Or, avec la modification de certains paramètres (comme la température, la pression, etc.), un système peut changer de phase ; il se produit alors une transition de phase. Landau a classé ces transitions suivant deux types : celles du premier ordre et celles du second \cite{toledano1987landau}. Cette classification se fonde sur la continuité ou non de certaines fonctions thermodynamiques au moment de la transition. 
 Le passage de l'eau de l'état liquide à l'état gazeux par modification de la température à pression constante est un bon exemple \cite{} de transition du premier ordre. La perte du caractère aimanté d'un métal lorsqu'on le chauffe au dessus d'une certaine température à pression constante, correspond, en revanche, à une transition de phase du second ordre \cite{kochmanski2013curie}. On s'intéresse plus particulièrement ici aux phénomènes physiques particuliers qui se produisent lors des transitions du second ordre. \\
 
-Pour comprendre quels sont ces phénomènes considérons un système que l'on peut faire changer de phase en imposant sa température $T$. On appelle $T_c$, température critique, la température à laquelle se produit la transition. Il est alors possible de définir sur ce système une fonction de corrélation $G^{(2)}(r)$ qui décrit quantitativement l'influence que deux degrés de libertés du système séparés d'une distance $r$ ont l'un sur l'autre. Notons bien que plus la distance entre les deux sera grande moins cette influence sera forte et donc plus la fonction de corrélation sera faible. A cette fonction, qu'il est possible de déterminer expérimentalement \cite{Bellac2012}, on y associe une longueur $\xi$ qui définit approximativement la distance à partir de laquelle deux degrés de libertés du systèmes n'ont plus d'influence l'un sur l'autre.\\
+Pour comprendre quels sont ces phénomènes considérons (comme dans toute la suite de cette étude) un système que l'on peut faire changer de phase en imposant sa température $T$. On appelle $T_c$, température critique, la température à laquelle se produit la transition. Il est alors possible de définir sur ce système une fonction de corrélation $G^{(2)}(r)$ qui décrit quantitativement l'influence que deux degrés de libertés du système séparés d'une distance $r$ ont l'un sur l'autre. Notons bien que plus la distance entre les deux sera grande moins cette influence sera forte et donc plus la fonction de corrélation sera faible. A cette fonction, qu'il est possible de déterminer expérimentalement \cite{Bellac2012}, on y associe une longueur $\xi$ qui définit approximativement la distance à partir de laquelle deux degrés de libertés du systèmes n'ont plus d'influence l'un sur l'autre.\\
 
 On observe expérimentalement qu'au moment d'une transition de phase du second ordre, pour $|T-T_c| \rightarrow 0$, à la fois $\xi$ et $G^{(2)}$ divergent, selon les lois 
 \begin{equation}
@@ -176,54 +176,81 @@ Développons à présent les théories du RG et du NPRG qui partent des quelques
 \vspace*{11pt}
 \subsection{Le groupe de renormalisation (RG)}
 
-Nous rappelons ici de manière synthétiques les principales idées du RG développé par Wilson \cite{wilson}. Commençons pour cela par définir la transformée de Fourier du champ $\rv \rightarrow \varphiv(\rv)$ par 
+
+\subsubsection{Transformée de Fourier}
+
+Nous rappelons ici de manière synthétiques les principales idées du RG développé par Wilson \cite{wilson}. Commençons pour cela par définir la transformée de Fourier du champ $\varphiv$ appartenant à $L^2(\Omega)$ par 
 \begin{equation}
 \begin{split}
-\varphiv(\pv) = \frac{1}{\sqrt{|\Omega|}}\int_\rv \varphiv(\rv) \, e^{-i \pv . \rv}, \\
-\varphiv(\rv) = \frac{1}{\sqrt{|\Omega|}}\sum_\pv \varphiv(\pv) \, e^{i \pv  .\rv}
+\hat{\varphiv}_\pv = \frac{1}{\sqrt{|\Omega|}}\int_\Omega \varphiv(\rv) \, e^{-i \pv . \rv} \dd \, \rv, \\
+\varphiv(\rv) = \frac{1}{\sqrt{|\Omega|}}\sum_\pv \hat{\varphiv}_\pv \, e^{i \pv  .\rv}
 \end{split} 	
 \end{equation}
-Avec la notation 
+On suppose que pour $\pv$ supérieur à une certaine valeur notée $\Lambda$, la valeur $\hat{\varphiv}(\pv)$ est suffisamment faible pour être prise comme nulle, on considère donc $\pv \in [0, \Lambda]$. Or, en pratique on suppose que comme dans la limite thermodynamique on étudie des systèmes macroscopiques et que $1/\Lambda$ est une grandeur microscopique alors $|\Omega|\gg 1/\Lambda^d$. Ainsi on fait l'approximation physique selon laquelle les impulsions ne sont plus des variables discrètes mais des variables continues et nous avons les équivalences  
 \begin{equation}
-\int_\rv ...\, \equiv \int_\Omega	... \, \dd \, \rv
+\begin{split}
+	\frac{1}{|\Omega|} \sum_{\pv} & \rightarrow \frac{1}{(2\pi)^d} \int_{\R^d} ... \, \dd \, \pv  \equiv \int_\pv ... \\
+	\int_\Omega	... \, \dd \, \rv & \rightarrow \int_\R ... \, \dd \rv \equiv \int_\rv ...
+\end{split}
 \end{equation}
+Pour $\varphiv$ fixé la suite $\hat{\varphiv}_\pv$ dans $\ell^2$ devient une fonction $\hat{\varphiv} : \pv \rightarrow \hat{\varphiv}(\pv)$ de $L^2(\R)$. 
+Remarquons aussi que si $\hat{H}$ est la transformée de Fourier de $H$ alors nous avons toujours
+\begin{equation}
+\Zc = \int \Dc \hat{\varphiv} \, \exp\left\{- \hat{H}[\hat{\varphiv}]\right\}. 
+\end{equation} 
+Nous pourrons donc oublier à partir de maintenant la notation avec le chapeau en notant que c'est la variable utilisée $\rv$ ou $\pv$ (ou aussi parfois $\qv$ pour l'impulsion) qui nous permet de savoir si l'on travaille avec la fonction considérée ou sa transformée de Fourier. \\
 
-Notons que c'est la variable utilisée $\rv$ ou $\pv$ (ou aussi parfois $\qv$ pour l'impulsion) qui nous permet de savoir si l'on travaille avec la fonction considérée ou sa transformée de Fourier . On suppose que pour $\pv$ supérieur à une certaine valeur notée $\Lambda$, la valeur $\varphiv(\pv)$ est suffisamment faible pour être pris comme nul, on considère donc $\pv \in [0, \Lambda]$. 
 
-L'idée du RG est alors de ne pas considérer tous les degrés de liberté sur le même pied d'égalité. En effet, on commence d'abord, pour calculer $\Zc$, par intégrer les degrés de libertés de haute impulsion $\pv$ entre $k = \Lambda/s$ et $\Lambda$ où $k \in [0,\Lambda]$ et $s>1$. En pratique on sépare $\varphiv$ en deux fonctions $\varphiv_>$ et $\varphiv_<$ telles que $\varphiv(\pv) = \varphiv_>(\pv) + \varphiv_<(\pv)$ et
+\subsubsection{Idée générale}
+
+L'idée du RG est alors de ne pas considérer tous les degrés de liberté sur le même pied d'égalité. En effet, on commence d'abord, pour calculer $\Zc$, par intégrer les degrés de libertés de haute impulsion $\pv$ entre $k = \Lambda/s$ et $\Lambda$ où $k \in [0,\Lambda]$. En pratique on sépare $\varphiv$ en deux fonctions $\varphiv_>$ et $\varphiv_<$ telles que $\varphiv(\pv) = \varphiv_{k,>}(\pv) + \varphiv_{k,<}(\pv)$ et
 \begin{align}
-	\varphiv_>(\pv)  = \quad & \varphiv(\pv) \quad \text{si} \quad \pv \in   [k,\Lambda] \\
+	\varphiv_{k,>}(\pv)  = \quad & \varphiv(\pv) \quad \text{si} \quad \pv \in   [k,\Lambda] \\
 	 & 0 \quad \text{sinon}
 \end{align}
 Ceci permet de définir un Hamiltonien effectif $H_k$, 
 \begin{equation}
-	H_k[\varphiv_<] \equiv \int \Dc \varphiv_>  \exp \{ H[\varphiv_>+ \varphiv_<] \},
+	H_k[\varphiv_{k,<}] \equiv \int \Dc \varphiv_{k,<}  \exp \{ H[\varphiv_{k,>}+ \varphiv_{k,<}] \},
 \end{equation}
 et de réécrire la fonction de partition comme 
+
 \begin{equation}
-\Zc = \int \Dc \varphiv_< \, \exp\left\{- H_k[\varphiv_<]\right\}. 
+\Zc = \int \Dc \varphiv_{k,<} \, \exp\left\{- H_k[\varphiv_{k,<}]\right\}. 
 \end{equation} 
-De manière générale on part d'un hamiltonien qui ne dépend pas seulement du champ $\varphiv$ mais entendu aussi de constante de couplage qui caractérise la physique a laquelle est soumise le champ. Ces constantes sont notées $\{g_i\}_i$ avec $i \in \N$. On écrit alors $H[\varphiv] = H[\varphiv, \{g_i\}]$. Ainsi le nouvel hamiltonien $H_k$ possèdent de nouvelles constantes de couplages notées  $\{g_{k,i}\}_i$. 
 
-On considère alors plutôt une intégration infinitésimale entre $[\Lambda - d\Lambda, \Lambda]$. On obtient alors un nouvel hamiltonien $H_{\Lambda - d\Lambda}$. Dans ce nouvel hamiltonien, sans changer sa valeur, on réalise un adimensionnement : toutes les longueurs sont multipliées par $k_{1} = \Lambda - d\Lambda$ et toutes les impulsions sont divisées par $k_{1}$. De plus on multiplie aussi par les bon facteur de $k_{1}$ pour que les constantes $\{g_{\Lambda - d\Lambda, i}\}$ se retrouvent sans dimensions. Ceci n'est que technique et ne change pas la valeur des expressions que l'on manipule mais elle permet cependant de faire comme si $H_{\Lambda - d\Lambda}$ était l'hamiltonien d'un nouveau système dans lequel toutes les échelles on été changée, et notamment les échelles de longueurs qui on été réduites. On rappelle qu'a la transition de phase du second ordre la longueur $\xi$ diverge, et donc notre système originel n'a plus vraiment d'échelle caractéristique de longueur. A la transition ce nouveau système est le premier possèdent donc bien la même physique.
+De manière générale on part d'un hamiltonien qui ne dépend pas seulement du champ $\varphiv$ mais entendu aussi  de $\pv$ (lorsque l'on parle de la transformée de Fourier du hamiltonien, de $\rv$ sinon) et de constantes de couplage qui caractérise la physique a laquelle est soumise le champ. Ces constantes sont notées $\{g_i\}_i$ avec $i \in \N$. On écrit alors $H[\varphiv] = H[\varphiv ; \pv, \{g_i\}]$. Le nouvel hamiltonien $H_k[\varphiv_{k,<}]$ peut alors s'exprimer aussi sous la forme $H_k[\varphiv_{k,<} ; \pv, \{g_{k,i}\}_i]$ où $\{g_{k,i}\}_i$ sont de nouvelles constantes de couplages. \\
 
- Pour passer réaliser l'intégration complète sur $[0, \Lambda]$ on peut donc itérer ce processus de transformations infinitésimales. On introduit à l'itération $p \in \N$ - itération à laquelle on a intégré sur $[k_p, \Lambda]$ - l'opérateur $T_p$ qui envoie $\{g_i\}_i$ sur $\{g_{k_p,i}\}_i$. L'hypothèse fondamentale du RG, qui n'est pas prouvée mais toujours vérifiée, est qu'il existe un point fixe de $T_p$ pour $p \to \infty$, si l'on est à la température critique (et/ou pression critique, ...). Ceci signifie plus particulièrement qu'il existe $\{g^*_i\}_i$ tel que 
- 
+Bien entendu il n'est pas directement possible de calculer $H_k$ pour $k$ quelconque, sinon le problème serait résolu en calculant $H_0$. On considère alors plutôt une intégration infinitésimale entre $[\Lambda - d\Lambda, \Lambda]$ pour obtenir le nouvel hamiltonien $H_{k_1}$, où $k_1 = \Lambda - d\Lambda$. On introduit aussi $s_1 = \Lambda/k_1$. Ce calcul là, contrairement au calcul direct pour $k$ quelconque, peut être réalisé grâce à des approximations comme nous le détaillerons ensuite. Maintenant, avec l'expression de ce nouvel hamiltonien, on réalise ce que l'on appelle un adimensionnement qui se déroule en trois étapes listées ci-dessous.
+
+ Tout d'abord, comme $\pv$ est homogène à $\text{L}^{-1}$ (ou L est la dimension d'une longueur) on introduit $\tilde{\pv} = s_1 \pv$. Ensuite on montre que le champ $\varphiv_{k_1, <}$ est homogène à $\text{L}^{d-2-\eta}$ (avec $\eta$ l'exposant critique défini dans l'introduction), on pose donc $\tilde{\varphiv}_{k_1, <}$ tel que $\varphiv_{k_1, <} = s_1^{-d+2+\eta} \tilde{\varphiv}_{k_1, <}$. Enfin la constante $g_{k_1, i}$ pour tout $i\in \N$ est aussi homogène à $\text{L}^{b_i}$ avec $b_i$ une constante. On écrit donc de nouvelles constantes de couplage $\{\tilde{g}_{k_1, i}\}_i$ telles que $g_{k_1, i} = s_1^{-b_i} \tilde{g}_{k_1, i}$. Ceci définit un hamiltonien $\tilde{H}$,
  \begin{equation}
- 	\lim\limits_{k \rightarrow \infty}  g_{k,i} = \lim\limits_{\substack{p \to \infty \\ d\Lambda \to 0 }}  g_{k_p,i} =  g^*_i
+ 	\tilde{H}_{k_1}[\tilde{\varphiv}_{k_1,<}; \tilde{\pv}, \{\tilde{g}_{k_1, i}\}_i ] = H_{k_1}[\varphiv_{k_1,<}; \pv, \{g_{k_1,i}\}_i]
+ \end{equation}
+La fonction de partition (dont il ne sert en fait à rien de connaitre le préfacteur numérique) est simplement exprimée comme 
+\begin{equation}
+\Zc \propto \int \Dc \tilde{\varphiv}_{k_1,<} \, \exp\left\{- \tilde{H}_{k_1}[\tilde{\varphiv}_{k_1,<}, \{\tilde{g}_{k_1, i}\}_i ] \right\}. 
+\end{equation} 
+
+
+Ce changement est purement technique cependant il a un fondement physique puisqu'il permet de faire comme si $\tilde{H}_{k_1}$ était l'hamiltonien d'un "nouveau système" identique au système originel étudié mais dans lequel toutes les échelles d'impulsion ont été dilatées d'un facteur $s_1$ et les échelles de longueur alors réduites d'un facteur $s_1$. Or on rappelle que pour une transition de phase du second ordre la longueur $\xi$ du système originel diverge. Ce "nouveau système" possède alors une longueur de corrélation $\xi_1 = \xi/s_1$ qui diverge aussi à la transition : $\xi, \xi_1 \to \infty$. Ainsi, à la transition de phase, et uniquement à la transition, les deux systèmes possèdent la même physique. En effet, si $\xi$ ne divergeait pas ce ne serait pas le cas puisque alors $\xi_1 \neq \xi$, et deux systèmes avec des longueurs caractéristiques différentes, n'auraient pas les mêmes comportements. \\
+
+ Pour réaliser l'intégration complète sur $[0, \Lambda]$ on peut donc ensuite itérer ce processus de transformations infinitésimales en repartant de l'expression de $\Zc$ en fonction de $\tilde{H}_{k_1}[\tilde{\varphiv}_{k_1,<}, \{\tilde{g}_{k_1, i}\}_i ]$. On reproduit le même procédé, par exemple au deuxième pas de l'itération, en calculant l'intégration infinitésimale entre $[\Lambda - 2d\Lambda, \Lambda - d\Lambda]$ avec $k_2 = \Lambda - 2d\Lambda$. A la fin de cette deuxième itération nous avons donc intégré sur $[\Lambda - 2d\Lambda, \Lambda]$.  \\
+ 
+ On introduit alors à l'itération $p \in \N$ - itération à laquelle on a intégré sur $[k_p, \Lambda]$ - l'opérateur $O_p$ qui envoie $\{\tilde{g}_i\}_i$ sur $\{\tilde{g}_{k_p,i}\}_i$. L'hypothèse fondamentale du RG, qui n'est pas prouvée mais toujours vérifiée, est qu'il existe un point fixe de $O_p$ pour $p \to \infty$, si l'on est à la température critique (et/ou pression critique, ...). Ceci signifie plus exactement qu'il existe $\{\tilde{g}^*_i\}_i$ tel que 
+ \begin{equation}
+ 	\lim\limits_{k \rightarrow \infty}  \tilde{g}_{k,i} = \lim\limits_{\substack{p \to \infty \\ d\Lambda \to 0 }}  \tilde{g}_{k_p,i} =  \tilde{g}^*_i
  \end{equation} 
+Sans entrer plus en profondeur dans les calculs du RG on admet que l'on peut montrer que l'existence de ce points fixe explique alors l'universalité de exposants critiques \cite{Delamotte2012}. En effet, deux systèmes avec les mêmes propriétés de symétries auront le même point fixe, ce qui revient à dire d'une autre manière qu'ils auront bien un comportement, une physique, identique à la transition de phase, quand la longueur de corrélation est infinie. \\
  
- L'existence de ce points fixe explique alors l'universalité de exposants critiques \cite{Delamotte2012}. En effet, deux systèmes avec les mêmes propriétés de symétries auront le même point fixe et donc un comportement identique à la transition de phase, quand la longueur de corrélation est infinie. \\
- 
- Dans un calcul de RG on prend classiquement un nombre fini de constantes de couplage et on considère qu'elles sont suffisamment faibles pour faire des développement du hamiltonien en puissance de ces constantes à chaque itération. Ceci permet de faire des calcul mais limite les applications possibles et n'est pas forcément obligatoire, ce pourquoi on introduit le NPRG. Nous ne nous étendrons donc pas plus sur les calculs dans le RG.
+Dans un calcul de RG on prend classiquement un nombre fini de constantes de couplage et on considère qu'elles sont suffisamment faibles pour faire des développement du hamiltonien en puissance de ces constantes adimensionnées à chaque itération. Ce sont ces approximations qui permettent de faire des calcul mais elles limitent les applications possibles. Le NPRG développe alors une technique reprenant la même idée de calcul mais dans faire ces approximations grâce à une astuce.
 
 \vspace*{11pt}
 \subsection{Le groupe de renormalisation non perturbatif (NPRG)}
 \subsubsection{Généralités}
 
-Contrairement au RG le NPRG développé par Wetterich \cite{wetterich} permet d'aller plus loin puisqu'il permet un calcul sans approximations a priori. L'idée reste la même que dans le RG en intégrant les hautes impulsions en  premier lieu. Cependant toute l'astuce consiste à faire cela en introduisant une fonction $\Rc_k \in \Cc^\infty(\R^{d},\R)$ appelée régulateur pour $k \in [0, \Lambda]$ puis une nouvelle fonction de partition modifiée  
+Contrairement au RG le NPRG développé par Wetterich \cite{wetterich} va plus loin puisqu'il permet un calcul sans approximations a priori. L'idée reste la même que dans le RG en intégrant les hautes impulsions en  premier lieu. Cependant l'astuce consiste à faire cela en introduisant un tenseur de fonctions $\Rc_{k, ij} \in (\Cc^\infty(\R^{d},\R))^{N\times N}$ pour $k \in ]0, \Lambda]$ puis une nouvelle fonction de partition modifiée  
 \begin{equation}
-  \Zc_k = \int \Dc \varphiv \, \exp\left\{-S[\varphiv] - \Delta S_k[\varphiv] + \int_{\rv} \hv \varphiv \right\} 
+  \Zc_k[\hv] = \int \Dc \varphiv \, \exp\left\{-S[\varphiv] - \Delta S_k[\varphiv] + \int_{\rv} \hv \varphiv \right\} 
 \end{equation}
 Avec la définition
 \begin{equation}
@@ -233,35 +260,6 @@ Avec la définition
 \end{split}
 \end{equation}
 
-
-On doit choisit alors la fonction $\Rc_k$ le plus astucieusement possible.
-En effet, pour être conforme à la méthode du RG, il faut que l'on retrouve $\lim_{k \to 0}\Zc_k = \Zc$ et pour $k = \Lambda$ que l'expression de $\Zc_\Lambda$ puisse être calculée analytiquement. Il faut donc, 
-\begin{itemize}
-  \item Pour $k \rightarrow 0$, $\forall \qv$ $\, \Rc_{k, ij}(\qv) \rightarrow 0$  .
-  \item Pour $k = \Lambda$, $\forall \qv$ $\, \Rc_{k, ij}(\qv)  \rightarrow  +\infty$ .
-\end{itemize}
-
-Et il faut que l'évolution entre ces deux configurations soit continue.
-Ainsi, quand $k \to 0$, $\Delta S_k \to 0$ et l'on retrouve bien l'expression de $\Zc$. De plus quand $k = \Lambda$ prendre $\Rc_k$ comme étant infini permet de dire que ... 
-
-Etant donné que numériquement nous ne pouvons pas prendre en compte un $\Rc_k$ qui va vers l'infini quand $k = \Lambda$ nous nous contenterons de prendre $\Rc_\Lambda$ comme une fonction minorée par une valeur bien supérieure aux valeurs de constantes de couplage de H . En pratique il suffit de prendre $\Rc_\Lambda \sim \Lambda^2$.
-
-On pourrait prendre comme bon régulateur une fonction de Heaviside. Cependant, dans l'approximation BMW les régulateurs de Heaviside ne sont pas assez régulier et donnent des schéma numériques instables. On prend donc une expression définie sur $[0, \Lambda]$ de la forme
-\begin{equation}
-	\Rc_k(q) = \alpha \frac{q^2}{\exp{(q^2/k^2)}-1}
-\end{equation}
-Avec $\alpha$ un réel positif que l'on prend de l'ordre de l'unité et que l'on peut faire varier mais qui n'est pas supposer changer les résultats des calculs. Remarquons que l'on satisfait bien aux hypothèses imposées sur le régulateur car 
-\begin{equation}
-	\forall k \in [0,\Lambda],  \quad \text{sup} \left\{ \Rc_k(q) \right\} = \alpha k^2
-\end{equation}
-donc $\Rc_k$ converge même uniformément vers 0 quand $k \to 0$. En outre, la seconde condition est aussi validée puisque
-\begin{equation}
-	 \text{inf}\left\{ \Rc_\Lambda(q) \right\} = \alpha \frac{\Lambda^2}{e-1}
-\end{equation}
-
-
-
-\commentout{
 \begin{figure}[H]
 \begin{center}
 \begin{tikzpicture}
@@ -276,9 +274,52 @@ donc $\Rc_k$ converge même uniformément vers 0 quand $k \to 0$. En outre, la s
 \end{center}
 \caption{Allure du régulateur choisi. On remarque que l'on n'arrête pas d'intégrer brutalement les grandes impulsions comme nous l'aurions fait avec une fonction de Heaviside. }
 \end{figure}
-}
 
-On reprend alors les différentes définitions données dans la section ... que l'on adapte ici pour prendre en compte la présence du régulateur. Tout d'abord, pour $k$ fixé on définit une énergie libre 
+C'est grâce à l'évolution de $\Rc_{k,ij}$ en fonction de $k$ que l'on intègre au fur et à mesure les grandes impulsions. En effet, pour être conforme à la méthode du RG, il faut que l'on retrouve $\lim_{k \to 0}\Zc_k = \Zc$ et pour $k = \Lambda$ que l'expression de $\Zc_\Lambda$ puisse être calculée analytiquement. De cette manière on peut, en faisant évoluer $k$ de $\Lambda$ à $0$ suivre l'évolution de $\Zc_k$ d'une valeur connue à la valeur $\Zc$ par le biais d'une équation différentielle. On peut donc choisir $\Rc_{k,ij}$ tel que , \\
+
+\begin{itemize}
+  \item Pour $k \rightarrow 0$, $\forall \qv$ $\, \Rc_{k, ij}(\qv) \rightarrow 0$  .
+  \item Pour $k = \Lambda$, $\forall \qv$ $\, \Rc_{k, ij}(\qv)  \rightarrow  +\infty$ .
+\end{itemize}
+\vspace*{11pt}
+
+Et il faut que l'évolution entre ces deux configurations soit continue. Etant donné que numériquement nous ne pouvons pas prendre en compte un $\Rc_k$ qui va vers l'infini quand $k = \Lambda$ nous nous contenterons de prendre $\Rc_\Lambda$ comme une fonction minorée par une valeur bien supérieure aux valeurs de constantes de couplage de $H$. En pratique il suffit de prendre $\Rc_\Lambda \sim \Lambda^2$.
+
+Ainsi, quand $k \to 0$, $\Delta S_k \to 0$ et l'on retrouve bien l'expression de $\Zc$. De plus quand $k = \Lambda$ prendre $\Rc_{k,ij}$ comme étant très grand permet faire une excellente approximation de point-selle et écrire
+\begin{equation}
+	Z_\Lambda[\hv] \propto \exp\left\{-S[\varphiv_0] - \Delta S_k[\varphiv_0] + \int_{\rv} \hv \varphiv_0 \right\} 
+\end{equation}
+Ou l'on définit $\varphiv_0$ par 
+\begin{equation}
+	{\left. \derd{\(S[\varphiv] + \Delta S_k[\varphiv]\)}{\varphiv} \right|}_{\varphiv_0} = \hv
+\end{equation}
+L'intégrale a alors disparue dans l'expression de $Z_\Lambda$, qui s'exprime uniquement en fonction d'un champ bien défini $\varphiv_0$ appelé le champ moyen. De cette manière on dit que l'on "gèle les fluctuations" du champ autour de $\varphiv_0$ et on peut calculer analytiquement $\Zc_\Lambda$. 
+
+Il faut aussi que $\Rc_{k,ij}$ soit une fonction possédant des symétries compatibles avec le système que l'on considère. Dans l'ensemble de ce que nous avons étudié il suffit de prendre $\Rc_{k,ij}(\qv) = \Rc_k(q)$, avec $q = \|\qv\|_2$. La fonction $q \to \Rc_k(q)$ sera appelée le régulateur.\\
+
+Ce qu'il semble le plus naturel, c'est d'utiliser dans le régulateur une fonction de Heaviside en écrivant 
+\begin{equation}
+	\forall q \in [0, \Lambda] \quad \Rc_k(q) = \alpha (q^2 - k^2) \Theta(q^2 - k^2)
+\end{equation}
+Avec $\alpha$ un réel positif que l'on prend de l'ordre de l'unité et que l'on peut faire varier mais qui n'est pas supposer changer les résultats des calculs. Cependant, dans l'approximation BMW les régulateurs de Heaviside ne sont pas assez régulier et donnent des schéma numériques instables. On prend donc une expression définie par
+\begin{equation}
+	\forall q \in [0, \Lambda] \quad \Rc_k(q) = \alpha \frac{q^2}{\exp{(q^2/k^2)}-1}
+\end{equation}
+Remarquons que l'on satisfait bien aux hypothèses imposées sur le régulateur car 
+\begin{equation}
+	\forall k \in [0,\Lambda],  \quad \text{sup} \left\{ \Rc_k(q) \right\} = \alpha k^2
+\end{equation}
+donc $\Rc_k$ converge même uniformément vers 0 quand $k \to 0$. En outre, la seconde condition est aussi validée puisque
+\begin{equation}
+	 \text{inf}\left\{ \Rc_\Lambda(q) \right\} = \alpha \frac{\Lambda^2}{e-1}
+\end{equation}
+
+
+
+\vspace*{11pt}
+\subsubsection{Potentiels et distinction de phase}
+
+En réalité, ce n'est pas vraiment à $\Zc$ que nous allons nous intéresser, mais plutôt aux potentiels qui en dérive, car ils contiennent toutes les informations dont nous avons besoin. 	On reprend alors les différentes définitions données dans la section ... que l'on adapte ici pour prendre en compte la présence du régulateur dans le cas de le limite thermodynamique $\Omega \gg 1/\Lambda^d$. Tout d'abord, pour $k$ fixé on définit une énergie libre 
 \begin{equation}
 	  W_k[\hv] = \text{ln}{\(\Zc_k[\hv]\)}
 \end{equation}
@@ -288,33 +329,47 @@ Et de même pour le tenseur des fonctions de corrélation, avec les mêmes notat
 \end{equation}
 En revanche, on ne définit plus exactement la fonctionnelle $\Gamma$ de la même façon, on ne réalise plus vraiment exactement une transformée de Legendre, mais
 \begin{equation}
-  \Gamma_k [\phiv] = - W_k[\hv] + \int_{\Omega} \hv \phiv - \Delta S_k[\phiv],
+  \Gamma_k [\phiv] = - W_k[\hv] + \int_{\rv} \hv \phiv - \Delta S_k[\phiv],
 \end{equation}
-
+Avec $\phiv$ défini comme 
+\begin{equation}
+  \phiv[\rv, \hv] = \left< \varphiv(\rv) \right> = \derd{W_k[\hv]}{\hv(\rv)}
+\end{equation}
 Parce que l'on fait une pseudo transformée de Legendre et non pas une vraie, on conserve de cette manière la relation importante :
 \begin{equation}
   G^{(2)}_{k, i_1 i_2}[\rv_{i_1}, \rv_{i_2} ; \hv] = \(\Gamma^{(2)}_{k, i_1 i_2}[\rv_{i_1}, \rv_{i_2}, \phiv]\)^{-1}  
 \end{equation}
 En outre on peut grâce à cela aussi définir, pour $\phiv$ uniforme, le potentiel effectif $V_k$ par
 \begin{equation}
-	V_k(\phi) = \frac{1}{|\Omega|} \Gamma_k[\phiv] 
+	V_k(\phi) = {\left. \frac{1}{|\Omega|} \Gamma_k[\phiv] \right|}_{\phi \text{ unif.}}
 \end{equation}
-
-
-On peut alors utiliser toutes les définitions que l'on vient de poser pour extraire l'équation fondamentale du NPRG que l'on appelle l'équation de flot. Il s'agit d'une équation valable pour $k \in ]0, \Lambda]$ décrivant l'évolution de $\Gamma$ avec $k$ lorsqu'on le fait évoluer de $\Lambda$ à $0$. Cette équation permet donc d'approcher ...
+A $k$ fixé, comme introduit dans la section ... à condition de bien réaliser l'adimensionnement, nous pouvons considérer que notre système initial est en fait décrit par un nouveau système fictif dont l'hamiltonien est 
 \begin{equation}
-\partial_t \Gamma_{k, ij}	[\phiv] = \frac{1}{2|\Omega|} \sum_\qv \partial_t \Rc_k(\qv) \, G^{(2)}_{k, ij}[\qv, -\qv, \phiv] \, ,
+	H_k[\varphiv]  = S_k[\varphiv] + \Delta S_k[\varphiv] - \int_\rv \hv \varphiv
+\end{equation} 
+Remarquons tout de même qu'alors que dans le RG on part du vrai hamiltonien du système originel et on crée à partir de son expression une suite d'hamiltonien associés à des systèmes fictifs, ici on part d'un hamiltonien d'un système fictif en $k = \Lambda$ pour calculer le vrai hamiltonien en $k\to 0$ du vrai système.
+De plus nous avons aussi déjà mentionné que c'est la position du minimum du potentiel qui permet de savoir dans quelle phase se trouve le système. Ainsi deux valeurs de $k$ différentes donnent deux systèmes fictifs différents qui peuvent avoir une phase différente. On devra donc chercher en tâtonnant quels sera la température à introduire dans le hamiltonien fictif à $k=\Lambda$ pour obtenir un système vrai à $k \to 0$ qui soit à la transition de phase. On rappelle aussi qu'en $k=\Lambda$ nous partons d'un système fictif "aux fluctuations gelées". Faire évoluer $k$ intègre, i.e. prend en compte, au fur et à mesure de plus en plus les fluctuations du champ décrivant le système. Ceci a pour effet de faire augmenter la température critique
+\footnote{En effet on peut comprendre cela en se disant que les fluctuations du champs ont tendance à désordonner le système. Or la "quantité de désordre" permet de définir la phase du système (on pourra penser à de l'eau solide - faible désordre des molécules - et de l'eau liquide -grand désordre -) et ce qui permet "d'obtenir du désordre" dans un système c'est, dans les grandes lignes, la température qu'on lui impose (ce qui explique que jouer sur la température permet de changer de phase de manière générale). Ainsi un système dans lequel on prend en compte les fluctuations aura besoin d'une température moins élevé qu'un système dans lequel on ne les prend pas en compte pour obtenir le même degré de désordre. Ainsi la température pour lequel le désordre sera celui de la transition de phase, i.e. la température critique, sera plus faible} du système fictif. 
+On peut donc en conclure que les systèmes fictifs verrons une décroissance de leur température critique et qu'il faudra qu'ils partent de la phase haute température pour avoir une chance de déboucher en $k\to 0$ sur le vrai système exactement à la transition de phase. Un point important est que si le système fictif est dans la phase basse température pour $k\neq 0$ alors le système vrai en $k \to 0$ est aussi dans la phase basse température. Ainsi remarquons que $V_k$ pour $k \neq 0$ est une fonction qui doit être concave autour de l'origine pour assurer l'unicité de son minimum et la convexité de $W_k$ lorsque ce minimum est différent de $0$ et que l'on est dans la phase haute température. Ainsi c'est en observant le caractère concave ou convexe de $V_k$ dans un voisinage de $0$ que l'on peut déterminer la phase du système fictif défini à $k$. 
+
+
+\vspace*{11pt}
+\subsubsection{Equation de flot}
+On peut alors utiliser toutes les définitions que l'on vient de poser pour extraire l'équation fondamentale du NPRG que l'on appelle l'équation de flot. Il s'agit d'une équation valable pour $k \in ]0, \Lambda]$ décrivant l'évolution de $\Gamma$ avec $k$ lorsqu'on le fait évoluer de $\Lambda$ à $0$. 
+\begin{equation}
+\partial_t \Gamma_{k}	[\phiv] = \frac{1}{2} \int_\qv \partial_t \Rc_k(\qv) \, G^{(2)}_{k, ij}[\qv, -\qv, \phiv] \, ,
 \end{equation}
 où $t$ est ce que l'on appelle le temps de RG, définit par $t = \ln(k/\Lambda)$. Avec $G^{(2)}_{k, ij}[\qv, -\qv, \phiv]$ la transformée de Fourier du tenseur $G^{(2)}$ définie en \refann{}. 
 
-En pratique, on suppose que comme dans la limite thermodynamique on étudie des systèmes macroscopiques et que $1/\Lambda$ est une grandeur microscopique $|\Omega|\gg 1/\Lambda^d$. Ainsi on fait l'approximation physique selon laquelle les impulsions ne sont plus de variables discrètes mais des variables continues et les sommes deviennent des intégrales avec la relation  
- 
+En outre, nous avons aussi une condition initiale pour $\Gamma$ puisqu'un rapide calcul mène, d'après les équations \refeq{} directement à 
 \begin{equation}
-	\frac{1}{|\Omega|} \sum_{\qv} \rightarrow \frac{1}{(2\pi)^d} \int_{\R^d} ... \, \dd^d \, \qv  \equiv \int_\qv 
+	\Gamma_\Lambda [\phiv] = \Gamma_\Lambda 	[\varphiv_0] = S[\varphiv_0]
 \end{equation}
+Avec $\varphiv_0$ défini comme en \refeq{}. Nous rappelons que la connaissance de $\Gamma$ nous permet de connaitre les exposants critiques $\eta$ et $\nu$ .Ainsi, nous avons une équation différentielle avec une condition initiale connue. Cependant on peut remarquer que pour connaitre $\partial_t \Gamma$ dans cette équation il nous faut connaitre la dérivée seconde $\Gamma^{(2)}$. Puis. On dit que l'équation est ouverte et n'est donc pas soluble telle quelle. Ce pourquoi nous allons utiliser l'approximation BMW. 
 
 
-\pagebreak
+
+
 
 
 \subsubsection{Approximation BMW}
@@ -322,7 +377,7 @@ En pratique, on suppose que comme dans la limite thermodynamique on étudie des 
 
 On repart ici l'équation principale du NPRG qui est l'équation de flot de $\Gamma$ avec la notation intégrale, 
 \begin{equation}
-\partial_t \Gamma_{k, ij}	[\pv, \phiv] = \frac{1}{2} \int_\qv \partial_t \Rc_k(\qv) \, G^{(2)}_{k, ij}[\qv, -\qv, \phiv] \, ,
+\partial_t \Gamma_{k}	[\pv, \phiv] = \frac{1}{2} \int_\qv \partial_t \Rc_k(\qv) \, G^{(2)}_{k, ij}[\qv, -\qv, \phiv] \, ,
 \label{eq:Flot}
 \end{equation}
 Avec, on le rappelle :
@@ -343,6 +398,14 @@ On obtient finalement le système d'équation suivant
 	& - \frac{1}{2}  I_2(\phiv) \, \partial_\phi^{2} \Gamma_{k, ij}^{(2)}(\pv, \phiv)
 \end{split}
 \end{equation}
+
+\subsubsection{La dimension du champ}
+
+Avant de s'occuper de l'application des équations BMW à un modèle concret introduisons le concept de dimension anormale. En effet nous avons mentionner que la fonction de corrélation à deux points évolue, à la transition de phase, schématiquement en $G^{(2)}(r) \sim |r|^{2-d-\eta}$ pour $r \to \infty$. Or cette grandeur $\eta$, qui est un exposant critique, possède aussi le nom de dimension anormale car elle viole à priori la dimension que devrait avoir $G^{(2)}(r)$. Pour la prendre en compte dans les équations cela ne découle donc pas naturellement des équations déjà écrite. Pour cela on remarque cette évolution de $G^{(2)}$ implique que  $\Gamma^{(2)} \sim \pv^{2-\eta}$ quand $\pv \to 0$. On introduit alors $Z_k$ une grandeur dimensionné telle que
+\begin{equation}
+	Z_k = 	
+\end{equation}
+
 
 \vspace*{22pt}
  
