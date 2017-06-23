@@ -58,6 +58,12 @@ Lars Onsager.
   transition.
 \newblock {\em Phys. Rev.}, 65:117--149, Feb 1944.
 
+\bibitem{shen1994efficient}
+Jie Shen.
+\newblock Efficient spectral-galerkin method i. direct solvers of second-and
+  fourth-order equations using legendre polynomials.
+\newblock {\em SIAM Journal on Scientific Computing}, 15(6):1489--1505, 1994.
+
 \bibitem{toledano1987landau}
 JC~Toledano and P~Toledano.
 \newblock The landau theory of phase transitions world scientific.

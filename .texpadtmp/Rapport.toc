@@ -13,17 +13,19 @@
 \contentsline {subsubsection}{\numberline {2.3.3}Equation de flot}{8}{subsubsection.2.3.3}
 \contentsline {subsubsection}{\numberline {2.3.4}Approximation BMW}{8}{subsubsection.2.3.4}
 \contentsline {subsubsection}{\numberline {2.3.5}La dimension du champ}{8}{subsubsection.2.3.5}
-\contentsline {section}{\numberline {3}Le mod\IeC {\`e}le continu O(N)}{8}{section.3}
-\contentsline {subsection}{\numberline {3.1}Pr\IeC {\'e}sentation du mod\IeC {\`e}le $\boldsymbol { \varphi }^4$}{8}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Les \IeC {\'e}quations dans le cas $O(1) \simeq \mathbb {Z}_2$}{8}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}R\IeC {\'e}sultats}{8}{subsection.3.3}
+\contentsline {section}{\numberline {3}Le mod\IeC {\`e}le continu $O(N)$}{9}{section.3}
+\contentsline {subsection}{\numberline {3.1}Th\IeC {\'e}orie $\boldsymbol { \varphi }^4$ et mod\IeC {\`e}le $O(N)$}{9}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Mod\IeC {\`e}le $O(N)$}{9}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Th\IeC {\'e}orie $\boldsymbol { \varphi }^4$}{9}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Les \IeC {\'e}quations dans le cas $O(1) \simeq \mathbb {Z}_2$}{9}{subsection.3.2}
 \contentsline {section}{\numberline {4}M\IeC {\'e}thodes num\IeC {\'e}riques pour la r\IeC {\'e}solution de ces \IeC {\'e}quations}{9}{section.4}
-\contentsline {subsection}{\numberline {4.1}Structure de l'algorithme}{9}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Discr\IeC {\'e}tisation en champ}{9}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Discr\IeC {\'e}tisation en impulsion}{10}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}Interpolation de Tchbytchev}{10}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}Calcul de l'interpol\IeC {\'e} - m\IeC {\'e}thode de Clenshaw}{10}{subsubsection.4.3.2}
-\contentsline {subsection}{\numberline {4.4}Parall\IeC {\'e}lisation}{10}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.1}Travail r\IeC {\'e}alis\IeC {\'e} sur ces \IeC {\'e}quations}{9}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Structure de l'algorithme}{9}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Discr\IeC {\'e}tisation en champ}{10}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Discr\IeC {\'e}tisation en impulsion}{10}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Interpolation de Tchbytchev}{10}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Calcul de l'interpol\IeC {\'e} - m\IeC {\'e}thode de Clenshaw}{10}{subsubsection.4.4.2}
+\contentsline {subsection}{\numberline {4.5}Parall\IeC {\'e}lisation}{10}{subsection.4.5}
 \contentsline {section}{\numberline {5}Le mod\IeC {\`e}le d'Ising en dimension 2}{11}{section.5}
 \contentsline {subsection}{\numberline {5.1}Mod\IeC {\'e}lisation du probl\IeC {\`e}me avec des champs}{11}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Etapes de la r\IeC {\'e}solution num\IeC {\'e}rique}{13}{subsection.5.2}

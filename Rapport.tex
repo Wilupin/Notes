@@ -120,8 +120,7 @@ Dans une première partie nous rappellerons donc les origines du modèle du RG e
 
 Nous résumons dans cette sections quelques concepts fondamentaux de la thermodynamique et de la physique statistique \cite{diu2007thermodynamique} nécessaires à l'introduction du groupe de renormalisation. \\
 
-Considérons un système à $P$ corps dans un ouvert à $d$ dimensions $\Omega$ de volume $|\Omega|$. On considère que l'ensemble des $N$ degrés de liberté de chacun de ces $P$ corps peuvent être décrit suivant leur position $\rv$ grâce à une fonction $\varphiv : \rv \in \Omega \rightarrow \varphiv(\rv) \in \R^d$, telle que $\varphiv \in \( \Cc^{\infty}(\Omega)\)^d$  \\
-
+Considérons un système à $P$ corps dans un ouvert à $d$ dimensions $\Omega$ de volume $|\Omega|$. On considère que l'ensemble des $N$ degrés de liberté de chacun de ces $P$ corps peuvent être décrit suivant leur position $\rv$ grâce à un ensemble de vecteurs $\{{\varphiv_\rv}\}_\rv$. Le vecteur $\varphiv_\rv$ possède $N$ composantes représentant chacune la valeur d'un degré de liberté du corps situé en $\rv$. Cependant comme nous en avons déjà discuté, nous étudions des systèmes macroscopique, ou autrement dit, des systèmes dans la limite thermodynamique où le nombre $P$ de corps est très élevé. Suffisamment élevé pour considérer que l'ensemble de valeurs ${\{{\varphiv_\rv}\}}_\rv$ discrètes peut en réalité s'exprimer comme une fonction $\varphiv : \rv \in \Omega \rightarrow \varphiv(\rv) \in \R^N$, telle que $\varphiv \in \( \Cc^{\infty}(\Omega)\)^N$. Ceci s'appelle le modèle continu. \\
 
 La dynamique du système est alors régie par un une fonctionnelle de $\varphiv$ : l'hamiltonien $H[\varphiv]$. Avec le formalisme canonique de la physique statistique \cite{rohtuA} nous savons que nous pouvons connaitre toutes l'information sur les propriétés macroscopiques du système en étudiant sa fonction de partition $\Zc$ définie par l'expression 
 \begin{equation}
@@ -260,6 +259,7 @@ Avec la définition
 \end{split}
 \end{equation}
 
+\commentout{
 \begin{figure}[H]
 \begin{center}
 \begin{tikzpicture}
@@ -274,6 +274,8 @@ Avec la définition
 \end{center}
 \caption{Allure du régulateur choisi. On remarque que l'on n'arrête pas d'intégrer brutalement les grandes impulsions comme nous l'aurions fait avec une fonction de Heaviside. }
 \end{figure}
+
+}
 
 C'est grâce à l'évolution de $\Rc_{k,ij}$ en fonction de $k$ que l'on intègre au fur et à mesure les grandes impulsions. En effet, pour être conforme à la méthode du RG, il faut que l'on retrouve $\lim_{k \to 0}\Zc_k = \Zc$ et pour $k = \Lambda$ que l'expression de $\Zc_\Lambda$ puisse être calculée analytiquement. De cette manière on peut, en faisant évoluer $k$ de $\Lambda$ à $0$ suivre l'évolution de $\Zc_k$ d'une valeur connue à la valeur $\Zc$ par le biais d'une équation différentielle. On peut donc choisir $\Rc_{k,ij}$ tel que , \\
 
@@ -299,7 +301,7 @@ Il faut aussi que $\Rc_{k,ij}$ soit une fonction possédant des symétries compa
 
 Ce qu'il semble le plus naturel, c'est d'utiliser dans le régulateur une fonction de Heaviside en écrivant 
 \begin{equation}
-	\forall q \in [0, \Lambda] \quad \Rc_k(q) = \alpha (q^2 - k^2) \Theta(q^2 - k^2)
+	\forall q \in [0, \Lambda] \quad \Rc_k(q) = \alpha (k^2 - q^2) \Theta(k^2 - q^2)
 \end{equation}
 Avec $\alpha$ un réel positif que l'on prend de l'ordre de l'unité et que l'on peut faire varier mais qui n'est pas supposer changer les résultats des calculs. Cependant, dans l'approximation BMW les régulateurs de Heaviside ne sont pas assez régulier et donnent des schéma numériques instables. On prend donc une expression définie par
 \begin{equation}
@@ -401,38 +403,93 @@ On obtient finalement le système d'équation suivant
 
 \subsubsection{La dimension du champ}
 
-Avant de s'occuper de l'application des équations BMW à un modèle concret introduisons le concept de dimension anormale. En effet nous avons mentionner que la fonction de corrélation à deux points évolue, à la transition de phase, schématiquement en $G^{(2)}(r) \sim |r|^{2-d-\eta}$ pour $r \to \infty$. Or cette grandeur $\eta$, qui est un exposant critique, possède aussi le nom de dimension anormale car elle viole à priori la dimension que devrait avoir $G^{(2)}(r)$. Pour la prendre en compte dans les équations cela ne découle donc pas naturellement des équations déjà écrite. Pour cela on remarque cette évolution de $G^{(2)}$ implique que  $\Gamma^{(2)} \sim \pv^{2-\eta}$ quand $\pv \to 0$. On introduit alors $Z_k$ une grandeur dimensionné telle que
+Avant de s'occuper de l'application des équations BMW à un modèle concret introduisons le concept de dimension anormale. En effet nous avons mentionner que la fonction de corrélation à deux points évolue, à la transition de phase, schématiquement en $G^{(2)}(r) \sim |r|^{2-d-\eta}$ pour $r \to \infty$. Or cette grandeur $\eta$, qui est un exposant critique, possède aussi le nom de dimension anormale car elle viole à priori la dimension que devrait avoir $G^{(2)}(r)$ d'une longueur à la puissance $2-d$. Pour la prendre en compte dans les équations cela ne découle donc pas naturellement des équations déjà écrite. Pour cela on remarque que cette évolution de $G^{(2)}$ implique aussi $\Gamma^{(2)} \sim \pv^{2-\eta}$ quand $\pv \to 0$. On introduit alors $Z_k$ une grandeur dimensionnée telle que
 \begin{equation}
-	Z_k = 	
+	Z_k = {\left. \frac{\partial \Gamma_k^{(2)}[\pv, \phiv]}{\partial \pv^2} \right|}_{\phiv \text{ unif.} = \phiv_0, \pv = \pv_0 }
 \end{equation}
 
+Où $\phi_0$ et $\pv_0$ sont des valeurs arbitraire du champ uniforme et de l'implusion. De cette manière  quand $k \to 0$ nous avons $Z_k \propto \pv^\eta$.
+On introduit alors $\eta_k$ tel que
+\begin{equation}
+	\eta_k = -k \partial_k \ln(Z_k)
+\end{equation}
 
-\vspace*{22pt}
+Ainsi nous dirons que $\Gamma^{(2)}_k$ n'a pas vraiment la dimension de $\pv^2$ mais la dimension de $Z_k\pv^2$. Et il a été prouvée\cite{} que ce faisant 
+\begin{equation}
+ 	\lim\limits_{k \to 0} \eta_k  = \eta
+ \end{equation}
+Ceci est d'une très grande importance pour l'adimensionnement des équations qui est nécessaire pour trouver les points fixes du RG (c.f. \ref{}). Mais de plus c'est cette grandeur qui va nous donner l'exposant critique $\eta$ que l'on recherche.
+\vfill
+\pagebreak
  
-\section{Le modèle continu O(N)}
+\section{Le modèle continu $O(N)$}
 
-\subsection{Présentation du modèle $\varphiv^4$}
+\subsection{Théorie $\varphiv^4$ et modèle $O(N)$}
 
-On dit qu'un modèle est $O(N)$ si jamais le système est invariant par l'action du groupe de rotation $O(N)$ sur ces degrés de libertés. Autrement dit faire tourner les degrés de libertés du 
+\subsubsection{Modèle $O(N)$}
+On dit qu'un modèle est $O(N)$ si jamais le système est invariant par l'action du groupe de rotation $O(N)$ sur ces degrés de libertés. Plus précisément, soit $J \in O(N)$, et on note $J.V$ l'action de $J$ sur un vecteur $V$ de $\R^N$. Le modèle est dit $O(N)$ si 
+\begin{equation}
+	H[J \varphiv] = H[\varphiv]	
+\end{equation}
 
-Il a été montré \cite{Bellac2012} que lorsque l'on cherche à déterminer les exposants critique d'un 
+Dans la suite nous utiliserons alors une autre grandeurs scalaire invariante sous $O(N)$ pour caractériser les champs uniformes 
+\begin{equation}
+	\rho = \frac{1}{2}  \phiv^2  
+\end{equation}
 
-L'ensemble des équations BMW pour un tel système ont été développées dans \cite{benitez2012nonperturbative}. 
+\subsubsection{Théorie $\varphiv^4$}
+
+Il a été montré \cite{Bellac2012} que lorsque l'on cherche à déterminer les exposants critiques, et que l'on s'intéresse uniquement à ce qu'il peut se passer au voisinage de la température critique alors il suffit d'étudier les premiers ordres du hamiltonien autour de $\varphiv \sim 0$, qui, pour respecter les symétries, dans le modèle $O(N)$ à nécessairement la forme 
+\begin{equation}
+		H[\varphiv] = \int_\rv \, \left\{ \frac{1}{2}(\nabla \varphiv)^2 + \frac{1}{2}r_0 \varphiv^2 + \frac{u_0}{4!}{\({\varphiv}^{2}\)}^{2} \right\}
+\end{equation}
+
+Avec $u_0$ et $r_0$ deux réels. 
+C'est donc ce hamiltonien qui est injectée dans les équations du RG permettant d'obtenir les équations de flot et les équations BMW qui nous ont intéressées. Toutes les équations d'un tel système ont été développées, par exemple, dans \cite{benitez2012nonperturbative}. 
 
 
 \vspace*{11pt}
 \subsection{Les équations dans le cas $O(1) \simeq \mathbb{Z}_2$}
 
-Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$ et nous laissons le cas général en annexe par soucis de concision. Comme nous le rappelons, le but de . 
+Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$ et nous laissons le cas général en annexe par soucis de concision. Le problème numérique à résoudre est donc : \\
 
+\noindent
+{\itshape Trouver $\tY_k(\trho, \tp)$ et $\tW_k(\rho)$ tels que pour tout $k \in [1, 0[$,  $\trho \in [0, +\infty[$ et $\tp \in [0, +\infty[$,}
+\begin{align}
+	\partial_t \tY_k & = 
+	\begin{aligned}[t]
+			& \eta_k(1+\tY_k) + \tp \, \partial_{\tp} \tY_k -(2-d-\eta_k)\trho \,\partial_{\trho} \tY_k  \quad  \\
+			& \quad + 2\trho \tp^{-2} \left[ {\( \tp^2 \partial_{\trho} \tY_k + \tilde{u}_k\)}^2\, \tJ_3 - \tilde{u}_k^2\ \tI_3 \right] \\
+			& \quad - \tI_2 \(  \partial_{\trho} \tY_k / 2 + \trho \,  \partial_{\trho}^2 \tY_k \)
+	\end{aligned}
+	\label{eqn}\\
+	\partial_t \tW_k & = 
+	\begin{aligned}[t]
+		& (\eta_k-2) \tW_k  + (d-2+\eta_k) \trho \,\partial_{\trho}\tW_k + \frac{1}{2} \partial_{\trho} \tI_1
+	\end{aligned}
+\end{align}
+
+Avec les notations définies en annexe \refann{}.
+Et les conditions initiales
+\begin{equation}
+	\tY_1(\trho, \tp) = 0 \quad  \text{et} \quad \tW_1(\trho) = r_0' + u_0'\trho
+\end{equation}
+où $r_0'$ et $u_0'$ viennent de $r_0$ et $u_0$ (c.f. \refeq{}). 
+Pour résoudre ce système il manque cependant encore une équation sur $\eta_k$ découlant de la définition même de $Z_k$ en \refeq{} et écrite en annexe.
+Ces équations sont dites adimensionnée car nous y avons réalisé l'adimensionnement du RG décrit en section \refsec{}. \\
+
+Ainsi le but est de chercher "un point fixe" en faisant varier $r_0'$ pour se rapprocher de la température critique et du potentiel du système à la température critique. On teste donc plusieurs $r_0'$ avec une dichotomie pour 
 
 
 \vspace*{11pt}
-\subsection{Résultats}
-\lipsum[1]
+
 
 
 \section{Méthodes numériques pour la résolution de ces équations}
+
+\subsection{Travail réalisé sur ces équations}
+
+La première partie de notre travail a été de reprendre le développement de ces équations mais aussi un code qui avait déjà été écrit. En effet, pour résoudre ces équations de très nombreuses méthodes numériques ont été mises en place, comme des méthodes galerkin \cite{shen1994efficient, LeonardThesis} pour la représentation des , de simpsons, de gauss 
 
 \subsection{Structure de l'algorithme}
 

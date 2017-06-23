@@ -9,45 +9,45 @@ while executing---line 1049 of file plain.bst
 Too many commas in name 1 of "Bernard Diu, Claudine Guthmann, Danielle Lederer, Bernard Roulet" for entry rohtuA
 while executing---line 1090 of file plain.bst
 Warning--can't use both author and editor fields in Delamotte2012
-You've used 13 entries,
+You've used 14 entries,
             2118 wiz_defined-function locations,
-            590 strings with 6310 characters,
-and the built_in function-call counts, 3785 in all, are:
-= -- 367
-> -- 162
+            598 strings with 6508 characters,
+and the built_in function-call counts, 4100 in all, are:
+= -- 401
+> -- 169
 < -- 2
-+ -- 68
-- -- 52
-* -- 242
-:= -- 661
-add.period$ -- 41
-call.type$ -- 13
-change.case$ -- 58
++ -- 71
+- -- 54
+* -- 266
+:= -- 712
+add.period$ -- 44
+call.type$ -- 14
+change.case$ -- 62
 chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 159
-empty$ -- 303
-format.name$ -- 52
-if$ -- 787
+cite$ -- 15
+duplicate$ -- 170
+empty$ -- 332
+format.name$ -- 54
+if$ -- 852
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 16
-newline$ -- 68
-num.names$ -- 26
-pop$ -- 68
+int.to.str$ -- 14
+missing$ -- 17
+newline$ -- 73
+num.names$ -- 28
+pop$ -- 70
 preamble$ -- 1
-purify$ -- 52
+purify$ -- 55
 quote$ -- 0
-skip$ -- 102
+skip$ -- 109
 stack$ -- 0
-substring$ -- 189
-swap$ -- 28
+substring$ -- 225
+swap$ -- 29
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 42
+type$ -- 46
 warning$ -- 1
-while$ -- 36
-width$ -- 15
-write$ -- 145
+while$ -- 40
+width$ -- 16
+write$ -- 156
 (There were 2 error messages)
