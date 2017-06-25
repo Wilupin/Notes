@@ -28,12 +28,15 @@
 
 \usepackage{tikz}
 \tikzset { domaine/.style 2 args={domain=#1:#2} }
-
+\definecolor{bleu}{rgb}{0.99,0.69,0.07}
 
 \begin{document}
 
 
 % Titre du document
+\begin{titlepage}
+	
+
 \vspace*{-22pt}
 \begin{center}
 \includegraphics[scale=0.35]{Logo_LPTMC.png}
@@ -73,6 +76,70 @@ Encadré par : Bertrand Delamotte  et Nicolas Dupuis
 \pagebreak
 
 %\vspace*{4pt}
+\end{titlepage}
+\pagebreak
+
+\strut
+ \thispagestyle{empty}
+\newpage
+
+
+
+
+
+
+% On commence le compteur de page ici
+ \setcounter{page}{1}
+
+\begin{flushleft}
+\color{bleu}
+{\fontsize{14}{14} \selectfont
+	\textbf{Remerciement}}\\
+
+\color{black}
+\end{flushleft}
+Je souhaiterais remercier l'ensemble des membres du LPTMC que j'ai eu le plaisir de rencontrer pour leur accueil chaleureux et leur aide tout au long de mon stage. Je souhaiterais tout particulièrement remercier Bertrand Delamotte et Nicolas Dupuis qui m'ont 
+
+
+
+
+\begin{flushleft}
+\color{bleu}
+{\fontsize{14}{14} \selectfont
+	\textbf{Acknowledgments}}\\
+
+\color{black}
+\end{flushleft}
+I would like to thank all the members of LPTMC whom I had the pleasure to meet for their warm welcome and their help. I would particulary like to thank Pr. Janne Ruostekoski who has helped and guided my with the project as well as the administrative procedures.
+\vspace*{11pt}
+
+
+
+\begin{center}
+\rule{13.7cm}{.5pt}
+\end{center}
+
+\vspace*{-11pt}
+\begin{abstract}
+Nous montrons qu'un ensemble d'atomes froids isotropes dans un réseau optiques 2D peut permettre de stocker de la lumière sur des temps sous-radiant à l'aide d’interactions dipolaires collectives. Nous excitons les dipôles atomiques dans le plan du réseau par une lumière plane monochromatique proche résonance puis en manipulant correctement les niveaux d'énergie atomiques par effet Zeeman nous avons réussi à tourner les y rendre perpendiculaire. En réalisant un traitement exact sur des réseaux réalistes nous obtenons des temps d'émission spontané collectifs d'environ huit fois le temps d’émission spontané d'un atome unique. Nous montrons aussi que les distances interatomiques et la taille du réseau jouent un rôle important pour augmenter ce temps ; un total de 400 atomes étant suffisant pour obtenir la sous-radiance annoncée. De plus il serait très avantageux de parvenir à créer des réseaux avec un meilleur confinement des atomes puisque pour un confinement parfait nous obtenons un stockage cent fois plus long qu'avec un atome unique. Enfin l'étude de la transmission de la lumière diffusée met en avant les résonances du système ainsi que la possibilité de l'utiliser comme détecteur de champ magnétique. 
+\end{abstract}
+
+\begin{center}
+\rule{8cm}{.5pt}
+\end{center}
+
+
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+We show that an atomic ensemble of colf atom in a 2D lattice can be used to store light on subradiant times thanks to dipole-dipole collective interactions. We exite dipole moments in the plane of the lattice with a near resonant plane monochromatic weak light and accurately handling the atomic levels with Zeeman effect we manage to spin them to be oriented perpendicularly and trap the photons. We realized an exact treatment with realistic lattices parameters and found a collective linewidth up to eight times less the linewidth of a single atom. We show that the lattice-spacing and the number of atoms has a important impact on that collective linewidth and a that a lattice of 400 atoms is large enough to reach the previous subradiance. Moreover it would be beneficial to create lattice confinment of the atomes even stronger that what is experimentally currently possible since a perfect confinement gives linewidths greater that one hendred times the linewidth of a single atom. Eventually the study of the transmission showed the system resonances and the possibility to use it as a weak magnetic field detector.  
+\end{abstract}
+
+
+\begin{center}
+\rule{13.7cm}{.5pt}
+\end{center}
+
+\pagebreak 
 
 \tableofcontents
 
@@ -140,7 +207,7 @@ En utilisant la notion de dérivée fonctionnelle nous pouvons alors introduire 
 \begin{equation}
   G^{(n)}_{\{i_j\}} [\{\rv_{j}\} ; \hv] = \derd{^n W[\hv]}{h_{i_1}(\rv_1) ... \delta h_{i_n}(\rv_n)}
 \end{equation}
-Or ces grandeurs ne peuvent pas se calculer directement, ce pourquoi on utilise le potentiel de Gibbs. Comme l'énergie libre est une fonction convexe \cite{diu2007thermodynamique} on peut définir le potentiel est Gibbs qui est une fonctionnelle du champ $\hv$ définie par transformation de Legendre selon la formule
+Cependant ces grandeurs ne peuvent pas se calculer directement. Or, comme l'énergie libre est une fonction convexe \cite{diu2007thermodynamique} on peut définir, une grandeur que l'on parviendra à calculer, le potentiel Gibbs qui est une fonctionnelle du champ $\hv$ définie par transformation de Legendre selon 
 \begin{equation}
   \Gamma [\phiv] = - W[\hv] + \int_{\Omega} \hv \phiv,
 \end{equation}
@@ -151,7 +218,7 @@ Avec, en notant $\left< ... \right>$ la moyenne statistique,
 \begin{equation}
   \left< \varphiv(\rv) \right> = \frac{1}{\Zc} \int \Dc \varphiv \, \varphiv(\rv) \exp\left\{- H[\varphiv]\right\}, 
 \end{equation}
-On introduit aussi une notation pour les dérivées fonctionnelles de $\Gamma$ avec 
+On introduit aussi une notation pour les tenseurs de dérivées fonctionnelles de $\Gamma$ avec 
 \begin{equation}
   \Gamma^{(n)}_{\{i_j\}} [\{\xv_{j}\} ; \phiv] = \derd{^n \Gamma[\phiv]}{\phi_{i_1}(\xv_1) ... \delta \phi_{i_n}(\xv_n)}
 \end{equation}
@@ -164,10 +231,16 @@ Il faut donc retenir que la connaissance du potentiel de Gibbs équivaut à la c
 
 En outre la connaissance de $\Gamma[\phiv]$ a aussi un autre avantage important puisqu'il correspond, lorsque $\phiv$ est uniforme, à un facteur de volume $|\Omega|$ près, au potentiel du système que l'on note $V$ selon :
 \begin{equation}
-	V(\phi) = \frac{1}{|\Omega|}\Gamma[\phiv],
+	V(\phiv) = \frac{1}{|\Omega|}{\left. \Gamma[\phiv] \right|}_{\phiv \text{ unif.}},
 \end{equation}
-où $\phi$ est la norme de $\phiv$. Et ce sont la position du minimum global de $V$ noté $\phi_0$ qui nous informe sur la nature de la phase dans laquelle se trouve le système. Si jamais $\phi_0 \neq 0$ alors la température du système est inférieure à la température critique : on dit qu'il est dans la phase basse température. En revanche si  $\phi_0 = 0$ la température est au dessus de la température critique et le système est dans la phase haute température. La connaissance de $\Gamma$ est dont d'une très grande utilité.\\
-
+Et ce sont la position du minimum global de $V$ noté $\phiv_0$ qui nous informe sur la nature de la phase dans laquelle se trouve le système. Si jamais $\phiv_0 \neq 0$ alors la température du système est inférieure à la température critique : on dit qu'il est dans la phase basse température. En revanche si  $\phiv_0 = 0$ la température est au dessus de la température critique et le système est dans la phase haute température.\\
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.95\columnwidth]{CourbePot1.pdf}
+\caption{Allure du potentiel pour un champ n'ayant qu'une seule composante : $\phiv = \phi$. La position de $\phi_0$ est symbolisée par les points verts. Dans le cas (a), nous sommes dans la phase dite haute température. Dans le cas (b) le potentiel est toujours une fonction convexe mais elle est extra plate autour de l'origine. En physique on dira que le minimum de V ne se trouve pas vraiment en $0$ mais sur les bords de la région plate, suivant certains critères. Remarquons qu'il s'agit bien alors de fonctions concaves et paires.}
+\end{center}
+\end{figure}
+\vspace*{-11pt}
 Développons à présent les théories du RG et du NPRG qui partent des quelques formules rappelées ici. 
 
 
@@ -259,23 +332,9 @@ Avec la définition
 \end{split}
 \end{equation}
 
-\commentout{
-\begin{figure}[H]
-\begin{center}
-\begin{tikzpicture}
-\shorthandoff{:}
-\draw [very thick][->]  (0,0) -- (6,0);\draw (6,0) node[right] {$q$};\draw [very thick][->] (0,0) -- (0,2.9);\draw (0,2.9) node[above] {$\Rc_k(q)$};
-\draw (0,0) node[below] {$0$};
-\draw (3,0) node[below] {$k$};
-\draw (0,2.5) node[left] {$\sim k^2$};
-\draw [very thick][blue][domain=0.1:6] plot ( \x, {2.5*((\x*\x)/(1.8*1.8))*(1/(exp(\x*\x/(1.8*1.8))-1)} );
-\clip (0,3) rectangle (6,0);
-\end{tikzpicture}
-\end{center}
-\caption{Allure du régulateur choisi. On remarque que l'on n'arrête pas d'intégrer brutalement les grandes impulsions comme nous l'aurions fait avec une fonction de Heaviside. }
-\end{figure}
 
-}
+
+
 
 C'est grâce à l'évolution de $\Rc_{k,ij}$ en fonction de $k$ que l'on intègre au fur et à mesure les grandes impulsions. En effet, pour être conforme à la méthode du RG, il faut que l'on retrouve $\lim_{k \to 0}\Zc_k = \Zc$ et pour $k = \Lambda$ que l'expression de $\Zc_\Lambda$ puisse être calculée analytiquement. De cette manière on peut, en faisant évoluer $k$ de $\Lambda$ à $0$ suivre l'évolution de $\Zc_k$ d'une valeur connue à la valeur $\Zc$ par le biais d'une équation différentielle. On peut donc choisir $\Rc_{k,ij}$ tel que , \\
 
@@ -302,10 +361,12 @@ Il faut aussi que $\Rc_{k,ij}$ soit une fonction possédant des symétries compa
 Ce qu'il semble le plus naturel, c'est d'utiliser dans le régulateur une fonction de Heaviside en écrivant 
 \begin{equation}
 	\forall q \in [0, \Lambda] \quad \Rc_k(q) = \alpha (k^2 - q^2) \Theta(k^2 - q^2)
+	\label{eq:RegHeav}
 \end{equation}
-Avec $\alpha$ un réel positif que l'on prend de l'ordre de l'unité et que l'on peut faire varier mais qui n'est pas supposer changer les résultats des calculs. Cependant, dans l'approximation BMW les régulateurs de Heaviside ne sont pas assez régulier et donnent des schéma numériques instables. On prend donc une expression définie par
+Avec $\alpha$ un réel positif que l'on prend de l'ordre de l'unité et que l'on peut faire varier mais qui n'est pas supposer changer les résultats des calculs. Cependant, dans l'approximation BMW les régulateurs de Heaviside ne sont pas assez régulier et donnent des schéma numériques instables. On prend donc une expression infiniment dérivable définie par
 \begin{equation}
 	\forall q \in [0, \Lambda] \quad \Rc_k(q) = \alpha \frac{q^2}{\exp{(q^2/k^2)}-1}
+	\label{eq:RegExp}
 \end{equation}
 Remarquons que l'on satisfait bien aux hypothèses imposées sur le régulateur car 
 \begin{equation}
@@ -316,7 +377,12 @@ donc $\Rc_k$ converge même uniformément vers 0 quand $k \to 0$. En outre, la s
 	 \text{inf}\left\{ \Rc_\Lambda(q) \right\} = \alpha \frac{\Lambda^2}{e-1}
 \end{equation}
 
-
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.95\columnwidth]{Reg.pdf}
+\end{center}
+\caption{Allure du régulateur choisi pour une valeur de $k$ donnée avec une décroissance exponentielle (ligne continue bleue - c.f. \refeq{RegExp}) et avec une fonction de Heaviside (pointillés rouges -c.f. \refeq{RegHeav}). Ainsi ici nous avons approximativement intégrés les degrés de libertés dans $\simeq [k,\Lambda]$ sans toucher aux autres. On remarque la décroissance douce vers 0 contrairement au régulateur }
+\end{figure}
 
 \vspace*{11pt}
 \subsubsection{Potentiels et distinction de phase}
@@ -354,8 +420,14 @@ De plus nous avons aussi déjà mentionné que c'est la position du minimum du p
 \footnote{En effet on peut comprendre cela en se disant que les fluctuations du champs ont tendance à désordonner le système. Or la "quantité de désordre" permet de définir la phase du système (on pourra penser à de l'eau solide - faible désordre des molécules - et de l'eau liquide -grand désordre -) et ce qui permet "d'obtenir du désordre" dans un système c'est, dans les grandes lignes, la température qu'on lui impose (ce qui explique que jouer sur la température permet de changer de phase de manière générale). Ainsi un système dans lequel on prend en compte les fluctuations aura besoin d'une température moins élevé qu'un système dans lequel on ne les prend pas en compte pour obtenir le même degré de désordre. Ainsi la température pour lequel le désordre sera celui de la transition de phase, i.e. la température critique, sera plus faible} du système fictif. 
 On peut donc en conclure que les systèmes fictifs verrons une décroissance de leur température critique et qu'il faudra qu'ils partent de la phase haute température pour avoir une chance de déboucher en $k\to 0$ sur le vrai système exactement à la transition de phase. Un point important est que si le système fictif est dans la phase basse température pour $k\neq 0$ alors le système vrai en $k \to 0$ est aussi dans la phase basse température. Ainsi remarquons que $V_k$ pour $k \neq 0$ est une fonction qui doit être concave autour de l'origine pour assurer l'unicité de son minimum et la convexité de $W_k$ lorsque ce minimum est différent de $0$ et que l'on est dans la phase haute température. Ainsi c'est en observant le caractère concave ou convexe de $V_k$ dans un voisinage de $0$ que l'on peut déterminer la phase du système fictif défini à $k$. 
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.95\columnwidth]{CourbePot2.pdf}
+\caption{Allure du potentiel. La position de $\phiv_0$ est symbolisée par les points verts. Dans le cas (a), nous sommes dans la phase dite haute température. Dans le cas (b) le potentiel est toujours une fonction convexe mais elle est extra plate autour de l'origine. En physique on dira que le minimum de V ne se trouve pas vraiment en $0$ mais sur les bords de la région plate, suivant certains critères. Remarquons qu'il s'agit bien alors de fonctions concaves et paires.}
+\end{center}
+\end{figure}
+\vspace*{-11pt}
 
-\vspace*{11pt}
 \subsubsection{Equation de flot}
 On peut alors utiliser toutes les définitions que l'on vient de poser pour extraire l'équation fondamentale du NPRG que l'on appelle l'équation de flot. Il s'agit d'une équation valable pour $k \in ]0, \Lambda]$ décrivant l'évolution de $\Gamma$ avec $k$ lorsqu'on le fait évoluer de $\Lambda$ à $0$. 
 \begin{equation}
@@ -401,7 +473,8 @@ On obtient finalement le système d'équation suivant
 \end{split}
 \end{equation}
 
-\subsubsection{La dimension du champ}
+\vspace*{11pt}
+\subsubsection{La dimension anormale}
 
 Avant de s'occuper de l'application des équations BMW à un modèle concret introduisons le concept de dimension anormale. En effet nous avons mentionner que la fonction de corrélation à deux points évolue, à la transition de phase, schématiquement en $G^{(2)}(r) \sim |r|^{2-d-\eta}$ pour $r \to \infty$. Or cette grandeur $\eta$, qui est un exposant critique, possède aussi le nom de dimension anormale car elle viole à priori la dimension que devrait avoir $G^{(2)}(r)$ d'une longueur à la puissance $2-d$. Pour la prendre en compte dans les équations cela ne découle donc pas naturellement des équations déjà écrite. Pour cela on remarque que cette évolution de $G^{(2)}$ implique aussi $\Gamma^{(2)} \sim \pv^{2-\eta}$ quand $\pv \to 0$. On introduit alors $Z_k$ une grandeur dimensionnée telle que
 \begin{equation}
@@ -436,6 +509,7 @@ Dans la suite nous utiliserons alors une autre grandeurs scalaire invariante sou
 \begin{equation}
 	\rho = \frac{1}{2}  \phiv^2  
 \end{equation}
+Ainsi le potentiel effectif $V_k$, $\Gamma^{(2)}$ ou leurs dérivées ne dépendrons plus que de $\rho$ qui est une grandeur scalaire et non plus du vecteur $phiv$.
 
 \subsubsection{Théorie $\varphiv^4$}
 
@@ -454,7 +528,7 @@ C'est donc ce hamiltonien qui est injectée dans les équations du RG permettant
 Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$ et nous laissons le cas général en annexe par soucis de concision. Le problème numérique à résoudre est donc : \\
 
 \noindent
-{\itshape Trouver $\tY_k(\trho, \tp)$ et $\tW_k(\rho)$ tels que pour tout $k \in [1, 0[$,  $\trho \in [0, +\infty[$ et $\tp \in [0, +\infty[$,}
+{\itshape Trouver $\tY_k(\trho, \tp)$ et $\tW_k(\trho)$ tels que pour tout $k \in [1, 0[$,  $\trho \in [0, +\infty[$ et $\tp \in [0, +\infty[$,}
 \begin{align}
 	\partial_t \tY_k & = 
 	\begin{aligned}[t]
@@ -476,7 +550,7 @@ Et les conditions initiales
 \end{equation}
 où $r_0'$ et $u_0'$ viennent de $r_0$ et $u_0$ (c.f. \refeq{}). 
 Pour résoudre ce système il manque cependant encore une équation sur $\eta_k$ découlant de la définition même de $Z_k$ en \refeq{} et écrite en annexe.
-Ces équations sont dites adimensionnée car nous y avons réalisé l'adimensionnement du RG décrit en section \refsec{}. \\
+Ces équations sont dites adimensionnée car nous y avons réalisé l'adimensionnement du RG décrit en section \refsec{} ; ce pourquoi on retrouve un tilde sur toutes les grandeurs qui sont toutes définies dans \cite{}.\\
 
 Ainsi le but est de chercher "un point fixe" en faisant varier $r_0'$ pour se rapprocher de la température critique et du potentiel du système à la température critique. On teste donc plusieurs $r_0'$ avec une dichotomie pour 
 
@@ -489,7 +563,8 @@ Ainsi le but est de chercher "un point fixe" en faisant varier $r_0'$ pour se ra
 
 \subsection{Travail réalisé sur ces équations}
 
-La première partie de notre travail a été de reprendre le développement de ces équations mais aussi un code qui avait déjà été écrit. En effet, pour résoudre ces équations de très nombreuses méthodes numériques ont été mises en place, comme des méthodes galerkin \cite{shen1994efficient, LeonardThesis} pour la représentation des , de simpsons, de gauss 
+La première partie de notre travail a été de reprendre le développement de ces équations et nous avons réécrit de façon plus modulable et structurée en C++ un code de résolution qui avait déjà été écrit au laboratoire. Pour résoudre ces équations de très nombreuses méthodes numériques ont été mises en place, comme des méthodes galerkin \cite{shen1994efficient, LeonardThesis} pour la représentation des fonctions, de simpsons pour le calcul des intégrales, de Runge-Kutta pour la discrétisation temporelle etc., avant qu'un algorithme fonctionnant dans les cas $N=1$ et $d=2$ puisse être trouvé. Cependant, cet algorithme échoue lorsque l'on essaie de l'utiliser en $N \ge 2$ en $d=2$. Nous avons donc essayer d'en comprendre la cause, notamment en réalisant des calculs en des dimensions $d \in [2,3]$ et en les comparants à d'autres codes plus simples que nous avons réécrit, provenant d'autres approximations que BMW. 
+
 
 \subsection{Structure de l'algorithme}
 
@@ -997,6 +1072,691 @@ Comme pour le modèle continu $O(N)$ il est possible de paralléliser le code en
 
 
 \end{multicols}
+
+
+\pagebreak
+
+\appendix
+
+
+\section{Dérivée fonctionnelle, transformée de Fourier, opérateurs à noyaux}
+
+
+\subsection{Transformée de Fourier}
+
+On rappelle ici les notations utilisée pour définir les transformées de Fourier. Pour cela on considère $\varphiv$ une application de $L^2(\R^d)^N$. On définit alors la transformée de Fourier de $\varphiv$, notée $\hat{\varphiv}$ ou $\text{TF}[\varphiv]$ par, 
+
+\begin{equation}
+  \forall \qv \in \R^d \quad \hat{\varphiv}(\qv) = \text{TF}[\varphiv](\qv) = \int_{\R^d} \varphiv(\rv) e^{-i\qv.\rv}\dd \,\rv
+\end{equation}
+Avec la relation inverse,
+\begin{equation}
+  \forall \rv \in \R^d \quad \varphiv(\rv)  = \text{TF}^{-1}[\hat{\varphiv}](\rv) = \frac{1}{(2\pi)^d}\int_{\R^d} \hat{\varphiv}(\qv) e^{i\qv.\rv}\dd \,\qv
+\end{equation}
+On utilise alors la notation plus compacte 
+\begin{equation}
+  \frac{1}{(2\pi)^d}\int_{\R^d} ... \dd \,\qv \equiv \int_\qv ... \quad \text{et} \quad  \int_{\R^d} ... \dd \,\rv \equiv \int_\rv ... 
+\end{equation}
+
+Dans le cas ou l'on a des fonctions définies non pas sur $\R^d$ mais sur un domaine $\Omega \subset \R^d$ fini alors nous aurons les mêmes propriétés avec la relation "d'équivalence"  
+\begin{equation}
+	 \int_{\qv} ... \overset{\text{$\Omega$ fini}}{\quad \longrightarrow \quad } \frac{1}{\Omega} \sum_{\qv} ...
+\end{equation}
+Remarquons que lorsque l'on introduit la transformée de Fourier (\refsec{}) pour l'utiliser dans le RG les fonctions $\varphiv$ sont tout d'abord définies sur un ouvert $\Omega$ fini mais par des considérations physique, en passant à "la limite thermodynamique" on en vient à considèrer $\Omega$ comme devenant $\R$ tout entier. En outre, dans le cas où $\varphiv \in \Sr'(\R^d)^N$ (espace des distributions tempérées) on étend la notion de transformée de Fourier $\hat{\varphiv}$ de $\varphiv$ à l'aide du crochet de dualité, 
+\begin{equation}
+  \forall u \in \Sr(\R^d, \R^N) \quad \left< \hat{\varphiv}, u \right>_{\Sr', \Sr} = \left< \varphiv, \hat{u} \right>_{\Sr', \Sr}
+\end{equation}
+
+\vspace*{11pt}
+
+
+
+\subsection{Transformée de Fourier Semi Discrète}
+
+Dans le modèle d'Ising à deux dimensions nous introduisons une transformée de Fourier semi discrète car nous travaillons non pas avec des fonctions mais avec des suites. Ainsi soit $\varphi_\rv \in \ell^2$. On peut définir $\hat{\varphi} \in L^2(\R)$ par  
+\begin{equation}
+  \hat{\varphi}(\qv) = \sum_\rv \varphi_\rv e^{-i\qv\rv}
+\end{equation}
+  Avec la relation inverse,
+\begin{equation}
+ \varphi_\rv = \int_{\R^d} \hat{\varphi}(\qv)  e^{i\qv\rv} \dd\, \qv \equiv \int_\qv \hat{\varphi}(\qv)  e^{i\qv\rv}
+\end{equation}
+On peut de plus démontrer que cette transformation est une isométrie \cite{}.
+
+
+
+\vspace*{11pt}
+\subsection{Derivation fonctionnelle}
+
+\subsubsection{Définition}
+Soit $U$ et $V$ deux espaces de Banach. Soit $F$ une fonctionnelle de $U$ dans $V$. 
+Soit $f \in U$. On appelle, si elle existe, dérivée (au sens de Fréchet) de la fonctionelle $F$ prise en $f$, l'application linéaire continu de $\mathcal{L}(U,V)$, notée $D_fF$ telle que, pour $\eps>0$, 
+\begin{equation}
+\forall h \in U \quad \lim_{ \eps \rightarrow 0 } \frac{\| F[f+\eps h] - F[f] - \eps D_fF.h\|_V}{\eps}  = 0
+\end{equation} 
+Dans le cas où $U = L^2(\R^d)^N$ et $V = \R$ alors $D_fF \in U'$ (espace des forme linéaires continues de $U$) et on sait qu'il existe, par le théorème de Frechet-Riesz, une quantité unique que l'on note $\delta F[f]/\delta f$ telle que 
+\begin{equation}
+\forall h \in U \quad D_f F.h = {\left< \derd{F[f]}{f}, h \right>}_{U} = \int \derd{F[f]}{f(\rv)} h(\rv) \dd \, \rv	
+\end{equation}
+
+\vspace*{11pt}
+
+\subsubsection{Transformée de Fourier d'une dérivée fonctionnelle}
+
+Soit $F$ une fonctionelle de $U = L^2(\R^d)^N$ dans $(\R,|.|)$ et $\varphiv \in U$.
+Soit $\rv \in \R^d$.
+Alors, 
+\begin{equation}
+  \derd{F}{\varphiv(\rv)} = \int_{\qv} \derd{F}{\hat{\varphiv}(-\qv)} e^{i\qv.\rv} = \text{TF}^{-1} \left[ \derd{F}{\hat{\varphiv}(-\qv)} \right](\rv) 
+\end{equation} 
+
+
+\vspace*{11pt}
+%\noindent
+{\footnotesize 
+\noindent
+Par la règle de la chaine de la dérivation de Fréchet nous pouvons écrire, 
+\begin{equation}
+  \forall \hv \in U \quad D_{\varphiv} F. \hv = D_{\hat{\varphiv}} F. D_{\varphiv} \hat{\varphiv}.\hv 
+\end{equation}
+Cependant, $\hat{\varphiv}$ est une fonctionnelle de $\varphiv$ (par définition de la TF) de $U$ dans $U$ qui est linéaire en $\varphiv$. Soit $\eps >0$, 
+\begin{equation}
+  \forall \hv \in U \quad \hat{\varphiv}[\varphiv + \eps \hv] - \hat{\varphiv}[\varphiv] = \eps \hat{\hv} 
+\end{equation} 
+Il vient directement, par définition de la dérivation au sens de Frechet, $D_{\varphiv} \hat{\varphiv} .\hv = \hat{\hv}$.  
+Ainsi,  $D_{\varphiv} F .\hv = D_{\hat{\varphiv}}F.\hat{\hv}$.  On peut alors écrire, 
+\begin{align}
+  \forall \hv \in U  \quad D_{\varphiv} F .\hv & = \int_{\qv} \derd{F}{\varphiv(\qv)} \int_{\rv} h(\rv) e^{-i\qv.\rv} \\
+  \forall \hv \in U  \quad D_{\varphiv} F .h & = \int_{\rv} \int_{\qv} \derd{F}{\varphiv(\qv)} e^{-i\qv.\rv } \hv(\rv)
+\end{align}
+}
+
+
+
+\subsection{Opérateurs à noyaux}
+
+Nous détaillons dans cette sections quelques propriétés élémentaires mais très utiles dans notre études des opérateurs à noyaux. Après une définition rigoureuse de ces opérateurs et de leur trace nous utiliserons une description plus formelle de ce que peut être leur inverse.\\
+
+
+
+\subsubsection{Definition}
+
+On appelle $S$ un operateur a noyaux, une application de $L^2(\R^d, \R^N)$, telle que pour tout $(i,j) \in \bbrac{1,N}^2$, il existe une application $A_{i,j} \in L^2(\R^d\times\R^d, \R)$ telle que,  pour tout $f \in L^2(\R^d, \R^N)$, et $x \in \R^d$ 
+ \begin{equation}
+  S[f]_i(x) = \int_{\R^d} \sum_{j=1}^{N} A_{i,j}(x,y)f_j(y) \dd^d y
+ \end{equation}
+
+ La matrice $A : (x,y) \rightarrow ((A_{i,j}(x,y)))_{i,j}$ est appellée noyaux de $S$. \\
+ On identifiera alors dans les notations $S$ et $A$ indépendemment. Par Cauchy-Schwartz cette définition a bien  un sens. De plus, on peut montrer que $S$ et est un endomorphisme de $L^2(\R^d, \R^N)$. \\
+
+
+\vspace*{11pt}
+
+\subsubsection{TF d'un opérateur à noyaux}
+
+Nous avons vu que $S$ définie comme précédemment était un endomorphisme de $L^2(\R^d, \R^N)$. Ainsi il est possible d'en définir la transformée de Fourier. Nous avons donc,
+\begin{equation}
+  \hat{S}[f]_i(\qv) = \int_{\R^d} \sum_{j=1}^{N} \hat{A}_{i,j}(\qv, -\qv') \hat{f}_j(\qv')
+\end{equation}
+
+
+
+{\footnotesize
+Ceci ce démontre en développant le calcul de la transformée de Fourier. Soit $\qv \in \R^d$,
+\begin{align}
+ \hat{S}[f]_i(\qv)  = & \int_{\R^d} \int_{\R^d} \sum_{j=1}^{N} A_{i,j}(\xv,\yv)f_j(\yv) e^{-i\qv\xv} \dd^d \yv \dd^d \xv \\
+ \hat{S}[f]_i(\qv)  = & \int_{\R^{3d}} \sum_{j=1}^{N} A_{i,j}(\xv,\yv) \hat{f}_j(\qv') e^{i\qv'\yv} e^{- i\qv\xv}  \dd^d \qv' \dd^d \yv \dd^d \xv \\
+ \hat{S}[f]_i(\qv)  = &    \sum_{j=1}^{N} \int_{\R^d} \hat{f}_j(\qv') \left\{ \int_{\R^{2d}} A_{i,j}(\xv,\yv)  e^{i\qv'\yv} e^{- i\qv\xv}  \dd^d \yv \dd^d \xv   \right\} \dd^d \qv'\\
+\hat{S}[f]_i(\qv)  = &    \sum_{j=1}^{N} \int_{\R^d} \hat{f}_j(\qv') \hat{A}_{i,j}(\qv, -\qv') \dd^d \qv'\\
+\end{align}
+
+}
+
+\vspace*{11pt}
+
+\subsubsection{Composition de deux opérateurs}
+
+Considérons deux opérateurs à noyaux, $S$ et $T$ de noyaux respectifs $A$ et $B$. \\
+La composition de ces deux opérateurs est définie par,
+\begin{equation}
+  \forall \xv \in \R^d \quad S \circ T [f]_i (\xv) = \int_{\R^d}  \sum_{j=1}^{N} \left\{ \int_{\R^d} \sum_{j=k}^{N}A_{i,k}(\xv, \zv)B_{k,j}(\zv, \yv)  \dd^d \yv \right\} f_j(\yv)  \dd^d \yv
+\end{equation}
+On notera alors aussi
+\begin{equation}
+    \forall (\xv, \yv) \in (\R^d)^2 \quad (A \circ B)_{i,j} (\xv, \yv) = \int_{\R^d} \sum_{j=k}^{N}A_{i,k}(\xv, \zv)B_{k,j}(\zv, \yv)  \dd^d \yv 
+\end{equation}
+Par transformée de Fourier, par un calcul analogue à celui fait pour un simple noyaux, il vient,
+\begin{equation}
+\forall (\qv, \qv') \in (\R^d)^2 \quad\widehat{(A \circ B)}_{i,j}(\qv, \qv') =\int_{\R^d} \sum_{j=k}^{N}\hat{A}_{i,k}(\qv, \qv'')\hat{B}_{k,j}(-\qv'', \qv')  \dd^d \qv'' 
+\end{equation}
+
+
+
+\vspace*{11pt}
+
+\subsubsection{Trace d'un opérateur à noyaux}
+
+On définit la trace d'un opérateur $S$ de noyaux $A$ par
+\begin{equation}
+  \text{Tr} A = \sum_{i=1}^{N} \int_{\R^d} A_{i,i}(\xv,\xv) \dd^d \xv 
+\end{equation}
+Nous pouvons alors de manière similaire à ce qui a été fait pour démontrer l'expression de la transformée de Fourier d'un opérateur à noyau, calculer la relation sur la trace de la transformée de Fourier
+\begin{equation}
+  \text{Tr} \hat{A} = \sum_{i=1}^{N} \int_{\R^d} \hat{A}_{i,i}(\qv,-\qv) \dd^d \qv 
+\end{equation}
+
+
+
+\vspace*{11pt}
+
+
+
+\subsubsection{Dérivation de l'inverse d'une matrice}
+
+Afin de s'approprier les propriétés des opérateurs à noyaux, de par leur similarités avec les matrices nous commenceront par développer de petites propriétés matricielles que nous pourrons transposer par la suite. \\
+
+Soit $ n \in \mathbb{N}$. Soit $((A_{i,j}))_{i,j}$ une matrice de $\R^{n \times n}$ telles que pour tout $(i,j) \in \bbrac{1,n}$, $A_{i,j}$ soit une application de $\mathscr{C}^1(\R,\mathbb{C}) $. On suppose que pour tout $x \in \R$, $A(x) \in  \mathbb{G}L_n(\R)$. Alors, 
+\begin{equation}
+  \forall x \in \R \quad \frac{dA^{-1}(x)}{dx} = - A^{-1}(x) \frac{dA(x)}{dx}A^{-1}(x)
+\end{equation} 
+
+{\footnotesize 
+\noindent
+Soit $x \in \R$.
+Par définition de $A^{-1}$, $AA^{-1} = \text{Id}_{\R^{n\times n}}$.\\
+En dérivant cette relation nous obtenons, 
+\begin{equation}
+  \frac{dA(x)}{dx}A^{-1}(x) + A\frac{dA^{-1}(x)}{dx} = 0
+\end{equation}
+Il s'ensuit alors directement le résultat.
+}
+
+
+\vspace*{11pt}
+\subsubsection{Formules en vrac}
+
+\begin{equation}
+   \delta(\xv - \yv) = \int_{\R^d} F(\xv, \zv) F^{-1}(\zv, \yv) \dd^d \zv
+\end{equation}
+
+\begin{equation}
+   \delta_{i,j} \delta(\xv - \yv) = \int_{\R^d} \sum_{k=1}^{N} F_{i,k}(\xv, \zv) F^{-1}_{k,j}(\zv, \yv) \dd^d \zv
+\end{equation}
+
+\begin{equation}
+   \delta(\qv_1 +\qv_3) = \int_{\R^d} \hat{F}(\qv_1, -\qv_2) \hat{F}^{-1}(\qv_2, \qv_3) \dd^d \qv_3
+\end{equation}
+
+
+\begin{equation}
+   \delta_{i,j}\delta(\qv_1 +\qv_3) = \int_{\R^d} \sum_{k=1}^{N} \hat{F}_{i,k}(\qv_1, -\qv_2) \hat{F}^{-1}_{k,j}(\qv_2, \qv_3) \dd^d \qv_3
+\end{equation}
+
+\begin{equation}
+   \derd{\hat{F}}{\hat{\phiv}(-\pv)}(\qv_1, \qv_4) = - \int_{\R^d} \int_{\R^d} \hat{F}^{-1}(\qv_1, -\qv_2) \derd{\hat{F}}{\hat{\phiv}(-\pv)}(\qv_2, \qv_3) \hat{F}^{-1}(-\qv_3, \qv_4) \dd^d \qv_2 \dd^d \qv_3
+\end{equation}
+
+
+\vspace*{22pt}
+
+\subsection{Application aux tenseurs  $G^{(n)}$ et  $\Gamma^{(n)}$}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\pagebreak
+
+
+\section{Equations du modèle d'Ising 2D}
+
+\subsection{Introduction}
+
+On part de la fonction de partition 
+\begin{equation}
+  \Zc  \propto \int_\R \prod_{\rv} \, \dd \varphi_\rv \, e^{-S_\mu[\varphi] } \\
+\end{equation}
+Avec l'action $S$ s'écrivant :
+\begin{equation}
+  S_\mu[\varphi] = \frac{1}{2} \int_\qv \varphi(\qv) \frac{1}{\lambda_\mu(\qv)} \varphi(-\qv) - \sum\limits_\rv \ln\(\cosh(\varphi_\rv)\)
+\end{equation}
+Par le théorème de Parseval, nous réecrivons $S$ sous la forme 
+\begin{equation}
+  \begin{split}
+    S_\mu[\varphi] & = \frac{1}{2} \int_\qv \varphi(\qv) \[\frac{1}{\lambda_\mu(\qv)} - \frac{1}{\lambda_\mu(0)}\] \varphi(-\qv) \\
+    &+ \sum\limits_\rv \[\frac{1}{2\lambda_\mu(0)}\varphi_\rv^2 - \ln\(\cosh(\varphi_\rv)\) \]
+  \end{split}
+\end{equation}
+Enfin, soit $\delta \in \R^+_*$, on pose le changement de variable, 
+\begin{equation}
+  \varphi \rightarrow \delta\sqrt{2 \beta J d} \, \varphi 
+\end{equation}
+On obtient alors 
+\begin{equation}
+S_\mu[\varphi] = \frac{1}{2} \int_\qv \hat{\varphi}(\qv)\eo(\qv)\hat{\varphi}(-\qv) + \sum_\rv V_0(\varphi(\rv))
+\end{equation}
+Avec, en posant $\tilde{\mu} = \mu/(Jd)$ et $\tilde{\beta} = \beta Jd$,
+\begin{equation}
+  \eo(\qv) = \delta^2\frac{1 - \gamma(\qv)}{(\gamma(\qv) + \tilde{\mu})(1+\tilde{\mu})}
+\end{equation}
+\begin{equation}
+  V_0(\rho) = \delta^2 \frac{1}{1+\tilde{\mu}} \rho - \ln\(\cosh\(2\delta\sqrt{\tilde{\beta}\rho}\)\)
+\end{equation}
+
+De plus, on note $\tilde{\beta}_c^{\text{MF}}$ la valeur de $\tilde{\beta}$ en champ moyen à la temperature critique. En faisant un développement limité à l'ordre 1 en $\rho$ nous avons
+\begin{equation}
+V_0(\rho) = \delta^2\( \frac{1}{1+\tilde{\mu}} - 2\tilde{\beta}\)\rho + \mathcal{O}(\rho^2)
+\end{equation}
+Ainsi, nous obtenons 
+\begin{equation}
+\tilde{\beta}_c^{\text{MF}} \simeq \frac{1}{2(1+\tilde{\mu})}
+\end{equation}
+
+\vspace*{11pt}
+
+
+
+\subsection{Les équations BMW en $\rho$ dimensionnées}
+
+On pose 
+\begin{equation}
+\Gamma^{(2)}_{k}(p_x, p_y, \rho) = \eo(p_x, p_y) + \Delta_k(p_x, p_y, \rho) + \partial^2_{\phi} V(\phi)
+\end{equation}
+\begin{equation}
+  W(\phi) = \partial_{\phi} V(\phi) \quad \text{et} \quad X(\phi) = \partial^2_{\phi} V(\phi)
+\end{equation}
+Les équations à résoudre numériquement sont
+\begin{equation}
+\begin{split}
+\partial_t  \Delta_k(p_x, p_y, \rho)  = & - 2\rho I_3(\rho) u_k^2(\rho)  + 2\rho J_3(p_x, p_y, \rho) {\[ u_k(\rho) + \partial_\rho \Delta_k(p_x, p_y, \rho) \]}^{2} \\
+& - \frac{1}{2}I_2(\rho)\[\partial_\rho \Delta_k(p_x, p_y, \rho) + 2\rho\partial_\rho^2 \Delta_k(p_x, p_y, \rho) \]
+\end{split} 
+\end{equation}
+\begin{equation}
+\partial_t W_k(\rho) = \frac{1}{2} \partial_\rho I_1 (\rho)
+\end{equation}
+Avec les notations
+\begin{equation}
+J_n (p_x, p_y, \rho) = \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) \,
+G_k^{n-1}(q_x,q_y,\rho)G_k(p_x+q_x,p_y+q_y,\rho) \, \dd q_x \,\dd q_y
+\end{equation}
+\begin{equation}
+I_n (\rho) = \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) \,
+G_k^{n}(q_x,q_y,\rho) \, \dd q_x \,\dd q_y
+\end{equation}
+\begin{equation}
+G_k(q_x,q_y,\rho) = \frac{1}{\eo(q_x, q_y) + \Delta_k(q_x, q_y, \rho) + m^2_k(\rho) + \Rc_k(q_x, q_y) }
+\end{equation}
+\begin{equation}
+\partial_\rho I_n(\rho) = - n \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) G_k^{n+1}(q_x,q_y,\rho)\(\partial_\rho \Delta_k(p_x, p_y, \rho) + u_k(\rho) \) \, \dd q_x \,\dd q_y
+\end{equation}
+\begin{equation}
+m_k^2 (\rho) = \partial_\phi^2 V(\phi) = W(\rho) + 2\rho\partial_\rho W(\rho)
+\end{equation}
+\begin{equation}
+u_k(\rho) = \partial_\rho m_k^2(\rho) = 3\partial_\rho W(\rho) + 2\rho\partial_\rho^2 W(\rho)
+\end{equation}
+On pose la fonction
+\begin{equation}
+  \tau(q_x, q_y) = \frac{\eo(q_x, q_y)}{2k^2 {\|\eo\|}_{\infty}}
+\end{equation}
+On choisit alors le régulateur
+\begin{equation}
+  \Rc_k(q_x, q_y) = \frac{\alpha \eo(q_x, q_y)}{\exp\(2\tau(q_x, q_y)\) -1 }
+\end{equation}
+\begin{equation}
+  \partial_t \Rc_k(q_x, q_y) = \alpha \eo(q_x, q_y) \frac{\tau(q_x, q_y)}{\sinh^2\(\tau(q_x, q_y)\)}
+\end{equation}
+Et nous pouvons calculer
+\begin{equation}
+  {\|\eo\|}_{\infty} = \underset{(p_x, p_y) \in [-\pi,\pi]^2}{\text{sup}} \eo(p_x, p_y) = \frac{2\delta^2}{\mu^2 -1}
+\end{equation} 
+
+
+\vspace*{11pt}
+
+
+
+
+
+\subsubsection{Les équations BMW en $\phi$ dimensionnées}
+
+On rappelle les notations : 
+\begin{equation}
+  W(\phi) = \partial_{\phi} V(\phi) \quad \text{et} \quad X(\phi) = \partial^2_{\phi} V(\phi)
+\end{equation}
+On doit alors résoudre
+\begin{equation}
+\begin{split}
+\partial_t  \Delta_k (p_x, p_y, \phi) = &  J_3(p_x, p_y, \phi) {\(\partial_\phi \left\{ \Delta_k (p_x, p_y, \phi) + X(\phi) \right\}\)}^2 \\
+& - I_3(\phi){(\partial_\phi X(\phi))}^2 - \frac{1}{2} I_2(\phi) \partial_\phi^2 \Delta_k(p_x, p_y, \phi) 
+\end{split}
+\end{equation}
+\begin{equation}
+\partial_t X(\phi) = \frac{1}{2} \partial_\phi^2 I_1(\phi)
+\end{equation}
+On garde ici des expressions similaires pour les intégrales que ce que l'on avait en $\rho$,
+
+\begin{equation}
+J_n (p_x, p_y, \phi) = \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) \,
+G_k^{n-1}(q_x,q_y,\phi)G_k(p_x+q_x,p_y+q_y,\phi) \, \dd q_x \,\dd q_y
+\end{equation}
+\begin{equation}
+I_n (\phi) = \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) \,
+G_k^{n}(q_x,q_y,\phi) \, \dd q_x \,\dd q_y
+\end{equation}
+\begin{equation}
+G_k(q_x,q_y,\phi) = \frac{1}{\eo(q_x, q_y) + \Delta_k(q_x, q_y, \phi) + X(\phi) + \Rc_k(q_x, q_y) }
+\end{equation}
+\begin{equation}
+\partial_\phi I_n(\phi) = - n \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) G_k^{n+1}(q_x,q_y,\phi)\(\partial_\phi \Delta_k(p_x, p_y, \phi) + \partial_\phi X(\phi) \) \, \dd q_x \,\dd q_y
+\end{equation}
+\begin{equation}
+\begin{split}
+\partial_\phi^2 I_n(\phi) = & - n \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) G_k^{n+1}(q_x,q_y,\phi)\(\partial_\phi^2 \Delta_k(p_x, p_y, \phi) + \partial_\phi^2 X(\phi) \) \, \dd q_x \,\dd q_y \\
+& + n(n+1) \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) G_k^{n+2}(q_x,q_y,\phi){\(\partial_\phi \Delta_k(p_x, p_y, \phi) + \partial_\phi X(\phi) \)}^2 \, \dd q_x \,\dd q_y
+\end{split}
+\end{equation}
+
+
+
+\vspace*{11pt}
+
+\subsubsection{Les équations BMW en $\phi$ adimensionnées en impulsion}
+
+On note $\tp_x = k^{-1}p_x$ et $\tp_y = k^{-1}p_y$. Ainsi que
+\begin{center}
+$\bDelta_k(\tp_x, \tp_y,\phi) = \Delta_k(p_x, p_y,\phi)$; $\bJ_n(\tp_x, \tp_y,\phi) = J_n(p_x, p_y,\phi)$ ; $\bRc_k(\tp_x, \tp_y) = \Rc_k(p_x, p_y) $ \\
+$\beo(\tp_x, \tp_y) = \eo(p_x, p_y) $ ; $\btau(\tp_x, \tp_y) = \tau(p_x, p_y) = \beo(\tp_x, \tp_y)/(k^2 {\|\eo\|}_{\infty})$ ; $\bpRc(\tq_x, \tq_y) = \partial_t \Rc_k(q_x, q_y) $ \\
+\end{center}
+Les équations se réécrivent
+\begin{equation}
+\begin{split}
+\partial_t  \bDelta_k (\tp_x, \tp_y, \phi) = & - I_3(\phi){(\partial_\phi X(\phi))}^2 + \bJ_3(\tp_x, \tp_y, \phi) {\(\partial_\phi \left\{ \bDelta_k (\tp_x, \tp_y, \phi) + X(\phi) \right\}\)}^2 \\
+& - \frac{1}{2} I_2(\phi) \partial_\phi^2 \bDelta_k(\tp_x, \tp_y, \phi) + \tp_x \partial_{\tp_x}  \bDelta_k + \tp_y \partial_{\tp_y}  \bDelta_k 
+\end{split}
+\end{equation}
+\begin{equation}
+\partial_t X(\phi) = \frac{1}{2} \partial_\phi^2 I_1(\phi)
+\end{equation}
+En effet, l'expression de la nouvelle derivée par rapport au temps est : 
+\begin{equation}
+  \begin{split}
+    \partial_t \Delta_k (p_x, p_y, \phi){|}_{p_x, p_y, \phi} & = \partial_t \bDelta_k (\tp_x, \tp_y, \phi) {|}_{\tp_x, \tp_y, \phi}   + \partial_t \tp_x  {|}_{p_x} \partial_{\tp_x}  \bDelta_k (\tp_x, \tp_y, \phi) + \partial_t \tp_y  {|}_{p_y} \partial_{\tp_y}  \bDelta_k(\tp_x, \tp_y, \phi) \\
+    \partial_t \Delta_k (p_x, p_y, \phi){|}_{p_x, p_y, \phi} & = \partial_t \bDelta_k  (\tp_x, \tp_y, \phi){|}_{\tp_x, \tp_y, \phi}  -  \tp_x \partial_{\tp_x}  \bDelta_k (\tp_x, \tp_y, \phi) -  \tp_y \partial_{\tp_y}  \bDelta_k (\tp_x, \tp_y, \phi) 
+  \end{split}
+\end{equation}
+De plus nous avons toujours pour dérivée temporelle du régulateur
+\begin{equation}
+  \begin{split}
+    \bpRc(\tq_x, \tq_y)  =  \alpha \beo \frac{\btau}{\sinh^2(\btau)}
+  \end{split}
+\end{equation}
+
+\vspace*{11pt}
+\noindent
+Les intégrales se calculent selon
+\begin{equation}
+\bJ_n (\tp_x, \tp_y, \phi) = \frac{k^2}{(2\pi)^2}  \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}}  \bpRc(\tq_x, \tq_y) \,
+\bG_k^{n-1}(\tq_x,\tq_y,\phi)\bG_k(\tp_x+\tq_x,\tp_y+\tq_y,\phi) \, \dd \tq_x \,\dd \tq_y
+\end{equation}
+\begin{equation}
+I_n (\phi) = \frac{k^2}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \bpRc(\tq_x, \tq_y)  \,
+\bG_k^{n}(\tq_x,\tq_y,\phi) \, \dd \tq_x \,\dd \tq_y
+\end{equation}
+\begin{equation}
+\bG_k(\tq_x,\tq_y,\phi) = \frac{1}{\beo(\tq_x, \tq_y) + \bDelta_k(\tq_x, \tq_y, \phi) + X(\phi) + \bRc_k(\tq_x, \tq_y) }
+\end{equation}
+\begin{equation}
+\begin{split}
+\partial_\phi^2 I_n(\phi) = & - n \frac{k^2}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}}  \bpRc(\tq_x, \tq_y) \bG_k^{n+1}(\tq_x,\tq_y,\phi)\(\partial_\phi^2 \bDelta_k(\tp_x, \tp_y, \phi) + \partial_\phi^2 X(\phi) \) \, \dd \tq_x \,\dd \tq_y \\
+& + n(n+1) \frac{k^2}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}}  \bpRc(\tq_x, \tq_y) \bG_k^{n+2}(\tq_x,\tq_y,\phi){\(\partial_\phi \bDelta_k(\tp_x, \tp_y, \phi) + \partial_\phi X(\phi) \)}^2 \, \dd \tq_x \,\dd \tq_y
+\end{split}
+\end{equation}
+
+
+\vspace*{11pt}
+\noindent
+\textbf{Calcul du $Z_k$}\\
+
+On commence par définir 
+\begin{equation}
+\eo^0 ={\left. \frac{\partial \eo}{ \partial {{p_x}^2}} \right|}_{p_x = 0, p_y = 0}
+\end{equation}
+On montre alors en faisant un developpement limité que
+\begin{equation}
+\eo(\pv)  \underset{\pv = 0}{\sim} \frac{\delta^2}{4\,(1+\mu)^2} \, \pv^2 \quad \text{avec} \quad \pv^2 = p_x^2 + p_y^2
+\end{equation}
+Pour calculer $Z_k$ on utilise une des définitions équivalentes
+\begin{equation}
+Z_k = 1+\frac{1}{\eo^0}{\left. \frac{\partial \Delta_k}{\partial {p_x}^2} \right|}_{p_x = 0, p_y = 0, \phi = 0}  \quad \text{et} \quad 
+Z_k = 1+\frac{1}{2\eo^0}{\left. \frac{\partial^2 \Delta_k}{\partial {p_x}^2} \right|}_{p_x = 0, p_y = 0, \phi = 0} 
+\end{equation}
+Ce qui donne en pratique
+\begin{equation}
+Z_k = 1+\frac{2\,(1+\mu)^2}{\delta^2}{\left. \frac{\partial^2 \Delta_k}{\partial {p_x}^2} \right|}_{p_x = 0, p_y = 0, \phi = 0} = 1+\frac{2\,(1+\mu)^2}{\delta^2\, k^2}{\left. \frac{\partial^2 \bDelta_k}{\partial {\tp_x}^2} \right|}_{p_x = 0, p_y = 0, \phi = 0}
+\end{equation}
+En outre par définition nous avons aussi
+\begin{equation}
+\eta_k = -\partial_t \ln Z_k 
+\end{equation}
+
+\vspace*{11pt}
+\subsubsection{Les équations BMW en $\phi$ totalement adimensionnées}
+
+On note $\tphi = \sqrt{Z_k}\phi$. Etant donnée que l'on effectue le changement à des valeurs de $k$ très faibles ($k \simeq \exp(-3)$), on considèrera que $\beo(\tp_x,\tp_y) \simeq \eo^0\,k^2(\tp_x^2+\tp_y^2)$. On adimensionne aussi les fonctions en plus des variables :
+
+\begin{equation*}
+1 + \frac{\bDelta_k(\tp_x, \tp_y,\phi)}{\eo^0 \pv^2} = Z_k(1+\tY_k(\tp_x, \tp_y,\tphi)) \quad \text{et} \quad \tX(\tphi) = \frac{1}{Z_k k^2} X(\phi)
+\end{equation*}
+
+
+\vspace*{11pt}
+\noindent
+\textbf{Etude des termes en $\bDelta_k(\tp_x, \tp_y,\phi)$} \\
+
+La dérivée de $\bDelta_k$ par rapport à $t$ se réécrit :
+\begin{equation}
+\begin{split}
+\partial_t  \bDelta_k (\tp_x, \tp_y, \phi) {|}_{\tp_x, \tp_y, \phi } = & \partial_t (Z_k(1+\tY_k(\tp_x, \tp_y,\tphi)\eo^0\pv^2  - \eo^0\pv^2 ) {|}_{\tp_x, \tp_y, \tphi} \\ 
+& + \partial_t \tphi  {|}_{\phi}\, \partial_{\tphi} (Z_k(1+\tY_k(\tp_x, \tp_y,\tphi)\eo^0 \pv^2 - \eo^0\pv^2 )
+\end{split}
+\end{equation}
+Ceci donne l'expression suivante
+\begin{equation}
+\begin{split}
+\partial_t  \bDelta_k (\tp_x, \tp_y, \phi) {|}_{\tp_x, \tp_y, \phi } = & - \eo^0 \pv^2 \eta_k Z_k (1+\tY_k(\tp_x, \tp_y,\tphi)) + 2 \eo^0 \pv^2 Z_k (1+\tY_k(\tp_x, \tp_y,\tphi)) \\
+& - 2 \eo^0 \pv^2  + \eo^0 \pv^2 Z_k \partial_t \tY_k(\tp_x, \tp_y,\tphi) -  \frac{1}{2} \eo^0 \pv^2 \eta_k Z_k \tphi \partial_{\tphi} \tY_k(\tp_x, \tp_y,\tphi) 
+\end{split}
+\end{equation}
+De plus nous avons aussi concernant les dérivées de  $\bDelta_k$
+\begin{equation}
+\begin{split}
+\tp_x \, \partial_{\tp_x}  \bDelta_k (\tp_x, \tp_y, \phi) = 2\eo^0 p_x^2 Z_k (1+\tY_k(\tp_x, \tp_y,\tphi)) + \eo^0 \tpv^2 Z_k \tp_x \partial_{\tp_x} \tY_k(\tp_x, \tp_y,\tphi) - 2 \eo^0 p_x^2 \\ 
+\tp_y \, \partial_{\tp_y}  \bDelta_k (\tp_x, \tp_y, \phi) = 2\eo^0 p_y^2 Z_k (1+\tY_k(\tp_x, \tp_y,\tphi)) + \eo^0 \tpv^2 Z_k \tp_y \partial_{\tp_y} \tY_k(\tp_x, \tp_y,\tphi) - 2 \eo^0 p_y^2 
+\end{split}
+\end{equation}
+Et nous en déduisons alors
+\begin{equation}
+\begin{split}
+\tp_x \, \partial_{\tp_x}  \bDelta_k (\tp_x, \tp_y, \phi) + \tp_y \, \partial_{\tp_y}  \bDelta_k (\tp_x, \tp_y, \phi)= & 2\eo^0 \pv^2 Z_k (1+\tY_k(\tp_x, \tp_y,\tphi))  - 2 \eo^0 \pv^2 \\ 
+& \eo^0 \tpv^2 Z_k \( \tp_x \partial_{\tp_x} \tY_k(\tp_x, \tp_y,\tphi) + \tp_y \partial_{\tp_y} \tY_k(\tp_x, \tp_y,\tphi) \)
+\end{split}
+\end{equation}
+Ainsi que pour les dérivées par rapport à $\phi$
+\begin{equation}
+\partial_{\phi}  \bDelta_k (\tp_x, \tp_y, \phi) = \eo^0 \pv^2 Z_k^{\frac{3}{2}} \partial_{\tphi} \tY_k(\tp_x, \tp_y,\tphi) \quad \text{et} \quad  \partial_{\phi}^2 \bDelta_k (\tp_x, \tp_y, \phi) = \eo^0 \pv^2 Z_k^2 \partial_{\tphi} \tY_k(\tp_x, \tp_y,\tphi) 
+\end{equation}
+
+
+\vspace*{11pt}
+\noindent
+\textbf{Etude des termes en $X(\phi)$} \\
+
+La dérivée de $X$ par rapport à $t$ devient de même que pour $\bDelta$
+\begin{equation}
+\begin{split}
+\partial_t  X(\phi) {|}_{\phi} = & \partial_t (Z_k k^2\tX(\tphi)) {|}_{\tphi} + \partial_t \tphi  {|}_{\phi}\, \partial_{\tphi} (Z_k k^2\tX(\tphi)) \\ 
+\partial_t  X(\phi) {|}_{\phi} = & Z_k k^2\partial_t \tX(\tphi) - Z_k k^2 (\eta_k -2)\tX(\tphi) - \frac{1}{2} Z_k k^2  \eta_k\tphi \, \partial_{\tphi}\tX(\tphi)
+\end{split}
+\end{equation}
+Et pour la dérivée en $\phi$ nous avons
+\begin{equation}
+\partial_{\phi} X(\phi) = k^2 Z_k^{\frac{3}{2}} \partial_{\tphi} \tX(\tphi)
+\end{equation}
+
+
+\vspace*{11pt}
+\noindent
+\textbf{Adimensionnement du régulateur}\\
+
+On remarque qu'avec l'approximations faite sur $\eo$ le régulateur s'écrit
+ \begin{equation*}
+\bRc_k(q_x, q_y) = \Rc_k(q) = \alpha \frac{Z_k \eo^0 k^2 q^2}{\exp\(\frac{\eo^0}{ {\|\eo\|}_{\infty} } \, \frac{q^2}{k^2} \) - 1} 
+\end{equation*} 
+On adimensionne le régulateur en posant
+\begin{equation*}
+r_k(\tq) = \frac{\bRc_k(\tq_x, \tq_y)}{\eo^0 q^2 Z_k} = \alpha \frac{1}{\exp\(\frac{\eo^0}{ {\|\eo\|}_{\infty} } \, \tq^2 \) - 1} 
+\end{equation*} 
+Ainsi on en déduit
+\begin{equation}
+\partial_t \Rc_k(q) {|}_{q} = \partial_t (\eo^0 q^2 Z_k r_k(\tq)) {|}_{\tq} + \partial_t \tq {|}_{q} \, \partial_{\tq} r_k(\tq)
+\end{equation}
+\begin{equation}
+\partial_t \Rc_k(q) {|}_{q} = \eo^0 k^2 Z_k \tq^2 \left\{ -\eta_k r_k(\tq) - \tq \partial_{\tq} r_k(\tq) \right\}
+\end{equation}
+Avec l'expression 
+\begin{equation}
+\partial_{\tq} r_k(\tq) = - \alpha \frac{\eo^0}{2 {\|\eo\|}_{\infty} } \tq \frac{1}{\sinh^2\(\frac{\eo^0}{2 {\|\eo\|}_{\infty}} \tq^2 \)}
+\end{equation}
+Et on remarquera aussi que 
+\begin{equation}
+\frac{\eo^0}{{\|\eo\|}_{\infty} } = \frac{\mu -1}{8(\mu+1)}
+\end{equation}
+
+\vspace*{11pt}
+\noindent
+\textbf{Adimensionnement des intégrales et leur expression}\\
+
+On adimensionne aussi les intégrales
+\begin{equation*}
+\tJ_n(\tp_x, \tp_y,\tphi) = \frac{Z_k^{n-1}}{k^{2(2-n)}}\bJ_n(\tp_x, \tp_y,\phi) \quad \text{et} \quad \tI_n(\tphi) = \frac{Z_k^{n-1}}{k^{2(2-n)}}I(\phi)
+\end{equation*} 
+Et leurs équations deviennent
+\begin{equation}
+\tJ_n (\tp_x, \tp_y, \tphi) = \frac{1}{(2\pi)^2}  \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \eo^0 \tq^2 \left\{ -\eta_k r_k(\tq) - \tq \partial_{\tq} r_k(\tq) \right\}   \,
+\tG_k^{n-1}(\tq_x,\tq_y,\tphi) \tG_k(\tp_x+\tq_x,\tp_y+\tq_y,\tphi) \, \dd \tq_x \,\dd \tq_y
+\end{equation}
+\begin{equation}
+\tI_n (\tphi) = \frac{1}{(2\pi)^2}  \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \eo^0 \tq^2 \left\{ -\eta_k r_k(\tq) - \tq \partial_{\tq} r_k(\tq) \right\}   \,
+\tG_k^{n}(\tq_x,\tq_y,\tphi) \, \dd \tq_x \,\dd \tq_y
+\end{equation}
+\begin{equation}
+\tG_k(\tq_x,\tq_y,\phi) = \frac{1}{\eo^0 \tq^2 \left\{  1 + \tY_k(\tq_x, \tq_y, \tphi)  + r_k(\tq) \right\} + \tX(\tphi) }
+\end{equation}
+\begin{equation}
+\begin{split}
+\partial_{\tphi}^2 & \tI_n(\tphi) =  - n \frac{1}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \eo^0 \tq^2 \left\{ -\eta_k r_k(\tq) - \tq \partial_{\tq} r_k(\tq) \right\}  \tG_k^{n+1}(\tq_x,\tq_y,\tphi)\( \eo^0 \tq^2 \partial_{\tphi}^2 \tY_k(\tp_x, \tp_y, \tphi) + \partial_{\tphi}^2 \tX(\tphi) \) \, \dd \tq_x \,\dd \tq_y \\
+& + n(n+1) \frac{1}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \eo^0 \tq^2 \left\{ -\eta_k r_k(\tq) - \tq \partial_{\tq} r_k(\tq) \right\}   \tG_k^{n+2}(\tq_x,\tq_y,\tphi){\(\eo^0 \tq^2\partial_{\tphi} \tY_k(\tp_x, \tp_y, \tphi) + \partial_{\tphi}   \tX(\tphi)\)}^2 \, \dd \tq_x \,\dd \tq_y
+\end{split}
+\end{equation}
+
+
+
+
+
+\vspace*{11pt}
+\noindent
+\textbf{Ecriture des équations finales}\\
+
+En rassemblant toute les expressions précédents ceci nous permet d'écrire les équations
+\begin{align}
+\partial_t \tY(\tp_x, \tp_y,\tphi) & = 
+\begin{aligned}[t]
+& \eta_k(1+\tY_k(\tp_x, \tp_y,\tphi)) + \frac{1}{2} \eta_k \tphi \partial_{\tphi} \tY_k(\tp_x, \tp_y,\tphi) - \frac{1}{2} \tI_2(\tphi) \partial_{\tphi}^2 \tY_k(\tp_x, \tp_y, \tphi)\\
+& \quad + \frac{1}{\eo^0\tpv^2}\left\{ {\( \eo^0\tpv^2 \partial_{\tphi} \tY_k(\tp_x, \tp_y,\tphi) + \partial_{\tphi} \tX(\tphi)\)}^2 \tJ_3(\tp_x, \tp_y,\tphi) - {\( \partial_{\tphi} \tX(\tphi) \)}^2 \tI_3(\tphi)\right\} \\
+& \quad + \tp_x \partial_{\tp_x} \tY_k(\tp_x, \tp_y,\tphi) + \tp_y \partial_{\tp_y} \tY_k(\tp_x, \tp_y,\tphi) \\ \\
+\end{aligned}
+\label{eqn} \\
+\partial_t \tX(\tphi) & = 
+\begin{aligned}[t]
+(\eta_k -2)\tX(\tphi) + \frac{1}{2}\eta_k\tphi \, \partial_{\tphi}\tX(\tphi) + \frac{1}{2} \partial_{\tphi}^2 \tI_1(\tphi)
+\end{aligned}
+\end{align}
+On notera aussi l'équation de flot qui permet de récupérer le potentiel directement donnée par
+\begin{equation}
+  \partial_t \tV(\tphi) = -2\tV(\tphi) + \frac{1}{2}\eta_k\tphi \partial_{\tphi}\tV(\tphi) + \frac{1}{2}\tI_1(\tphi)  
+\end{equation}
+
+\vspace*{11pt}
+\noindent
+\textbf{Equation sur $\eta_k$} \\
+
+Pour obtenir l'équation sur $\eta_k$ on commence par partir du fait que
+\begin{equation}
+\lim\limits_{\pv \rightarrow 0} \left\{ 1 +  \frac{\bDelta_k(\tp_x, \tp_y, 0)}{\eo^0 \pv^2} \right\} = 1 + \frac{1}{\eo^0}\frac{\partial  \bDelta_k(\tp_x, \tp_y, 0) }{\partial \pv^2 } = Z_k
+\end{equation}
+En utilisant la définition de $\tY$ il vient alors le résultat
+\begin{equation}
+Z_k = Z_k(1 + \tY(0,0,0)) \quad \Leftrightarrow \quad \tY_k(0,0,0) = 0 \quad \forall k
+\end{equation}
+Or ce résultat nous donne $\partial_t \tY_k(0,0,0) = 0$. Et on en déduit
+\begin{equation}
+\eta_k = \frac{1}{2} \tI_2(0) \partial_{\tphi}^2 \tY(0,0,0) 
+\end{equation}
+
+
+
+\vspace*{11pt}
+\noindent
+\textbf{Les expressions des régulateurs précédents} \\
+
+Afin d'assurer une compatibilité des équations, et comme maintenant il nous faut avec un un régulateur qui est de la même dimension que la dérivée seconde du potentiel il est nécéssaire de changer légèrement l'expression de $\Rc_k$ que l'on a utilise dans les deux premiers étapes du flot. On prend ici
+\begin{equation}
+\Rc_k(q_x, q_y) = \alpha \frac{Z_k \eo(q_x, q_y)}{\exp(2\tau(q_x, q_y)) -1}
+\end{equation}
+Ainsi on en déduit directement les formules suivantes
+\begin{equation}
+\partial_t \Rc_k(q_x, q_y) = \alpha Z_k \frac{\eo(q_x, q_y)}{\sinh(\tau(q_x, q_y)}   \left\{ \frac{\tau(q_x, q_y)}{\sinh(\tau(q_x, q_y))} - \eta_k \frac{1}{2\exp(\tau(q_x, q_y))} \right\}
+\end{equation}
+\begin{equation}
+\bpRc(\tq_x, \tq_y) = \alpha Z_k \frac{\beo(\tq_x, \tq_y)}{\sinh(\btau(\tq_x, \tq_y))}   \left\{ \frac{\btau(\tq_x, \tq_y)}{\sinh(\tau(\tq_x, \tq_y))} - \eta_k \frac{1}{2\exp(\btau(\tq_x, \tq_y))} \right\}
+\end{equation}
+
+\commentout{
+\begin{equation*}
+\tDelta_k(\tp_x, \tp_y,\tphi) = \frac{1}{Z_k k^2} \bDelta_k(\tp_x, \tp_y,\phi) \quad \text{et} \quad \tX(\tphi) = \frac{1}{Z_k k^2} X(\phi)
+\end{equation*}
+Ainsi que pour les integrales
+\begin{equation*}
+\tJ_n(\tp_x, \tp_y,\tphi) = \frac{Z_k^{n-1}}{k^{2(2-n)}}\bJ_n(\tp_x, \tp_y,\phi) \quad \text{et} \quad \tI_n(\tphi) = \frac{Z_k^{n-1}}{k^{2(2-n)}}I(\phi)
+\end{equation*} 
+Il vient alors les équations
+\begin{equation}
+\begin{split}
+\partial_t  \tDelta_k (\tp_x, \tp_y, \tphi) = & (\eta_k -2)\tDelta_k(\tp_x, \tp_y, \tphi) + \frac{1}{2}\eta_k\tphi \, \partial_{\tphi}\tDelta_k(\tp_x, \tp_y, \tphi) \\
+& - \tI_3(\tphi){(\partial_\phi \tX(\tphi))}^2 + \tJ_3(\tp_x, \tp_y, \tphi) {\(\partial_{\tphi} \left\{ \tDelta_k (\tp_x, \tp_y, \tphi) + \tX(\tphi) \right\}\)}^2 \\
+& - \frac{1}{2} \tI_2(\tphi) \partial_{\tphi}^2 \tDelta_k(\tp_x, \tp_y, \tphi) + \tp_x \partial_{\tp_x}  \tDelta_k(\tp_x, \tp_y, \tphi) + \tp_y \partial_{\tp_y}  \tDelta_k(\tp_x, \tp_y, \tphi) 
+\end{split}
+\end{equation}
+\begin{equation}
+\partial_t \tX(\tphi) =  (\eta_k -2)\tX(\tphi) + \frac{1}{2}\eta_k\tphi \, \partial_{\tphi}\tX(\tphi) + \frac{1}{2} \partial_{\tphi}^2 \tI_1(\tphi)
+\end{equation}
+
+Avec pour expression des integrales
+\begin{equation}
+\tJ_n (\tp_x, \tp_y, \phi) = \frac{1}{(2\pi)^2}  \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}}  \bpRc(\tq_x, \tq_y) \,
+\tG_k^{n-1}(\tq_x,\tq_y,\phi)\bG_k(\tp_x+\tq_x,\tp_y+\tq_y,\phi) \, \dd \tq_x \,\dd \tq_y
+\end{equation}
+}
 
 
 
