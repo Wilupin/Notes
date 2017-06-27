@@ -41,23 +41,27 @@
 \BOOKMARK [3][-]{subsubsection.6.3.3}{Calcul des int\351grales J}{subsection.6.3}% 41
 \BOOKMARK [2][-]{subsection.6.4}{D\351riv\351es num\351riques}{section.6}% 42
 \BOOKMARK [2][-]{subsection.6.5}{Complexit\351 algorithmique et parall\351lisation - probl\350me de rapidit\351}{section.6}% 43
-\BOOKMARK [1][-]{appendix.A}{D\351riv\351e fonctionnelle, transform\351e de Fourier, op\351rateurs \340 noyaux}{}% 44
+\BOOKMARK [1][-]{appendix.A}{Outils pour le d\351veloppement des \351quations}{}% 44
 \BOOKMARK [2][-]{subsection.A.1}{Transform\351e de Fourier}{appendix.A}% 45
 \BOOKMARK [2][-]{subsection.A.2}{Transform\351e de Fourier Semi Discr\350te}{appendix.A}% 46
 \BOOKMARK [2][-]{subsection.A.3}{Derivation fonctionnelle}{appendix.A}% 47
 \BOOKMARK [3][-]{subsubsection.A.3.1}{D\351finition}{subsection.A.3}% 48
 \BOOKMARK [3][-]{subsubsection.A.3.2}{Transform\351e de Fourier d'une d\351riv\351e fonctionnelle}{subsection.A.3}% 49
 \BOOKMARK [2][-]{subsection.A.4}{Op\351rateurs \340 noyaux}{appendix.A}% 50
-\BOOKMARK [3][-]{subsubsection.A.4.1}{Definition}{subsection.A.4}% 51
+\BOOKMARK [3][-]{subsubsection.A.4.1}{D\351finition}{subsection.A.4}% 51
 \BOOKMARK [3][-]{subsubsection.A.4.2}{TF d'un op\351rateur \340 noyaux}{subsection.A.4}% 52
 \BOOKMARK [3][-]{subsubsection.A.4.3}{Composition de deux op\351rateurs}{subsection.A.4}% 53
-\BOOKMARK [3][-]{subsubsection.A.4.4}{Trace d'un op\351rateur \340 noyaux}{subsection.A.4}% 54
-\BOOKMARK [3][-]{subsubsection.A.4.5}{D\351rivation de l'inverse d'une matrice}{subsection.A.4}% 55
-\BOOKMARK [3][-]{subsubsection.A.4.6}{Formules en vrac}{subsection.A.4}% 56
-\BOOKMARK [2][-]{subsection.A.5}{Application aux tenseurs G\(n\) et \(n\)}{appendix.A}% 57
-\BOOKMARK [1][-]{appendix.B}{Equations du mod\350le d'Ising 2D}{}% 58
-\BOOKMARK [2][-]{subsection.B.1}{Introduction}{appendix.B}% 59
-\BOOKMARK [2][-]{subsection.B.2}{Les \351quations BMW en \040dimensionn\351es}{appendix.B}% 60
-\BOOKMARK [3][-]{subsubsection.B.2.1}{Les \351quations BMW en \040dimensionn\351es}{subsection.B.2}% 61
-\BOOKMARK [3][-]{subsubsection.B.2.2}{Les \351quations BMW en \040adimensionn\351es en impulsion}{subsection.B.2}% 62
-\BOOKMARK [3][-]{subsubsection.B.2.3}{Les \351quations BMW en \040totalement adimensionn\351es}{subsection.B.2}% 63
+\BOOKMARK [3][-]{subsubsection.A.4.4}{Trace d'un op\351rateur \340 noyau}{subsection.A.4}% 54
+\BOOKMARK [3][-]{subsubsection.A.4.5}{Inverse d'un op\351rateur \340 noyau}{subsection.A.4}% 55
+\BOOKMARK [1][-]{appendix.B}{Complement des algorithmes}{}% 56
+\BOOKMARK [2][-]{subsection.B.1}{Formules de d\351rivation \340 5 points}{appendix.B}% 57
+\BOOKMARK [2][-]{subsection.B.2}{Propri\351t\351s \351l\351mentaires des polyn\364mes de Tchebytchev}{appendix.B}% 58
+\BOOKMARK [2][-]{subsection.B.3}{Quadratures pour le calcul des int\351grales}{appendix.B}% 59
+\BOOKMARK [3][-]{subsubsection.B.3.1}{Quadrature de Gauss-Legendre}{subsection.B.3}% 60
+\BOOKMARK [1][-]{appendix.C}{Equations du mod\350le d'Ising 2D}{}% 61
+\BOOKMARK [2][-]{subsection.C.1}{Introduction}{appendix.C}% 62
+\BOOKMARK [2][-]{subsection.C.2}{Les \351quations BMW en \040dimensionn\351es}{appendix.C}% 63
+\BOOKMARK [2][-]{subsection.C.3}{Les \351quations BMW en }{appendix.C}% 64
+\BOOKMARK [3][-]{subsubsection.C.3.1}{Les \351quations BMW en \040dimensionn\351es}{subsection.C.3}% 65
+\BOOKMARK [3][-]{subsubsection.C.3.2}{Les \351quations BMW en \040adimensionn\351es en impulsion}{subsection.C.3}% 66
+\BOOKMARK [3][-]{subsubsection.C.3.3}{Les \351quations BMW en \040totalement adimensionn\351es}{subsection.C.3}% 67

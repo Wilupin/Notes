@@ -164,18 +164,18 @@ On observe expérimentalement qu'au moment d'une transition de phase du second o
 \begin{equation}
 	\xi \sim |T-T_c|^{-\nu} 	\quad \text{et} \quad G^{(2)}(r) \sim |r|^{2-d-\eta},
 \end{equation}
-où $d$ est la dimension physique du système et $\nu$ et $\eta$ sont deux réels positifs appelés les \emph{exposants critiques}. Notons qu'il existe aussi comme cela plusieurs autres grandeurs desquelles ont peut extraire différents exposants critiques. Cependant le point essentiel est que tous les systèmes ayant les mêmes propriétés de symétries possèdent les mêmes exposants critiques, ont dit qu'ils appartiennent à la même classe d'universalité.\\
+où $d$ est la dimension physique du système et $\nu$ et $\eta$ sont deux réels positifs appelés les \emph{exposants critiques}. Notons qu'il existe aussi comme cela plusieurs autres grandeurs desquelles ont peut extraire différents exposants critiques. Le point essentiel étant que tous les systèmes ayant les mêmes propriétés de symétries possèdent les mêmes exposants critiques, on dit qu'ils appartiennent à la même classe d'universalité.\\
 
 
 \subsection{Intérêt du groupe de renormalisation et des équations BMW}
 
 Le groupe de renormalisation (RG) permet de montrer l'effet d'universalité sur les exposants critiques et de les calculer. L'approche par le RG a permis d'obtenir déjà d'excellents résultats \cite{} pour différents systèmes étudiés comparé aux expériences et autres méthodes comme les simulations Monte-Carlo. Cependant elle reste limitée dans ces applications car elle se fonde sur des approximations de "théorie des perturbations" pour pouvoir mener les calculs qui ne permettent de ne calculer par exemple que les exposants universels critiques mais pas les grandeurs non universelles comme la température critique.\\
 
-Le groupe de renormalisation non perturbatif (NPRG) permet de répondre à ce problème en reprenant le principe du RG sous une approche différente permettant d'accéder à des équations exactes. Cependant, en pratique, ces équations ne sont pas solubles et il faut faire d'autres approximations, comme l'approximation BMW, pouvant être d'autre nature que celle de la théorie des perturbation pour pouvoir récupérer à la fois les exposants critiques et les grandeurs non universelles. Mais bien que cela soit possible le NPRG n'avais jamais été utilisé auparavant pour calculer une température critique. \\
+Le groupe de renormalisation non perturbatif (NPRG) permet de répondre à ce problème en reprenant le principe du RG sous une approche différente permettant d'accéder à des équations exactes. Cependant, en pratique, ces équations ne sont pas solubles et il faut faire d'autres approximations, comme l'approximation BMW, pouvant être d'autre nature que celle de la théorie des perturbation pour pouvoir récupérer à la fois les exposants critiques et les grandeurs non universelles, bien que cela reste compliqué en pratique. \\
 
-L'objectif premier de cette étude est donc de rependre une simulation d'équations intégro-différentielles non linéaires obtenues par l'approximation BMW des équations du NPRG déjà réalisée \cite{LeonardThesis} afin de déterminer des exposants critiques. Mais aussi, et pour la première fois, de l'adapter à un système d'Ising en dimension deux pour en calculer dans le cadre du NPRG, la température critique. \\
+Dans cette étude nous avons repris une simulation d'équations intégro-différentielles non linéaires obtenues par l'approximation BMW pour des systèmes régis par une certaine symétrie \cite{LeonardThesis}. Elle  a déjà permis de déterminer des exposants critiques avec précision pour certains systèmes mais elle présente des comportements étranges et instables pour d'autres. Le but était donc de rechercher quelles en étaient les causes et essayer de résoudre les problèmes. En outre nous avons aussi réaliser la simulation des équations BMW pour un autre modèle afin d'essayer d'en récupérer la température critique.  \\
 
-Dans une première partie nous rappellerons donc les origines du modèle du RG et du NPRG puis nous l'utiliserons pour developper les équations BMW dans le cas de systèmes possédant une symétrie $O(N)$ et étudier numériquement leur résolution. Ensuite nous appliquerons le modèle BMW au système d'Ising en deux dimensions afin de tester s'il permet de retrouver la température et les exposants critiques que l'on connait par la résolution analytique faite par Onsager \cite{Onsager}. 
+Dans une première partie nous rappelons les origines du modèle du RG et du NPRG puis nous l'utilisons pour expliquer la structure des équations BMW dans le cas de systèmes possédant une symétrie dite $O(N)$ et étudier numériquement leur résolution et la recherche des exposants critiques associés. Ensuite nous appliquerons le modèle BMW au système d'Ising en deux dimensions afin de tester s'il permet de retrouver la température et les exposants critiques que l'on connait par la résolution analytique faite par Onsager \cite{Onsager}. 
 
 
 \vspace*{11pt}
@@ -336,7 +336,7 @@ Avec la définition
 
 
 
-C'est grâce à l'évolution de $\Rc_{k,ij}$ en fonction de $k$ que l'on intègre au fur et à mesure les grandes impulsions. En effet, pour être conforme à la méthode du RG, il faut que l'on retrouve $\lim_{k \to 0}\Zc_k = \Zc$ et pour $k = \Lambda$ que l'expression de $\Zc_\Lambda$ puisse être calculée analytiquement. De cette manière on peut, en faisant évoluer $k$ de $\Lambda$ à $0$ suivre l'évolution de $\Zc_k$ d'une valeur connue à la valeur $\Zc$ par le biais d'une équation différentielle. On peut donc choisir $\Rc_{k,ij}$ tel que , \\
+C'est grâce à l'évolution de $\Rc_{k,ij}$ en fonction de $k$ que l'on intègre au fur et à mesure les grandes impulsions. En effet, pour se rapporter au RG, on souhaite retrouver $\lim_{k \to 0}\Zc_k = \Zc$ et pour $k = \Lambda$ que l'expression de $\Zc_\Lambda$ puisse être calculée analytiquement. De cette manière, en faisant évoluer $k$ de $\Lambda$ à $0$ on peut suivre l'évolution de $\Zc_k$ d'une valeur connue à la valeur $\Zc$ par le biais d'une équation différentielle. On peut donc choisir $\Rc_{k,ij}$ tel que \\
 
 \begin{itemize}
   \item Pour $k \rightarrow 0$, $\forall \qv$ $\, \Rc_{k, ij}(\qv) \rightarrow 0$  .
@@ -344,7 +344,7 @@ C'est grâce à l'évolution de $\Rc_{k,ij}$ en fonction de $k$ que l'on intègr
 \end{itemize}
 \vspace*{11pt}
 
-Et il faut que l'évolution entre ces deux configurations soit continue. Etant donné que numériquement nous ne pouvons pas prendre en compte un $\Rc_k$ qui va vers l'infini quand $k = \Lambda$ nous nous contenterons de prendre $\Rc_\Lambda$ comme une fonction minorée par une valeur bien supérieure aux valeurs de constantes de couplage de $H$. En pratique il suffit de prendre $\Rc_\Lambda \sim \Lambda^2$.
+Et il faut que l'évolution entre ces deux configurations soit continue. Etant donné que numériquement nous ne pouvons pas prendre en compte $\Rc_{k, ij}$ allant vers l'infini quand $k = \Lambda$ nous nous contenterons de prendre $\Rc_{\Lambda, ij}$ comme une fonction minorée par une valeur bien supérieure aux valeurs de constantes de couplage de $H$. En pratique il suffit de prendre $\Rc_{\Lambda, ij} \sim \Lambda^2$.
 
 Ainsi, quand $k \to 0$, $\Delta S_k \to 0$ et l'on retrouve bien l'expression de $\Zc$. De plus quand $k = \Lambda$ prendre $\Rc_{k,ij}$ comme étant très grand permet faire une excellente approximation de point-selle et écrire
 \begin{equation}
@@ -354,11 +354,11 @@ Ou l'on définit $\varphiv_0$ par
 \begin{equation}
 	{\left. \derd{\(S[\varphiv] + \Delta S_k[\varphiv]\)}{\varphiv} \right|}_{\varphiv_0} = \hv
 \end{equation}
-L'intégrale a alors disparue dans l'expression de $Z_\Lambda$, qui s'exprime uniquement en fonction d'un champ bien défini $\varphiv_0$ appelé le champ moyen. De cette manière on dit que l'on "gèle les fluctuations" du champ autour de $\varphiv_0$ et on peut calculer analytiquement $\Zc_\Lambda$. 
+L'intégrale a alors disparue dans l'expression de $Z_\Lambda$, qui s'exprime uniquement en fonction d'un champ bien défini $\varphiv_0$ appelé le champ moyen. De cette manière on dit que l'on "gèle les fluctuations" du champ autour de $\varphiv_0$ et on peut calculer analytiquement $\Zc_\Lambda$. \\
 
-Il faut aussi que $\Rc_{k,ij}$ soit une fonction possédant des symétries compatibles avec le système que l'on considère. Dans l'ensemble de ce que nous avons étudié il suffit de prendre $\Rc_{k,ij}(\qv) = \Rc_k(q)$, avec $q = \|\qv\|_2$. La fonction $q \to \Rc_k(q)$ sera appelée le régulateur.\\
+Enfin, il faut aussi que $\Rc_{k,ij}$ soit une fonction possédant des symétries compatibles avec le système que l'on considère pour pouvoir effectuer des calculs. Dans l'ensemble de ce que nous avons étudié il suffit de prendre $\Rc_{k,ij}(\qv) = \Rc_k(q)$, avec $q = \|\qv\|_2$ la norme 2 dans $\R^d$. La fonction $q \to \Rc_k(q)$ est appelée le régulateur.\\
 
-Ce qu'il semble le plus naturel, c'est d'utiliser dans le régulateur une fonction de Heaviside en écrivant 
+Il semble naturel, pour satisfaire à toutes les conditions précédentes, d'utiliser dans le régulateur une fonction de Heaviside en écrivant 
 \begin{equation}
 	\forall q \in [0, \Lambda] \quad \Rc_k(q) = \alpha (k^2 - q^2) \Theta(k^2 - q^2)
 	\label{eq:RegHeav}
@@ -368,13 +368,13 @@ Avec $\alpha$ un réel positif que l'on prend de l'ordre de l'unité et que l'on
 	\forall q \in [0, \Lambda] \quad \Rc_k(q) = \alpha \frac{q^2}{\exp{(q^2/k^2)}-1}
 	\label{eq:RegExp}
 \end{equation}
-Remarquons que l'on satisfait bien aux hypothèses imposées sur le régulateur car 
+Remarquons que l'on satisfait bien aux conditions aux limites imposées sur le régulateur car 
 \begin{equation}
 	\forall k \in [0,\Lambda],  \quad \text{sup} \left\{ \Rc_k(q) \right\} = \alpha k^2
 \end{equation}
-donc $\Rc_k$ converge même uniformément vers 0 quand $k \to 0$. En outre, la seconde condition est aussi validée puisque
+donc $\Rc_k$ converge même uniformément vers 0 quand $k$ tend vers 0. En outre, la seconde condition est aussi validée puisque
 \begin{equation}
-	 \text{inf}\left\{ \Rc_\Lambda(q) \right\} = \alpha \frac{\Lambda^2}{e-1}
+	 \text{inf}_{q \in \R} \left\{ \Rc_\Lambda(q) \right\} = \alpha \frac{\Lambda^2}{e-1}
 \end{equation}
 
 \begin{figure}[H]
@@ -415,6 +415,8 @@ A $k$ fixé, comme introduit dans la section ... à condition de bien réaliser 
 \begin{equation}
 	H_k[\varphiv]  = S_k[\varphiv] + \Delta S_k[\varphiv] - \int_\rv \hv \varphiv
 \end{equation} 
+
+\commentout{
 Remarquons tout de même qu'alors que dans le RG on part du vrai hamiltonien du système originel et on crée à partir de son expression une suite d'hamiltonien associés à des systèmes fictifs, ici on part d'un hamiltonien d'un système fictif en $k = \Lambda$ pour calculer le vrai hamiltonien en $k\to 0$ du vrai système.
 De plus nous avons aussi déjà mentionné que c'est la position du minimum du potentiel qui permet de savoir dans quelle phase se trouve le système. Ainsi deux valeurs de $k$ différentes donnent deux systèmes fictifs différents qui peuvent avoir une phase différente. On devra donc chercher en tâtonnant quels sera la température à introduire dans le hamiltonien fictif à $k=\Lambda$ pour obtenir un système vrai à $k \to 0$ qui soit à la transition de phase. On rappelle aussi qu'en $k=\Lambda$ nous partons d'un système fictif "aux fluctuations gelées". Faire évoluer $k$ intègre, i.e. prend en compte, au fur et à mesure de plus en plus les fluctuations du champ décrivant le système. Ceci a pour effet de faire augmenter la température critique
 \footnote{En effet on peut comprendre cela en se disant que les fluctuations du champs ont tendance à désordonner le système. Or la "quantité de désordre" permet de définir la phase du système (on pourra penser à de l'eau solide - faible désordre des molécules - et de l'eau liquide -grand désordre -) et ce qui permet "d'obtenir du désordre" dans un système c'est, dans les grandes lignes, la température qu'on lui impose (ce qui explique que jouer sur la température permet de changer de phase de manière générale). Ainsi un système dans lequel on prend en compte les fluctuations aura besoin d'une température moins élevé qu'un système dans lequel on ne les prend pas en compte pour obtenir le même degré de désordre. Ainsi la température pour lequel le désordre sera celui de la transition de phase, i.e. la température critique, sera plus faible} du système fictif. 
@@ -428,42 +430,37 @@ On peut donc en conclure que les systèmes fictifs verrons une décroissance de 
 \end{figure}
 \vspace*{-11pt}
 
+}
+
 \subsubsection{Equation de flot}
-On peut alors utiliser toutes les définitions que l'on vient de poser pour extraire l'équation fondamentale du NPRG que l'on appelle l'équation de flot. Il s'agit d'une équation valable pour $k \in ]0, \Lambda]$ décrivant l'évolution de $\Gamma$ avec $k$ lorsqu'on le fait évoluer de $\Lambda$ à $0$. 
+
+On peut alors utiliser toutes les définitions que l'on vient de poser pour extraire l'équation fondamentale du NPRG que l'on appelle l'équation de flot exacte. Il s'agit d'une équation valable pour $k \in ]0, \Lambda]$ décrivant l'évolution de $\Gamma$ avec $k$ lorsqu'on le fait évoluer de $\Lambda$ à $0$. 
 \begin{equation}
 \partial_t \Gamma_{k}	[\phiv] = \frac{1}{2} \int_\qv \partial_t \Rc_k(\qv) \, G^{(2)}_{k, ij}[\qv, -\qv, \phiv] \, ,
 \end{equation}
-où $t$ est ce que l'on appelle le temps de RG, définit par $t = \ln(k/\Lambda)$. Avec $G^{(2)}_{k, ij}[\qv, -\qv, \phiv]$ la transformée de Fourier du tenseur $G^{(2)}$ définie en \refann{}. 
-
-En outre, nous avons aussi une condition initiale pour $\Gamma$ puisqu'un rapide calcul mène, d'après les équations \refeq{} directement à 
-\begin{equation}
-	\Gamma_\Lambda [\phiv] = \Gamma_\Lambda 	[\varphiv_0] = S[\varphiv_0]
-\end{equation}
-Avec $\varphiv_0$ défini comme en \refeq{}. Nous rappelons que la connaissance de $\Gamma$ nous permet de connaitre les exposants critiques $\eta$ et $\nu$ .Ainsi, nous avons une équation différentielle avec une condition initiale connue. Cependant on peut remarquer que pour connaitre $\partial_t \Gamma$ dans cette équation il nous faut connaitre la dérivée seconde $\Gamma^{(2)}$. Puis. On dit que l'équation est ouverte et n'est donc pas soluble telle quelle. Ce pourquoi nous allons utiliser l'approximation BMW. 
-
-
-
-
-
-
-\subsubsection{Approximation BMW}
-
-
-On repart ici l'équation principale du NPRG qui est l'équation de flot de $\Gamma$ avec la notation intégrale, 
-\begin{equation}
-\partial_t \Gamma_{k}	[\pv, \phiv] = \frac{1}{2} \int_\qv \partial_t \Rc_k(\qv) \, G^{(2)}_{k, ij}[\qv, -\qv, \phiv] \, ,
-\label{eq:Flot}
-\end{equation}
-Avec, on le rappelle :
+où $t$ est le temps de RG, défini par $t = \ln(k/\Lambda)$. Avec $G^{(2)}_{k, ij}[\qv, -\qv, \phiv]$ la transformée de Fourier du tenseur $G_k^{(2)}$ définie en \refann{}. 
 \begin{equation}
 G^{(2)}_{k, ij}[\qv, -\qv, \phiv] = {\(\Gamma^{(2)}_{k, ij}[\qv, -\qv, \phiv]  + \Rc_k(\qv) \)}^{-1}
 \end{equation}
+En outre, nous avons aussi une condition initiale pour $\Gamma$ puisque d'après les équations \refeq{} il vient
+\begin{equation}
+	\Gamma_\Lambda [\phiv] = \Gamma_\Lambda 	[\varphiv_0] = S[\varphiv_0]
+\end{equation}
+Avec $\varphiv_0$ défini comme en \refeq{}.\\
+
+Rappelons que la connaissance de $\Gamma$ permet de connaitre les exposants critiques $\eta$ et $\nu$, cette équation est donc fondamentale. Ainsi, nous avons une équation différentielle avec une condition initiale connue.
+
+Notons que l'intégrale dans cette équation de flot est en fait tronquée par la fonction $q \to \partial_t\Rc_k(q)$ qui pour un $k$ fixé limite, par ses propriétés, l'intervalle d'intégration qui n'est donc jamais véritablement faite sur un domaine infini et peut sans problème être réalisé numériquement.\\
+
+
+Cependant on peut remarquer que pour connaitre $\partial_t \Gamma$ dans cette équation il nous faut connaitre la dérivée seconde $\Gamma^{(2)}$. Puis si on voulait connaitre $\Gamma^{(2)}$ il nous faudrait connaitre $\Gamma^{(3)}$ et $\Gamma^{(4)}$, ainsi de suite. On dit alors que l'équation est ouverte et n'est donc pas soluble telle quelle. Ce pourquoi nous allons utiliser l'approximation BMW. 
+
+
+
+
+\subsubsection{Approximation BMW} 
  
-
-
-
-On commence par dériver deux fois \refeq{Flot} fonctionnellement par rapport à $\phi$ comme montré en \refann{}. On obtient alors une expression de $\partial_t \Gamma_{k, i_2 i_2}^{(2)}$ en fonction de $\Gamma_{k}$ 
-Le principe de l'approximation BMW \cite{Blaizot} est de considérer que certaines
+Le principe de l'approximation BMW \cite{Blaizot} est de considérer que certaines impulsions dans l'expressions des $\Gamma^{(n)}$ ne jouent pas le même rôle que les autres. En effet 
 
 On obtient finalement le système d'équation suivant 
 \begin{equation}
@@ -563,7 +560,22 @@ Ainsi le but est de chercher "un point fixe" en faisant varier $r_0'$ pour se ra
 
 \subsection{Travail réalisé sur ces équations}
 
-La première partie de notre travail a été de reprendre le développement de ces équations et nous avons réécrit de façon plus modulable et structurée en C++ un code de résolution qui avait déjà été écrit au laboratoire. Pour résoudre ces équations de très nombreuses méthodes numériques ont été mises en place, comme des méthodes galerkin \cite{shen1994efficient, LeonardThesis} pour la représentation des fonctions, de simpsons pour le calcul des intégrales, de Runge-Kutta pour la discrétisation temporelle etc., avant qu'un algorithme fonctionnant dans les cas $N=1$ et $d=2$ puisse être trouvé. Cependant, cet algorithme échoue lorsque l'on essaie de l'utiliser en $N \ge 2$ en $d=2$. Nous avons donc essayer d'en comprendre la cause, notamment en réalisant des calculs en des dimensions $d \in [2,3]$ et en les comparants à d'autres codes plus simples que nous avons réécrit, provenant d'autres approximations que BMW. 
+
+
+
+La première partie de notre travail a été de reprendre le développement de ces équations et nous avons réécrit de façon plus modulable et structurée en C++ un code de résolution qui avait déjà été écrit au laboratoire (c.f. \refig{org}). Pour résoudre ces équations de très nombreuses méthodes numériques ont été mises en place, comme des méthodes galerkin \cite{shen1994efficient, LeonardThesis} pour la représentation des fonctions, de simpsons pour le calcul des intégrales, de Runge-Kutta pour la discrétisation temporelle etc., avant qu'un algorithme fonctionnant dans les cas $N=1$ et $d=2$ puisse être trouvé. Cependant, cet algorithme échoue lorsque l'on essaie de l'utiliser en $N \ge 2$ en $d=2$. Nous avons donc essayer d'en comprendre la cause, notamment en réalisant des calculs en des dimensions $d \in [2,3]$ et en les comparants à d'autres codes plus simples que nous avons réécrit, provenant d'autres approximations que BMW. 
+
+
+\end{multicols}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.95\columnwidth]{Diagramme_Code_2.pdf}
+		\caption{Schéma de la répartition du travail effectué. Nous avons commencé par retrouver ou écrire les équations BMW à résoudre (vert). Ensuite nous avons réécrit ou écrit les codes C++ de simulation de ces équations ayant la structure indiquée (rouge). Toutes les parties orangées sont parallélisée sous OpenMP. Enfin nous étudions les résultats à l'aides de scripts Matlab.}
+		\label{fig:org}
+	\end{center}
+\end{figure}
+
+\begin{multicols}{2}
 
 
 \subsection{Structure de l'algorithme}
@@ -576,13 +588,7 @@ Ensuite nous allons différencier la dépendance en champs (i.e. en $\rho$) à c
 
 Enfin pour la dépendance en impulsion c'est plus compliqué car il faut à la fois pouvoir facilement dériver selon $p$, mais aussi intégrer des expressions qui dépendent des fonctions inconnues - afin d'obtenir les intégrales $I$ et $J$. Au premières versions de ce code, la discrétisation se faisait aussi sur une grille fixe de points régulièrement espacés et les intégrales étaient calculées par des méthodes de Simpsons. Cependant cela c'est avéré ne pas être assez précis dans certaines configurations, les algorithmes n'étaient pas robustes. Pour palier à ce problème c'est une décomposition pseudo spectrale qui a été mise en place à l'aide de décomposition en série sur des polynômes de Tchebytchev associé à une intégration de Gauss-Legendre. 
 
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale = 0.7]{Diagramme_Code.pdf}
-		\caption{Schéma de la structure globale du code. L'ensemble des opérations .}
-		\label{figPhoto1}
-	\end{center}
-\end{figure}
+
 
 
 \subsection{Discrétisation en champ}
@@ -650,16 +656,19 @@ Le code a été écrit de manière à rendre sa parallélisation très simple. E
 \pagebreak
 \section{Le modèle d'Ising en dimension 2}
 
-On considère le modèle d'Ising classique sur un réseau hypercubique de dimension $d$. Les longueurs seront exprimées en unité de pas du réseau. On note $\{\ev_\nu\}_{\nu\in\bbrac{1,d}}$ la base cartésienne de ce réseau. Le hamiltonien du système est alors donné par
+On considère le modèle d'Ising classique sur un réseau hypercubique de dimension $d$ (nous avons uniquement travaillé numériquement dans le cas $d=2$ mais nous exposons le formalisme pour une dimension $d$ quelconque). Les longueurs sont exprimées en unité du pas du réseau. On note $\{\ev_\nu\}_{\nu\in\bbrac{1,d}}$ la base cartésienne associée. L'hamiltonien du système est alors donné par
 \begin{equation}
 H = -J\beta \sum_{\left<\rv, \rv'\right>}S_\rv S_{\rv'}
 \end{equation}
-Où $S_\rv$ est la valeur du spin à la position $\rv$, comprise dans $\{-1,1\}$. La notation $\left<\rv, \rv'\right>$ signifie que le terme $S_\rv S_{\rv'}$ contribue à la somme si et seulement si ce sont deux spins plus proches voisins du réseau (i.e s'il existe $\nu \in \bbrac{1,d}$ tel que $\rv' = \rv \pm \ev_\nu$). 
 
+Où $S_\rv$ représente la valeur du spin (i.e. sa direction selon l'axe $z$, c.f. \refig{schemaIsing}) à la position $\rv$, comprise dans $\{-1,1\}$. La notation $\left<\rv, \rv'\right>$ signifie que le terme $S_\rv S_{\rv'}$ contribue à la somme si et seulement si ce sont deux spins plus proches voisins du réseau (i.e s'il existe $\nu \in \bbrac{1,d}$ tel que $\rv' = \rv \pm \ev_\nu$). 
 \setlength{\unitlength}{1cm}
 \begin{figure}[H]
 \begin{center}
 \begin{picture}(6,3.8)
+
+\put(-0.5,1){\vector(0,1){2}}
+\put(-0.8,2){$z$}
 
 \color{cyan}
 \put(0,0){\line(1,3){1.2}}
@@ -676,7 +685,6 @@ Où $S_\rv$ est la valeur du spin à la position $\rv$, comprise dans $\{-1,1\}$
 \put(0.65,3.35){\line(1,0){5.7}}
 \color{red}
 \linethickness{0.35mm}
-
 
 \put(0.15,0.85){\vector(0,-1){0.8}}
 \put(1.15,0.05){\vector(0,1){0.8}}
@@ -714,34 +722,35 @@ Où $S_\rv$ est la valeur du spin à la position $\rv$, comprise dans $\{-1,1\}$
 \put(6.1167,3.15){\vector(0,1){0.4}}
 
 
+
 \end{picture}
 \end{center}
-\caption{Exemple de réseau d'Ising en dimension $d=2$. Le système est dans la phase haute température ($T>T_c$).}
+\caption{Exemple de réseau d'Ising en dimension $d=2$. On traite dans le modèle d'Ising des spins avec une seule composante, ce sont donc des vecteurs dont seule la direction peut changer mais pas l'orientation qui est fixé ici selon $z$, perpendiculairement au plan). Le système est dans la phase haute température ($T>T_c$) car les spins ont des directions aléatoire. Ici le nombre de spins représenté est faible, mais comme nous ferons une étude à la limite thermodynamique il est bien plus élevé dans le système étudié.}
+	\label{fig:schemaIsing}
 \end{figure}
 
-Sur un tel système nous observons une transition de phase du second ordre. En effet il existe une phase (dite de symétrie brisée, ou encore basse température) dans laquelle les spins tendent tous à s'aligner dans une direction privilégiée lorsque la température et faible et que les fluctuations thermiques ne jouent pas un rôle important. Lorsque l'on va dépasser la température critique $T_C$ les spins vont avoir une direction plus ou moins aléatoire et on se retrouve alors dans une nouvelle phase (dite symétrique). C'est ce modèle qui explique la perte d'aimantation d'un métal à haute température que nous avions mentionné dans l'introduction. 
+Sur un tel système nous observons une transition de phase du second ordre. En effet il existe une phase (dite de symétrie brisée, ou encore basse température) dans laquelle les spins tendent tous à s'aligner dans une direction privilégiée lorsque la température et faible et que les fluctuations thermiques ne jouent pas un rôle important. Lorsque l'on dépasse la température critique $T_c$ les spins vont avoir une direction plus ou moins aléatoire le système est alors dans une nouvelle phase (dite symétrique). C'est ce modèle qui explique la perte d'aimantation d'un métal à haute température que nous avions mentionné dans l'introduction. \\
 
-La particularité de ce modèle est aussi qu'il a déjà été complètement résolu analytiquement par Onsager \cite{Onsager} en 1944. Tout est donc déjà connu et notamment la température critique de la transition de phase. Avec l'approche BMW nous allons essayer de la retrouver pour valider la qualité de l'approximation et la possibilité de calculer des grandeurs non universelles comme $T_C$ par le NPRG. 
+La particularité de ce modèle est aussi qu'il a déjà été complètement résolu analytiquement par Onsager \cite{Onsager} en 1944. Tout est donc déjà connu et notamment la température critique de la transition de phase. Avec l'approche BMW nous avons essayé de la retrouver pour valider la qualité de l'approximation et la possibilité de calculer la température critique $T_c$ par le NPRG. \\
 
-
+Si l'on change l'axe $z$ en $-z$ alors l'hamltonien du système ne change pas. Ainsi ce système possède une symétrie $O(1) \simeq \mathbb{Z}_2$. Il est donc possible de calculer ces exposants critiques en utilisant les équations BMW de la \refsec{} développée avec l'hamiltonien la théorie $\varphiv^4$. La température critique n'étant pas une quantité universelle, elle dépend entièrement du système et prendre un hamiltonien tronqué ne suffit pas, la forme même du réseau est importante. Ce pourquoi nous allons réexprimer le hamiltonien exact complet \refeq{} afin de l'exprimer sous forme de champ et de pouvoir lui appliquer le NPRG. 
 \vspace*{11pt} 
 
 \subsection{Modélisation du problème avec des champs}
 
-Pour des raisons pratiques on définit maintenant un hamiltonien légerement modifié
+Pour des raisons pratiques on définit maintenant un hamiltonien légèrement modifié
 \begin{align}
   H_\mu &= -J\beta \sum_{\left<\rv, \rv'\right>}S_\rv S_{\rv'} - \mu \beta N_S \\
   H_\mu  &= -J\beta \sum_{\left<\rv, \rv'\right>}S_\rv S_{\rv'} - \mu \beta \sum_\rv S_\rv^2 
 \end{align}
-
-Où $N_S$ est le nombre total de spins. Physiquement cela ne change rien car cela ne fait que décaller l'origine des energies. En revanche cela a un avantage mathématique. En effet, on pose $A_{\rv, \rv'}^{(\mu)}$ la matrice définie implicitement dans $\mathscr{M}_{N_S}(\R)$ par
+Où $N_S$ est le nombre total de spins. Physiquement cela ne change rien car cela ne fait que décaler l'origine des énergies. En revanche cela a un avantage mathématique. En effet, on pose $A_{\rv, \rv'}^{(\mu)}$ la matrice définie implicitement dans $\mathscr{M}_{N_S}(\R)$ par
 \begin{equation}
   H_\mu  = -\frac{1}{2} \sum_{\rv, \rv'} S_\rv A_{\rv, \rv'}^{(\mu)}S_{\rv'}
 \end{equation}
 
-Il est alors possible de choisir $\mu$ suffisament grand pour que $A_{\rv, \rv'}^{(\mu)}$ soit à diagonale strictement dominante et donc inversible. Par construction il suffit de prendre $\mu > dJ$. On peut alors réaliser une transformée de Hubbard-Stratanovitch. \\
+Il est alors possible de choisir $\mu$ suffisamment grand pour que $A_{\rv, \rv'}^{(\mu)}$ soit à diagonale strictement dominante et donc inversible. Il suffit de prendre $\mu > dJ$. \\
 
-Pour cela commençons par écrire la fonction de partition du modèle
+On peut alors réaliser une transformée de Hubbard-Stratanovitch. Pour cela commençons par écrire la fonction de partition du système modèle
 \begin{equation}
   \Zc = \sum_{\{S_\rv\}} e^{-H_{\mu}} =\sum_{\{S_\rv\}}  \exp\(\frac{1}{2} \sum_{\rv, \rv'} S_\rv A_{\rv, \rv'}^{(\mu)}S_{\rv'}\)
 \end{equation}
@@ -755,7 +764,7 @@ Par integration gaussienne \textit{inverse} il vient,
 \end{split}
 \end{equation}
 
-Cependant nous ne pouvons pas exprimer facilement ${(A_{\rv, \rv'}^{(\mu)})}^{-1}$ et pour cela il est pratique de réaliser une transformée de fourier semi-discrète en posant
+Cependant nous ne pouvons pas exprimer facilement ${(A_{\rv, \rv'}^{(\mu)})}^{-1}$ et pour cela il est pratique de réaliser une Transformée de Tourier Semi-Discrète  \refann{} en posant, pour $\qv \in [-\pi, \pi]^d$,
 \begin{equation}
   \hat{\varphi}(\qv) = \sum_\rv \varphi_\rv e^{-i\qv\rv} \quad \text{et} \quad \varphi_\rv = \int_\qv \hat{\varphi}(\qv)  e^{i\qv\rv}
 \end{equation}
@@ -782,14 +791,14 @@ Il vient alors
 }
 Notons donc simplement
 \begin{equation}
-  h_\mu(\qv) = -\beta \left\{ J\sum_{\nu} e^{ \pm i \qv \, \ev_\nu} +\mu \right\} 
+  \lambda_\mu(\qv) = -\beta \left\{ J\sum_{\nu} e^{ \pm i \qv \, \ev_\nu} +\mu \right\} 
 \end{equation}
 Ainsi, il vient, 
 \begin{equation}
-  H_\mu =   \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')   h_\mu(\qv')   \sum_{\rv}  e^{i(\qv+\qv')\rv} \\
+  H_\mu =   \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')   \lambda_\mu(\qv')   \sum_{\rv}  e^{i(\qv+\qv')\rv} \\
 \end{equation}
 \begin{equation}
-  H_\mu =   \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')   h_\mu(\qv')   D_{N_S}(\qv+\qv') \\
+  H_\mu =   \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')   \lambda_\mu(\qv')   D_{N_S}(\qv+\qv') \\
 \end{equation}
 En définissant le noyaux de Dirichlet $D_{N_S}$ par
 \begin{equation}
@@ -802,39 +811,44 @@ En définissant le noyaux de Dirichlet $D_{N_S}$ par
   = \frac{\sin{\(  \frac{(N_x+1)}{2}(\qv+\qv')_x \)}}{\sin{\( \frac{1}{2}(\qv+\qv')_x \) }} e^{i\frac{N_x}{2}(\qv+\qv')_x }
 \end{split}
 \end{equation}}
+
+\commentout{
 On note $\Dc = \Dc([-\pi, \pi]^2)$, soit $f \in \mathcal{D}$, $D_{N_S}$ étant une fonction de $L^2([-\pi, \pi]^2)$, il appartient à $\Dc'$. On montre alors que \cite{}
 \begin{equation}
   \lim\limits_{N_S \rightarrow +\infty} \left< D_{N_S} , f \right>_{\Dc', \Dc} =  \left< \delta , f \right>_{\Dc', \Dc}
 \end{equation}
+}
 
-
-Ainsi, en prenant la limite $N_S \rightarrow + \infty$ et en raisonnant au sens des distributions,
+Ainsi, en prenant la limite $N_S \rightarrow + \infty$ et en raisonnant au sens des distributions, par les propriétés du noyau de Dirichlet, il vient formellement
 \begin{equation}
- \lim_{N_S \rightarrow + \infty} H_\mu = -\beta \int_\qv \hat{\varphi}(\qv)  \left\{ \sum\limits_{\nu=1}^{d}  Je^{\pm i\, \qv \, \ev_\nu} + \mu \right\}\hat{\varphi}(-\qv)
+ \lim_{N_S \rightarrow + \infty} H_\mu = - \int_\qv \hat{\varphi}(\qv)  \lambda_\mu(\qv) \hat{\varphi}(-\qv)
 \end{equation}
-Dans la suite nous ferons l'hypothese, comme souvent en physique, que $N_S$ est suffisament grand pour que l'on écrive, par abus de notation, $H_\mu = \lim\limits_{N_S \rightarrow + \infty} H_\mu$. \\
+Dans la suite nous ferons l'hypothèse de la limite thermodynamique, selon laquelle $N_S$ est suffisamment grand pour que l'on écrive, par abus de notation, $H_\mu = \lim\limits_{N_S \rightarrow + \infty} H_\mu$. \\
 Nous obtenons alors
 \begin{equation}
-  H_\mu = -\beta \int_\qv \hat{\varphi}(\qv)  \left\{ J \sum\limits_{\nu=1}^{d} \cos(q_\nu) + \mu \right\}\hat{\varphi}(-\qv)
+  H_\mu = - \int_\qv \hat{\varphi}(\qv)  \lambda_{\mu}(\qv) \hat{\varphi}(-\qv)
 \end{equation}
-Et on en déduit que la transformée de Fourier de $A_{\rv, \rv'}^{(\mu)}$ qui est un opérateur de ... vérifie,
+Et on en déduit la transformée de Fourier de $A_{\rv, \rv'}^{(\mu)}$
 \begin{align}
   \hat{A}(\qv, \qv') = 
   \begin{cases}
-    2J\beta \sum\limits_{\nu=1}^{d} \cos(q_\nu) + 2\beta\mu \quad & \text{si } \qv' = - \qv\\
+    \lambda_{\mu}(\qv) \quad  & \text{si } \qv' = - \qv\\
     0 \quad & \text{si } \qv' \neq - \qv
   \end{cases}
 \end{align}
 
 Autrement dit, $\hat{A}$ est un operateur diagonal et bien inversible si $\mu > Jd$. Notons,
-\begin{align}
-\gamma(\qv ) & = \frac{1}{d} \sum\limits_{\nu=1}^{d} \cos(q_\nu) \\
- \lambda_\mu(\qv) & = 2\beta\(J d \gamma(\qv) + \mu\)
-\end{align}
-En écrivant alors la conservation du produit scalaire de $\mathscr{l}^2$ dans $L^2(\R)$ opérée par la transformation de Fourier semi-discrète nous pouvons écrire : ...
-
 \begin{equation}
-  \Zc  \propto \int_\R \prod_{\rv} \, \dd \varphi_\rv \, e^{-S_\mu[\varphi] } \\
+	\gamma(\qv ) = \frac{1}{d} \sum\limits_{\nu=1}^{d} \cos(q_\nu)
+\end{equation}
+Ainsi l'expression de $\lambda_mu$ se trouve être 
+\begin{equation}
+	 \lambda_\mu(\qv) = 2\beta\(J d \gamma(\qv) + \mu\)
+\end{equation}
+
+En écrivant alors la conservation du produit scalaire de $\ell^2$ dans $L^2(\R)$ opérée par la transformation de Fourier semi-discrète,
+\begin{equation}
+  \Zc  \propto \int_\R \prod_{\rv} \, \dd \varphi_\rv \, e^{-S_\mu[\varphi] }
 \end{equation}
 Avec l'action $S$ s'écrivant :
 \begin{equation}
@@ -863,17 +877,22 @@ Avec, en posant $\tilde{\mu} = \mu/(Jd)$ et $\tilde{\beta} = \beta Jd$,
   U(\phi) = \delta^2 \frac{1}{1+\tilde{\mu}} \frac{1}{2}\phi^2 - \ln\(\cosh\(\delta\sqrt{2\tilde{\beta}}\phi\)\)
 \end{equation}
 
-On se retrouve donc ici avec la formulation d'un problème de théorie des champs que l'on peut résoudre avec le groupe de renormalisation non perturbatif et notamment avec l'approximation BMW. La fonction $U$ représente ainsi le potentiel du système et $\eo$ s'appelle sa relation de dispersion.\\
+On se retrouve donc ici avec la formulation d'un problème de théorie des champs que l'on peut résoudre avec le NPRG et notamment avec l'approximation BMW. La seule différence avec tout ce qui a été étudié précédemment c'est qu'ici, par Transformée de Fourier semi-discrète les intégrales sur les impulsions ne sont plus calculées sur un domaine infini mais sur "la première zone de Brillouin", i.e. sur un hypercube de longueur $2\pi$. Toutes les formules vu restent sinon valable en intégrant cet ajustement.\\
 
+ La fonction $U$ représente alors le potentiel du système dans l'approximation de champ moyen. Et ainsi le potentiel $V_k$ des équations BMW prend en $k=\Lambda$ la valeur $V_\Lambda = U$. La fonction $\eo$ s'appelle quant à elle la relation de dispersion.\\
+ 
+ 
 Remarquons de plus que la fonction $U$ est de classe $\Cc^\infty$ dérivable sur $[0,+\infty[$. Ainsi il vient 
 \begin{equation}
 X(\phi) = \partial_\phi^2 U(\phi) = \delta^2 \frac{1}{1+\tilde{\mu}} - 
 \end{equation}
 
 Ceci nous permet de récupérer la valeur que l'on aurait trouvé en calculant la température critique $\tilde{T}_c^{\text{MF}} = T_c^{\text{MF}}/(Jd) $ en s'appuyant sur une théorie de champ moyen. En effet, dans une théorie de champ moyen le potentiel du système est directement le potentiel $U$. Or on rappelle que la phase dans laquelle on se trouve dépend du potentiel, de la position de son minimum et de sa forme de manière générale. Nous savons qu'en dessous de la température critique $U$ est une fonction concave au voisinage de $\phi = 0$ et au dessus c'est une fonction convexe. Ainsi, à la transition $X(0) = 0$. Ceci nous donne
+
 \begin{equation}
  \frac{1}{\tilde{T}_c^{\text{MF}}} = \tilde{\beta}_c^{\text{MF}} \simeq \frac{1}{2(1+\tilde{\mu})}
 \end{equation}
+
 Cette valeur nous donne déjà une borne supérieure sur la température critique que l'on recherche. En effet, on sait que la vraie température critique sera toujours plus faible que celle obtenue par approximation de champ moyen\footnote{Ceci s'explique en partie "avec les mains". En effet dans une approximation de champ moyen, comme son nom l'indique les fluctuations des degrés de libertés - ici l'orientation des spins - autour s'une position moyenne se trouvent être négligées. Or leur prise en compte pour la résolution complète du modèle implique que pour une même température le système complet est plus désordonné que ce que le calcul champ moyen nous donne. La température critique vraie sera donc plus basse que la température critique champ moyen} : $T_c < T_c^{\text{MF}}$.
 
 
@@ -881,15 +900,18 @@ Cette valeur nous donne déjà une borne supérieure sur la température critiqu
 
 \vspace*{11pt}
 \subsection{Etapes de la résolution numérique}
-La résolution numérique du problème s'est déroulée en plusieurs étapes. Tout d'abord nous avons commencé comme en .. par écrire les équations BMW qui découlent de la forme de l'action précédemment déterminés. Cependant nous sommes passé par plusieurs étapes. \\
+La résolution numérique du problème s'est déroulée en plusieurs étapes. Tout d'abord nous avons commencé par écrire les équations BMW qui découlent de la forme de l'action précédemment déterminés. Cependant nous sommes passés par plusieurs étapes. En effet, comme nous travaillons sur un réseau, avec des  \\
 
 Tout d'abord, contrairement au modèle O(N), nous avons commencé par écrire les équations BMW sans les adimmensionner. En effet possédant des  \\
 
 Malheureusement, après avoir écrit une première fois les équations selon la variable $\rho$ à cause d'instabilités numériques constatées au voisinage de $\rho = 0$ provenant probablement du calcul numérique instable des dérivées en ces points nous avons du les réecrire  
 
+
 \subsection{Les différents jeux d'équation}
 
-\pagebreak
+Comme ce que nous avions fait dans la description du modèle $O(N)$ nous détaillons ici une seule des équations que nous avons cherché à résoudre.
+
+\vspace*{22pt}
 
 \section{Méthodes et outils numériques pour la résolution d'Ising 2D}
 
@@ -1064,6 +1086,12 @@ Et on adopte encore une quadrature de Gauss-Legendre.
 \subsection{Complexité algorithmique et parallélisation - problème de rapidité} 
 
 Comme pour le modèle continu $O(N)$ il est possible de paralléliser le code en utilisant de l'openMP \cite{} grain fin sur les boucles en champ. En revanche ici notre code, à cause de la quadrature précise que l'on souhaite avoir sur le calcul des intégrales $J$ le temps de calcul se trouve évoluer en $\mathcal{O}( Q_\text{max} \times N_C^3 \times N_{GL}^2)$. Il vient alors 
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.95\columnwidth]{ComplexiteTemps.pdf}
+\end{center}
+\caption{(Points bleus) Logarithme du temps de calcul mesuré $t_c$ de 10 pas de temps du code en fonction du nombre de points d'intégration et d'interpolation. Où l'on a pris $\bar{N} = N_c = N_g$. (Ligne rouge) droite d'équation $y=6x+b$ avec $b$ une constante. Il semble que les points se rapproche du comportement de la droite et ainsi que l'on ait $t_c \propto N^6$. Un interpolation linéaire sur les données dont on dispose donne plus précisément $t_c \propto N^{5,7} $   }
+\end{figure}
 
 \pagebreak
 
@@ -1079,7 +1107,8 @@ Comme pour le modèle continu $O(N)$ il est possible de paralléliser le code en
 \appendix
 
 
-\section{Dérivée fonctionnelle, transformée de Fourier, opérateurs à noyaux}
+\begin{multicols}{2}
+\section{Outils pour le développement des équations}
 
 
 \subsection{Transformée de Fourier}
@@ -1134,7 +1163,7 @@ Soit $f \in U$. On appelle, si elle existe, dérivée (au sens de Fréchet) de l
 \begin{equation}
 \forall h \in U \quad \lim_{ \eps \rightarrow 0 } \frac{\| F[f+\eps h] - F[f] - \eps D_fF.h\|_V}{\eps}  = 0
 \end{equation} 
-Dans le cas où $U = L^2(\R^d)^N$ et $V = \R$ alors $D_fF \in U'$ (espace des forme linéaires continues de $U$) et on sait qu'il existe, par le théorème de Frechet-Riesz, une quantité unique que l'on note $\delta F[f]/\delta f$ telle que 
+Dans le cas où $U = L^2(\R^d)^N$ et $V = \R$ alors $D_fF \in U'$ (espace des forme linéaires continues de $U$) et on sait qu'il existe, par le théorème de Frechet-Riesz, une quantité unique que l'on note $\delta F[f]/\delta f /in U'(=U)$ telle que 
 \begin{equation}
 \forall h \in U \quad D_f F.h = {\left< \derd{F[f]}{f}, h \right>}_{U} = \int \derd{F[f]}{f(\rv)} h(\rv) \dd \, \rv	
 \end{equation}
@@ -1149,13 +1178,16 @@ Alors,
 \begin{equation}
   \derd{F}{\varphiv(\rv)} = \int_{\qv} \derd{F}{\hat{\varphiv}(-\qv)} e^{i\qv.\rv} = \text{TF}^{-1} \left[ \derd{F}{\hat{\varphiv}(-\qv)} \right](\rv) 
 \end{equation} 
-
+Et réciproquement nous avons alors aussi, pour $\pv \in \R^d$,  
+\begin{equation}
+  \derd{F}{\hat{\varphiv}(-\pv)} = \int_{\rv} \derd{F}{\varphiv(\rv)} e^{-i\pv.\rv} = \text{TF} \left[ \derd{F}{\varphiv(\rv)} \right](\pv) 
+\end{equation} 
 
 \vspace*{11pt}
 %\noindent
 {\footnotesize 
 \noindent
-Par la règle de la chaine de la dérivation de Fréchet nous pouvons écrire, 
+En effet, par la règle de la chaine de la dérivation de Fréchet nous pouvons écrire, 
 \begin{equation}
   \forall \hv \in U \quad D_{\varphiv} F. \hv = D_{\hat{\varphiv}} F. D_{\varphiv} \hat{\varphiv}.\hv 
 \end{equation}
@@ -1166,8 +1198,8 @@ Cependant, $\hat{\varphiv}$ est une fonctionnelle de $\varphiv$ (par définition
 Il vient directement, par définition de la dérivation au sens de Frechet, $D_{\varphiv} \hat{\varphiv} .\hv = \hat{\hv}$.  
 Ainsi,  $D_{\varphiv} F .\hv = D_{\hat{\varphiv}}F.\hat{\hv}$.  On peut alors écrire, 
 \begin{align}
-  \forall \hv \in U  \quad D_{\varphiv} F .\hv & = \int_{\qv} \derd{F}{\varphiv(\qv)} \int_{\rv} h(\rv) e^{-i\qv.\rv} \\
-  \forall \hv \in U  \quad D_{\varphiv} F .h & = \int_{\rv} \int_{\qv} \derd{F}{\varphiv(\qv)} e^{-i\qv.\rv } \hv(\rv)
+  \forall \hv \in U  \quad D_{\varphiv} F .\hv & = \int_{\qv} \derd{F}{\varphiv(\qv)} \int_{\rv} \hv(\rv) e^{-i\qv.\rv} \\
+  \forall \hv \in U  \quad D_{\varphiv} F .\hv & = \int_{\rv} \int_{\qv} \derd{F}{\varphiv(\qv)} e^{-i\qv.\rv } \hv(\rv)
 \end{align}
 }
 
@@ -1175,75 +1207,81 @@ Ainsi,  $D_{\varphiv} F .\hv = D_{\hat{\varphiv}}F.\hat{\hv}$.  On peut alors é
 
 \subsection{Opérateurs à noyaux}
 
-Nous détaillons dans cette sections quelques propriétés élémentaires mais très utiles dans notre études des opérateurs à noyaux. Après une définition rigoureuse de ces opérateurs et de leur trace nous utiliserons une description plus formelle de ce que peut être leur inverse.\\
+Nous détaillons dans cette sections quelques propriétés élémentaires des opérateurs à noyaux. Pour plus de détails on pourra regarder \cite{}. Ceci permet de comprendre quelques unes des étapes dans la détermination des équations de flot et BMW. \\
 
 
 
-\subsubsection{Definition}
+\subsubsection{Définition}
 
-On appelle $S$ un operateur a noyaux, une application de $L^2(\R^d, \R^N)$, telle que pour tout $(i,j) \in \bbrac{1,N}^2$, il existe une application $A_{i,j} \in L^2(\R^d\times\R^d, \R)$ telle que,  pour tout $f \in L^2(\R^d, \R^N)$, et $x \in \R^d$ 
+On appelle $S$ un operateur a noyaux, une application de $(L^2(\R^d))^N$, telle que pour tout $(i,j) \in \bbrac{1,N}^2$, il existe une application $A_{i,j} \in L^2(\R^d\times\R^d)$ telle que,  pour tout $\varphiv \in (L^2(\R^d)^N$ et $\rv \in \R^d$
  \begin{equation}
-  S[f]_i(x) = \int_{\R^d} \sum_{j=1}^{N} A_{i,j}(x,y)f_j(y) \dd^d y
+  S[\varphiv]_i(\rv) = \int_{\rv'} \sum_{j=1}^{N} A_{i,j}(\rv,\rv')\varphi_j(\rv')
  \end{equation}
+ La matrice $A : (\rv,\rv') \rightarrow ((A_{i,j}(\rv,\rv')))_{i,j}$ est appelée noyau de $S$.  On identifiera alors dans les notations $S$ et $A$ indépendamment. Par Cauchy-Schwartz cette définition a bien  un sens. De plus, on peut montrer que $S$ et est un endomorphisme de $(L^2(\R^d)^N$. Pour plus de clarté, nous utiliserons par la suite la notation d'Einstein : on n'écrit plus la somme sur $j$ dans l'expression de $S$, et de manière générale lorsque un indice est répété dans une expression on suppose qu'il est sommé de $1$ à $N$, 
+  \begin{equation}
+  S[\varphiv]_i(\rv) \equiv \int_{\rv'} A_{i,j}(\rv,\rv')\varphi_j(\rv')
+ \end{equation}
+ 
 
- La matrice $A : (x,y) \rightarrow ((A_{i,j}(x,y)))_{i,j}$ est appellée noyaux de $S$. \\
- On identifiera alors dans les notations $S$ et $A$ indépendemment. Par Cauchy-Schwartz cette définition a bien  un sens. De plus, on peut montrer que $S$ et est un endomorphisme de $L^2(\R^d, \R^N)$. \\
 
 
 \vspace*{11pt}
 
 \subsubsection{TF d'un opérateur à noyaux}
 
-Nous avons vu que $S$ définie comme précédemment était un endomorphisme de $L^2(\R^d, \R^N)$. Ainsi il est possible d'en définir la transformée de Fourier. Nous avons donc,
+Nous avons vu que $S$ définie comme précédemment était un endomorphisme de $(L^2(\R^d)^N$. Ainsi il est possible d'en définir la transformée de Fourier. Introduisons tout d'abord la transformée de Fourier du noyaux, pour $(i,j) \in \bbrac{1,N}^2$ et $(\qv, \qv') \in (\R^d)^2 $
 \begin{equation}
-  \hat{S}[f]_i(\qv) = \int_{\R^d} \sum_{j=1}^{N} \hat{A}_{i,j}(\qv, -\qv') \hat{f}_j(\qv')
+	 \hat{A}_{i,j}(\qv, -\qv') = \iint_{\rv,\rv'} A_{i,j}(\rv,\rv')\,e^{-i\qv.\rv} \, e^{-i \qv'.\rv'} 
+\end{equation}
+Ce qui implique alors 
+\begin{equation}
+	 \hat{S}[\varphiv]_i(\qv) = \int_{\qv'} \hat{A}_{i,j}(\qv, -\qv') \hat{\varphi}_j(\qv')
 \end{equation}
 
 
 
 {\footnotesize
-Ceci ce démontre en développant le calcul de la transformée de Fourier. Soit $\qv \in \R^d$,
+\noindent
+En effet, ceci ce démontre en développant le calcul de la transformée de Fourier. Soit $\qv \in \R^d$, $i \in \bbrac{1,N}$
 \begin{align}
- \hat{S}[f]_i(\qv)  = & \int_{\R^d} \int_{\R^d} \sum_{j=1}^{N} A_{i,j}(\xv,\yv)f_j(\yv) e^{-i\qv\xv} \dd^d \yv \dd^d \xv \\
- \hat{S}[f]_i(\qv)  = & \int_{\R^{3d}} \sum_{j=1}^{N} A_{i,j}(\xv,\yv) \hat{f}_j(\qv') e^{i\qv'\yv} e^{- i\qv\xv}  \dd^d \qv' \dd^d \yv \dd^d \xv \\
- \hat{S}[f]_i(\qv)  = &    \sum_{j=1}^{N} \int_{\R^d} \hat{f}_j(\qv') \left\{ \int_{\R^{2d}} A_{i,j}(\xv,\yv)  e^{i\qv'\yv} e^{- i\qv\xv}  \dd^d \yv \dd^d \xv   \right\} \dd^d \qv'\\
-\hat{S}[f]_i(\qv)  = &    \sum_{j=1}^{N} \int_{\R^d} \hat{f}_j(\qv') \hat{A}_{i,j}(\qv, -\qv') \dd^d \qv'\\
+ \hat{S}[\varphiv]_i(\qv)  = & \int_{\rv} \int_{\rv'} A_{i,j}(\rv,\rv')\varphi_j(\rv') e^{-i\qv\rv}  \\
+\hat{S}[\varphiv]_i(\qv)  = & \iint_{\rv, \rv'} \int_{\qv'} A_{i,j}(\rv,\rv') \hat{\varphi}_j(\qv') e^{i\qv'\rv'} e^{- i\qv\rv} \\
+ \hat{S}[\varphiv]_i(\qv)  = &   \int_{\qv'} \hat{\varphi}_j(\qv') \left\{ \iint_{\rv, \rv'} A_{i,j}(\rv,\rv')  e^{i\qv'\rv'} e^{- i\qv\rv}  \right\}  \\
+\hat{S}[\varphiv]_i(\qv) = & \int_{\qv}  \hat{\varphi}_j(\qv') \hat{A}_{i,j}(\qv, -\qv')
 \end{align}
-
 }
 
 \vspace*{11pt}
 
 \subsubsection{Composition de deux opérateurs}
 
-Considérons deux opérateurs à noyaux, $S$ et $T$ de noyaux respectifs $A$ et $B$. \\
-La composition de ces deux opérateurs est définie par,
+Considérons deux opérateurs à noyaux, $S$ et $T$ de noyaux respectifs $A$ et $B$. La composition de ces deux opérateurs est définie, pour $\rv \in \R^d$, par
 \begin{equation}
-  \forall \xv \in \R^d \quad S \circ T [f]_i (\xv) = \int_{\R^d}  \sum_{j=1}^{N} \left\{ \int_{\R^d} \sum_{j=k}^{N}A_{i,k}(\xv, \zv)B_{k,j}(\zv, \yv)  \dd^d \yv \right\} f_j(\yv)  \dd^d \yv
+ 	S . T [\varphiv]_i (\rv) = \int_{\rv'}  \left\{ \int_{\rv''} A_{i,k}(\rv, \rv'')B_{k,j}(\rv'', \rv') \right\} \varphi_j(\rv')
 \end{equation}
-On notera alors aussi
+On notera alors aussi pour $(\rv, \rv') \in (\R^d)^2 $
 \begin{equation}
-    \forall (\xv, \yv) \in (\R^d)^2 \quad (A \circ B)_{i,j} (\xv, \yv) = \int_{\R^d} \sum_{j=k}^{N}A_{i,k}(\xv, \zv)B_{k,j}(\zv, \yv)  \dd^d \yv 
+   (A . B)_{i,j} (\rv, \rv') = \int_{\rv''} A_{i,k}(\rv, \rv'')B_{k,j}(\rv,'' \rv') 
 \end{equation}
-Par transformée de Fourier, par un calcul analogue à celui fait pour un simple noyaux, il vient,
+Par transformée de Fourier, et par un calcul analogue à celui fait pour un simple noyau, il vient, pour $(\qv, \qv') \in (\R^d)^2$,
 \begin{equation}
-\forall (\qv, \qv') \in (\R^d)^2 \quad\widehat{(A \circ B)}_{i,j}(\qv, \qv') =\int_{\R^d} \sum_{j=k}^{N}\hat{A}_{i,k}(\qv, \qv'')\hat{B}_{k,j}(-\qv'', \qv')  \dd^d \qv'' 
+	\widehat{(A . B)}_{i,j}(\qv, \qv') =\int_{\qv''} \hat{A}_{i,k}(\qv, \qv'')\hat{B}_{k,j}(-\qv'', \qv') 
 \end{equation}
 
 
 
 \vspace*{11pt}
 
-\subsubsection{Trace d'un opérateur à noyaux}
+\subsubsection{Trace d'un opérateur à noyau}
 
 On définit la trace d'un opérateur $S$ de noyaux $A$ par
 \begin{equation}
-  \text{Tr} A = \sum_{i=1}^{N} \int_{\R^d} A_{i,i}(\xv,\xv) \dd^d \xv 
+  \text{Tr}\, S \equiv \text{Tr} \, A = \int_{\rv} A_{i,i}(\rv,\rv) 
 \end{equation}
 Nous pouvons alors de manière similaire à ce qui a été fait pour démontrer l'expression de la transformée de Fourier d'un opérateur à noyau, calculer la relation sur la trace de la transformée de Fourier
 \begin{equation}
-  \text{Tr} \hat{A} = \sum_{i=1}^{N} \int_{\R^d} \hat{A}_{i,i}(\qv,-\qv) \dd^d \qv 
-\end{equation}
+  \text{Tr} \hat{A} =  \int_{\qv} \hat{A}_{i,i}(\qv,-\qv) 
+ \end{equation}
 
 
 
@@ -1251,67 +1289,80 @@ Nous pouvons alors de manière similaire à ce qui a été fait pour démontrer 
 
 
 
-\subsubsection{Dérivation de l'inverse d'une matrice}
+\subsubsection{Inverse d'un opérateur à noyau}
 
-Afin de s'approprier les propriétés des opérateurs à noyaux, de par leur similarités avec les matrices nous commenceront par développer de petites propriétés matricielles que nous pourrons transposer par la suite. \\
-
-Soit $ n \in \mathbb{N}$. Soit $((A_{i,j}))_{i,j}$ une matrice de $\R^{n \times n}$ telles que pour tout $(i,j) \in \bbrac{1,n}$, $A_{i,j}$ soit une application de $\mathscr{C}^1(\R,\mathbb{C}) $. On suppose que pour tout $x \in \R$, $A(x) \in  \mathbb{G}L_n(\R)$. Alors, 
+Soit S un opérateur à noyau de noyaux A. On fait l'hypothèse, sans justifications, que pour les systèmes physiques que l'on étudie il existe une grandeur appelée l'inverse de S, également un opérateur à noyau, endomorphisme de $(L^2(R^d))^N$, notée $S^{-1}$ telle que, pour $i \in \bbrac{1,N}$ et $\varphiv \in (L^2(R^d))^N$, 
 \begin{equation}
-  \forall x \in \R \quad \frac{dA^{-1}(x)}{dx} = - A^{-1}(x) \frac{dA(x)}{dx}A^{-1}(x)
-\end{equation} 
-
-{\footnotesize 
-\noindent
-Soit $x \in \R$.
-Par définition de $A^{-1}$, $AA^{-1} = \text{Id}_{\R^{n\times n}}$.\\
-En dérivant cette relation nous obtenons, 
-\begin{equation}
-  \frac{dA(x)}{dx}A^{-1}(x) + A\frac{dA^{-1}(x)}{dx} = 0
+	\forall \rv \in \R^d \quad S.S^{-1}[\varphiv]_i(\rv) = \varphi_i (\rv)	
 \end{equation}
-Il s'ensuit alors directement le résultat.
-}
+
+Si $A$ est le noyau de $S$, on note $A^{-1}$ le noyau de $S^{-1}$.
+Nous abordons maintenant pour finir les expressions de la dérivation de la transformée de Fourier de ces inverses.
+
+\end{multicols}
+
+
+
+\pagebreak
+
+
+\section{Complement des algorithmes}
+
+\subsection{Formules de dérivation à 5 points}
+
+
+On suppose que l'on dispose d'une grille fixe à une dimension de points régulièrement espacées d'une distance $h$. Soit $u$ une fonction de classe $\Cc^5$ sur l'intervalle que défini la grille. Soit $j$ un entier tel que le point d'abscisse $x_j = jh$ soit sur la grille. On note $u_j = u(x_j)$. Les schémas centrés et décentrés d'ordre 5 ci-dessous permettent de calculer les dérivées première et seconde de $u$ par différences finies sur l'ensemble de la grille en n'utilisant sans utiliser de conditions aux limites. \\
+
+Schéma centré :
+\begin{align*}
+  \partial_xu (jh) &= \frac{1}{12h}\(u_{j-2} - 8u_{j-1} + 8u_{j+1} - u_{j+2}\) \\
+  \partial_x^2 u (jh) &= \frac{1}{12h^2}\( -u_{j-2} + 16u_{j-1} - 30u_{j+1} -u_{j+2}\)
+\end{align*}
+
+Schémas décentrés gauches : 
+\begin{align*}
+  \partial_xu (jh) &= \frac{1}{12h}\( -25u_{j} + 48u_{j+1} -36u_{j+2} + 16u_{j+3} - 3u_{j+4} \) \\
+  \partial_x^2 u (jh) &= \frac{1}{12h^2} \( 35u_{j} -104u_{j+1} + 114u_{j+2} - 56u_{j+3} + 11u_{j+4}\)\\
+  \partial_xu (jh) &= \frac{1}{12h}\( -3u_{j-1} - 10u_{j} +18u_{j+1} - 6u_{j+2} + u_{j+3} \) \\
+  \partial_x^2 u (jh) &= \frac{1}{12h^2}\( 11u_{j-1} - 20u_{j} + 6u_{j+1} + 4u_{j+2} - u_{j+3} \) \\
+\end{align*}
+
+Schémas décentrés droits : 
+\begin{align*}
+  \partial_xu (jh) &= \frac{1}{12h}\( 25u_{j} - 48u_{j-1} + 36u_{j-2} - 16u_{j-3} + 3u_{j-4} \) \\
+  \partial_x^2 u (jh) &= \frac{1}{12h^2} \( 35u_{j} -104u_{j-1} + 114u_{j-2} - 56u_{j-3} + 11u_{j-4}\)\\
+  \partial_xu (jh) &= \frac{1}{12h}\( 3u_{j+1} + 10u_{j} - 18u_{j-1} + 6u_{j-2} - u_{j-3} \) \\
+  \partial_x^2 u (jh) &= \frac{1}{12h^2}\( 11u_{j-1} - 20u_{j} + 6u_{j+1} + 4u_{j+2} - u_{j+3} \) \\
+\end{align*}
+
+\vspace*{11pt}
+\subsection{Propriétés élémentaires des polynômes de Tchebytchev}
+
+On rappelle ici quelques propriétés des polynômes de Tchebytchev. Tout d'abord on défini 
+\begin{equation}
+	T_n : x \rightarrow \cos(n(\arccos(x)) \quad \forall x \in [-1, 1], \quad \forall n \in \N
+\end{equation}
+La fonction $T_n$ est une fonction polynomiale associée à un polynôme de $\R_n[X]$ alors appelé polynôme de Tchebytchev de première espèce d'ordre $n$. Nous confondrons la fonction polynomiale et le polynôme qui lui est associé. Il est alors possible de montrer la relation de récurrence 
+\begin{equation}
+	T_n (X) = 2XT_{n}(X) - T_{n-1}(X) \quad \forall n \ge 1
+\end{equation}
+Avec $T_0(X) = 1$ et $T_1(X) = X$. Le polynôme $T_n$ possède $n$ racines distinctes réelles $\{x_k\}_k$ dans $[-1,1]$, situées 
+\begin{equation}
+	x_k = \cos\(\frac{\pi(k+1/2)}{n}\) \quad \forall k \in \bbrac{0,n-1}
+\end{equation}
+Enfin mentionnons que ces polynômes satisfont à une relation d'orthogonalité discrète. Soit $\{x_k\}_{k \in \bbrac{0,n-1}}$ les $n$ racines de $T_n$. Alors nous avons 
+\begin{equation}
+		\sum\limits_{k=0}^{n-1}T_i(x_k)T_j(x_k) = ...
+\end{equation}
+
 
 
 \vspace*{11pt}
-\subsubsection{Formules en vrac}
+\subsection{Quadratures pour le calcul des intégrales}
 
-\begin{equation}
-   \delta(\xv - \yv) = \int_{\R^d} F(\xv, \zv) F^{-1}(\zv, \yv) \dd^d \zv
-\end{equation}
+On cherche à exprimer l'intégrale 
 
-\begin{equation}
-   \delta_{i,j} \delta(\xv - \yv) = \int_{\R^d} \sum_{k=1}^{N} F_{i,k}(\xv, \zv) F^{-1}_{k,j}(\zv, \yv) \dd^d \zv
-\end{equation}
-
-\begin{equation}
-   \delta(\qv_1 +\qv_3) = \int_{\R^d} \hat{F}(\qv_1, -\qv_2) \hat{F}^{-1}(\qv_2, \qv_3) \dd^d \qv_3
-\end{equation}
-
-
-\begin{equation}
-   \delta_{i,j}\delta(\qv_1 +\qv_3) = \int_{\R^d} \sum_{k=1}^{N} \hat{F}_{i,k}(\qv_1, -\qv_2) \hat{F}^{-1}_{k,j}(\qv_2, \qv_3) \dd^d \qv_3
-\end{equation}
-
-\begin{equation}
-   \derd{\hat{F}}{\hat{\phiv}(-\pv)}(\qv_1, \qv_4) = - \int_{\R^d} \int_{\R^d} \hat{F}^{-1}(\qv_1, -\qv_2) \derd{\hat{F}}{\hat{\phiv}(-\pv)}(\qv_2, \qv_3) \hat{F}^{-1}(-\qv_3, \qv_4) \dd^d \qv_2 \dd^d \qv_3
-\end{equation}
-
-
-\vspace*{22pt}
-
-\subsection{Application aux tenseurs  $G^{(n)}$ et  $\Gamma^{(n)}$}
-
-
-
-
-
-
-
-
-
-
-
-
+\subsubsection{Quadrature de Gauss-Legendre}
 
 \pagebreak
 
@@ -1425,7 +1476,7 @@ Et nous pouvons calculer
 
 
 
-
+\subsection{Les équations BMW en $\phi$}
 
 \subsubsection{Les équations BMW en $\phi$ dimensionnées}
 
