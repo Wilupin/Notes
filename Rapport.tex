@@ -207,7 +207,7 @@ En utilisant la notion de dérivée fonctionnelle nous pouvons alors introduire 
 \begin{equation}
   G^{(n)}_{\{i_j\}} [\{\rv_{j}\} ; \hv] = \derd{^n W[\hv]}{h_{i_1}(\rv_1) ... \delta h_{i_n}(\rv_n)}
 \end{equation}
-Cependant ces grandeurs ne peuvent pas se calculer directement. Or, comme l'énergie libre est une fonction convexe \cite{diu2007thermodynamique} on peut définir, une grandeur que l'on parviendra à calculer, le potentiel Gibbs qui est une fonctionnelle du champ $\hv$ définie par transformation de Legendre selon 
+Cependant ces grandeurs ne peuvent pas se calculer directement. Or, comme l'énergie libre est une fonction convexe \cite{diu2007thermodynamique} on peut définir, une grandeur que l'on parviendra à calculer, le potentiel Gibbs défini par transformation de Legendre selon 
 \begin{equation}
   \Gamma [\phiv] = - W[\hv] + \int_{\Omega} \hv \phiv,
 \end{equation}
@@ -349,6 +349,7 @@ Et il faut que l'évolution entre ces deux configurations soit continue. Etant d
 Ainsi, quand $k \to 0$, $\Delta S_k \to 0$ et l'on retrouve bien l'expression de $\Zc$. De plus quand $k = \Lambda$ prendre $\Rc_{k,ij}$ comme étant très grand permet faire une excellente approximation de point-selle et écrire
 \begin{equation}
 	Z_\Lambda[\hv] \propto \exp\left\{-S[\varphiv_0] - \Delta S_k[\varphiv_0] + \int_{\rv} \hv \varphiv_0 \right\} 
+	\label{eq:MeanZ}
 \end{equation}
 Ou l'on définit $\varphiv_0$ par 
 \begin{equation}
@@ -411,10 +412,7 @@ En outre on peut grâce à cela aussi définir, pour $\phiv$ uniforme, le potent
 \begin{equation}
 	V_k(\phi) = {\left. \frac{1}{|\Omega|} \Gamma_k[\phiv] \right|}_{\phi \text{ unif.}}
 \end{equation}
-A $k$ fixé, comme introduit dans la section ... à condition de bien réaliser l'adimensionnement, nous pouvons considérer que notre système initial est en fait décrit par un nouveau système fictif dont l'hamiltonien est 
-\begin{equation}
-	H_k[\varphiv]  = S_k[\varphiv] + \Delta S_k[\varphiv] - \int_\rv \hv \varphiv
-\end{equation} 
+
 
 \commentout{
 Remarquons tout de même qu'alors que dans le RG on part du vrai hamiltonien du système originel et on crée à partir de son expression une suite d'hamiltonien associés à des systèmes fictifs, ici on part d'un hamiltonien d'un système fictif en $k = \Lambda$ pour calculer le vrai hamiltonien en $k\to 0$ du vrai système.
@@ -438,42 +436,34 @@ On peut alors utiliser toutes les définitions que l'on vient de poser pour extr
 \begin{equation}
 \partial_t \Gamma_{k}	[\phiv] = \frac{1}{2} \int_\qv \partial_t \Rc_k(\qv) \, G^{(2)}_{k, ij}[\qv, -\qv, \phiv] \, ,
 \end{equation}
-où $t$ est le temps de RG, défini par $t = \ln(k/\Lambda)$. Avec $G^{(2)}_{k, ij}[\qv, -\qv, \phiv]$ la transformée de Fourier du tenseur $G_k^{(2)}$ définie en \refann{}. 
+où $t$ est le temps de RG, défini par $t = \ln(k/\Lambda)$. Avec $G^{(2)}_{k, ij}[\qv, -\qv, \phiv]$ la transformée de Fourier du tenseur $G_k^{(2)}$ définie en \refann{outils}. 
 \begin{equation}
 G^{(2)}_{k, ij}[\qv, -\qv, \phiv] = {\(\Gamma^{(2)}_{k, ij}[\qv, -\qv, \phiv]  + \Rc_k(\qv) \)}^{-1}
 \end{equation}
-En outre, nous avons aussi une condition initiale pour $\Gamma$ puisque d'après les équations \refeq{} il vient
+En outre, nous avons aussi une condition initiale pour $\Gamma$ puisque d'après \refeq{MeanZ} il vient
 \begin{equation}
 	\Gamma_\Lambda [\phiv] = \Gamma_\Lambda 	[\varphiv_0] = S[\varphiv_0]
 \end{equation}
 Avec $\varphiv_0$ défini comme en \refeq{}.\\
 
-Rappelons que la connaissance de $\Gamma$ permet de connaitre les exposants critiques $\eta$ et $\nu$, cette équation est donc fondamentale. Ainsi, nous avons une équation différentielle avec une condition initiale connue.
+Rappelons que la connaissance de $\Gamma^{(2)}$ permet de connaitre les exposants critiques $\eta$ et $\nu$, cette équation est donc fondamentale car connaissant $\Gamma$ nous avons accès à $\Gamma^{(2)}$. Ainsi, nous avons une équation différentielle avec une condition initiale connue.\\
 
 Notons que l'intégrale dans cette équation de flot est en fait tronquée par la fonction $q \to \partial_t\Rc_k(q)$ qui pour un $k$ fixé limite, par ses propriétés, l'intervalle d'intégration qui n'est donc jamais véritablement faite sur un domaine infini et peut sans problème être réalisé numériquement.\\
 
 
-Cependant on peut remarquer que pour connaitre $\partial_t \Gamma$ dans cette équation il nous faut connaitre la dérivée seconde $\Gamma^{(2)}$. Puis si on voulait connaitre $\Gamma^{(2)}$ il nous faudrait connaitre $\Gamma^{(3)}$ et $\Gamma^{(4)}$, ainsi de suite. On dit alors que l'équation est ouverte et n'est donc pas soluble telle quelle. Ce pourquoi nous allons utiliser l'approximation BMW. 
+Cependant on peut remarquer que pour connaitre $\partial_t \Gamma$ dans cette équation il nous faut connaitre la dérivée seconde $\Gamma^{(2)}$. Puis si on voulait connaitre $\Gamma^{(2)}$ il nous faudrait connaitre $\Gamma^{(3)}$ et $\Gamma^{(4)}$, ainsi de suite. On dit alors que l'équation est ouverte et n'est donc pas soluble telle quelle. Ce pourquoi nous allons utiliser l'approximation BMW. \\
+
+Enfin, cette équation est pour l'instant dite dimensionné car lorsque l'on fait évoluer $k$ entre $k_1+dk_1$ et $k_1$ avec $a$
 
 
 
 
-\subsubsection{Approximation BMW} 
- 
-Le principe de l'approximation BMW \cite{Blaizot} est de considérer que certaines impulsions dans l'expressions des $\Gamma^{(n)}$ ne jouent pas le même rôle que les autres. En effet 
 
-On obtient finalement le système d'équation suivant 
-\begin{equation}
-\begin{split}
-	\partial_t \Gamma_{k, ij}^{(2)}(\pv, \phiv) = & J_3(\pv, \phiv) {\( \partial_\phi \Gamma_{k, ij}^{(2)}(\pv, \phiv) \)}^2 \\
-	& - \frac{1}{2}  I_2(\phiv) \, \partial_\phi^{2} \Gamma_{k, ij}^{(2)}(\pv, \phiv)
-\end{split}
-\end{equation}
 
 \vspace*{11pt}
 \subsubsection{La dimension anormale}
 
-Avant de s'occuper de l'application des équations BMW à un modèle concret introduisons le concept de dimension anormale. En effet nous avons mentionner que la fonction de corrélation à deux points évolue, à la transition de phase, schématiquement en $G^{(2)}(r) \sim |r|^{2-d-\eta}$ pour $r \to \infty$. Or cette grandeur $\eta$, qui est un exposant critique, possède aussi le nom de dimension anormale car elle viole à priori la dimension que devrait avoir $G^{(2)}(r)$ d'une longueur à la puissance $2-d$. Pour la prendre en compte dans les équations cela ne découle donc pas naturellement des équations déjà écrite. Pour cela on remarque que cette évolution de $G^{(2)}$ implique aussi $\Gamma^{(2)} \sim \pv^{2-\eta}$ quand $\pv \to 0$. On introduit alors $Z_k$ une grandeur dimensionnée telle que
+Avant de s'occuper de l'application de l'écriture des équations BMW à un modèle concret introduisons le concept de dimension anormale. En effet nous avons mentionner que la fonction de corrélation à deux points évolue, à la transition de phase, schématiquement en $G^{(2)}(r) \sim |r|^{2-d-\eta}$ pour $r \to \infty$. Or cette grandeur $\eta$, qui est un exposant critique, possède aussi le nom de dimension anormale car elle viole à priori la dimension que devrait avoir $G^{(2)}(r)$ d'une longueur à la puissance $2-d$. Pour la prendre en compte dans les équations cela ne découle donc pas naturellement des équations déjà écrite. Pour cela on remarque que cette évolution de $G^{(2)}$ implique aussi $\Gamma^{(2)} \sim \pv^{2-\eta}$ quand $\pv \to 0$. On introduit alors $Z_k$ une grandeur dimensionnée telle que
 \begin{equation}
 	Z_k = {\left. \frac{\partial \Gamma_k^{(2)}[\pv, \phiv]}{\partial \pv^2} \right|}_{\phiv \text{ unif.} = \phiv_0, \pv = \pv_0 }
 \end{equation}
@@ -489,14 +479,14 @@ Ainsi nous dirons que $\Gamma^{(2)}_k$ n'a pas vraiment la dimension de $\pv^2$ 
  	\lim\limits_{k \to 0} \eta_k  = \eta
  \end{equation}
 Ceci est d'une très grande importance pour l'adimensionnement des équations qui est nécessaire pour trouver les points fixes du RG (c.f. \ref{}). Mais de plus c'est cette grandeur qui va nous donner l'exposant critique $\eta$ que l'on recherche.
-\vfill
-\pagebreak
+
+\newpage
  
 \section{Le modèle continu $O(N)$}
 
-\subsection{Théorie $\varphiv^4$ et modèle $O(N)$}
 
-\subsubsection{Modèle $O(N)$}
+\subsection{Introduction du modèle $O(N)$}
+
 On dit qu'un modèle est $O(N)$ si jamais le système est invariant par l'action du groupe de rotation $O(N)$ sur ces degrés de libertés. Plus précisément, soit $J \in O(N)$, et on note $J.V$ l'action de $J$ sur un vecteur $V$ de $\R^N$. Le modèle est dit $O(N)$ si 
 \begin{equation}
 	H[J \varphiv] = H[\varphiv]	
@@ -506,23 +496,90 @@ Dans la suite nous utiliserons alors une autre grandeurs scalaire invariante sou
 \begin{equation}
 	\rho = \frac{1}{2}  \phiv^2  
 \end{equation}
-Ainsi le potentiel effectif $V_k$, $\Gamma^{(2)}$ ou leurs dérivées ne dépendrons plus que de $\rho$ qui est une grandeur scalaire et non plus du vecteur $phiv$.
+Ainsi le potentiel effectif $V_k$, $\Gamma^{(2)}$ ou leurs dérivées ne dépendrons plus que de $\rho$ qui est une grandeur scalaire et non plus du vecteur $\phiv$.
 
-\subsubsection{Théorie $\varphiv^4$}
+\subsection{Théorie $\varphiv^4$}
 
 Il a été montré \cite{Bellac2012} que lorsque l'on cherche à déterminer les exposants critiques, et que l'on s'intéresse uniquement à ce qu'il peut se passer au voisinage de la température critique alors il suffit d'étudier les premiers ordres du hamiltonien autour de $\varphiv \sim 0$, qui, pour respecter les symétries, dans le modèle $O(N)$ à nécessairement la forme 
 \begin{equation}
 		H[\varphiv] = \int_\rv \, \left\{ \frac{1}{2}(\nabla \varphiv)^2 + \frac{1}{2}r_0 \varphiv^2 + \frac{u_0}{4!}{\({\varphiv}^{2}\)}^{2} \right\}
 \end{equation}
 
-Avec $u_0$ et $r_0$ deux réels. 
-C'est donc ce hamiltonien qui est injectée dans les équations du RG permettant d'obtenir les équations de flot et les équations BMW qui nous ont intéressées. Toutes les équations d'un tel système ont été développées, par exemple, dans \cite{benitez2012nonperturbative}. 
+Avec $u_0$ et $r_0$ deux réels. Comprenons que cet hamiltonien n'est pas le vrai hamiltonien de tous les systèmes régit pas une symétrie $O(N)$ mais il suffit à en déduire les grandeurs universelles aux transition de phase. C'est seulement un modèle simplifié avec les même symétries que les systèmes qui nous intéresse. Ce modèle possède ainsi aussi une température critique qu'il va falloir déterminer pour atteindre un point fixe du RG. C'est le paramètre $r_0$ qui définit plus particulièrement la température à laquelle est soumise le système et sur lequel il faudra jouer pour le trouver.\\
+
+Ainsi c'est ce hamiltonien qui est injectée dans les équations du RG permettant d'obtenir les équations de flot et les équations BMW qui nous ont intéressées dans cette partie.
 
 
 \vspace*{11pt}
-\subsection{Les équations dans le cas $O(1) \simeq \mathbb{Z}_2$}
+\subsection{Approximation BMW pour $O(1) \simeq \mathbb{Z}_2$} 
+ 
+Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$, i.e. lorsque $H[-\varphiv] = H[\varphiv]$. Nous verrons un exemple plus précis en \refsec{}. Le cas général des équations pour $N$ quelconque se trouve dans \cite{benitez2012nonperturbative}.\\ 
 
-Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$ et nous laissons le cas général en annexe par soucis de concision. Le problème numérique à résoudre est donc : \\
+Le principe de l'approximation BMW \cite{Blaizot} est de considérer que certaines impulsions dans l'expressions des $\Gamma^{(n)}$ ne jouent pas le même rôle que les autres et peuvent être simplifiées. Il s'agit d'un raisonnement complexe permis avant tout par la présence de la fonction $q \to \partial_t \Rc_k(q)$ dans l'équation de flot exacte. Il est alors possible de développer à partir de cela une équation soluble formellement sur $\Gamma^{(2)}$ directement. Dans le cas $O(N=1)$ où les tenseurs sont de simples fonctions, et où le vecteur $\phiv$ est un scalaire $\phi$ il vient
+\begin{equation}
+\begin{split}
+	\partial_t \Gamma_{k}^{(2)}(\pv, \phi) = & \quad J_3(\pv, \phi) {\( \partial_\phi \Gamma_{k}^{(2)}(\pv, \phi) \)}^2 \\
+	& - \frac{1}{2}  I_2(\phi) \, \partial_\phi^{2} \Gamma_{k}^{(2)}(\pv, \phi)
+\end{split}
+\end{equation}
+Où l'on a introduit par concision,
+\begin{equation}
+	J_n(p,\phi) = \int_q \partial_t \Rc_k \,G_k(p+q, \phi) \,G_k^{n-1}(q, \phi)
+\end{equation}
+\begin{equation}
+	I_n(p,\phi) = \int_q \partial_t \Rc_k \,G_k^{n}(q, \phi)
+\end{equation}
+On utilise à partir de maintenant la notation $\rho = \phi^2/2$. On introduit une fonction $\Delta_k(\pv, \rho)$ telle que
+\begin{equation}
+	\Gamma^{(2)}(\pv, \rho) = \varepsilon(\pv) + \Delta_k(\pv, \rho) + \partial_{\phi}^2 V_k|_\rho
+\end{equation}
+Où $\varepsilon(\pv)$ est la relation de dispersion qui vaut simplement $\pv^2$ (venant de la TF du terme en gradient dans le hamiltonien). De par la forme de ce hamiltonien et de cette relation de dispersion les différentes grandeurs que la considère ne dépendent plus de vraiment de l'impulsion $\pv$ (ou $\qv$) mais seulement de $\pv^2$ et donc de sa norme $p = \| \pv \|_{2}$ (ou q). \\
+
+
+Ainsi, pour diminuer les erreurs commises par l'approximation et utiliser les informations exactes que l'on connait sur l'évolution de $V_k$, l'équation de flot peut se réécrire sous la forme du système
+\begin{align}
+	\partial_t \Delta_k(p, \rho) & = 
+	\begin{aligned}[t]
+	 & 2\rho J_3(p,\rho){\left[u_k(\rho) + \partial_\rho \Delta_k (p,\rho) \right]}^{2} \\
+	  & \, - \frac{1}{2}I_2(\rho) \left[\partial_\rho \Delta_k(p, \rho) +  2\rho \partial_\rho^2 \Delta_k(p,\rho) \right] \\
+	 & \, - 2\rho I_3 (\rho) u_k^2(\rho) 
+	 \end{aligned}
+	\label{eqn:sys1}\\
+	\partial_t W_k(\rho) & = 
+	\begin{aligned}[t]
+		& \partial_\rho I_1(\rho)
+	\end{aligned}
+\end{align}
+
+Avec les notations
+\begin{equation}
+	m_k^2(\rho) = \partial_\phi^2V_k |_\rho
+\end{equation}
+\begin{equation}
+	u_k(\rho) = \partial_\rho m^2_k(\rho)	
+\end{equation}
+\begin{equation}
+	W_k(\rho) = \partial_\rho V_k(\rho)	
+\end{equation}
+
+
+Il reste alors une dernière étape avant de parvenir aux équations finales. En effet, nous n'avons pas ici réalisé l'adimensionnement fondamental du RG. Comme décrit en \refsec{}, pour cela il suffit d'introduire de nouvelles grandeurs notées d'un $\tilde{.}$ de la même manière. On considère aussi que $k$ s'exprime en unité de $\Lambda$ et donc qu'il varie entre $1$ et $0$, de cette manière $k$ et $s$ sont confondus. Concrètement cela revient à introduire, en utilisant le $Z_k$ défini en \refsec{}, 
+\begin{equation}
+\begin{split}
+	& \trho  = k^{2-d}Z_k\rho \quad \text{et} \quad \tp = k^{-1}p\\
+	& \tilde{m}^2_k(\rho) = Z_k^{-1} k^{-2} m^2_k(\rho), \\  
+	& \tilde{u}_k(\trho) = Z_k^{-2}k^{d-4}u_k(\rho) \\
+	& \tG_k(\tp,\trho) = Z_k k^2 G_k(p,\rho) \\
+	& \tJ_n(\tp, \trho) = Z_k^{n-1} k^{2n -d-2}J_n(p,\rho) \\
+	& \tW_k(\trho) = k^2 W_k(\rho)
+	\end{split}
+\end{equation}
+Ainsi que
+\begin{equation}
+	\tY_k(\tp, \trho) = \frac{1}{Z_k}\( 1+ \frac{\Delta_k(p,\rho)}{p^2}\)-1	
+\end{equation}
+
+Ce changement de variable en plus d'être nécessaire pour trouver le point fixe apporte de grand changement dans la forme des équations. En effet, on multiplie les expressions par des facteurs contenant $k$ ou $Z_k$ qui possèdent des dérivées non nulles lorsque l'on leur applique l'opérateur différentiel $\partial_t$. En outre $\partial_\rho \Delta_k(p,\rho)$ représentait la dérivée par rapport à $\rho$ de $\Delta_k$ à $p$ fixé. Or comme maintenant les fonctions dépendent de $\tp$ et non plus de $p$ il faut calculer cette même grandeur à $\tp$ fixé. Ceci explique alors comme on en arrive à la nouvelle forme du problème que nous avons essayé de résoudre numériquement :\\
 
 \noindent
 {\itshape Trouver $\tY_k(\trho, \tp)$ et $\tW_k(\trho)$ tels que pour tout $k \in [1, 0[$,  $\trho \in [0, +\infty[$ et $\tp \in [0, +\infty[$,}
@@ -539,17 +596,14 @@ Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$ et
 		& (\eta_k-2) \tW_k  + (d-2+\eta_k) \trho \,\partial_{\trho}\tW_k + \frac{1}{2} \partial_{\trho} \tI_1
 	\end{aligned}
 \end{align}
-
-Avec les notations définies en annexe \refann{}.
 Et les conditions initiales
 \begin{equation}
 	\tY_1(\trho, \tp) = 0 \quad  \text{et} \quad \tW_1(\trho) = r_0' + u_0'\trho
 \end{equation}
 où $r_0'$ et $u_0'$ viennent de $r_0$ et $u_0$ (c.f. \refeq{}). 
 Pour résoudre ce système il manque cependant encore une équation sur $\eta_k$ découlant de la définition même de $Z_k$ en \refeq{} et écrite en annexe.
-Ces équations sont dites adimensionnée car nous y avons réalisé l'adimensionnement du RG décrit en section \refsec{} ; ce pourquoi on retrouve un tilde sur toutes les grandeurs qui sont toutes définies dans \cite{}.\\
 
-Ainsi le but est de chercher "un point fixe" en faisant varier $r_0'$ pour se rapprocher de la température critique et du potentiel du système à la température critique. On teste donc plusieurs $r_0'$ avec une dichotomie pour 
+Pour chercher un point fixe on résout le système différentiel précédent pour différentes valeurs de $r_0'$. En effet, lorsque l'on se trouve  pour se rapprocher de la température critique et du potentiel du système à la température critique. On teste donc plusieurs $r_0'$ avec une dichotomie pour 
 
 
 \vspace*{11pt}
@@ -1110,6 +1164,7 @@ Comme pour le modèle continu $O(N)$ il est possible de paralléliser le code en
 \begin{multicols}{2}
 \section{Outils pour le développement des équations}
 
+\label{ann:outils}
 
 \subsection{Transformée de Fourier}
 
