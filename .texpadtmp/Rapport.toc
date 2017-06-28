@@ -9,9 +9,11 @@
 \contentsline {subsubsection}{\numberline {2.2.2}Id\IeC {\'e}e g\IeC {\'e}n\IeC {\'e}rale}{6}{subsubsection.2.2.2}
 \contentsline {subsection}{\numberline {2.3}Le groupe de renormalisation non perturbatif (NPRG)}{7}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {2.3.1}G\IeC {\'e}n\IeC {\'e}ralit\IeC {\'e}s}{7}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Potentiels et distinction de phase}{8}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Equation de flot}{8}{subsubsection.2.3.3}
-\contentsline {subsubsection}{\numberline {2.3.4}La dimension anormale}{9}{subsubsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.2}Choix du r\IeC {\'e}gulateur}{8}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Potentiels}{8}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.4}Equation de flot}{9}{subsubsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.5}La dimension anormale}{9}{subsubsection.2.3.5}
+\contentsline {subsubsection}{\numberline {2.3.6}La recherche de points fixes}{9}{subsubsection.2.3.6}
 \contentsline {section}{\numberline {3}Le mod\IeC {\`e}le continu $O(N)$}{10}{section.3}
 \contentsline {subsection}{\numberline {3.1}Introduction du mod\IeC {\`e}le $O(N)$}{10}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Th\IeC {\'e}orie $\boldsymbol { \varphi }^4$}{10}{subsection.3.2}

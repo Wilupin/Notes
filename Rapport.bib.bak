@@ -237,4 +237,37 @@ and Sengupta, K.},
   publisher = {IOP Publishing},
 }
 
+@Article{wilson1971renormalization,
+  author    = {Wilson, Kenneth G},
+  title     = {Renormalization group and critical phenomena. I. Renormalization group and the Kadanoff scaling picture},
+  journal   = {Physical review B},
+  year      = {1971},
+  volume    = {4},
+  number    = {9},
+  pages     = {3174},
+  publisher = {APS},
+}
+
+@Article{wilson1971renormalization2,
+  author    = {Wilson, Kenneth G},
+  title     = {Renormalization group and critical phenomena. II. Phase-space cell analysis of critical behavior},
+  journal   = {Physical Review B},
+  year      = {1971},
+  volume    = {4},
+  number    = {9},
+  pages     = {3184},
+  publisher = {APS},
+}
+
+@Article{fisher1998renormalization,
+  author    = {Fisher, Michael E},
+  title     = {Renormalization group theory: Its basis and formulation in statistical physics},
+  journal   = {Reviews of Modern Physics},
+  year      = {1998},
+  volume    = {70},
+  number    = {2},
+  pages     = {653},
+  publisher = {APS},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

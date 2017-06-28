@@ -98,8 +98,10 @@ Encadré par : Bertrand Delamotte  et Nicolas Dupuis
 
 \color{black}
 \end{flushleft}
-Je souhaiterais remercier l'ensemble des membres du LPTMC que j'ai eu le plaisir de rencontrer pour leur accueil chaleureux et leur aide tout au long de mon stage. Je souhaiterais tout particulièrement remercier Bertrand Delamotte et Nicolas Dupuis qui m'ont 
 
+\commentout{
+Je souhaiterais remercier l'ensemble des membres du ... que j'ai eu le plaisir de rencontrer pour leur accueil chaleureux et leur aide tout au long de mon stage. Je souhaiterais tout particulièrement remercier Bertrand Delamotte et Nicolas Dupuis qui m'ont 
+}
 
 
 
@@ -110,7 +112,9 @@ Je souhaiterais remercier l'ensemble des membres du LPTMC que j'ai eu le plaisir
 
 \color{black}
 \end{flushleft}
-I would like to thank all the members of LPTMC whom I had the pleasure to meet for their warm welcome and their help. I would particulary like to thank Pr. Janne Ruostekoski who has helped and guided my with the project as well as the administrative procedures.
+\commentout{
+I would like to thank all the members of LPTMC whom I had the pleasure to meet for their warm welcome and their help. I would particulary like to thank ... who has helped and guided my with the project as well as the administrative procedures.
+}
 \vspace*{11pt}
 
 
@@ -169,7 +173,7 @@ où $d$ est la dimension physique du système et $\nu$ et $\eta$ sont deux réel
 
 \subsection{Intérêt du groupe de renormalisation et des équations BMW}
 
-Le groupe de renormalisation (RG) permet de montrer l'effet d'universalité sur les exposants critiques et de les calculer. L'approche par le RG a permis d'obtenir déjà d'excellents résultats \cite{} pour différents systèmes étudiés comparé aux expériences et autres méthodes comme les simulations Monte-Carlo. Cependant elle reste limitée dans ces applications car elle se fonde sur des approximations de "théorie des perturbations" pour pouvoir mener les calculs qui ne permettent de ne calculer par exemple que les exposants universels critiques mais pas les grandeurs non universelles comme la température critique.\\
+Le groupe de renormalisation (RG) permet de montrer l'effet d'universalité sur les exposants critiques et de les calculer. L'approche par le RG a permis d'obtenir déjà d'excellents résultats \cite{kadanoff1967scaling, wilson1971renormalization2} pour différents systèmes étudiés comparé aux expériences et autres méthodes comme les simulations Monte-Carlo. Cependant elle reste limitée dans ces applications car elle se fonde sur des approximations de "théorie des perturbations" pour pouvoir mener les calculs qui ne permettent de ne calculer par exemple que les exposants universels critiques mais pas les grandeurs non universelles comme la température critique.\\
 
 Le groupe de renormalisation non perturbatif (NPRG) permet de répondre à ce problème en reprenant le principe du RG sous une approche différente permettant d'accéder à des équations exactes. Cependant, en pratique, ces équations ne sont pas solubles et il faut faire d'autres approximations, comme l'approximation BMW, pouvant être d'autre nature que celle de la théorie des perturbation pour pouvoir récupérer à la fois les exposants critiques et les grandeurs non universelles, bien que cela reste compliqué en pratique. \\
 
@@ -251,7 +255,7 @@ Développons à présent les théories du RG et du NPRG qui partent des quelques
 
 \subsubsection{Transformée de Fourier}
 
-Nous rappelons ici de manière synthétiques les principales idées du RG développé par Wilson \cite{wilson}. Commençons pour cela par définir la transformée de Fourier du champ $\varphiv$ appartenant à $L^2(\Omega)$ par 
+Nous rappelons ici de manière synthétiques les principales idées du RG développé par Wilson \cite{wilson1971renormalization, wilson1971renormalization2,fisher1998renormalization}. Commençons pour cela par définir la transformée de Fourier du champ $\varphiv$ appartenant à $L^2(\Omega)$ par 
 \begin{equation}
 \begin{split}
 \hat{\varphiv}_\pv = \frac{1}{\sqrt{|\Omega|}}\int_\Omega \varphiv(\rv) \, e^{-i \pv . \rv} \dd \, \rv, \\
@@ -270,7 +274,7 @@ Remarquons aussi que si $\hat{H}$ est la transformée de Fourier de $H$ alors no
 \begin{equation}
 \Zc = \int \Dc \hat{\varphiv} \, \exp\left\{- \hat{H}[\hat{\varphiv}]\right\}. 
 \end{equation} 
-Nous pourrons donc oublier à partir de maintenant la notation avec le chapeau en notant que c'est la variable utilisée $\rv$ ou $\pv$ (ou aussi parfois $\qv$ pour l'impulsion) qui nous permet de savoir si l'on travaille avec la fonction considérée ou sa transformée de Fourier. \\
+Dès lors qu'il n'y aura pas d'ambiguïté possible, nous pourrons donc oublier à partir de maintenant la notation avec le chapeau en notant que c'est la variable utilisée $\rv$ ou $\pv$ (ou aussi parfois $\qv$ pour l'impulsion) qui nous permet de savoir si l'on travaille avec la fonction considérée ou sa transformée de Fourier. \\
 
 
 \subsubsection{Idée générale}
@@ -328,7 +332,7 @@ Avec la définition
 \begin{equation}
   \begin{split}
   \Delta S_k[\varphiv]  & \equiv \frac{1}{2} \int_{\rv, \rv'} \varphi_i(\rv) \Rc_{k,ij}(\rv - \rv') \varphi_j(\rv') \\
- & =  \frac{1}{2} \sum_{\qv} \varphi_i(-\qv) \Rc_{k,ij}(\qv) \varphi_j(\qv)
+ & =  \frac{1}{2} \int_{\qv} \varphi_i(-\qv) \Rc_{k,ij}(\qv) \varphi_j(\qv)
 \end{split}
 \end{equation}
 
@@ -354,10 +358,23 @@ Ainsi, quand $k \to 0$, $\Delta S_k \to 0$ et l'on retrouve bien l'expression de
 Ou l'on définit $\varphiv_0$ par 
 \begin{equation}
 	{\left. \derd{\(S[\varphiv] + \Delta S_k[\varphiv]\)}{\varphiv} \right|}_{\varphiv_0} = \hv
+	\label{eq:meanPhi}
 \end{equation}
 L'intégrale a alors disparue dans l'expression de $Z_\Lambda$, qui s'exprime uniquement en fonction d'un champ bien défini $\varphiv_0$ appelé le champ moyen. De cette manière on dit que l'on "gèle les fluctuations" du champ autour de $\varphiv_0$ et on peut calculer analytiquement $\Zc_\Lambda$. \\
 
-Enfin, il faut aussi que $\Rc_{k,ij}$ soit une fonction possédant des symétries compatibles avec le système que l'on considère pour pouvoir effectuer des calculs. Dans l'ensemble de ce que nous avons étudié il suffit de prendre $\Rc_{k,ij}(\qv) = \Rc_k(q)$, avec $q = \|\qv\|_2$ la norme 2 dans $\R^d$. La fonction $q \to \Rc_k(q)$ est appelée le régulateur.\\
+Enfin, il faut aussi que $\Rc_{k,ij}$ soit une fonction possédant des symétries compatibles avec le système que l'on considère pour pouvoir effectuer des calculs.
+
+\subsubsection{Choix du régulateur}
+Dans l'ensemble de ce que nous avons étudié il a suffit de prendre $\Rc_{k,ij} = \Rc_k$ comme une simple fonction et pas un tenseur. De plus en guise d'illustration (et parce que cela correspond bien à ce que nous avons utilisé par la suite pour le modèle $O(N)$) nous allons considérer que $\Rc_k(\qv) = \Rc_k(q)$ avec $q = \|\qv\|_2$ la norme 2 dans $\R^d$. La fonction $q \to \Rc_k(q)$ est appelée le régulateur.
+
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.95\columnwidth]{Reg.pdf}
+\end{center}
+\vspace*{-22pt}
+\caption{Allure du régulateur choisi pour une valeur de $k$ donnée avec une décroissance exponentielle (ligne continue bleue - c.f. \refeq{RegExp}) et avec une fonction de Heaviside (pointillés rouges -c.f. \refeq{RegHeav}). Ainsi ici nous avons approximativement intégrés les degrés de libertés correspondant à une impulsion dans $\simeq [k,\Lambda]$ uniquement.}
+\end{figure}
 
 Il semble naturel, pour satisfaire à toutes les conditions précédentes, d'utiliser dans le régulateur une fonction de Heaviside en écrivant 
 \begin{equation}
@@ -378,23 +395,18 @@ donc $\Rc_k$ converge même uniformément vers 0 quand $k$ tend vers 0. En outre
 	 \text{inf}_{q \in \R} \left\{ \Rc_\Lambda(q) \right\} = \alpha \frac{\Lambda^2}{e-1}
 \end{equation}
 
-\begin{figure}[H]
-\begin{center}
-	\includegraphics[width=0.95\columnwidth]{Reg.pdf}
-\end{center}
-\caption{Allure du régulateur choisi pour une valeur de $k$ donnée avec une décroissance exponentielle (ligne continue bleue - c.f. \refeq{RegExp}) et avec une fonction de Heaviside (pointillés rouges -c.f. \refeq{RegHeav}). Ainsi ici nous avons approximativement intégrés les degrés de libertés dans $\simeq [k,\Lambda]$ sans toucher aux autres. On remarque la décroissance douce vers 0 contrairement au régulateur }
-\end{figure}
+
 
 \vspace*{11pt}
-\subsubsection{Potentiels et distinction de phase}
+\subsubsection{Potentiels}
 
 En réalité, ce n'est pas vraiment à $\Zc$ que nous allons nous intéresser, mais plutôt aux potentiels qui en dérive, car ils contiennent toutes les informations dont nous avons besoin. 	On reprend alors les différentes définitions données dans la section ... que l'on adapte ici pour prendre en compte la présence du régulateur dans le cas de le limite thermodynamique $\Omega \gg 1/\Lambda^d$. Tout d'abord, pour $k$ fixé on définit une énergie libre 
 \begin{equation}
 	  W_k[\hv] = \text{ln}{\(\Zc_k[\hv]\)}
 \end{equation}
-Et de même pour le tenseur des fonctions de corrélation, avec les mêmes notations qu'en ...
+Et de même pour le tenseur des fonctions de corrélation, que l'on exprime cette fois ci en fonction des transformées de Fourier (c.f.\refann{outils}) et en reprenant les mêmes notations qu'en \refsec{}.
 \begin{equation}
-  G^{(n)}_{k,\{i_j\}} [\{\rv_{j}\} ; \hv] = \derd{^n W_k[\hv]}{h_{i_1}(\rv_1) ... \delta h_{i_n}(\rv_n)}
+  G^{(n)}_{k,\{i_j\}} [\{\pv_{j}\} ; \hv] = \derd{^n W_k[\hv]}{h_{i_1}(-\pv_1) ... \delta h_{i_n}(-\pv_n)}
 \end{equation}
 En revanche, on ne définit plus exactement la fonctionnelle $\Gamma$ de la même façon, on ne réalise plus vraiment exactement une transformée de Legendre, mais
 \begin{equation}
@@ -402,15 +414,19 @@ En revanche, on ne définit plus exactement la fonctionnelle $\Gamma$ de la mêm
 \end{equation}
 Avec $\phiv$ défini comme 
 \begin{equation}
-  \phiv[\rv, \hv] = \left< \varphiv(\rv) \right> = \derd{W_k[\hv]}{\hv(\rv)}
+  \phiv[\pv, \hv] = \left< \varphiv(\pv) \right> = \derd{W_k[\hv]}{\hv(-\pv)}
 \end{equation}
-Parce que l'on fait une pseudo transformée de Legendre et non pas une vraie, on conserve de cette manière la relation importante :
+Ceci sera utile pour obtenir une condition initiale de nos équations (c.f. \refeq{}). Et on obtient alors,
 \begin{equation}
-  G^{(2)}_{k, i_1 i_2}[\rv_{i_1}, \rv_{i_2} ; \hv] = \(\Gamma^{(2)}_{k, i_1 i_2}[\rv_{i_1}, \rv_{i_2}, \phiv]\)^{-1}  
+  G^{(2)}_{k, i_1 i_2}[\pv_{i_1}, \pv_{i_2} ; \hv] = \(\Gamma^{(2)}_{k, i_1 i_2}[\pv_{i_1}, \pv_{i_2}, \phiv] + \Rc_k(\pv)\)^{-1}  
+\end{equation}
+Par concision nous notons
+\begin{equation}
+	G_{k,i_1i_2}[\qv; \phiv] =   G^{(2)}_{k, i_1 i_2}[\qv, -\qv; \phiv]
 \end{equation}
 En outre on peut grâce à cela aussi définir, pour $\phiv$ uniforme, le potentiel effectif $V_k$ par
 \begin{equation}
-	V_k(\phi) = {\left. \frac{1}{|\Omega|} \Gamma_k[\phiv] \right|}_{\phi \text{ unif.}}
+	V_k(\phiv) = {\left. \frac{1}{|\Omega|} \Gamma_k[\phiv] \right|}_{\phiv \text{ unif.}}
 \end{equation}
 
 
@@ -432,32 +448,37 @@ On peut donc en conclure que les systèmes fictifs verrons une décroissance de 
 
 \subsubsection{Equation de flot}
 
-On peut alors utiliser toutes les définitions que l'on vient de poser pour extraire l'équation fondamentale du NPRG que l'on appelle l'équation de flot exacte. Il s'agit d'une équation valable pour $k \in ]0, \Lambda]$ décrivant l'évolution de $\Gamma$ avec $k$ lorsqu'on le fait évoluer de $\Lambda$ à $0$. 
+On peut alors utiliser toutes les définitions que l'on vient de poser pour extraire l'équation fondamentale du NPRG que l'on appelle l'équation de flot exacte de $\Gamma_k$. Il s'agit d'une équation valable pour $k \in ]0, \Lambda]$ décrivant l'évolution de $\Gamma$ avec $k$ lorsqu'on le fait évoluer de $\Lambda$ à $0$. On définit une nouvelle variable $t$ appelée temps du RG.
 \begin{equation}
-\partial_t \Gamma_{k}	[\phiv] = \frac{1}{2} \int_\qv \partial_t \Rc_k(\qv) \, G^{(2)}_{k, ij}[\qv, -\qv, \phiv] \, ,
+	t = \ln(k/\Lambda), \quad \text{donnant} \quad \partial_t \, ... = k\partial_k \, ...
 \end{equation}
-où $t$ est le temps de RG, défini par $t = \ln(k/\Lambda)$. Avec $G^{(2)}_{k, ij}[\qv, -\qv, \phiv]$ la transformée de Fourier du tenseur $G_k^{(2)}$ définie en \refann{outils}. 
+On montre alors
 \begin{equation}
-G^{(2)}_{k, ij}[\qv, -\qv, \phiv] = {\(\Gamma^{(2)}_{k, ij}[\qv, -\qv, \phiv]  + \Rc_k(\qv) \)}^{-1}
+\partial_t \Gamma_{k}	[\phiv] = \frac{1}{2} \sum\limits_{i=1}^{N} \int_\qv \partial_t \Rc_k(\qv) \, G_{k, ii}[\qv; \phiv] \, ,
+	\label{eq:flot}
 \end{equation}
-En outre, nous avons aussi une condition initiale pour $\Gamma$ puisque d'après \refeq{MeanZ} il vient
+et nous avons aussi une condition initiale pour $\Gamma$ puisque, en définissant $\varphiv_0$ comme en \refeq{meanPhi}, d'après \refeq{MeanZ} il vient la relation
 \begin{equation}
 	\Gamma_\Lambda [\phiv] = \Gamma_\Lambda 	[\varphiv_0] = S[\varphiv_0]
 \end{equation}
-Avec $\varphiv_0$ défini comme en \refeq{}.\\
+
 
 Rappelons que la connaissance de $\Gamma^{(2)}$ permet de connaitre les exposants critiques $\eta$ et $\nu$, cette équation est donc fondamentale car connaissant $\Gamma$ nous avons accès à $\Gamma^{(2)}$. Ainsi, nous avons une équation différentielle avec une condition initiale connue.\\
 
-Notons que l'intégrale dans cette équation de flot est en fait tronquée par la fonction $q \to \partial_t\Rc_k(q)$ qui pour un $k$ fixé limite, par ses propriétés, l'intervalle d'intégration qui n'est donc jamais véritablement faite sur un domaine infini et peut sans problème être réalisé numériquement.\\
+Notons aussi que l'intégrale dans cette équation de flot est en fait tronquée par la fonction $q \to \partial_t\Rc_k(q)$ qui pour un $k$ fixé limite, par sa décroissance, l'intervalle utile d'intégration qui n'est donc jamais véritablement faite sur un domaine infini et peut sans problème être réalisé numériquement comme ilustré en \refig{derReg} dans le cas simple ou $\Rc_k(\qv) = \Rc_k(q)$.\\
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.95\columnwidth]{derReg.pdf}
+\end{center}
+\vspace*{-22pt}
+\caption{Allure de la dérivée du régulateur choisi pour une valeur de $k$ donnée avec une décroissance exponentielle (ligne continue bleue, \refeq{regExp}). L'intégrale sur $\qv$ ne doit donc être faite seulement sur les $q$ appartenant dans la région rouge.}
+\label{fig:derReg}
+\end{figure}
 
 
-Cependant on peut remarquer que pour connaitre $\partial_t \Gamma$ dans cette équation il nous faut connaitre la dérivée seconde $\Gamma^{(2)}$. Puis si on voulait connaitre $\Gamma^{(2)}$ il nous faudrait connaitre $\Gamma^{(3)}$ et $\Gamma^{(4)}$, ainsi de suite. On dit alors que l'équation est ouverte et n'est donc pas soluble telle quelle. Ce pourquoi nous allons utiliser l'approximation BMW. \\
 
-Enfin, cette équation est pour l'instant dite dimensionné car lorsque l'on fait évoluer $k$ entre $k_1+dk_1$ et $k_1$ avec $a$
-
-
-
-
+Le problème maintenant c'est que pour connaitre $\partial_t \Gamma$ dans cette équation il nous faudrait connaitre la dérivée seconde $\Gamma^{(2)}$. Cependant si on voulait connaitre de façon similaire l'équation de flot exacte de $\Gamma^{(2)}$ il nous faudrait connaitre $\Gamma^{(3)}$ et $\Gamma^{(4)}$, et ainsi de suite. On dit alors que l'équation est ouverte et n'est pas soluble telle quelle. L'approximation BMW permet de répondre à ce problème. \\
 
 
 \vspace*{11pt}
@@ -479,6 +500,14 @@ Ainsi nous dirons que $\Gamma^{(2)}_k$ n'a pas vraiment la dimension de $\pv^2$ 
  	\lim\limits_{k \to 0} \eta_k  = \eta
  \end{equation}
 Ceci est d'une très grande importance pour l'adimensionnement des équations qui est nécessaire pour trouver les points fixes du RG (c.f. \ref{}). Mais de plus c'est cette grandeur qui va nous donner l'exposant critique $\eta$ que l'on recherche.
+
+
+\vspace*{11pt}
+\subsubsection{La recherche de points fixes}
+
+Enfin, le but est toujours de trouver la valeur des exposants critiques des systèmes que l'on étudie. Pour cela comme nous l'avons vu il faut trouver un point fixe du RG (c.f. \refsec{}). En effet, dans le NPRG trouver un point fixe se traduit simplement par trouver une solution de l'équation de flot $\Gamma_k$ telle qu'il existe $k_\text{seuil} \in ]0, \Lambda]$ pour lequel $\partial_t \Gamma_k = 0$ quand $k<k_\text{seuil}$. Ou de la même manière cela revient aussi à avoir une dimension anormale associée $\eta_k$ telle que $\partial_t \eta_k = 0$ pour $k < k_\text{seuil}$. Ainsi, quand $k \to 0$ nous pouvons dire $\eta_{k<k_\text{seuil}} = \eta$. Et au passage on détermine alors l'exposant critique $\eta$. \\
+
+Or il n'existe un point fixe qu'à la température critique. La température à laquelle est soumise le système est donnée dans l'expression du hamiltonien et donc dans l'expression de $S[\varphiv_0]$ qui est la condition initiale des équations de flot. Ne connaissant pas la température critique, en modifiant (par des dichotomies) les termes correspondant à la température dans $S$ on peut essayer en tâtonnant de s'en rapprocher le plus possible en cherchant une solution $\Gamma_k$ pour lequel un $k_\text{seuil}$ existe.
 
 \newpage
  
@@ -515,28 +544,33 @@ Ainsi c'est ce hamiltonien qui est injectée dans les équations du RG permettan
  
 Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$, i.e. lorsque $H[-\varphiv] = H[\varphiv]$. Nous verrons un exemple plus précis en \refsec{}. Le cas général des équations pour $N$ quelconque se trouve dans \cite{benitez2012nonperturbative}.\\ 
 
-Le principe de l'approximation BMW \cite{Blaizot} est de considérer que certaines impulsions dans l'expressions des $\Gamma^{(n)}$ ne jouent pas le même rôle que les autres et peuvent être simplifiées. Il s'agit d'un raisonnement complexe permis avant tout par la présence de la fonction $q \to \partial_t \Rc_k(q)$ dans l'équation de flot exacte. Il est alors possible de développer à partir de cela une équation soluble formellement sur $\Gamma^{(2)}$ directement. Dans le cas $O(N=1)$ où les tenseurs sont de simples fonctions, et où le vecteur $\phiv$ est un scalaire $\phi$ il vient
+Le principe de l'approximation BMW \cite{Blaizot} est de considérer que certaines impulsions dans l'expressions des $\Gamma^{(n)}$ ne jouent pas le même rôle que les autres et peuvent être simplifiées. Il s'agit d'un raisonnement complexe permis avant tout par la présence de la fonction $q \to \partial_t \Rc_k(q)$ dans l'équation de flot exacte. Il est alors possible de développer à partir de cela une équation soluble formellement sur $\Gamma^{(2)}$ directement. Dans le cas $O(N=1)$, les tenseurs n'ont qu'une seule composante, et on consièdre $\phiv$ uniforme et scalaire que l'on écrit $\phi$ (en effet prendre les champs uniformes une fois que l'on a exprimé toutes les équations ne change rien au calcul des quantités que l'on souhaite obtenir). Les fonctionnelles $\Gamma_k$ et $G_k$ (ainsi que leurs dérivées) deviennent de simple fonctions de la variable $\phi$ et l'approximation BMW donne 
 \begin{equation}
 \begin{split}
 	\partial_t \Gamma_{k}^{(2)}(\pv, \phi) = & \quad J_3(\pv, \phi) {\( \partial_\phi \Gamma_{k}^{(2)}(\pv, \phi) \)}^2 \\
 	& - \frac{1}{2}  I_2(\phi) \, \partial_\phi^{2} \Gamma_{k}^{(2)}(\pv, \phi)
 \end{split}
+\label{eq:flotBMW}
 \end{equation}
 Où l'on a introduit par concision,
 \begin{equation}
-	J_n(p,\phi) = \int_q \partial_t \Rc_k \,G_k(p+q, \phi) \,G_k^{n-1}(q, \phi)
+	J_n(\pv,\phi) = \int_q \partial_t \Rc_k \,G_k(\pv+\qv, \phi) \,G_k^{n-1}(\qv, \phi)
 \end{equation}
 \begin{equation}
-	I_n(p,\phi) = \int_q \partial_t \Rc_k \,G_k^{n}(q, \phi)
+	I_n(\pv,\phi) = \int_q \partial_t \Rc_k \,G_k^{n}(\qv, \phi)
+\end{equation}
+La condition initiale découle directement de ...
+\begin{equation}
+	\Gamma^{(2)}_\Lambda(\pv, \varphi_0) = \pv^2 + \partial_{\varphi_0}^2 S(\varphi_0)
 \end{equation}
 On utilise à partir de maintenant la notation $\rho = \phi^2/2$. On introduit une fonction $\Delta_k(\pv, \rho)$ telle que
 \begin{equation}
 	\Gamma^{(2)}(\pv, \rho) = \varepsilon(\pv) + \Delta_k(\pv, \rho) + \partial_{\phi}^2 V_k|_\rho
 \end{equation}
-Où $\varepsilon(\pv)$ est la relation de dispersion qui vaut simplement $\pv^2$ (venant de la TF du terme en gradient dans le hamiltonien). De par la forme de ce hamiltonien et de cette relation de dispersion les différentes grandeurs que la considère ne dépendent plus de vraiment de l'impulsion $\pv$ (ou $\qv$) mais seulement de $\pv^2$ et donc de sa norme $p = \| \pv \|_{2}$ (ou q). \\
+Où $\varepsilon(\pv)$ est la relation de dispersion qui vaut simplement $\pv^2$ (venant de la TF du terme en gradient dans le hamiltonien). De par la forme de ce hamiltonien et de cette relation de dispersion les différentes grandeurs que la considère ne dépendent plus entièrement de l'impulsion $\pv$ (ou $\qv$) mais seulement de $\pv^2$ et donc de sa norme $p = \| \pv \|_{2}$ (ou q). \\
 
 
-Ainsi, pour diminuer les erreurs commises par l'approximation et utiliser les informations exactes que l'on connait sur l'évolution de $V_k$, l'équation de flot peut se réécrire sous la forme du système
+Ainsi, pour diminuer les erreurs commises par l'approximation BMW et utiliser les informations exactes que l'on connait sur l'évolution de $V_k$ en prenant directement $\phiv = \phi$ uniforme dans \refeq{flot}, l'équation de flot BMW \refeq{flotBMW} peut se réécrire sous la forme du système couplé
 \begin{align}
 	\partial_t \Delta_k(p, \rho) & = 
 	\begin{aligned}[t]
@@ -545,25 +579,35 @@ Ainsi, pour diminuer les erreurs commises par l'approximation et utiliser les in
 	 & \, - 2\rho I_3 (\rho) u_k^2(\rho) 
 	 \end{aligned}
 	\label{eqn:sys1}\\
-	\partial_t W_k(\rho) & = 
+	\partial_t V_k(\rho) & = 
 	\begin{aligned}[t]
-		& \partial_\rho I_1(\rho)
+		& I_1(\rho)
 	\end{aligned}
 \end{align}
 
 Avec les notations
 \begin{equation}
-	m_k^2(\rho) = \partial_\phi^2V_k |_\rho
+ \begin{split}
+	m_k^2(\rho) & = 2\rho \partial_\rho^2 V_k(\rho) + \partial_\rho V_k(\rho)  \\
+	u_k(\rho)  & = \partial_\rho m^2_k(\rho)
+	\end{split}	
 \end{equation}
+
+La condition initiale se déduit de \refeq{}. En effet, comme le cas ou l'on traite des champs $\phi$ uniforme alors le $\varphi0$ définissant le champ moyen est défini avec la contrainte
+
+... 
+Il vient alors
 \begin{equation}
-	u_k(\rho) = \partial_\rho m^2_k(\rho)	
+	\Gamma^{(2)}_\Lambda (\pv^2, \phi) = 	
 \end{equation}
+
+On introduit de plus pour la suite
 \begin{equation}
-	W_k(\rho) = \partial_\rho V_k(\rho)	
+	W_k(\rho) = \partial_\rho V_k(\rho)
 \end{equation}
 
 
-Il reste alors une dernière étape avant de parvenir aux équations finales. En effet, nous n'avons pas ici réalisé l'adimensionnement fondamental du RG. Comme décrit en \refsec{}, pour cela il suffit d'introduire de nouvelles grandeurs notées d'un $\tilde{.}$ de la même manière. On considère aussi que $k$ s'exprime en unité de $\Lambda$ et donc qu'il varie entre $1$ et $0$, de cette manière $k$ et $s$ sont confondus. Concrètement cela revient à introduire, en utilisant le $Z_k$ défini en \refsec{}, 
+Il reste alors une dernière étape avant de parvenir aux équations finales. En effet, nous n'avons pas ici réalisé l'adimensionnement fondamental du RG. Pour cela il suffit d'introduire de nouvelles grandeurs notées d'un $\tilde{.}$ de la même manière qu'en en \refsec{}. On considère aussi que $k$ s'exprime en unité de $\Lambda$ et donc qu'il varie entre $1$ et $0$, ainsi $k$ et $s$ sont confondus. Concrètement cela revient à introduire, en utilisant le $Z_k$ défini en \refsec{} à cause de la présence de la dimension anormale, 
 \begin{equation}
 \begin{split}
 	& \trho  = k^{2-d}Z_k\rho \quad \text{et} \quad \tp = k^{-1}p\\
@@ -571,7 +615,7 @@ Il reste alors une dernière étape avant de parvenir aux équations finales. En
 	& \tilde{u}_k(\trho) = Z_k^{-2}k^{d-4}u_k(\rho) \\
 	& \tG_k(\tp,\trho) = Z_k k^2 G_k(p,\rho) \\
 	& \tJ_n(\tp, \trho) = Z_k^{n-1} k^{2n -d-2}J_n(p,\rho) \\
-	& \tW_k(\trho) = k^2 W_k(\rho)
+	& \tV_k(\trho) = k^{-d} V_k(\rho)
 	\end{split}
 \end{equation}
 Ainsi que
@@ -579,7 +623,8 @@ Ainsi que
 	\tY_k(\tp, \trho) = \frac{1}{Z_k}\( 1+ \frac{\Delta_k(p,\rho)}{p^2}\)-1	
 \end{equation}
 
-Ce changement de variable en plus d'être nécessaire pour trouver le point fixe apporte de grand changement dans la forme des équations. En effet, on multiplie les expressions par des facteurs contenant $k$ ou $Z_k$ qui possèdent des dérivées non nulles lorsque l'on leur applique l'opérateur différentiel $\partial_t$. En outre $\partial_\rho \Delta_k(p,\rho)$ représentait la dérivée par rapport à $\rho$ de $\Delta_k$ à $p$ fixé. Or comme maintenant les fonctions dépendent de $\tp$ et non plus de $p$ il faut calculer cette même grandeur à $\tp$ fixé. Ceci explique alors comme on en arrive à la nouvelle forme du problème que nous avons essayé de résoudre numériquement :\\
+Ce changement de variable en plus d'être nécessaire pour trouver le point fixe apporte de grand changement dans la forme des équations. En effet, on multiplie les expressions par des facteurs contenant $k$ ou $Z_k$ qui possèdent des dérivées non nulles lorsque l'on leur applique l'opérateur différentiel $\partial_t$. En outre $\partial_\rho \Delta_k(p,\rho)$ représentait la dérivée par rapport à $\rho$ de $\Delta_k$ à $p$ fixé. Or comme maintenant les fonctions dépendent de $\tp$ et non plus de $p$ il faut calculer cette même dérivée par rapport à $\trho$ à $\tp$ fixé. 
+Ceci donne alors la nouvelle forme du problème que nous avons essayé de résoudre numériquement :\\
 
 \noindent
 {\itshape Trouver $\tY_k(\trho, \tp)$ et $\tW_k(\trho)$ tels que pour tout $k \in [1, 0[$,  $\trho \in [0, +\infty[$ et $\tp \in [0, +\infty[$,}
@@ -596,7 +641,7 @@ Ce changement de variable en plus d'être nécessaire pour trouver le point fixe
 		& (\eta_k-2) \tW_k  + (d-2+\eta_k) \trho \,\partial_{\trho}\tW_k + \frac{1}{2} \partial_{\trho} \tI_1
 	\end{aligned}
 \end{align}
-Et les conditions initiales
+Avec les conditions initiales
 \begin{equation}
 	\tY_1(\trho, \tp) = 0 \quad  \text{et} \quad \tW_1(\trho) = r_0' + u_0'\trho
 \end{equation}

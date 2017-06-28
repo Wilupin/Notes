@@ -36,6 +36,20 @@ B.~Diu, C.~Guthmann, and D.~Lederer.
 \newblock {\em Thermodynamique}.
 \newblock Collection Enseignement des sciences. Hermann, 2007.
 
+\bibitem{fisher1998renormalization}
+Michael~E Fisher.
+\newblock Renormalization group theory: Its basis and formulation in
+  statistical physics.
+\newblock {\em Reviews of Modern Physics}, 70(2):653, 1998.
+
+\bibitem{kadanoff1967scaling}
+LP~Kadanoff.
+\newblock Scaling laws for ising models near critical points.
+\newblock In {\em pp 24-36 of Proceedings of the 1966 Midwest Conference on
+  Theoretical Physics, Indiana University, May 20--21, 1966. Lichtenberg, DB
+  (ed.). Bloomington, Ind., Indiana University, 1966.} Univ. of Illinois,
+  Urbana, 1967.
+
 \bibitem{kochmanski2013curie}
 Martin Kochma{\'n}ski, Tadeusz Paszkiewicz, and S{\l}awomir Wolski.
 \newblock Curie--weiss magnet—a simple model of phase transition.
@@ -78,5 +92,17 @@ Alex Townsend.
 Christof Wetterich.
 \newblock Exact evolution equation for the effective potential.
 \newblock {\em Physics Letters B}, 301(1):94, 1993.
+
+\bibitem{wilson1971renormalization}
+Kenneth~G Wilson.
+\newblock Renormalization group and critical phenomena. i. renormalization
+  group and the kadanoff scaling picture.
+\newblock {\em Physical review B}, 4(9):3174, 1971.
+
+\bibitem{wilson1971renormalization2}
+Kenneth~G Wilson.
+\newblock Renormalization group and critical phenomena. ii. phase-space cell
+  analysis of critical behavior.
+\newblock {\em Physical Review B}, 4(9):3184, 1971.
 
 \end{thebibliography}
