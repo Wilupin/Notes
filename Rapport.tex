@@ -171,7 +171,9 @@ On observe expérimentalement qu'au moment d'une transition de phase du second o
 \begin{equation}
 	\xi \sim |T-T_c|^{-\nu} 	\quad \text{et} \quad G^{(2)}(r) \sim |r|^{2-d-\eta},
 \end{equation}
-où $d$ est la dimension physique du système et $\nu$ et $\eta$ sont deux réels positifs appelés les \emph{exposants critiques}. Notons qu'il existe aussi comme cela plusieurs autres grandeurs desquelles ont peut extraire différents exposants critiques. Le point essentiel étant que tous les systèmes ayant les mêmes propriétés de symétrie possèdent les mêmes exposants critiques, on dit qu'ils appartiennent à la même classe d'universalité.\\
+où $d$ est la dimension physique du système et $\nu$ et $\eta$ sont deux réels positifs appelés les \emph{exposants critiques}. Notons qu'il existe aussi comme cela plusieurs autres grandeurs desquelles ont peut extraire différents exposants critiques. Le point essentiel étant que tous les systèmes ayant les mêmes propriétés de symétrie possèdent les mêmes exposants critiques, on dit qu'ils appartiennent à la même classe d'universalité. On dit qu'un système possède une certaine symétrie lorsque l'action de celle-ci sur les degrés de liberté du système n'en change pas l'énergie. Nous détaillerons plus en détails ce qu'est la symétrie $O(N)$ à laquelle nous nous sommes intéressés. 
+
+L'avantage est qu'il suffit d'étudier un système 'jouet' très simple, le plus simple possible, ayant la symétrie souhaitée pour trouver les exposants critiques de tous les autres systèmes physiques plus complexes avec la même symétrie. En revanche la température critique $T_c$ d'un système n'est pas une grandeur universelle, elle varie d'un système à l'autre, même s'ils ont les mêmes symétries, cela signifie que pour la calculer il n'est pas possible d'utiliser l'astuce précédente, il faut étudier précisément le système d'intérêt.
 
 
 \subsection{Intérêt du groupe de renormalisation et des équations BMW}
@@ -180,11 +182,11 @@ Le groupe de renormalisation (RG) permet de montrer l'effet d'universalité des 
 
 Le groupe de renormalisation non perturbatif (NPRG) permet de répondre à ce problème en reprenant le principe du RG sous une approche différente permettant d'accéder à des équations exactes. Cependant, en pratique, ces équations ne sont pas solubles et il faut faire d'autres approximations, comme l'approximation BMW. Bien que cela reste compliqué en pratique, ces approximations peuvent permettre de récupérer à la fois les exposants critiques et les grandeurs non universelles. \\
 
-Dans cette étude nous avons repris une simulation numérique d'équations intégro-différentielles non linéaires obtenues par l'approximation BMW pour des systèmes régis par une certaine symétrie dite $O(N)$ \cite{LeonardThesis}. Elle a déjà permis de déterminer des exposants critiques avec précision pour certains systèmes, mettant en avant la qualité de l'approximation BMW et du NPRG. Cependant elle présente des comportement étranges et des résolutions instable dans d'autres cas. Le but était donc de rechercher quelles en étaient les causes.
+Dans cette étude nous avons repris une simulation numérique d'équations intégro-différentielles non linéaires obtenues par l'approximation BMW pour des systèmes régis par une certaine symétrie dite $O(N)$ à l'aide du système modèle générique de la "théorie $\varphiv^4$" \cite{LeonardThesis}. Elle a déjà permis de déterminer des exposants critiques avec précision pour certains systèmes, mettant en avant la qualité de l'approximation BMW et du NPRG. Cependant elle présente des comportement étranges et des résolutions instable dans d'autres cas. Le but était donc de rechercher quelles en étaient les causes pour parvenir enfin à calculer avec ce code les exposants $\eta$ et $\nu$ dans toutes les configurations.
 
-De plus nous avons aussi réalisé la simulation des équations BMW pour un autre modèle afin d'essayer d'en récupérer la température critique. Ceci afin de la comparer à une valeur théorique connue, toujours dans l'objectif de valider la justesse de l'approximation BMW, en montrant sa capacité à calculer numériquement une grandeur non universelle, $T_c$, d'un système donné. \\
+De plus nous avons aussi réalisé la simulation des équations BMW pour un modèle précis ayant une symétrie $O(N=1)$,afin d'essayer d'en récupérer la température critique. Ceci afin de la comparer à une valeur théorique connue, toujours dans l'objectif de valider la justesse de l'approximation BMW, en montrant sa capacité à calculer numériquement une grandeur non universelle, $T_c$, d'un système donné. \\
 
-Dans une première partie nous rappelons les origines du modèle du RG et du NPRG puis nous l'utilisons pour expliquer la structure des équations BMW dans le cas de systèmes possédant une symétrie dite $O(N)$ et étudier numériquement leur résolution et la recherche des exposants critiques associés. Ensuite nous introduirons le modèle d'Ising à deux dimensions, système sur lequel nous avons recherché la température critique pour la comparer au résultat théorique d'Onsager.\cite{Onsager}. 
+Dans une première partie nous rappelons les origines du modèle du RG et du NPRG puis nous l'utilisons pour expliquer la structure des équations BMW dans le cas de de la théorie $\varphiv^4$ et étudier numériquement leur résolution et la recherche des exposants critiques associés. Ensuite nous introduirons le modèle d'Ising à deux dimensions, système sur lequel nous avons recherché la température critique pour la comparer au résultat théorique d'Onsager.\cite{Onsager}. 
 
 
 \vspace*{11pt}
@@ -238,7 +240,7 @@ On montre alors \cite{Delamotte2012}, qu'au sens d'inverse d'opérateur, comme d
 
 Il faut donc retenir que la connaissance du potentiel de Gibbs équivaut à la connaissance de la fonction de corrélation à deux points qui nous permet alors aussi de retrouver les exposants critiques qui nous intéressent. \\
 
-En outre la connaissance de $\Gamma[\phiv]$ a aussi un autre avantage important puisqu'il correspond, lorsque $\phiv$ est uniforme, à un facteur de volume $|\Omega|$ près, au potentiel du système que l'on note $V$ selon :
+En outre la connaissance de $\Gamma[\phiv]$ a aussi un autre avantage important puisque si l'on prend $\phiv$ comme une fonction uniforme alors $\phiv$ est une grandeur ne dépendant plus de $\rv$ et $\Gamma$ devient une fonction (et non plus une fonctionnelle). Or à un facteur de volume $|\Omega|$ près, $\Gamma$ correspond alors au potentiel du système que l'on note $V$ selon :
 \begin{equation}
 	V(\phiv) = \frac{1}{|\Omega|}{\left. \Gamma[\phiv] \right|}_{\phiv \text{ unif.}},
 \end{equation}
@@ -250,6 +252,22 @@ et la position du minimum global de $V$ noté $\phiv_m$ est lié à la nature de
 \end{center}
 \end{figure}
 \vspace*{-11pt}
+
+
+\subsection{La symétrie $O(N)$}
+
+On dit qu'un système est symétrique selon $O(N)$ s'il est invariant par l'action du groupe de rotation $O(N)$ sur ces degrés de libertés. Plus précisément, soit $J \in O(N)$, et on note $J.V$ l'action de $J$ sur un vecteur $V$ de $\R^N$. Le modèle est dit $O(N)$ si 
+\begin{equation}
+	H[J \varphiv] = H[\varphiv]	
+\end{equation}
+
+Dans la suite nous utiliserons alors une autre grandeurs scalaire invariante sous $O(N)$ pour caractériser les champs $\phiv$ uniformes 
+\begin{equation}
+	\rho = \frac{1}{2}  \phiv^2  
+\end{equation}
+Ainsi, pris en $\phiv$ uniforme le potentiel effectif $\Gamma^{(2)}$ devient une fonction de $\rho$ qui est un salaire et plus un vecteur comme $\phiv \text{ unif.}$ l'est. Il en est de même pour ses dérivées et pour $V_k$ ou tout autre grandeur fonction de $\phiv$. Notre étude porte uniquement sur des systèmes possédant cette symétrie.\\
+
+
 Développons à présent les théories du RG et du NPRG qui partent des quelques formules rappelées ici. 
 
 
@@ -329,7 +347,7 @@ Dans un calcul de RG on prend classiquement un nombre fini de constantes de coup
 \subsection{Le groupe de renormalisation non perturbatif (NPRG)}
 \subsubsection{Généralités}
 
-Contrairement au RG le NPRG développé par Wetterich \cite{wetterich} va plus loin puisqu'il permet un calcul sans approximations a priori. L'idée reste la même que dans le RG en intégrant les hautes impulsions en  premier lieu. Cependant l'astuce consiste à faire cela en introduisant un tenseur de fonctions  $\Rc \in \(H_1(]0, \Lambda], H_1([0,\Lambda]^d))\)^{N\times N} : (k,\qv) \to \Rc_{k, ij}(\qv)$ (on notera indifféremment $\Rc$ et $\Rc_{k,ij}$), puis une nouvelle fonction de partition modifiée,  
+Contrairement au RG le NPRG développé par Wetterich \cite{wetterich} va plus loin puisqu'il permet un calcul sans approximations a priori. L'idée reste la même que dans le RG en intégrant les hautes impulsions en  premier lieu. Cependant l'astuce consiste à faire cela en introduisant un tenseur de fonctions  $\Rc \in \(H_1(]0, \Lambda], H_1([0,\Lambda]^d))\)^{N\times N} : (k,\qv) \to \Rc_{k, ij}(\qv)$, puis une nouvelle fonction de partition modifiée,  
 \begin{equation}
   \Zc_k[\hv] = \int \Dc \varphiv \, \exp\left\{-S[\varphiv] - \Delta S_k[\varphiv] + \int_{\rv} \hv \varphiv \right\} \, ,
 \end{equation}
@@ -365,15 +383,17 @@ L'intégrale a alors disparue dans l'expression de $Z_\Lambda$, qui s'exprime un
 Enfin, il faut aussi que $\Rc_{k,ij}$ soit une fonction possédant des symétries compatibles avec le système que l'on considère pour pouvoir effectuer des calculs.
 
 \subsubsection{Choix du régulateur}
-Dans l'ensemble de ce que nous avons étudié il a suffit de prendre $\Rc_{k,ij} = \Rc_k$ comme une simple fonction et pas un tenseur. De plus en guise d'illustration (et parce que cela correspond bien à ce que nous avons utilisé par la suite pour le modèle $O(N)$) nous allons considérer que $\Rc_k(\qv) = \Rc_k(q)$ avec $q = \|\qv\|_2$ la norme 2 dans $\R^d$. La fonction $q \to \Rc_k(q)$ est appelée le régulateur.
+
+Dans le modèle $O(N)$ il suffit de prendre $\Rc_{k,ij} = \Rc_k$ comme une simple fonction et pas un tenseur. De plus en guise d'illustration (et parce que cela correspond bien à ce que nous avons utilisé par la suite dans le cas de la théorie $\varphiv^4$) nous allons considérer que $\Rc_k(\qv) = \Rc_k(q)$ avec $q = \|\qv\|_2$ la norme 2 dans $\R^d$. La fonction $q \to \Rc_k(q)$ est appelée le régulateur.
 
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=0.95\columnwidth]{Reg.pdf}
+	\includegraphics[width=0.95\columnwidth]{RegDerReg.pdf}
 \end{center}
 \vspace*{-22pt}
-\caption{Allure du régulateur choisi pour une valeur de $k$ donnée avec une décroissance exponentielle (ligne continue bleue - c.f. \refeq{RegExp}) et avec une fonction de Heaviside (pointillés rouges -c.f. \refeq{RegHeav}). Ainsi ici nous avons approximativement intégrés les degrés de libertés correspondant à une impulsion dans $\simeq [k,\Lambda]$ uniquement.}
+\caption{(a) Allure du régulateur choisi pour une valeur de $k$ donnée avec une décroissance exponentielle (ligne continue bleue - c.f. \refeq{RegExp}) et avec une fonction de Heaviside (pointillés rouges -c.f. \refeq{RegHeav}). Ainsi ici nous avons approximativement intégrés les degrés de libertés correspondant à une impulsion dans $\simeq [k,\Lambda]$ uniquement. (b) Allure de la dérivée du régulateur choisi pour une valeur de $k$ donnée avec une décroissance exponentielle (ligne continue bleue, \refeq{regExp}). L'intégrale sur $\qv$ ne doit donc être faite seulement sur les $q$ appartenant dans la région rouge.}
+\label{fig:RegDerReg}
 \end{figure}
 
 Il semble naturel, pour satisfaire à toutes les conditions précédentes, d'utiliser dans le régulateur une fonction de Heaviside en écrivant 
@@ -465,16 +485,7 @@ et nous avons aussi une condition initiale pour $\Gamma$ puisque, en définissan
 
 Rappelons que la connaissance de $\Gamma^{(2)}$ permet de connaitre les exposants critiques $\eta$ et $\nu$, cette équation est donc fondamentale car connaissant $\Gamma$ nous avons accès à $\Gamma^{(2)}$. Ainsi, nous avons une équation différentielle avec une condition initiale connue.\\
 
-Notons aussi que l'intégrale dans cette équation de flot est en fait tronquée par la fonction $q \to \partial_t\Rc_k(q)$ qui pour un $k$ fixé limite, par sa décroissance, l'intervalle utile d'intégration qui n'est donc jamais véritablement faite sur un domaine infini et peut sans problème être réalisé numériquement comme ilustré en \refig{derReg} dans le cas simple ou $\Rc_k(\qv) = \Rc_k(q)$.\\
-
-\begin{figure}[H]
-\begin{center}
-	\includegraphics[width=0.95\columnwidth]{derReg.pdf}
-\end{center}
-\vspace*{-22pt}
-\caption{Allure de la dérivée du régulateur choisi pour une valeur de $k$ donnée avec une décroissance exponentielle (ligne continue bleue, \refeq{regExp}). L'intégrale sur $\qv$ ne doit donc être faite seulement sur les $q$ appartenant dans la région rouge.}
-\label{fig:derReg}
-\end{figure}
+Notons aussi que l'intégrale dans cette équation de flot est en fait tronquée par la fonction $q \to \partial_t\Rc_k(q)$ qui pour un $k$ fixé limite, par sa décroissance, l'intervalle utile d'intégration qui n'est donc jamais véritablement faite sur un domaine infini et peut sans problème être réalisé numériquement comme ilustré en \refig{RegDerReg} dans le cas simple ou $\Rc_k(\qv) = \Rc_k(q)$.\\
 
 
 
@@ -505,27 +516,18 @@ Ceci est d'une très grande importance pour l'adimensionnement des équations qu
 \vspace*{11pt}
 \subsubsection{La recherche de points fixes}
 
-Enfin, le but est toujours de trouver la valeur des exposants critiques des systèmes que l'on étudie. Pour cela comme nous l'avons vu il faut trouver un point fixe du RG (c.f. \refsec{}). En effet, dans le NPRG trouver un point fixe se traduit simplement par trouver une solution de l'équation de flot $\Gamma_k$ telle qu'il existe $k_\text{seuil} \in ]0, \Lambda]$ pour lequel $\partial_t \Gamma_k = 0$ quand $k<k_\text{seuil}$. Ou de la même manière cela revient aussi à avoir une dimension anormale associée $\eta_k$ telle que $\partial_t \eta_k = 0$ pour $k < k_\text{seuil}$. Ainsi, quand $k \to 0$ nous pouvons dire $\eta_{k<k_\text{seuil}} = \eta$. Et au passage on détermine alors l'exposant critique $\eta$. \\
+Enfin, le but est toujours de trouver la valeur des exposants critiques des systèmes que l'on étudie. Pour cela comme nous l'avons vu il faut trouver un point fixe du RG (c.f. \refsec{}). Ainsi, il faut travailler avec des variables que l'on adimensionne, dans le NPRG cela revient aussi à définir des variables avec un tilde. Plus précisement, si $f$ est une grandeur de la dimension de $Z_k^{a} \text{L}^{-b}$, (où L est toujours de la dimension d'une longueur) on pose\footnote{On utilise ici $k$ qui à la dimension d'une impulsion au lieu de $s$ comme dans \refsec{} mais ceci revient au même.} $\tilde{f} = Z_k^{-a}k^{b}f$. Ceci illustre l'importance du $Z_k$ représentant une dimension, que l'on a introduit auparavant, dans la mécanique du RG et du NPRG. 
 
-Or il n'existe un point fixe qu'à la température critique. La température à laquelle est soumise le système est donnée dans l'expression du hamiltonien et donc dans l'expression de $S[\varphiv_0]$ qui est la condition initiale des équations de flot. Ne connaissant pas la température critique, en modifiant (par des dichotomies) les termes correspondant à la température dans $S$ on peut essayer en tâtonnant de s'en rapprocher le plus possible en cherchant une solution $\Gamma_k$ pour lequel un $k_\text{seuil}$ existe.
+Ainsi dans le NPRG trouver un point fixe se traduit simplement par trouver une solution de l'équation de flot $\tilde{\Gamma}_k$ telle qu'il existe $k_\text{seuil} \in ]0, \Lambda]$ pour lequel $\partial_t \tilde{\Gamma}_k = 0$ quand $k<k_\text{seuil}$. Ou de la même manière cela revient aussi à avoir une dimension anormale associée $\eta_k$ telle que\footnote{Notons bien que $\eta_k$ est un scalaire, il représente une dimension de longueur mais n'a pas de dimension lui même.} $\partial_t \eta_k = 0$ pour $k < k_\text{seuil}$. Ainsi, quand $k \to 0$ nous pouvons dire $\eta_{k<k_\text{seuil}} = \eta$. Et au passage on détermine alors l'exposant critique $\eta$. \\
+
+Cependant il n'existe un point fixe qu'à la température critique. Or, la température à laquelle est soumise le système est donnée dans l'expression du hamiltonien et donc dans l'expression de $S[\varphiv_0]$ qui est la condition initiale des équations de flot. Ne connaissant pas la température critique, en modifiant (par des dichotomies et en tâtonnant) les termes correspondants à la température dans $S$ on peut essayer de s'en rapprocher le plus possible en cherchant une solution $\Gamma_k$ pour lequel un $k_\text{seuil}$ existe.
 
 \newpage
  
 \section{Le modèle continu $O(N)$}
 
 
-\subsection{Introduction du modèle $O(N)$}
 
-On dit qu'un modèle est $O(N)$ si jamais le système est invariant par l'action du groupe de rotation $O(N)$ sur ces degrés de libertés. Plus précisément, soit $J \in O(N)$, et on note $J.V$ l'action de $J$ sur un vecteur $V$ de $\R^N$. Le modèle est dit $O(N)$ si 
-\begin{equation}
-	H[J \varphiv] = H[\varphiv]	
-\end{equation}
-
-Dans la suite nous utiliserons alors une autre grandeurs scalaire invariante sous $O(N)$ pour caractériser les champs uniformes 
-\begin{equation}
-	\rho = \frac{1}{2}  \phiv^2  
-\end{equation}
-Ainsi le potentiel effectif $V_k$, $\Gamma^{(2)}$ ou leurs dérivées ne dépendrons plus que de $\rho$ qui est une grandeur scalaire et non plus du vecteur $\phiv$.
 
 \subsection{Théorie $\varphiv^4$}
 
@@ -540,7 +542,7 @@ Ainsi c'est ce hamiltonien qui est injectée dans les équations du RG permettan
 
 
 \vspace*{11pt}
-\subsection{Approximation BMW pour $O(1) \simeq \mathbb{Z}_2$} 
+\subsection{Approximation BMW pour $O(1)$} 
  
 Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$, i.e. lorsque $H[-\varphiv] = H[\varphiv]$. Nous verrons un exemple plus précis en \refsec{}. Le cas général des équations pour $N$ quelconque se trouve dans \cite{benitez2012nonperturbative}.\\ 
 
@@ -554,10 +556,10 @@ Le principe de l'approximation BMW \cite{Blaizot} est de considérer que certain
 \end{equation}
 Où l'on a introduit par concision,
 \begin{equation}
-	J_n(\pv,\phi) = \int_q \partial_t \Rc_k \,G_k(\pv+\qv, \phi) \,G_k^{n-1}(\qv, \phi)
+	J_n(\pv,\phi) = \int_q \partial_t \Rc_k(\qv) \,G_k(\pv+\qv, \phi) \,G_k^{n-1}(\qv, \phi)
 \end{equation}
 \begin{equation}
-	I_n(\pv,\phi) = \int_q \partial_t \Rc_k \,G_k^{n}(\qv, \phi)
+	I_n(\pv,\phi) = \int_q \partial_t \Rc_k(\qv) \,G_k^{n}(\qv, \phi)
 \end{equation}
 La condition initiale découle directement de ...
 \begin{equation}
@@ -646,9 +648,12 @@ Avec les conditions initiales
 	\tY_1(\trho, \tp) = 0 \quad  \text{et} \quad \tW_1(\trho) = r_0' + u_0'\trho
 \end{equation}
 où $r_0'$ et $u_0'$ viennent de $r_0$ et $u_0$ (c.f. \refeq{}). 
-Pour résoudre ce système il manque cependant encore une équation sur $\eta_k$ découlant de la définition même de $Z_k$ en \refeq{} et écrite en annexe.
+Pour résoudre ce système il manque encore l'expression de $\eta_k$ pour $k$ fixé, découlant de la définition même de $Z_k$ en \refeq{} (en prenant arbitrairement $\phiv_0 = 0$ et $\pv_0 = 0$.
+\begin{equation}
+\eta_k = \frac{1}{2}  \tI_2(\rho = 0)\partial_\rho\tY_k(\rho = 0)
+\end{equation}
 
-Pour chercher un point fixe on résout le système différentiel précédent pour différentes valeurs de $r_0'$. En effet, lorsque l'on se trouve  pour se rapprocher de la température critique et du potentiel du système à la température critique. On teste donc plusieurs $r_0'$ avec une dichotomie pour 
+Pour chercher un point fixe on résout le système différentiel précédent pour différentes valeurs de $r_0'$. On teste donc plusieurs $r_0'$ avec une dichotomie avec des valeurs initiales prises aléatoirement jusqu'à ce que l'on arrive à trouver un point fixe.
 
 
 \vspace*{11pt}
@@ -665,16 +670,6 @@ Pour chercher un point fixe on résout le système différentiel précédent pou
 La première partie de notre travail a été de reprendre le développement de ces équations et nous avons réécrit de façon plus modulable et structurée en C++ un code de résolution qui avait déjà été écrit au laboratoire (c.f. \refig{org}). Pour résoudre ces équations de très nombreuses méthodes numériques ont été mises en place, comme des méthodes galerkin \cite{shen1994efficient, LeonardThesis} pour la représentation des fonctions, de simpsons pour le calcul des intégrales, de Runge-Kutta pour la discrétisation temporelle etc., avant qu'un algorithme fonctionnant dans les cas $N=1$ et $d=2$ puisse être trouvé. Cependant, cet algorithme échoue lorsque l'on essaie de l'utiliser en $N \ge 2$ en $d=2$. Nous avons donc essayer d'en comprendre la cause, notamment en réalisant des calculs en des dimensions $d \in [2,3]$ et en les comparants à d'autres codes plus simples que nous avons réécrit, provenant d'autres approximations que BMW. 
 
 
-\end{multicols}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.95\columnwidth]{Diagramme_Code_2.pdf}
-		\caption{Schéma de la répartition du travail effectué. Nous avons commencé par retrouver ou écrire les équations BMW à résoudre (vert). Ensuite nous avons réécrit ou écrit les codes C++ de simulation de ces équations ayant la structure indiquée (rouge). Toutes les parties orangées sont parallélisée sous OpenMP. Enfin nous étudions les résultats à l'aides de scripts Matlab.}
-		\label{fig:org}
-	\end{center}
-\end{figure}
-
-\begin{multicols}{2}
 
 
 \subsection{Structure de l'algorithme}
@@ -699,12 +694,21 @@ Nous avons remarqué aussi que l'on retrouve l'équivalent d'une condition CFL p
 Enfin il pourrait sembler étranger d'utiliser une discrétisation en champ d'ordre 5 couplée à une discrétisation temporelle d'ordre 1. Cependant l'implémentation d'un schéma de Runge-Kutta a été testé sans pour autant permettre un calcul avec plus de précision ou une plus grande rapidité. 
 
 \subsection{Discrétisation en impulsion}
-\subsubsection{Interpolation de Tchbytchev}
+\subsubsection{Interpolation de Tchebytchev}
 
-Pour la discrétisation en impulsion 
+Pour la discrétisation en impulsion nous avons choisi d'utiliser des polynômes de Tchebytchev. En effet, nous n'avons aucune connaissance de la régularité des fonctions avec lesquelles nous travaillons cependant considérons simplement le schéma de résolution semi-discrétisé en espace. On note $\tY_{k_n}(\tp, \trho)$ la discrétisation en temps de la fonction $\tY$ au temps $t_n$. Alors pour tout $n \in \mathbb{N}$ la fonction $\tY_{k_n}$ est une fonction de classe $\Cc^{\infty}$ sur $[0, +\infty[^2$ (c.f. la démonstration \refann{}).
 
+Or dans \cite{Tchebychev} il est démontré le théorème 
+\begin{theorem}{Interpolation de Tchebychev}
+	
+\end{theorem}
 
-\subsubsection{Calcul de l'interpolé - méthode de Clenshaw}
+On justifie 
+
+\subsection{Décomposition sur les coefficients}
+ 
+
+\subsubsection{Méthode de Clenshaw}
 
 
 Afin de calculer la fonction aux points d'interpolation lorsque cela est nécessaire nous utilisons une méthode un peu plus astucieuse que celle consistant à calculer directement la somme de la série.
@@ -743,6 +747,9 @@ Avec la notation $S_m = \sum\limits_{l=0}^{m} a_l \Pc_l(x)$.
 \end{proof}
 
 
+\subsection{Calcul des intégrales}
+
+
 
 
 \subsection{Parallélisation}
@@ -752,7 +759,48 @@ Le code a été écrit de manière à rendre sa parallélisation très simple. E
 
 
 
-\pagebreak
+\section{Resulats}
+
+\subsection{Pour $N = 1$, $d=2$}
+
+Nous avons tout d'abord réussi à retrouver les résultats connu pour $N=1$ à l'aide du code que l'on a réécrit. En effet l'avantage majeur de la dernière versions créee du code avait été de donner des résultats corrects pour $d = 2$.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.95\columnwidth]{etakd2.pdf}
+		\caption{Évolution de $eta_k$ en fonction de $t= \ln(k)$ pour différentes etapes de la dichotomie sur $r_0'$. En pointillé noir nous avons représenté la valeur exacte attendue $\eta = 0.25$. }
+		\label{fig:etakd2}
+	\end{center}
+\end{figure}
+
+La \refig{etakd2} montre l'évolution de $\eta_k$ pour plusieurs conditions initiales $r_0'$ et donc pour plusieurs étapes de la dichotomie du $r_0'$ nous menant vers un point critique. On remarque que pour des temps $t<-5$ nous avons des courbes passant par un plateau. Ce plateau correspond au point fixe pour lequel $\eta_k = \eta$ est une constante. Après être passées par ce plateau les courbes divergent (en partant soit vers le haut, soit vers le bas). Ceci s'explique par le fait que nous n'avons pas trouvé avec une précision infinie la valeur de $r_0'$ menant au point fixe. De ce fait n'étant pas parfaitement au point critique mais très proche on montre qu'effectivement les courbes passent par le plateau du point fixe mais en diverge en $\exp(-t/\nu)$ ou $\nu$ est l'exposant critique.
+
+Nous trouvons donc ...\\
+
+
+
+\subsection{Pour $N = 2$ ou 3, $d=2$}
+
+Le cas $N = 2$ ou 3, $d=3$ fonctionnant nous nous sommes ensuite plus particulièrement intéressé au cas $N = 2$, $d = 2$. La première difficulté que nous avons rencontré lors de ces simulations a été la présence probable d'un pôle dans l'expression de $G_k(q, \rho)$ lorsque l'on 
+
+Nous avons aussi fait varier le nombre de points d'intégration ou encore la taille de la grille de discrétisation en champ $\rho$. Cependant nous n'avons trouvé aucun changement de comportement des résultats.
+Nous en avons déduit qu'il s'agissaient d'un problème de précisions sur les
+
+\end{multicols}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.95\columnwidth]{Diagramme_Code_2.pdf}
+		\caption{Schéma de la répartition du travail effectué. Nous avons commencé par retrouver ou écrire les équations BMW à résoudre (vert). Ensuite nous avons réécrit ou écrit les codes C++ de simulation de ces équations ayant la structure indiquée (rouge). Toutes les parties orangées sont parallélisée sous OpenMP. Enfin nous étudions les résultats à l'aides de scripts Matlab.}
+		\label{fig:org}
+	\end{center}
+\end{figure}
+
+\begin{multicols}{2}
+
+
+\newpage
+
+
 \section{Le modèle d'Ising en dimension 2}
 
 On considère le modèle d'Ising classique sur un réseau hypercubique de dimension $d$ (nous avons uniquement travaillé numériquement dans le cas $d=2$ mais nous exposons le formalisme pour une dimension $d$ quelconque). Les longueurs sont exprimées en unité du pas du réseau. On note $\{\ev_\nu\}_{\nu\in\bbrac{1,d}}$ la base cartésienne associée. L'hamiltonien du système est alors donné par
