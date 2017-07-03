@@ -23,10 +23,10 @@
 \BOOKMARK [2][-]{subsection.4.3}{Discr\351tisation en champ}{section.4}% 23
 \BOOKMARK [2][-]{subsection.4.4}{Discr\351tisation en impulsion}{section.4}% 24
 \BOOKMARK [3][-]{subsubsection.4.4.1}{Interpolation de Tchebytchev}{subsection.4.4}% 25
-\BOOKMARK [2][-]{subsection.4.5}{D\351composition sur les coefficients}{section.4}% 26
-\BOOKMARK [3][-]{subsubsection.4.5.1}{M\351thode de Clenshaw}{subsection.4.5}% 27
-\BOOKMARK [2][-]{subsection.4.6}{Calcul des int\351grales}{section.4}% 28
-\BOOKMARK [2][-]{subsection.4.7}{Parall\351lisation}{section.4}% 29
+\BOOKMARK [3][-]{subsubsection.4.4.2}{Coefficients de la d\351composition}{subsection.4.4}% 26
+\BOOKMARK [3][-]{subsubsection.4.4.3}{M\351thode de Clenshaw}{subsection.4.4}% 27
+\BOOKMARK [2][-]{subsection.4.5}{Calcul des int\351grales}{section.4}% 28
+\BOOKMARK [2][-]{subsection.4.6}{Parall\351lisation}{section.4}% 29
 \BOOKMARK [1][-]{section.5}{Resulats}{}% 30
 \BOOKMARK [2][-]{subsection.5.1}{Pour N = 1, d=2}{section.5}% 31
 \BOOKMARK [2][-]{subsection.5.2}{Pour N = 2 ou 3, d=2}{section.5}% 32
