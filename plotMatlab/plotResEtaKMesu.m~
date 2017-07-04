@@ -1,0 +1,31 @@
+% Script de lecture des données de la simulation
+
+%clear all; 
+
+% Ouverture du fichier
+figure(1)
+
+fidX1 = fopen('../../ResMesu/IsingBMW_122MesuRes/data/phi0', 'r');
+
+donnee1 = fscanf(fidX1, '%f %f %f %f %f', [5 inf]);
+donnee1 = donnee1';
+
+temps1   = donnee1(:,1);
+etak1    = donnee1(:,4);
+
+
+fidX2 = fopen('../../D_IsingBMW/IsingBMW_114Phi/data/phi0', 'r');
+
+donnee1 = fscanf(fidX1, '%f %f %f %f %f', [5 inf]);
+donnee1 = donnee1';
+
+temps1   = donnee1(:,1);
+etak1    = donnee1(:,4);
+
+
+setFigure_bis('Ma figure');
+
+plot(temps1, etak1, '.-');
+
+
+journal_axis(gca, 'Temps de RG : $t$', '$\eta_k$')

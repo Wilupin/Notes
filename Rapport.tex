@@ -285,7 +285,7 @@ Nous rappelons ici de manière synthétiques les principales idées du RG dével
 \varphiv(\rv) = \frac{1}{\sqrt{|\Omega|}}\sum_\pv \hat{\varphiv}_\pv \, e^{i \pv  .\rv}
 \end{split} 	
 \end{equation}
-On fait l'hypothèse qu'il existe un réel $\Lambda$ tel que pour $\pv > \Lambda$, $\hat{\varphiv}(\pv) \simeq 0$. On considère donc $\pv \in [0, \Lambda]$. Ceci signifie que $\varphiv$ est une fonction suffisamment régulière et cette valeur $\Lambda$ correspond physiquement à l'inverse de la plus petite longueur caractéristique du système, qui est classiquement la distance moyenne entre les corps par exemple. En pratique on suppose que comme dans la limite thermodynamique on étudie des systèmes macroscopiques tels que $|\Omega|\gg 1/\Lambda^d$. Ainsi on fait l'approximation physique selon laquelle les impulsions ne sont plus des variables discrètes mais des variables continues avec les équivalences  
+On fait l'hypothèse qu'il existe un réel $\Lambda$ tel que pour $\|\pv\|_{\infty} > \Lambda$, $\hat{\varphiv}(\pv) \simeq 0$. On considère donc $\pv \in [0, \Lambda]^d$. Ceci signifie que $\varphiv$ est une fonction suffisamment régulière et cette valeur $\Lambda$ correspond physiquement à l'inverse de la plus petite longueur caractéristique du système, qui est classiquement la distance moyenne entre les corps par exemple. En pratique on suppose que comme dans la limite thermodynamique on étudie des systèmes macroscopiques tels que $|\Omega|\gg 1/\Lambda^d$. Ainsi on fait l'approximation physique selon laquelle les impulsions ne sont plus des variables discrètes mais des variables continues avec les équivalences  
 \begin{equation}
 \begin{split}
 	\frac{1}{|\Omega|} \sum_{\pv} & \rightarrow \frac{1}{(2\pi)^d} \int_{\R^d} ... \, \dd \, \pv  \equiv \int_\pv ... \\
@@ -317,15 +317,15 @@ et de réécrire la fonction de partition comme
 \Zc = \int \Dc \varphiv_{k,<} \, \exp\left\{- H_k[\varphiv_{k,<}]\right\}. 
 \end{equation} 
 
-De manière générale on part d'un hamiltonien qui ne dépend pas seulement du champ $\varphiv$ mais entendu aussi  de $\pv$ (lorsque l'on parle de la transformée de Fourier du hamiltonien, de $\rv$ sinon) et de constantes de couplage qui caractérise la physique a laquelle est soumise le champ. Ces constantes sont notées $\{g_i\}_i$ avec $i \in \N$. On écrit alors $H[\varphiv] = H[\varphiv ; \pv, \{g_i\}]$. Le nouvel hamiltonien $H_k[\varphiv_{k,<}]$ peut alors s'exprimer aussi sous la forme $H_k[\varphiv_{k,<} ; \pv, \{g_{k,i}\}_i]$ où $\{g_{k,i}\}_i$ sont de nouvelles constantes de couplages. \\
+De manière générale on part d'un hamiltonien qui ne dépend pas seulement du champ $\varphiv$ mais entendu aussi de constantes de couplage qui caractérise la physique a laquelle est soumise le champ. Ces constantes sont notées $\{g_i\}_i$ avec $i \in \N$. On écrit alors $H[\varphiv] = H[\varphiv ; \pv, \{g_i\}]$. Le nouvel hamiltonien $H_k[\varphiv_{k,<}]$ peut alors s'exprimer aussi sous la forme $H_k[\varphiv_{k,<} ; \{g_{k,i}\}_i]$ où $\{g_{k,i}\}_i$ sont de nouvelles constantes de couplages. \\
 
 Bien entendu il n'est pas directement possible de calculer $H_k$ pour $k$ quelconque, sinon le problème serait résolu en calculant $H_0$. On considère alors plutôt une intégration infinitésimale entre $[\Lambda - d\Lambda, \Lambda]$ pour obtenir le nouvel hamiltonien $H_{k_1}$, où $k_1 = \Lambda - d\Lambda$. On introduit aussi $s_1 = \Lambda/k_1$. Ce calcul là, contrairement au calcul direct pour $k$ quelconque, peut être réalisé grâce à des approximations comme nous le détaillerons ensuite. Maintenant, avec l'expression de ce nouvel hamiltonien, on réalise ce que l'on appelle un adimensionnement qui se déroule en trois étapes listées ci-dessous.
 
- Tout d'abord, comme $\pv$ est homogène à $\text{L}^{-1}$ (ou L est la dimension d'une longueur) on introduit $\tilde{\pv} = s_1 \pv$. Ensuite on montre que le champ $\varphiv_{k_1, <}$ est homogène à $\text{L}^{d-2-\eta}$ (avec $\eta$ l'exposant critique défini dans l'introduction), on pose donc $\tilde{\varphiv}_{k_1, <}$ tel que $\varphiv_{k_1, <} = s_1^{-d+2+\eta} \tilde{\varphiv}_{k_1, <}$. Enfin la constante $g_{k_1, i}$ pour tout $i\in \N$ est aussi homogène à $\text{L}^{b_i}$ avec $b_i$ une constante. On écrit donc de nouvelles constantes de couplage $\{\tilde{g}_{k_1, i}\}_i$ telles que $g_{k_1, i} = s_1^{-b_i} \tilde{g}_{k_1, i}$. Ceci définit un hamiltonien $\tilde{H}$,
+ Tout d'abord, comme $\pv$ est homogène à $\text{L}^{-1}$ (ou L est la dimension d'une longueur) on introduit $\tilde{\pv} = s_1 \pv$. Ensuite on montre que le champ $\varphiv_{k_1, <}$ est homogène à $\text{L}^{d-2-\eta}$ (avec $\eta$ l'exposant critique défini dans l'introduction), on pose donc $\tilde{\varphiv}_{k_1, <}$ tel que $\varphiv_{k_1, <}(\pv) = s_1^{-d+2+\eta} \tilde{\varphiv}_{k_1, <}(\tpv)$ pour tout $\pv \in [0, \Lambda]^d$. Enfin la constante $g_{k_1, i}$ pour tout $i\in \N$ est aussi homogène à $\text{L}^{b_i}$ avec $b_i$ une constante. On écrit donc de nouvelles constantes de couplage $\{\tilde{g}_{k_1, i}\}_i$ telles que $g_{k_1, i} = s_1^{-b_i} \tilde{g}_{k_1, i}$. Ceci définit un hamiltonien $\tilde{H}$,
  \begin{equation}
- 	\tilde{H}_{k_1}[\tilde{\varphiv}_{k_1,<}; \tilde{\pv}, \{\tilde{g}_{k_1, i}\}_i ] = H_{k_1}[\varphiv_{k_1,<}; \pv, \{g_{k_1,i}\}_i]
+ 	\tilde{H}_{k_1}[\tilde{\varphiv}_{k_1,<}; \{\tilde{g}_{k_1, i}\}_i ] = H_{k_1}[\varphiv_{k_1,<}; \{g_{k_1,i}\}_i]
  \end{equation}
-La fonction de partition (dont il ne sert en fait à rien de connaitre le préfacteur numérique) est alores simplement exprimée comme 
+La fonction de partition (dont il ne sert en fait à rien de connaitre le préfacteur numérique) est alors simplement exprimée comme 
 \begin{equation}
 \Zc \propto \int \Dc \tilde{\varphiv}_{k_1,<} \, \exp\left\{- \tilde{H}_{k_1}[\tilde{\varphiv}_{k_1,<}, \{\tilde{g}_{k_1, i}\}_i ] \right\}. 
 \end{equation} 
@@ -361,8 +361,8 @@ avec la définition
 C'est grâce à l'évolution de $\Rc_{k,ij}$ en fonction de $k$ que l'on intègre au fur et à mesure les degrés de liberté. En effet, dans l'esprit du RG, on souhaite retrouver $\lim_{k \to 0}\Zc_k = \Zc$ et pour $k = \Lambda$ que l'expression de $\Zc_\Lambda$ puisse être calculée analytiquement. De cette manière, en faisant évoluer $k$ de $\Lambda$ à $0$ on peut suivre l'évolution de $\Zc_k$ d'une valeur connue à la valeur $\Zc$ par le biais d'une équation différentielle. On peut donc choisir $\Rc_{k,ij}$ tel que \\
 
 \begin{itemize}
-  \item Pour $k \rightarrow 0$, $\forall \qv$ $\, \Rc_{k, ij}(\qv) \rightarrow 0$  .
-  \item Pour $k = \Lambda$, $\forall \qv$ $\, \Rc_{k, ij}(\qv)  \rightarrow  +\infty$ .
+  \item (C1) Pour $k \rightarrow 0$, $\forall \qv$ $\, \Rc_{k, ij}(\qv) \rightarrow 0$  .
+  \item (C2) Pour $k = \Lambda$, $\forall \qv$ $\, \Rc_{k, ij}(\qv)  \rightarrow  +\infty$ .
 \end{itemize}
 \vspace*{11pt}
 
@@ -382,6 +382,9 @@ L'intégrale a alors disparue dans l'expression de $Z_\Lambda$, qui s'exprime un
 
 Enfin, il faut aussi que $\Rc_{k,ij}$ soit une fonction possédant des symétries compatibles avec le système que l'on considère pour pouvoir effectuer des calculs.
 
+
+\vspace*{11pt}
+
 \subsubsection{Choix du régulateur}
 
 Dans le modèle $O(N)$ il suffit de prendre $\Rc_{k,ij} = \Rc_k$ comme une simple fonction et pas un tenseur. De plus en guise d'illustration (et parce que cela correspond bien à ce que nous avons utilisé par la suite dans le cas de la théorie $\varphiv^4$) nous allons considérer que $\Rc_k(\qv) = \Rc_k(q)$ avec $q = \|\qv\|_2$ la norme 2 dans $\R^d$. La fonction $q \to \Rc_k(q)$ est appelée le régulateur.
@@ -392,28 +395,13 @@ Dans le modèle $O(N)$ il suffit de prendre $\Rc_{k,ij} = \Rc_k$ comme une simpl
 	\includegraphics[width=0.95\columnwidth]{RegDerReg.pdf}
 \end{center}
 \vspace*{-22pt}
-\caption{(a) Allure du régulateur choisi pour une valeur de $k$ donnée avec une décroissance exponentielle (ligne continue bleue - c.f. \refeq{RegExp}) et avec une fonction de Heaviside (pointillés rouges -c.f. \refeq{RegHeav}). Ainsi ici nous avons approximativement intégrés les degrés de libertés correspondant à une impulsion dans $\simeq [k,\Lambda]$ uniquement. (b) Allure de la dérivée du régulateur choisi pour une valeur de $k$ donnée avec une décroissance exponentielle (ligne continue bleue, \refeq{regExp}). L'intégrale sur $\qv$ ne doit donc être faite seulement sur les $q$ appartenant dans la région rouge.}
+\caption{(a - bleu continue) Allure du régulateur, choisi pour une valeur de $k$ donnée, ayant une décroissance exponentielle entre $\simeq k^2$ et $0$ . (b - rouge pointillé) régulateur avec une décroissance discontinue vers $0$ à grand $q$ que l'on peut exprimer avec une fonction de Heaviside. Ainsi ici nous avons approximativement intégrés les degrés de libertés correspondant à une impulsion dans $\simeq [k,\Lambda]$ uniquement. (b) Allure de la dérivée temporelle du régulateur choisi pour une valeur de $k$ donnée avec une décroissance exponentielle (ligne continue bleue). L'intégrale sur $\qv$ dans \refeq{} ne doit donc être faite seulement sur les $q$ appartenant dans la région rouge.}
 \label{fig:RegDerReg}
 \end{figure}
 
-Il semble naturel, pour satisfaire à toutes les conditions précédentes, d'utiliser dans le régulateur une fonction de Heaviside en écrivant 
-\begin{equation}
-	\forall q \in [0, \Lambda] \quad \Rc_k(q) = \alpha (k^2 - q^2) \Theta(k^2 - q^2)
-	\label{eq:RegHeav}
-\end{equation}
-Avec $\alpha$ un réel positif que l'on prend de l'ordre de l'unité et que l'on peut faire varier mais qui n'est pas supposer changer les résultats des calculs. Cependant, dans l'approximation BMW les régulateurs de Heaviside ne sont pas assez régulier et donnent des schéma numériques instables. On prend donc une expression infiniment dérivable définie par
-\begin{equation}
-	\forall q \in [0, \Lambda] \quad \Rc_k(q) = \alpha \frac{q^2}{\exp{(q^2/k^2)}-1}
-	\label{eq:RegExp}
-\end{equation}
-Remarquons que l'on satisfait bien aux conditions aux limites imposées sur le régulateur car 
-\begin{equation}
-	\forall k \in [0,\Lambda],  \quad \text{sup} \left\{ \Rc_k(q) \right\} = \alpha k^2
-\end{equation}
-donc $\Rc_k$ converge même uniformément vers 0 quand $k$ tend vers 0. En outre, la seconde condition est aussi validée puisque
-\begin{equation}
-	 \text{inf}_{q \in \R} \left\{ \Rc_\Lambda(q) \right\} = \alpha \frac{\Lambda^2}{e-1}
-\end{equation}
+
+Nous choisirons le régulateur ayant l'allure de ceux présent sur la figure \refig{RegDerReg} (a), pour $k$ fixé, afin de satisfaire à tous les critères. Les deux régulateurs exposés sont équivalents, même si celui qui est discontinu peut entrainer des instabilités numériques.
+
 
 
 
@@ -517,36 +505,14 @@ De manière équivalente on montre que cela revient aussi à avoir une dimension
 
 Cependant il n'existe un point fixe qu'à la température critique. Or, la température à laquelle est soumise le système est donnée dans l'expression du hamiltonien et donc dans l'expression de $S[\varphiv_0]$ qui est la condition initiale des équations de flot. Ne connaissant pas la température critique, en modifiant (par des dichotomies et en tâtonnant) les termes correspondants à la température dans $S$ on peut essayer de s'en rapprocher le plus possible en cherchant une solution $\tilde{\Gamma}_k$ pour lequel un $k_\text{seuil}$ existe.
 
-\newpage
- 
-\section{Le modèle continu $O(N)$}
 
 
 
-
-\subsection{Théorie $\varphiv^4$}
-
-Il a été montré \cite{Bellac2012} que lorsque l'on cherche à déterminer les exposants critiques, et que l'on s'intéresse uniquement à ce qu'il peut se passer au voisinage de la température critique alors il suffit d'étudier les premiers ordres du hamiltonien du système isolé autour de $\varphiv \sim 0$, qui, pour respecter les symétries, dans le modèle $O(N)$ à nécessairement la forme 
-\begin{equation}
-		S[\varphiv] = \int_\rv \, \left\{ \frac{1}{2}(\nabla \varphiv)^2 + \frac{1}{2}r_0 \varphiv^2 + \frac{u_0}{4!}{\({\varphiv}^{2}\)}^{2} \right\}
-\end{equation}
-Où encore, en transformée de Fourier, par isométrie de la TF dans $(L^2(\Rv^d))^N$
-\begin{equation}
-		S[\varphiv] = \int_\pv \, \left\{ \frac{1}{2}(\pv \varphiv)^2 + \frac{1}{2}r_0 \varphiv^2 + \frac{u_0}{4!}{\({\varphiv}^{2}\)}^{2} \right\}
-\end{equation}
-
-
-Avec $u_0$ et $r_0$ deux réels. Comprenons que cet hamiltonien n'est pas le vrai hamiltonien de tous les systèmes régit pas une symétrie $O(N)$ mais il suffit à en déduire les grandeurs universelles aux transition de phase. C'est seulement un modèle simplifié avec les même symétries que les systèmes qui nous intéresse. Ce modèle possède ainsi aussi une température critique qu'il va falloir déterminer pour atteindre un point fixe du RG. C'est le paramètre $r_0$ qui définit plus particulièrement la température à laquelle est soumise le système et sur lequel il faudra jouer pour le trouver.\\
-
-Ainsi c'est ce hamiltonien qui est injectée dans les équations du RG permettant d'obtenir les équations de flot et les équations BMW qui nous ont intéressées dans cette partie.
-
-
-\vspace*{11pt}
 \subsection{Approximation BMW pour $O(1)$} 
  
-Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$, i.e. lorsque $H[-\varphiv] = H[\varphiv]$. Nous verrons un exemple plus précis en \refsec{}. Le cas général des équations pour $N$ quelconque se trouve dans \cite{benitez2012nonperturbative}.\\ 
+Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$, i.e. lorsque le hamiltonien isolé vérifie $S[-\varphiv] = S[\varphiv]$. Nous verrons un exemple plus précis en \refsec{}. Le cas général des équations pour $N$ quelconque se trouve dans \cite{benitez2012nonperturbative}.\\ 
 
-Le principe de l'approximation BMW \cite{Blaizot} est de considérer que certaines impulsions dans l'expressions des $\Gamma^{(n)}$ ne jouent pas le même rôle que les autres et peuvent être simplifiées. Il s'agit d'un raisonnement complexe permis avant tout par la présence de la fonction $q \to \partial_t \Rc_k(q)$ dans l'équation de flot exacte. Il est alors possible de développer à partir de cela une équation soluble formellement sur $\Gamma^{(2)}$ directement. Dans le cas $O(N=1)$, les tenseurs n'ont qu'une seule composante, et on consièdre $\phiv$ uniforme et scalaire que l'on écrit $\phi$ (en effet prendre les champs uniformes une fois que l'on a exprimé toutes les équations ne change rien au calcul des quantités que l'on souhaite obtenir). Les fonctionnelles $\Gamma_k$ et $G_k$ (ainsi que leurs dérivées) deviennent de simple fonctions de la variable $\phi$, par exemple : 
+Le principe de l'approximation BMW \cite{Blaizot} est de considérer que certaines impulsions dans l'expression des $\Gamma_k^{(n)}$ ne jouent pas le même rôle que les autres et peuvent être omises. Il s'agit d'un raisonnement complexe permis avant tout par la présence du régulateur dans l'équation de flot exacte. Il est alors possible de développer à partir de cela une équation soluble formellement sur $\Gamma_k^{(2)}$ directement. Dans le cas $O(N=1)$, les tenseurs n'ont qu'une seule composante, et on consièdre $\phiv$ uniforme et scalaire que l'on écrit $\phi$ (en effet prendre les champs uniformes une fois que l'on a exprimé toutes les équations ne change rien au calcul des quantités que l'on souhaite obtenir). Les fonctionnelles $\Gamma_k$ et $G_k$ (ainsi que leurs dérivées) deviennent de simple fonctions de la variable $\phi$, par exemple : 
 \begin{equation}
 	\Gamma_{k}^{(2)}(\pv, \phi) \equiv \Gamma_{k}^{(2)}[\pv, \phiv] {|}_{\phiv \text{ unif.}}
 \end{equation}
@@ -572,21 +538,52 @@ Où l'on a introduit par concision,
 \begin{equation}
 	I_n(\pv,\phi) = \int_q \partial_t \Rc_k(\qv) \,G_k^{n}(\qv, \phi)
 \end{equation}
-Dans cette équation il n'apparait que $\Gamma^{(2)}$, le problème de l'équation de flot exacte insoluble est résolu. 
+Dans \refeq{} il n'apparait alors que $\Gamma_k^{(2)}$, le problème de l'équation de flot exacte insoluble est résolu. 
 La condition initiale découle, quant à elle, de \refeq{}. 
 \begin{equation}
 	\Gamma^{(2)}_\Lambda(\pv, \phi) = \partial_{\phi}^2  S(\phi)
 \end{equation}
+
+
+\newpage
+
+
+ 
+\section{Le modèle continu $O(N)$}
+
+
+\subsection{Théorie $\varphiv^4$}
+
+Il a été montré \cite{Bellac2012} que lorsque l'on cherche à déterminer les exposants critiques, et que l'on s'intéresse uniquement à ce qu'il peut se passer au voisinage de la température critique alors il suffit d'étudier les premiers ordres du hamiltonien du système isolé autour de $\varphiv \sim 0$, qui, pour respecter les symétries, dans le modèle $O(N)$ à nécessairement la forme 
 \begin{equation}
-	\Gamma^{(2)}_\Lambda(\pv, \phi) = \pv^2 + r_0 + \frac{u_0}{2} \phi^2
+		S[\varphiv; r_0, u_0] = \int_\rv \, \left\{ \frac{1}{2}(\nabla \varphiv)^2 + \frac{1}{2}r_0 \varphiv^2 + \frac{u_0}{4!}{\({\varphiv}^{2}\)}^{2} \right\}
 \end{equation}
+Où encore, en transformée de Fourier, par isométrie de la TF dans $(L^2(\Rv^d))^N$
+\begin{equation}
+		S[\varphiv; r_0, u_0] = \int_\pv \, \left\{ \frac{1}{2}(\pv \varphiv)^2 + \frac{1}{2}r_0 \varphiv^2 + \frac{u_0}{4!}{\({\varphiv}^{2}\)}^{2} \right\}
+\end{equation}
+
+
+Avec $u_0$ et $r_0$ deux réels. Comprenons que cet hamiltonien n'est pas le vrai hamiltonien de tous les systèmes régit pas une symétrie $O(N)$ mais il suffit à en déduire les grandeurs universelles aux transition de phase. C'est seulement un modèle simplifié avec les même symétries que les systèmes qui nous intéresse. Ce modèle possède ainsi aussi une température critique qu'il va falloir déterminer pour atteindre un point fixe du RG. C'est le paramètre $r_0$ qui définit plus particulièrement la température à laquelle est soumise le système et sur lequel il faudra jouer pour le trouver.\\
+
+Ainsi c'est ce hamiltonien qui est injectée dans les équations du RG permettant d'obtenir les équations de flot et les équations BMW qui nous ont intéressées dans cette partie.
 
 
 \vspace*{11pt}
 
-On utilise à partir de maintenant la notation $\rho = \phi^2/2$. En outre, par la forme de l'hamiltonien les différentes grandeurs que la considère ne dépendent plus entièrement de l'impulsion $\pv$ (ou $\qv$, ou $\pv+\qv$) mais seulement de $\pv^2$ (ou $\qv^2$, ou $(\pv+\qv)^2$et donc de la norme $p = \| \pv \|_{2}$ (ou q, ou $\|\pv+\qv\|$). \\
+\subsection{Approximation BMW continu}
 
-Parce que l'on a \refeq{}, et parce qu'il est plus précis d'utiliser en complément de l'équation sur $\Gamma^{(2)}_k$ l'équation de flot de $V_k$, on introduit une fonction $\Delta_k(p, \rho)$ telle que
+
+\vspace*{11pt}
+On se concentre sur le cas simple $O(1)$ uniquement encore.
+On utilise à partir de maintenant la notation $\rho = \phi^2/2$. On applique BMW à notre hamiltonien continu. De par sa structure, les différentes grandeurs que la considère ne dépendent plus entièrement de l'impulsion $\pv$ (ou $\qv$, ou $\pv+\qv$) mais seulement de $\pv^2$ (ou $\qv^2$, ou $(\pv+\qv)^2$et donc de la norme $p = \| \pv \|_{2}$ (ou q, ou $\|\pv+\qv\|$). \\
+
+Tout d'abord, la condition initiale \refeq{} devient ici,
+\begin{equation}
+	\Gamma^{(2)}_\Lambda(\pv, \phi) = \pv^2 + r_0 + \frac{u_0}{2} \phi^2
+\end{equation}
+
+De plus, parce que l'on a \refeq{}, et parce qu'il est plus précis d'utiliser en complément de l'équation sur $\Gamma^{(2)}_k$ l'équation de flot de $V_k$, on introduit une fonction $\Delta_k(p, \rho)$ telle que
 \begin{equation}
 	\Gamma^{(2)}_k(p, \rho) = p^2 + \Delta_k(p, \rho) + \partial_{\phi}^2 V_k|_\rho
 \end{equation}
@@ -674,6 +671,27 @@ Pour chercher un point fixe on résout le système différentiel précédent pou
 
 \vspace*{11pt}
 
+\subsection{Régulateur pour BMW continu}
+
+Il semble naturel, pour satisfaire à toutes les conditions précédentes, d'utiliser dans le régulateur une fonction de Heaviside (c.f. courbe en pointillés rouges \refig{RegDerReg} (a)) en écrivant 
+\begin{equation}
+	\forall q \in [0, \Lambda] \quad \Rc_k(q) = \alpha (k^2 - q^2) \Theta(k^2 - q^2)
+	\label{eq:RegHeav}
+\end{equation}
+Avec $\alpha$ un réel positif que l'on prend de l'ordre de l'unité et que l'on peut faire varier mais qui n'est pas supposer changer les résultats des calculs. Cependant, dans l'approximation BMW les régulateurs de Heaviside ne sont pas assez régulier et donnent des schéma numériques instables. On prend donc une expression (c.f. courbe en bleue continue \refig{RegDerReg} (a)) infiniment dérivable à décroissance exponentielle définie par
+\begin{equation}
+	\forall q \in [0, \Lambda] \quad \Rc_k(q) = \alpha \frac{q^2}{\exp{(q^2/k^2)}-1}
+	\label{eq:RegExp}
+\end{equation}
+Remarquons que l'on satisfait bien aux conditions aux limites imposées sur le régulateur car 
+\begin{equation}
+	\forall k \in [0,\Lambda],  \quad \text{sup} \left\{ \Rc_k(q) \right\} = \alpha k^2
+\end{equation}
+donc $\Rc_k$ converge même uniformément vers 0 quand $k$ tend vers 0, (C1) définie en \refsec{} est vérifiée. En outre, (C2) est aussi validée puisque
+\begin{equation}
+	 \text{inf}_{q \in \R} \left\{ \Rc_\Lambda(q) \right\} = \alpha \frac{\Lambda^2}{e-1}
+\end{equation}
+
 
 
 \section{Méthodes numériques pour la résolution de ces équations}
@@ -690,32 +708,54 @@ La première partie de notre travail a été de reprendre le développement de c
 
 \subsection{Structure de l'algorithme}
 
-Nous avons a résoudre ici un système d'équations intégro-différentielle non linéaires couplées et sans conditions au bords. Pour cela nous utilisons différentes techniques numériques. 
+Nous avons a résoudre ici un système d'équations intégro-différentielle non linéaires couplées et sans conditions au bords. Pour cela nous utilisons différentes techniques numériques. \\
 
-Pour la discrétisation en temps, nous sommes dans l'obligation d'utiliser un schéma explicite à cause de la structure complexe des termes de gauches des équations. Il a été montré qu'un schéma d'Euler explicite d'un pas de temps est suffisant pour obtenir une résolution stable, c'est donc ce qui est utilisé. 
+Pour la discrétisation en temps, nous sommes dans l'obligation d'utiliser un schéma explicite à cause de la structure complexe des termes de gauches des équations. Il a été montré qu'un schéma d'Euler explicite d'un pas de temps est suffisant pour obtenir une résolution stable, c'est donc ce qui est utilisé. \\
 
-Ensuite nous allons différencier la dépendance en champs (i.e. en $\rho$) à celle en impulsion (i.e. $p$) des fonctions inconnues. Pour ce qui est de la dépendance en champ, il suffit de prendre une grille fixe régulièrement espacé de points. Les dérivées selon cette variable se calculent alors par des schémas de différences finies d'ordre 5. 
+Ensuite nous allons différencier la dépendance en champs (i.e. en $\trho$) à celle en impulsion (i.e. $\tp$) des fonctions inconnues. Pour ce qui est de la dépendance en champ, il suffit de prendre une grille fixe régulièrement espacé de points. Les dérivées selon cette variable se calculent alors par des schémas de différences finies d'ordre 5. \\
 
-Enfin pour la dépendance en impulsion c'est plus compliqué car il faut à la fois pouvoir facilement dériver selon $p$, mais aussi intégrer des expressions qui dépendent des fonctions inconnues - afin d'obtenir les intégrales $I$ et $J$. Au premières versions de ce code, la discrétisation se faisait aussi sur une grille fixe de points régulièrement espacés et les intégrales étaient calculées par des méthodes de Simpsons. Cependant cela c'est avéré ne pas être assez précis dans certaines configurations, les algorithmes n'étaient pas robustes. Pour palier à ce problème c'est une décomposition pseudo spectrale qui a été mise en place à l'aide de décomposition en série sur des polynômes de Tchebytchev associé à une intégration de Gauss-Legendre. 
+Enfin pour la dépendance en impulsion les choses sont plus compliquées car il faut à la fois pouvoir facilement calculer des dérivées selon $\tp$, mais aussi intégrer des expressions - dépendant des fonctions inconnues - afin d'obtenir les intégrales $\tI$ et $\tJ$. Le calcul des intégrales $\tJ(\tpv, \trho)$ pour tout $\tpv$ et $\trho$ de la discrétisation est ce qui demande le plus de temps de calcul et donne des complexités algorithmiques et des temps de calculs élevés comme nous l'avons constaté. Au premières versions de ce code, la discrétisation se faisait aussi sur une grille fixe de points régulièrement espacés et les intégrales étaient calculées par des méthodes de Simpsons. Cependant cela c'est avéré ne pas être assez précis dans certaines configurations, les algorithmes n'étaient pas robustes. Pour palier à ce problème c'est une décomposition pseudo spectrale qui a été mise en place à l'aide de décomposition en série sur des polynômes de Tchebytchev associé à une intégration de Gauss-Legendre. 
+
+Nous détaillons alors les différents aspects mathématiques et numériques des discrétisations que nous avons utilisé.
 
 
 
 
 \subsection{Discrétisation en champ}
 
-Comme nous l'avons mentionné la discrétisation en champ se fait sur une grille fixe de points régulièrement espacés. Les dérivées sont calculées sur 5 points avec des schémas différences finis (\refann{}). Ce choix sur 5 points  a été fait pour essayer de calculer des dérivées le plus précisément possible. Le problème venant des points des bords de la grille de discrétisation, puisque ne possédant pas de condition de bords, nous utilisons des schémas complètements décentrés pour ne faire un calcul que sur les points connus dans la grille. Il s'avère que cette technique reste stable (nous verrons en \refsec{} que cela nous a quand même posé des problèmes pour le modèle d'Ising en deux dimensions). 
+Comme nous l'avons mentionné la discrétisation en champ se fait sur une grille fixe de points régulièrement espacés. Les dérivées sont calculées sur 5 points avec des schémas différences finis (\refann{}). Ce choix sur 5 points  a été fait pour essayer de calculer des dérivées le plus précisément possible. Le problème venant des points des bords de la grille de discrétisation, puisque ne possédant pas de condition de bords, nous utilisons des schémas complètements décentrés pour ne faire un calcul que sur les points connus dans la grille. Il s'avère que cette technique reste stable (nous verrons en \refsec{} que cela nous a quand même posé des problèmes pour le modèle d'Ising en deux dimensions). \\
 
-Nous avons remarqué aussi que l'on retrouve l'équivalent d'une condition CFL pour le choix du pas de discrétisation $\delta \rho$. En effet le rapport $\delta t / \delta\rho$ doit rester inférieur à une certaine valeur pour conserver la stabilité du schéma.
+Nous avons remarqué aussi que l'on retrouve l'équivalent d'une condition CFL pour le choix du pas de discrétisation $\delta \rho$. En effet le rapport $\delta t / \delta\rho$ doit rester inférieur à une certaine valeur pour conserver la stabilité du schéma.\\
 
 Enfin il pourrait sembler étranger d'utiliser une discrétisation en champ d'ordre 5 couplée à une discrétisation temporelle d'ordre 1. Cependant l'implémentation d'un schéma de Runge-Kutta a été testé sans pour autant permettre un calcul avec plus de précision ou une plus grande rapidité. 
+
+\subsection{Calcul des intégrales}
+
+Le plus gros problème rencontré dans la formulation discrétisée du problème a été le calcul des intégrales $\tJ$. 
+Grâce aux propriétés des fonctions que l'on intègre on peut développer un à ce que la dimension $d$ devienne un simple paramètre. En effet calculer l'intégrale $\tJ$ revient à calculer une intégrale de la forme 
+\begin{equation}
+K = \int f(\tqv^2)g((\tpv+\tqv)^2)\dd^d \, \tqv
+\end{equation}
+Et il en est de même pour les intégrales $\tI$ en prenant $\pv = 0$ dans l'expression précédente. On pose alors $\tqv = \tq_1 \uv + \tqv_2$, où $\uv = \tpv/\|\tpv\|$ et $\tqv_2$ est orthogonal à $\uv$. Il vient alors
+
+\begin{equation}
+K = S_{d-1} \int_0^{+\infty} \dd\tq_2 \, \tq_2^{d-2} \int_{-\infty}^{+\infty} \dd\tq_1 \, h (\tp, \tq_1, \tq_2)
+\end{equation}
+En posant
+\begin{equation}
+h (\tp, \tq_1, \tq_2) \equiv f(\tq_1^2 + \tq_2^2) g(\tp^2 + \tq_1^2 + \tq_2^2 + 2\tp\tq_1)
+\end{equation}
+
+où $S_d-1$ est l'angle solide, c'est donc un réel. De ce fait, le calcul d'une intégrale à d dimensions se ramène au calcul de deux intégrales seulement, qui peut être fait sans problèmes avec une interpolation de Gauss-Legendre.
+
 
 \subsection{Discrétisation en impulsion}
 \subsubsection{Interpolation de Tchebytchev}
 
-Pour la discrétisation en impulsion nous avons choisi d'utiliser des polynômes de Tchebytchev. En effet, nous n'avons aucune connaissance de la régularité des fonctions avec lesquelles nous travaillons cependant considérons simplement le schéma de résolution semi-discrétisé en espace. On note $\tY_{k_n}(\tp, \trho)$ la discrétisation en temps de la fonction $\tY$ au temps $t_n$. Alors pour tout $n \in \mathbb{N}$ la fonction $\tY_{k_n}$ est une fonction de classe $\Cc^{\infty}$ sur $[0, +\infty[^2$ (c.f. la démonstration \refann{}).
+Pour la discrétisation en impulsion nous avons choisi d'utiliser des polynômes de Tchebytchev. En effet, nous n'avons aucune connaissance de la régularité des fonctions avec lesquelles nous travaillons cependant considérons simplement le schéma de résolution semi-discrétisé en espace. On note $\tY_{k_n}(\tp, \trho)$ la discrétisation en temps de la fonction $\tY$ au temps $t_n$. Alors pour tout $n \in \mathbb{N}$ la fonction $\tY_{k_n}$ est une fonction de classe $\Cc^{\infty}$ sur $[0, +\infty[^2$ (c.f. la démonstration \refann{}). Or dans \cite{Tchebychev} il est démontré le théorème : \\
 
-Or dans \cite{Tchebychev} il est démontré le théorème 
-\begin{theorem}{Interpolation de Tchebychev}\\
+\noindent 
+\textbf{Décomposition sur une base de Tchebytchev}. {\itshape 
 Soient $a$, $b$, deux réels tels que $b>a$. Soit f une fonction de classe $\Cc^{(n+1)}$ avec $n\in\N$ de $[a,b]$ dans $\R$.
 Alors il existe un unique ensemble $\{c_j\}_{j\in\bbrac{0,n-1}}$ de coefficients réels
 \begin{equation}
@@ -723,15 +763,15 @@ Alors il existe un unique ensemble $\{c_j\}_{j\in\bbrac{0,n-1}}$ de coefficients
 \end{equation}
 Où $T_j$ est le polynôme d'ordre $j$ de Tchebytchev de première espèce. On pose 
 \begin{equation}
-	\forall x \in [a,b] \quad \text{Tch}_n[f](x) = \sum\limits_{j = 0}^{n-1} c_j T_j(x)
+	\forall x \in [a,b] \quad \mathrm{Tch}_n[f](x) = \sum\limits_{j = 0}^{n-1} c_j T_j(x)
 \end{equation}
 Ainsi on montre que
 \begin{equation}
-\text{sup} |f(x) - \text{Tch}_n[f](x)| \le \frac{(b-a)^{n}}{2^{2n-1} n!}\text{sup} |f^{(n+1)}(x)|
+\mathrm{sup} |f(x) - \mathrm{Tch}_n[f](x)| \le \frac{(b-a)^{n}}{2^{2n-1} n!}\mathrm{sup} |f^{(n+1)}(x)|
 \end{equation}
-\end{theorem}
+}
 
-Ceci justifie alors partiellement l'utilisation des polynômes de Tchebytchev pour l'interpolation des fonctions dépendant d'une impulsion. En effet les fonctions semi-discrétisée en temps étant en $\Cc^\infty$ sur $[0, \infty[$ elles le sont sur $[0, p_{max}[$ où $p_{max}$ est l'impulsion maximale utilisée numériquement.
+Ceci justifie alors partiellement l'utilisation des polynômes de Tchebytchev pour l'interpolation des fonctions dépendant d'une impulsion. En effet les fonctions semi-discrétisée en temps étant $\Cc^\infty$ sur $[0, \infty[$ elles le sont sur $[0, p_{max}[$ où $p_{max}$ est la borne supérieure en impulsion utilisée numériquement.
 
 \subsubsection{Coefficients de la décomposition}
 
@@ -752,9 +792,10 @@ Avec $A_j = 2$ si $j > 0$ et $A_0 = 1$.
 \subsubsection{Méthode de Clenshaw}
 
 
-Afin de calculer la fonction aux points d'interpolation lorsque cela est nécessaire nous utilisons une méthode un peu plus astucieuse que celle consistant à calculer directement la somme de la série.
+Afin de calculer la fonction aux points d'interpolation lorsque cela est nécessaire nous utilisons une méthode un peu plus astucieuse que celle consistant à calculer directement la somme de la série. \\
 
-\begin{proposition}{Algorithme de Clenshaw}.
+\noindent
+\textbf{Algorithme de Clenshaw}. {\itshape
 Soit, de manière générale, une suite de polynômes $\{\Pc_n\}_{n \in \N}$ liés par la relation
 \begin{equation}
   \forall x \in \R \quad \Pc_{n+1}(x) = u_n(x)\Pc_n(x) + v_n(x)\Pc_{n-1}(x)
@@ -777,7 +818,7 @@ On considère l'algorithme suivant :
 \vspace*{-11pt}
 \noindent
 Alors nous avons $S = S_1$. 
-\end{proposition}
+}
 
 \begin{proof}
 Ce résultat ce démontre par récurrence sur $m \in \bbrac{1,N}$ en remarquant que,
@@ -790,8 +831,6 @@ Avec la notation $S_m = \sum\limits_{l=0}^{m} a_l \Pc_l(x)$.
 
 Cette méthode \cite{clenshaw1955note} est plus robuste est légèrement plus rapide que celle qui consisterait à calculer directement la somme de la série de polynôme. En effet on passe d'un algorithme avec $\sim 4N$ opérations à une algorithme avec $\sim 3N$ opérations en utilisant cette technique pour des polynômes de Tchebytchev. Le gain est faible mais cela est plus particulièrement utile lorsque l'on réutilise la technique en dimension 2 pour le modèle d'Ising 2D \refsec{}.
 
-\subsection{Calcul des intégrales}
-
 
 
 
@@ -802,7 +841,7 @@ Le code a été écrit de manière à rendre sa parallélisation très simple. E
 
 
 
-\section{Resulats}
+\section{Resulats : $O(N)$ continu}
 
 \subsection{Pour $N = 1$, $d=2$}
 
@@ -841,6 +880,8 @@ Nous en avons déduit qu'il s'agissaient d'un problème de précisions sur les
 \begin{multicols}{2}
 
 
+\newpage
+\phantom{.}
 \newpage
 
 
@@ -921,12 +962,14 @@ Où $S_\rv$ représente la valeur du spin (i.e. sa direction selon l'axe $z$, c.
 
 Sur un tel système nous observons une transition de phase du second ordre. En effet il existe une phase (dite de symétrie brisée, ou encore basse température) dans laquelle les spins tendent tous à s'aligner dans une direction privilégiée lorsque la température et faible et que les fluctuations thermiques ne jouent pas un rôle important. Lorsque l'on dépasse la température critique $T_c$ les spins vont avoir une direction plus ou moins aléatoire le système est alors dans une nouvelle phase (dite symétrique). C'est ce modèle qui explique la perte d'aimantation d'un métal à haute température que nous avions mentionné dans l'introduction. \\
 
-La particularité de ce modèle est aussi qu'il a déjà été complètement résolu analytiquement par Onsager \cite{Onsager} en 1944. Tout est donc déjà connu et notamment la température critique de la transition de phase. Avec l'approche BMW nous avons essayé de la retrouver pour valider la qualité de l'approximation et la possibilité de calculer la température critique $T_c$ par le NPRG. \\
 
-Si l'on change l'axe $z$ en $-z$ alors l'hamltonien du système ne change pas. Ainsi ce système possède une symétrie $O(1) \simeq \mathbb{Z}_2$. Il est donc possible de calculer ces exposants critiques en utilisant les équations BMW de la \refsec{} développée avec l'hamiltonien la théorie $\varphiv^4$. La température critique n'étant pas une quantité universelle, elle dépend entièrement du système et prendre un hamiltonien tronqué ne suffit pas, la forme même du réseau est importante. Ce pourquoi nous allons réexprimer le hamiltonien exact complet \refeq{} afin de l'exprimer sous forme de champ et de pouvoir lui appliquer le NPRG. 
+Si l'on change l'axe $z$ en $-z$ alors l'hamltonien du système ne change pas. Ainsi ce système possède une symétrie $O(1)$. Il est donc possible de calculer ces exposants critiques en utilisant les équations BMW de la \refsec{} développée avec l'hamiltonien la théorie $\varphiv^4$. La température critique n'étant pas une quantité universelle, elle dépend entièrement du système et prendre un hamiltonien tronqué ne suffit pas, la forme même du réseau est importante. Ce pourquoi nous allons réexprimer le hamiltonien exact complet \refeq{} afin de l'exprimer sous forme de champ et de pouvoir lui appliquer le NPRG pour $O(1)$. \\ 
+
+La particularité de ce modèle est aussi qu'il a déjà été complètement résolu analytiquement par Onsager \cite{Onsager} en 1944. Tout est donc déjà connu et notamment la température critique de la transition de phase. Avec l'approche BMW nous avons essayé de la retrouver pour valider la qualité de l'approximation et la possibilité de calculer la température critique $T_c$ par les équations du NPRG. 
+
 \vspace*{11pt} 
 
-\subsection{Modélisation du problème avec des champs}
+\subsection{Modélisation avec des champs}
 
 Pour des raisons pratiques on définit maintenant un hamiltonien légèrement modifié
 \begin{align}
@@ -1069,14 +1112,16 @@ Avec, en posant $\tilde{\mu} = \mu/(Jd)$ et $\tilde{\beta} = \beta Jd$,
 
 On se retrouve donc ici avec la formulation d'un problème de théorie des champs que l'on peut résoudre avec le NPRG et notamment avec l'approximation BMW. La seule différence avec tout ce qui a été étudié précédemment c'est qu'ici, par Transformée de Fourier semi-discrète les intégrales sur les impulsions ne sont plus calculées sur un domaine infini mais sur "la première zone de Brillouin", i.e. sur un hypercube de longueur $2\pi$. Toutes les formules vu restent sinon valable en intégrant cet ajustement.\\
 
- La fonction $U$ représente alors le potentiel du système dans l'approximation de champ moyen. Et ainsi le potentiel $V_k$ des équations BMW prend en $k=\Lambda$ la valeur $V_\Lambda = U$. La fonction $\eo$ s'appelle quant à elle la relation de dispersion.\\
+La fonction $U$ représente alors le potentiel du système dans l'approximation de champ moyen. Et ainsi le potentiel $V_k$ des équations BMW prend en $k=\Lambda$ la valeur $V_\Lambda = U$. La fonction $\eo$ s'appelle quant à elle la relation de dispersion. Dans le modèle continu $\varphiv^4$ cil y avait de même une relation de dispersion qui valaient alors $\varepsilon(\pv) = \pv^2$.\\
  
  
 Remarquons de plus que la fonction $U$ est de classe $\Cc^\infty$ dérivable sur $[0,+\infty[$. Ainsi il vient 
 \begin{equation}
-X(\phi) = \partial_\phi^2 U(\phi) = \delta^2 \frac{1}{1+\tilde{\mu}} - 
+\partial_\phi^2 U(\phi) = \delta^2 \frac{1}{1+\tilde{\mu}} - 
 \end{equation}
 
+
+\commentout{
 Ceci nous permet de récupérer la valeur que l'on aurait trouvé en calculant la température critique $\tilde{T}_c^{\text{MF}} = T_c^{\text{MF}}/(Jd) $ en s'appuyant sur une théorie de champ moyen. En effet, dans une théorie de champ moyen le potentiel du système est directement le potentiel $U$. Or on rappelle que la phase dans laquelle on se trouve dépend du potentiel, de la position de son minimum et de sa forme de manière générale. Nous savons qu'en dessous de la température critique $U$ est une fonction concave au voisinage de $\phi = 0$ et au dessus c'est une fonction convexe. Ainsi, à la transition $X(0) = 0$. Ceci nous donne
 
 \begin{equation}
@@ -1084,24 +1129,78 @@ Ceci nous permet de récupérer la valeur que l'on aurait trouvé en calculant l
 \end{equation}
 
 Cette valeur nous donne déjà une borne supérieure sur la température critique que l'on recherche. En effet, on sait que la vraie température critique sera toujours plus faible que celle obtenue par approximation de champ moyen\footnote{Ceci s'explique en partie "avec les mains". En effet dans une approximation de champ moyen, comme son nom l'indique les fluctuations des degrés de libertés - ici l'orientation des spins - autour s'une position moyenne se trouvent être négligées. Or leur prise en compte pour la résolution complète du modèle implique que pour une même température le système complet est plus désordonné que ce que le calcul champ moyen nous donne. La température critique vraie sera donc plus basse que la température critique champ moyen} : $T_c < T_c^{\text{MF}}$.
-
-
-\vspace*{11pt}
+}
 
 \vspace*{11pt}
-\subsection{Etapes de la résolution numérique}
-La résolution numérique du problème s'est déroulée en plusieurs étapes. Tout d'abord nous avons commencé par écrire les équations BMW qui découlent de la forme de l'action précédemment déterminés. Cependant nous sommes passés par plusieurs étapes. En effet, comme nous travaillons sur un réseau, avec des  \\
 
-Tout d'abord, contrairement au modèle O(N), nous avons commencé par écrire les équations BMW sans les adimmensionner. En effet possédant des  \\
+\subsection{BMW et régulateur Ising 2D}
 
-Malheureusement, après avoir écrit une première fois les équations selon la variable $\rho$ à cause d'instabilités numériques constatées au voisinage de $\rho = 0$ provenant probablement du calcul numérique instable des dérivées en ces points nous avons du les réecrire  
+Dans le but de réécrire les équations BMW pour le hamiltonien que nous avons précédemment nous exprimons le nouveau régulateur à utiliser du à la présence d'une nouvelle relation de dispersion. On utilise ici
+\begin{equation}
+	\Rc_k(\qv) = \alpha \frac{Z_k \eo(\qv)}{\exp{(\eo(\qv)/\varepsilon_k)} -1}
+\end{equation}
+Avec $\varepsilon_k = \| \eo \|_\infty k^2$. Les expressions des dérivées de $\partial_t$ se trouvent en \refann{}. Notons aussi que dans certaines équations que nous avons utilisées le facteur $Z_k$ a pu être omis car il ne sert qu'à avoir des dimensions compatibles lors de l'adimensionnement des équations. 
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.95\columnwidth]{RegIsing.pdf}
+\end{center}
+\caption{Allure du régulateur choisi pour une valeur de $k\simeq 1$.}
+\end{figure}
+
+On peut alors réécrire \refeq{} adaptée ici selon
+\begin{equation}
+\Gamma^{(2)}(\pv, \phiv) = \eo(\pv) + \Delta_k(\pv, \phi) + X_k(\phi)
+\end{equation} 
+où l'on introduit $X_k(\phi) = \partial_{\phi}^2 V_k(\phi)$.
+Cette décomposition insérée dans \refeq{} donne alors les équations BMW pour le système Ising 2D auquel il faut ajouter les conditions initiales.
 
 
-\subsection{Les différents jeux d'équation}
 
-Comme ce que nous avions fait dans la description du modèle $O(N)$ nous détaillons ici une seule des équations que nous avons cherché à résoudre.
+\subsection{Étapes de la résolution}
 
-\vspace*{22pt}
+La résolution numérique du problème s'est déroulée en plusieurs étapes. Tout d'abord nous avons commencé par écrire les équations BMW qui découlent de la forme de l'action précédemment déterminés. Cependant nous sommes passés par plusieurs étapes. \\
+
+En effet, comme nous travaillons sur un réseau, les fonctions que l'on considère possèdent des symétries et des périodicités qui sont utiles pour le calcul en permettant de s'affranchir de certaines approximations numériques dans le calcul des intégrales il est mieux de commencer par reprendre les équations de flot dans le cas dimensionné. Aisni pour $k $ variant de $\Lambda$ à $k_a$  on se contente d'intégrer les degrés de liberté. On ne se préoccupe alors pas de la recherche du point fixe que l'on ne peut de toute façon pas trouvé sans adimensionner les équations. \\
+
+Dans un second temps pour $k \in [k_b, k_a]$ on utilise de nouvelles équations pour lesquelles nous avons adimenssioné les impulsions. Ces nouvelles équations prennent pour conditions initiales le résultats de la résolution numérique avec le premières équations en $k = k_a$. L'adimensionnement n'étant pas total, nous ne cherchons toujours pas de points fixe. En revanche cela permet d'améliorer la précision du calcul des intégrales à petit $k$. En effet pour un $k$ suffisamment faible la fonction $(q_x, q_y) \to \partial_t \Rc_k(q_x, q_y)$ possède une valeur non négligeable seulement pour des valeurs de $q_x$ et $q_y$ très inférieures à $\pi$, diminuant alors l'intervalle d'intégration utile et posant des problèmes de précision pour un nombre de point d'intégration fixé. L'adimensionnement en implusion permet d'éviter ce problème, en faisant alors en sorte que les dimensions de la grille en impulsion suivent l'évolution de la dérivée du régulateur. Cela est équivalent à créer une grille dynamique en impulsion. \\
+
+Enfin, comme le but est de trouver la température critique du modèle il faut pour cela essayer de se rapprocher d'un point fixe, pour pouvoir l'observer on utilise alors les équations totalement adimensionnées dans un dernier temps en prenant comme condition initiale le résultat donné par la simulation des équations adimensionnées en impulsion précédentes à $k = k_b$. \\
+
+
+
+
+\subsection{Les différents jeux d'équations}
+
+Nous détaillons ici une seule des équations que nous avons cherché à résoudre, l'ensemble des deux autres jeux d'équations autres équations se trouvent \refann{}. Nous écrivons ici les équations dans le cas dimensionné (i.e. le premier jeux d'équation utilisé pour $k$ allant de $\Lambda$ à la valeur déterminée $k_a$). Le problème à résoudre est\\
+
+\noindent
+{\itshape Trouver $\Delta_k$, $X_k$, tels que pour tout $p_x \in [0, \pi]$, $p_y \in [0, \pi]$, $\phi \in [0, \infty[$, $k\in ]0, \Lambda]$}
+
+
+\begin{align}
+	\partial_t  \Delta_k (p_x, p_y, \phi) & = 
+	\begin{aligned}[t]
+	&  J_3(p_x, p_y, \phi) \partial_{\phi} \left\{ \Delta_k (p_x, p_y, \phi) + X_k(\phi) \right\} \\
+	&  - \frac{1}{2} I_2(\phi) \partial_{\phi}^2 \Delta_k(p_x, p_y, \phi) \\
+	& - I_3(\phi){(\partial_{\phi} X_k(\phi))}^2
+	\end{aligned}
+	\label{eqn} \\
+	\partial_t X_k(\phi) & = 
+	\begin{aligned}[t]
+		& \frac{1}{2} \partial_{\phi}^2 I_1(\phi)
+	\end{aligned}
+\end{align}
+
+Où l'on note toujours $X_k(\phi) = \partial_{\phi}^2 V_k(\phi)$. Cette équation est très similaire à \refeq{} mais elle est écrite selon la variable $\phi$ et les fonctions dépendent non plus de la norme des impulsions mais bien des deux composantes de $\pv$, que sont $p_x$ et $p_y$ en dimension $d=2$.
+
+Les conditions initiales viennent de la décomposition \refeq{}, ainsi que de \refeq{}.
+\begin{equation}
+	\Delta_\Lambda = 0 \quad \text{et} \quad X_\Lambda =  
+\end{equation}
+
+
+
 
 \section{Méthodes et outils numériques pour la résolution d'Ising 2D}
 
@@ -1111,8 +1210,18 @@ Nous allons passé en revu et justifié ici les principales méthodes numérique
 \subsection{Structure du code}
 
 
+Le code est structuré de la même manière que le code du modèle continu $\varphiv^4$. En revanche les équations ne sont pas les mêmes. De plus pour les dimensions d'impulsion les intégrations et les interpolations se font toujours avec les mêmes méthodes de Gauss-Legendre et de polynômes de Tchebytchev que précédemment mais sur deux variables. Concernant la discértisation en champ nous avons privilégié la variable $\phi$ et non pas $\rho$ à causes de problèmes détaillés ci dessous mais nous sommes resté sur des une discrétisation de la variable de champ sur une grille fixe et des dérivations à 5 points. La différence majeure est ici la résolution en trois étapes comme nous l'avons vu utilisant trois jeux d'équations différents.\\
 
-% Mettre un diagramme
+Avoir réécrit le code de la simulation du modèle continu $\varphiv^4$ en C++ de façon modulable à l'aide de classes nous a permis de reprendre beaucoup des fonctions déjà écrites sans efforts. Pour avoir une vue générale de la structure de ce nouveau code il est possible de se reporter encore à la figure \refig{}. Nous détaillons ci-après les problèmes que l'on a pu rencontrer dans l'écriture des codes de simulations ainsi que les techniques retenues qui ont fonctionné et leurs avantages comparés à celles qui ont échouées. 
+
+
+\subsection{Problèmes rencontrés}
+
+Nous avions aussi commencé par utiliser la variable $\rho = \phi^2/2$ dans nos équations comme cela était le cas pour le modèle continue $\varphiv^4$. Cependant nous avons pu observer des instabilités dans le calcul des dérivées en champ $\rho$ pour $\rho = \rho_max$ (avec $\rho_max$ la limite de la grille de discrétisation en $\rho$). Nous avons réussi à résoudre le problème en descendant en ordre dans les schémas de calcul des dérivées en passant d'un ordre 5 à l'ordre 3. Cependant nous avons ensuite eu  des instabilités au niveau du calcul des dérives en $\rho$ autour de $\rho = 0$. Pour régler le problème nous avons alors utiliser la variable $\phi$ directement, qui est un scalaire dans le cas $O(1)$ comme ici, selon laquelle les fonctions $\Delta_k$ et $X_k$ sont paires. En utilisant la parité nous avons pu donner des valeurs exactes aux dérivées en $\phi = 0$ (i.e. $\rho = 0$) et résoudre le problème. En outre la variable $\phi$ nous a aussi permis de repasser avec des dérivées en champs à 5 points sans poser de problèmes. \\
+
+Le deuxième type de problème que nous avons rencontré a été la précision de l'interpolation et du calcul d'intégrale. En effet, pour trouver un point fixe il faut rechercher des $k$ extrêmement faible (comme $k \sim \exp(-5)$ d'après les courbes en \refsec{}. Or comme nous l'avons vu le régulateur se recentre autour de l'origine lorsque $k$ diminue ce qui fait que les intégrales sont coupées par une fonction qui est de plus en plus piquée vers les petites impulsions, engendrant alors des pertes de régularité visible par des instabilités numériques pour $k \simeq exp(-2)$. Ceci nous a imposé d'utiliser un nombre de point d'interpolation et d'intégration plus grand en rallongeant alors beaucoup les temps de calcul ou de trouver une meilleure technique.
+
+\vspace*{11pt}
 
 \subsection{Interpolation de Tchebytchev}
 
@@ -1282,6 +1391,19 @@ Comme pour le modèle continu $O(N)$ il est possible de paralléliser le code en
 \end{center}
 \caption{(Points bleus) Logarithme du temps de calcul mesuré $t_c$ de 10 pas de temps du code en fonction du nombre de points d'intégration et d'interpolation. Où l'on a pris $\bar{N} = N_c = N_g$. (Ligne rouge) droite d'équation $y=6x+b$ avec $b$ une constante. Il semble que les points se rapproche du comportement de la droite et ainsi que l'on ait $t_c \propto N^6$. Un interpolation linéaire sur les données dont on dispose donne plus précisément $t_c \propto N^{5,7} $   }
 \end{figure}
+
+
+\section{Resultats : Ising 2D}
+
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.95\columnwidth]{EtakErrMesu.pdf}
+\end{center}
+\caption{Evolution de $\eta_k$}
+\end{figure}
+
+
 
 \pagebreak
 
@@ -1495,6 +1617,61 @@ Nous abordons maintenant pour finir les expressions de la dérivation de la tran
 
 
 \pagebreak
+
+
+
+\section{Propriétés des fonctions à discrtiser}
+
+
+
+On considère le schéma semi-discret en temps de l'équation \refeq{}.  On veut montrer pour un pas de temps $n$ donné la fonction $\tY_{k_n}$ est une fonction de classe $\Cc^\infty$ sur $[0, +\infty[^2$ et $\tW_{k_n}$ sur $[0, +\infty[$.
+On suppose que l'on ne rencontre jamais de pôle du propagateur, c'est à dire qu'il n'existe aucun couple $(\tp,\trho)$ tel que $(\tG_{k_n}(\tp, \trho))^{-1} = 0$ 
+Pour cela on procède par récurrence. Soit $n \in \N$ on suppose que $\tY_{k_n}$ et $\tW_{k_n}$ sont des fonctions $\Cc^\infty$. Le schéma semi-discret en temps est 
+
+\begin{equation}
+\begin{split}
+	 \tY_{k_{n+1}} & = \tY_{k_{n}} + \delta t \left\{
+			 \eta_{k_{n}}(1+\tY_{k_{n}} ) + \tp \, \partial_{\tp} \tY_{k_{n}}  -(2-d-\eta_{k_{n}})\trho \,\partial_{\trho} \tY_ {k_{n}}  \right. \\
+	 & + \left. 2\trho \tp^{-2} \left[ {\( \tp^2 \partial_{\trho} \tY_{k_{n}}  + \tilde{u}_{k_{n}} \)}^2\, \tJ_3 - \tilde{u}_{k_{n}} ^2 \tI_3 \right] - \tI_2 \(  \partial_{\trho} \tY_ {k_{n}} / 2 + \trho \,  \partial_{\trho}^2 \tY_ {k_{n}} \) \right\} \\
+\tW_ {k_{n+1}} & =  \tW_ {k_{n}} + \delta t \left\{
+ (\eta_{k_{n}}-2) \tW_ {k_{n}} + (d-2+\eta_{k_{n}}) \trho \,\partial_{\trho}\tW_{k_{n}}+ \frac{1}{2} \partial_{\trho} \tI_1\right\}
+	\end{split}
+\end{equation}
+
+Ainsi on peut vérifier que tous les termes du membre de droite sont bien $\Cc^\infty$. En effet, $\tY_{k_{n}}$ l'est par hypothèse, et $\eta_{k_{n}}$ n'est qu'un nombre. De plus comme  $\tY_{k_{n}}$ est $\Cc^\infty$, ses dérivées par rapport à $\trho$ ou $\tp$ le sont aussi. De même $\tW_ {k_{n}}$ est aussi  $\Cc^\infty$ par hypothèse et donc $\tilde{u}_{k_{n}}$, qui s'exprime simplement en fonction de  $\tW_ {k_{n}}$, l'est au même titre que ses dérivées par rapport à $\trho$. \\
+
+Il manque alors a vérifier si cela fonctionne pour les intégrales. En effet montrons que $\tJ_m$ est alors bien une fonction $\Cc^\infty$. Commençons donc par montrer que que $ \tJ_m$ est de classe $\Cc^1$. Rappelons que
+
+\begin{equation}
+\tJ_m(\tp, \trho) \propto  \int_\qv \partial_t \Rc_{k_{n}}(\tq) \tG_{k_{n}}^{m-1} (\tq, \rho) \tG_{k_{n}} (\| \tpv + \tqv \|, \rho)
+\end{equation}
+
+Avec l'expression des propagateurs
+\begin{equation}
+\tG_{k_{n}} (\tq, \trho) \propto \frac{1}{\tq^2(1+ \tY_{k_{n}}(\tq, \rho) + r_{k_{n}}(\tq)) + \partial_{\trho} \tW(\trho) }
+\end{equation}
+
+Ainsi, comme on exclu la présence de pôle dans les propagateurs que l'on calcule on peut montrer facilement que
+$\trho \to \tG_{k_{n}}(\tp, \trho)$ est bien $\Cc^1$ pour tout $\tp$ et $\tpv \to \tG_{k_{n}}(\|\tpv + \tqv\|, \trho)$ est bien $\Cc^1$ pour tout $\trho$. En outre ce sont donc des fonctions bornées et
+\begin{equation}
+	| \Rc_{k_{n}}(\tq) \tG_{k_{n}}^{m-1} (\tq, \rho) \tG_{k_{n}} (\| \tpv + \tqv \|, \rho) | \le \(\text{sup}(\tG_{k_{n}}) \) ^{m} | \Rc_{k_{n}}(\tq) |
+\end{equation}
+
+Ainsi, comme $\tq \to \partial_t \Rc_{k_{n}}(\tq) $ est une fonction $L^1$ et d'après le théorème de dérivation sous le signe somme, nous pouvons en conclure que $\tJ_m$ est bien de classe $\Cc^1$. Par récurrence immédiate on en déduit alors qu'elle est de classe $\Cc^\infty$. Enfin notons que $\tI_m$ est alors aussi de classe $\Cc^infty$ pour les mêmes raisons.\\ 
+
+
+
+Enfin le dernière point important est la présence de $\tp^{-2}$ dans l'équation de $\tY_{k_{n+1}}$. En effet ceci pourrait rompre la définition même de la fonction en $\tp = 0$. Cependant le terme qui pose problème est de la forme
+
+\begin{equation}
+(\tJ_3 - \tI_3)/\tp^2
+\end{equation}
+
+Ainsi on peut montre que 
+
+
+\pagebreak
+
 
 
 \section{Complement des algorithmes}
