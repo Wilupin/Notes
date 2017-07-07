@@ -39,7 +39,7 @@
 
 \vspace*{-22pt}
 \begin{center}
-\includegraphics[scale=0.35]{Logo_LPTMC.png}
+\includegraphics[scale=0.45]{Logo_LPTMC.png}
 \hspace*{20pt}
 \includegraphics[scale=0.05]{Logo_ENSTA.jpg}
 \hspace*{20pt}
@@ -47,27 +47,39 @@
 \hspace*{20pt}
 \includegraphics[scale=0.15]{Logo_Versailles.png}
 \\
-\vspace*{20pt}
+
+
+\vspace*{30pt}
 \rule{10cm}{1pt}
 \vspace*{10pt} \\
 \textsc{\textbf{{\large Master 2 de mathématiques : Analyse, Modélisation, Simulation}}\\
  Parcours : Modélisation Simulation}\\
 \rule{10cm}{1pt}
 \vspace*{20pt} \\
-\textbf{\Large Etude numérique des équations \og BMW \fg{} \\ du groupe de renormalisation non perturbatif}\\
+\textbf{\LARGE Etude numérique des équations \og BMW \fg{} \\ du groupe de renormalisation non perturbatif}\\
 \vspace*{10pt}
-Gaétan Facchinetti \\
-Encadré par : Bertrand Delamotte  et Nicolas Dupuis
+{\large Gaétan Facchinetti \\
+Encadré par : Bertrand Delamotte  et Nicolas Dupuis }
 { \\
 \vspace*{15pt}
 \textit{Laboratoire de Physique Théorique de la Matièe Condensée},\\
 \vspace*{5pt}
 \textit{Université Paris-Saclay},\textit{Ecole Nationale Supérieure des Techniques Avancées}, \\
-\textit{Ecole Normale Supérieure de Cachan}, \textit{Université Versailles Saint Quentin}}\\
+\textit{École Normale Supérieure de Cachan}, \textit{Université Versailles Saint Quentin}}\\
 \vspace*{20pt}
-{\small 27 février - 28 juillet 2017 }
+{ 27 février - 28 juillet 2017 }
+
 
 \end{center}
+
+\vspace*{-25pt}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.9\columnwidth]{CouvPot.pdf}
+\end{center}
+\label{fig:Intro}
+\end{figure}
 
 
 \vfill
@@ -182,7 +194,7 @@ Le groupe de renormalisation (RG) permet de montrer l'effet d'universalité des 
 
 Le groupe de renormalisation non perturbatif (NPRG) permet de répondre à ce problème en reprenant le principe du RG sous une approche différente permettant d'accéder à des équations exactes. Cependant, en pratique, ces équations ne sont pas solubles et il faut faire d'autres approximations, comme l'approximation BMW. Bien que cela reste compliqué en pratique, ces approximations peuvent permettre de récupérer à la fois les exposants critiques et les grandeurs non universelles. \\
 
-Le but de cette étude est d'appliquer l'approximation BMW pour sur des systèmes connus grâces à d'autres méthodes afin de valider la qualité de cette approximation, de la méthode et de la résolution numérique.\\
+Le but de cette étude est d'appliquer l'approximation BMW à des systèmes connus grâces à d'autres méthodes afin de valider la qualité de cette approximation, de la méthode et de la résolution numérique.\\
 
 Pour cela nous avons repris une simulation numérique d'équations intégro-différentielles non linéaires obtenues par l'approximation BMW pour des systèmes régis par une certaine symétrie dite $O(N)$ à l'aide du système modèle générique de la "théorie $\varphiv^4$" \cite{LeonardThesis}. Elle a déjà permis de déterminer des exposants critiques avec précision pour certains systèmes, mettant bien en avant la qualité de l'approximation BMW. Cependant elle présente des comportements étranges et des résolutions instables dans d'autres cas. Le but était donc d'en rechercher les causes pour parvenir enfin à calculer avec ce code les exposants $\eta$ et $\nu$ dans toutes les configurations.\\
 \indent
@@ -718,9 +730,9 @@ Pour la discrétisation en temps, nous sommes dans l'obligation d'utiliser un sc
 
 Ensuite nous allons différencier la dépendance en champs (i.e. en $\trho$) à celle en impulsion (i.e. $\tp$) des fonctions inconnues. Pour ce qui est de la dépendance en champ, il suffit de prendre une grille fixe régulièrement espacé de points. Les dérivées selon cette variable se calculent alors par des schémas de différences finies d'ordre 5. \\
 
-Enfin pour la dépendance en impulsion les choses sont plus compliquées car il faut à la fois pouvoir facilement calculer des dérivées selon $\tp$, mais aussi intégrer des expressions - dépendant des fonctions inconnues - afin d'obtenir les intégrales $\tI$ et $\tJ$. Le calcul des intégrales $\tJ(\tpv, \trho)$ pour tout $\tpv$ et $\trho$ de la discrétisation est ce qui demande le plus de temps de calcul et donne des complexités algorithmiques et des temps de calculs élevés comme nous l'avons constaté. Au premières versions de ce code, la discrétisation se faisait aussi sur une grille fixe de points régulièrement espacés et les intégrales étaient calculées par des méthodes de Simpsons. Cependant cela c'est avéré ne pas être assez précis dans certaines configurations, les algorithmes n'étaient pas robustes. Pour palier à ce problème c'est une décomposition pseudo spectrale qui a été mise en place à l'aide de décomposition en série sur des polynômes de Tchebytchev associé à une intégration de Gauss-Legendre. 
+Enfin pour la dépendance en impulsion les choses sont plus compliquées car il faut à la fois pouvoir facilement calculer des dérivées selon $\tp$, mais aussi intégrer des expressions - dépendant des fonctions inconnues - afin d'obtenir les intégrales $\tI$ et $\tJ$. Le calcul des intégrales $\tJ(\tpv, \trho)$ pour tout $\tpv$ et $\trho$ de la discrétisation est ce qui demande le plus de temps de calcul et donne des complexités algorithmiques et des temps de calculs élevés comme nous l'avons constaté. Au premières versions de ce code, la discrétisation se faisait aussi sur une grille fixe de points régulièrement espacés et les intégrales étaient calculées par des méthodes de Simpsons. Cependant cela c'est avéré ne pas être assez précis dans certaines configurations, les algorithmes n'étaient pas robustes. Pour palier à ce problème c'est une décomposition pseudo spectrale qui a été mise en place à l'aide de décomposition en série sur des polynômes de Tchebytchev associé à une intégration de Gauss-Legendre. \\
 
-Nous détaillons alors les différents aspects mathématiques et numériques des discrétisations que nous avons utilisé.
+Nous détaillons alors les différents aspects numériques des discrétisations que nous avons utilisé.
 
 
 
@@ -750,7 +762,7 @@ En posant
 h (\tp, \tq_1, \tq_2) \equiv f(\tq_1^2 + \tq_2^2) g(\tp^2 + \tq_1^2 + \tq_2^2 + 2\tp\tq_1)
 \end{equation}
 
-où $S_d-1$ est l'angle solide, c'est donc un réel. De ce fait, le calcul d'une intégrale à d dimensions se ramène au calcul de deux intégrales seulement, qui peut être fait sans problèmes avec une interpolation de Gauss-Legendre.
+Le coefficient $S_{d-1}$ est une pré-facteur un réel. De ce fait, le calcul d'une intégrale à d dimensions se ramène au calcul de deux intégrales seulement, qui peut être fait sans problèmes avec une interpolation de Gauss-Legendre.
 
 
 \subsection{Discrétisation en impulsion}
@@ -767,7 +779,7 @@ Alors il existe un unique ensemble $\{c_j\}_{j\in\bbrac{0,n-1}}$ de coefficients
 \end{equation}
 Où $T_j$ est le polynôme d'ordre $j$ de Tchebytchev de première espèce. On pose 
 \begin{equation}
-	\forall x \in [a,b] \quad \mathrm{Tch}_n[f](x) = \sum\limits_{j = 0}^{n-1} c_j T_j(x)
+	\forall x \in [a,b] \quad \mathrm{Tch}_n[f](x) = \sum\limits_{j = 0}^{n-1} c_j T_j\(\frac{2x-a-b}{b-a}\)
 \end{equation}
 Ainsi on montre que
 \begin{equation}
@@ -783,12 +795,12 @@ Ceci justifie alors partiellement l'utilisation des polynômes de Tchebytchev po
 Soit $f$ une fonction $\Cc^\infty$ de $[a, b]$ dans $\R$. On souhaite décomposer $f$ sur une base de polynômes de Tchébytchev selon la somme
 
 \begin{equation}
-f(x) = \sum\limits_{j = 0}^{N_c - 1} c_j T_j(x)
+f(x) = \sum\limits_{j = 0}^{n_c - 1} c_j T_j\(\frac{2x-a-b}{b-a}\)
 \end{equation}
-Soit $\{x_k\}_{k\in\bbrac{0, N_c}}$ les racines du polynôme $T_{N_c}$.
+Soit $\{x_k\}_{k\in\bbrac{0, n_c}}$ les racines du polynôme $T_{n_c}$.
 Les relations d'orthogonalités données en \refann{} permettent de montrer qu'alors il existe une relation plus simple qu'en \refeq{}, 
 \begin{equation}
-c_j = \frac{A_j}{N_c} \sum\limits_{k = 0}^{N_c-1}f(x_k)T_j(x_k) 
+c_j = \frac{A_j}{n_c} \sum\limits_{k = 0}^{N_c-1}f\(\frac{a+b}{2} + x_k \frac{b-a}{2}\) T_j(x_k) 
 \end{equation}
 Avec $A_j = 2$ si $j > 0$ et $A_0 = 1$. Ainsi, maintenant que l'on sait comment décomposer $f$ sur une base de polynômes de Tchebytchev, regardons comment calculer la valeur de $f(x)$ pour $x \in [a, b]$.  
 
@@ -800,20 +812,20 @@ Afin de calculer la fonction aux points d'interpolation lorsque cela est nécess
 
 \noindent
 \textbf{Algorithme de Clenshaw}. {\itshape
-Soit, de manière générale, une suite de polynômes $\{\Pc_n\}_{n \in \N}$ liés par la relation
+Soit, de manière générale, une suite de polynômes $\{\Pc_m\}_{m \in \N}$ liés par la relation
 \begin{equation}
-  \forall x \in \R \quad \Pc_{n+1}(x) = u_n(x)\Pc_n(x) + v_n(x)\Pc_{n-1}(x)
+  \forall x \in [-1, 1] \quad \Pc_{m+1}(x) = u_m(x)\Pc_m(x) + v_m(x)\Pc_{m-1}(x)
 \end{equation}
-On souhaite calculer, pour $x \in \R$ donné, 
+On souhaite calculer, pour $x \in [-1, 1]$ donné, 
 \begin{equation}
-  S = \sum_{l=0}^{N} a_l \Pc_l(x)
+  S = \sum_{l=0}^{n} a_l \Pc_l(x)
 \end{equation}
 On considère l'algorithme suivant :
 \vspace*{-11pt}
 \begin{algorithm}[H]
   \begin{algorithmic}[1]
-    \STATE $b_{N+2} = 0$ ; $b_{N+1} = 0$
-    \FOR{ $m = N .. 1$  }
+    \STATE $b_{n+2} = 0$ ; $b_{n+1} = 0$
+    \FOR{ $m = n .. 1$  }
     \STATE $b_m = a_m + u_m(x)b_{m+1} + v_{m+1}(x)b_{m+2}$
     \ENDFOR
     \STATE $S_1 = a_0\Pc_0(x) + b_1\Pc_1(x) + b_2v_1(x)\Pc_0(x)$
@@ -821,21 +833,31 @@ On considère l'algorithme suivant :
 \end{algorithm}
 \vspace*{-11pt}
 \noindent
-Alors nous avons $S = S_1$. 
-}
+Alors nous avons\footnote{Ce résultat ce démontre par récurrence sur $m \in \bbrac{1,N}$ en remarquant que,
+$S_1 = S_m +  b_{m+1}\Pc_{m+1}(x) + b_{m+2}v_{m+1}(x)\Pc_{m+2}(x)$\\
+Avec la notation $S_m = \sum_{l=0}^{m} a_l \Pc_l(x)$.} $S = S_1$. 
+} \\
 
-\begin{proof}
-Ce résultat ce démontre par récurrence sur $m \in \bbrac{1,N}$ en remarquant que,
-\begin{equation}
-S_1 = S_m +  b_{m+1}\Pc_{m+1}(x) + b_{m+2}v_{m+1}(x)\Pc_{m+2}(x)
-\end{equation}
-Avec la notation $S_m = \sum\limits_{l=0}^{m} a_l \Pc_l(x)$.
-\end{proof}
+Ainsi, pour calculer le point $f(x)$ pour tout $x \in [a,b]$, en utilisant les coefficients de la relation de récurrence sur les polynômes de Tchebytchev \refann{} nous obtenons l'algorithme suivant 
 
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \STATE $b_{n+2} = 0$ ; $b_{n+1} = 0$
+    \FOR{ $m = n .. 1$  }
+    \STATE $y = (2x-a-b)/(b-a)$
+    \STATE $b_m = a_m + 2yb_{m+1} - b_{m+2}$
+    \ENDFOR
+    \STATE $f(x) = a_0 - b_2 + b_1y$
+  \end{algorithmic}
+\end{algorithm}
 
 Cette méthode \cite{clenshaw1955note} est plus robuste est légèrement plus rapide que celle qui consisterait à calculer directement la somme de la série de polynôme. En effet on passe d'un algorithme avec $\sim 4N$ opérations à une algorithme avec $\sim 3N$ opérations en utilisant cette technique pour des polynômes de Tchebytchev. Le gain est faible mais cela est plus particulièrement utile lorsque l'on réutilise la technique en dimension 2 pour le modèle d'Ising 2D \refsec{}.
 
 
+
+\subsubsection{Calcul des dérivées}
+
+Un autre avantage d'exprimer les fonctions sous une décomposition en série de polynôme de Tchebytchev pour la variable d'impulsion $p$ est qu'il devient facile d'en calculer les dérivées par rapport à $p$ en tout point de la boite $[0, p_{max}]$ de discrétisation. En effet il existe une relation simple entre les coefficients de la décomposition d'une fonction $f$ par exemple et ceux de sa dérivée $\partial_p f$. Cette relation se trouve en \refann{}. \\
 
 
 \subsection{Parallélisation}
@@ -1314,19 +1336,22 @@ Détaillons alors maintenant les différentes techniques numériques utilisées.
 
 \subsection{Interpolation de Tchebytchev}
 
-Afin de pouvoir calculer les intégrales $J$ avec précision apparaissant dans les équations il semble nécessaire d'interpoler la fonction $\Delta_k$ ainsi que ces dérivées dans le plan des impulsions. Pour cela nous réutilisons encore une interpolation de Tchébytchev en dimension 2. 
+Afin de pouvoir calculer avec précision les intégrales $J$, $\bJ$, $\tJ$ apparaissant dans les équations nous avons choisi d'interpoler la fonction $\Delta_k$ ainsi que ces dérivées dans le plan des impulsions. Comme annoncé, pour cela nous réutilisons encore une interpolation de Tchébytchev adaptée en dimension 2. 
 
 \subsubsection{Théorème de décomposition}
 
-Nous rappelons ici un théorème justifiant l'utilisation des polynômes de Tchebytchev comme pôlynomes d'interpolation en dimension 2.
+Nous rappelons ici un théorème justifiant l'utilisation des polynômes de Tchebytchev comme pôlynomes d'interpolation en dimension 2.\\
 
-\begin{theorem}
-  Soient $a$, $b$ deux réels tels que $b>a$. Soit $f : [a,b]^2 \rightarrow \C$ une fonction continue aux variations bornées (comme définies en \cite{Tchebychev}). On suppose que l'une des dérivées partielles de de $f$ existe et est bornée dans $[a,b]$. Alors il existe une suite des coefficients réels $\{c_{ij}\}_{(i,j) \in \N^2}$ tels que la série $f_n$ définie par :
+\noindent
+\textbf{Décomposition de Tchebytchev 2D.} 
+  Soient $a$, $b$ deux réels tels que $b>a$. Soit $f : [a,b]^2 \rightarrow \R$ une fonction continue aux variations bornées (comme définies en \cite{Tchebychev}). On suppose que l'une des dérivées partielles de de $f$ existe et est bornée dans $[a,b]$. Alors il existe une suite des coefficients réels $\{c_{ij}\}_{(i,j) \in \N^2}$ tels que la série $f_n$ définie par :
 \begin{equation}
+\begin{split}
 f_n(x,y) = \sum_{i=0} ^{n} \sum_{j=0} ^{n} c_{ij} T_i\(\frac{2x-a-b}{b-a}\)T_j\(\frac{2y-a-b}{b-a}\)
+\end{split}
 \end{equation}
-converge uniformément vers $f$ quand $n \rightarrow +\infty$.
-\end{theorem}
+converge uniformément vers $f$ quand $n \rightarrow +\infty$.\\
+
 
 Ce théorème et sa démonstrations se trouvent dans l'ouvrage \cite{Tchebychev, Masson1980} dans le cas $a=-1$, $b=1$. La généralisation à $a$ et $b$ ($b>a$) quelconques est immédiate. Considérons le schéma semi-discrétisés en temps des équations.Pour des raisons similaires à ce qui a été fait en \refsec{} (\refann{}) nous travaillons alors avec des fonctions de classe $\Cc^\infty$ (donc $\Cc^1$) selon les variables $\phi$, $p_x$ et $p_y$ (ou leur équivalent adimensionné). Il vient que la condition de variations bornées est satisfaite \cite{Masson1980}.
 
@@ -1334,21 +1359,29 @@ Ce théorème et sa démonstrations se trouvent dans l'ouvrage \cite{Tchebychev,
 
 \subsubsection{Décomposition méthode 1}
 
-Soit $f$ une fonction de $[0,\pi]^2$ dans $\R$. Dans un premier temps nous avons opté pour un algorithme de recherche direct des coefficients $c_{ij}$ de sa décomposition en série de polynômes de Tchebytchev très inspiré de la méthode 1D. Supposons, en effet, que l'on veuille effectuer une décomposition à l'ordre $N_C -1$ et donc écrire
+Soient $a$, $b$ deux réels ($b>a$). Soit $f$ une fonction de $[a,b]^2$ dans $\R$. Dans un premier temps nous avons opté pour un algorithme de recherche direct des coefficients $c_{ij}$ de sa décomposition en série de polynômes de Tchebytchev très inspiré de la méthode 1D. Supposons, en effet, que l'on veuille effectuer une décomposition à l'ordre $n_c -1$ et donc écrire
 \begin{equation}
-  f(x,y) \simeq \sum_{i=0}^{N_C-1}\sum_{j=0}^{N_C-1} c_{ij} T_i(x)T_j(y)
+  f(x,y) \simeq \sum_{i=0}^{n_c-1}\sum_{j=0}^{n_c-1} c_{ij} T_i\(\frac{2x-a-b}{b-a} \)T_j\( \frac{2y-a-b}{b-a}\)
+  \label{eq:dec}
 \end{equation}
 
-Pour trouver la valeur des coefficients de la matrice $((c_{i,j}))_{i,j}$ on prend les ensembles des racines du polynôme de Tchebytchev  de degré $N_C$, $\left\{x_m\right\}_{0\le m \le N_C-1}$ et $\left\{y_n\right\}_{0\le m \le N_C-1}$ et on impose,
+Pour trouver la valeur des coefficients de la matrice $((c_{i,j}))_{i,j}$ on prend les ensembles des racines du polynôme de Tchebytchev  de degré $n_c$, $\left\{x_m\right\}_{0\le m \le n_c-1}$ et $\left\{y_n\right\}_{0\le m \le n_c-1}$ et on impose \refeq{dec} en ces points, ce qui revient aussi à écrire,
 \begin{equation}
-  f(x_m, y_n) = \sum_{i=0}^{N_C-1}\sum_{j=0}^{N_C-1} c_{ij} T_i(x_m)T_j(y_n)
+\begin{split}
+   f\(\frac{a+b}{2} + x_m\frac{a-b}{2}, \frac{a+b}{2} + y_n\frac{a-b}{2}\) =  \\
+    \sum_{i=0}^{n_C-1} \sum_{j=0}^{N_C-1}  c_{ij} T_i\(x_m\) T_j\(y_n\)
+\end{split}
 \end{equation}
 En utilisant les relations des polynômes de Tchebytchev on peut alors determiner les coefficients de la matrice $((c_{ij}))_{i,j}$ avec les formules
 \begin{equation}
- c_{ij} = \frac{A}{N_C^2} \sum_{m=0}^{Nc-1} \sum_{n=0}^{Nc-1} f(x_m, y_n)T_i(x_m)T_j(y_n)
+\begin{split}
+ c_{ij} = & \frac{A_{ij}}{n_c^2}  \sum_{m=0}^{n_c-1}  \sum_{n=0}^{n_c-1}  T_i \(x_m\) T_j\( y_n \) \\
+ & \times f\(\frac{a+b}{2} + x_m\frac{b-a}{2}, \frac{a+b}{2} + y_n\frac{b-a}{2}\)  
+\end{split}
 \end{equation}
+Avec la notation
 \begin{align}
-  A = 
+  A_{ij} = 
   \begin{cases}
     1 \quad \text{si } i = j = 0 \\
     2 \quad \text{si } i = 0 \text{ et } j \neq 0 \\
@@ -1357,24 +1390,25 @@ En utilisant les relations des polynômes de Tchebytchev on peut alors determine
   \end{cases}
 \end{align}
 
-Cette méthode est extrêmement couteuse puisque pour calculer l'ensemble des coefficients de $((c_{ij}))_{i,j}$ cela demande un algorithme de complexité évlouant en $\mathcal{O}(N_c^2)$ et dejà long pour de faibles valeurs de $N_c$. Ce pourquoi, afin d'obtenir de meilleures précisions sur les intégrales calculées tout en conservant un temps de calcul raisonnable nous avons implémenté la deuxième méthode suivante.
+Cette méthode est couteuse puisque pour calculer l'ensemble des coefficients de $((c_{ij}))_{i,j}$ cela demande un algorithme de complexité évoluant en $\mathcal{O}(n_c^2)$. En outre pour ensuite obtenir $f(x,y)$ en tout point $(x,y) \in [a,b]^2$, il faut utiliser un algorithme qui est aussi de complexité $\mathcal{O}(n_c^2)$. Ce pourquoi, afin d'obtenir de meilleures sur les interpolations tout en conservant un temps de calcul raisonnable nous avons implémenté la deuxième méthode suivante.
 
 
 \vspace*{11pt}
 
 \subsubsection{Décomposition méthode 2}
-En revanche, il existe une méthode plus astucieuse, inspirée de ce qui est mis en place dans le paquet \textit{chebfun} développé par ... qui permet justement de traiter les interpolations de Tchebytchev sous Matlab. Cette méthode est développée en détails dans \cite{TownsendThesis}. 
 
-Au lieu de faire directement une décomposition sur une base tensorielle de polynomes de Chebychev on commence par réaliser une approcximation de rang faible de la fonction que l'on souhaite approximer. Plus précisemment, on considère les ensembles des racines de Tchebytchev $\left\{x_m\right\}_{0\le m \le N_C-1}$ et $\left\{y_n\right\}_{0\le m \le N_C-1}$. Alors on peut former la matrice 
+Il existe une méthode plus astucieuse que celle développée précédemment, inspirée de ce qui est mis en place dans le paquet \textit{chebfun} permettant justement de traiter les interpolations de Tchebytchev sous Matlab. Cette méthode est développée dans \cite{TownsendThesis}. 
+
+Au lieu de faire directement une décomposition sur une base tensorielle de polynômes de Chebychev on commence par réaliser une approximation de rang faible de la fonction que l'on souhaite approximer. Plus précisément, on considère les ensembles des racines de Tchebytchev $\left\{x_m\right\}_{0\le m \le n_c-1}$ et $\left\{y_n\right\}_{0\le m \le n_c-1}$. Alors on peut former la matrice 
 \begin{equation}
-	\mat{F} =((f(x_m, y_n ))_{0\le m,n \le N_C-1}
+	\mat{F} = \( \(  f\(\frac{a+b}{2} + x_m\frac{b-a}{2}, \frac{a+b}{2} + y_n\frac{b-a}{2}\)     \)  \)_{m,n}
 \end{equation}
-et faire de cette matrice une approximation de rang faible par élimination Gaussienne.
+et faire de cette matrice une approximation de rang faible par élimination Gaussienne avec l'algorithme suivant, en $\varepsilon$ de l'ordre de la précision machine.
 
 \begin{algorithm}[H]
   \begin{algorithmic}[1]
     \STATE Initialisation : $\mat{E}^0 = \mat{F}$; $\mat{F}_0 = 0$; $k = 1$;
-    \WHILE{ ${\| \mat{E}^k \|}_{\infty} < \varepsilon $ }
+    \WHILE{ ${\| \mat{E}^k \|}_{\infty} < \varepsilon {\| \mat{E}^0 \|}_{\infty}$ }
     \STATE $(i_k, j_k) =  {\text{argmax}}_{(i,j)} \left\{\left| \mat{E}^{k-1}_{i,j} \right| \right\}$
     \STATE $\mat{C}^k_{j} = \mat{E}^k_{i_k,j}$;  $\mat{R}^k_{i} = \mat{E}^k_{i,j_k}$; $d_k = \mat{E}^k_{i_k,j_k}$
     \STATE $\mat{E}^k_{i,j} = \mat{E}^{k-1}_{i,j} - d_k^{-1}\mat{C}^k_{j}\mat{R}^k_{i}$
@@ -1383,20 +1417,18 @@ et faire de cette matrice une approximation de rang faible par élimination Gaus
   \end{algorithmic}
 \end{algorithm}
 
-Notons $Q$ le rang de l'approximation obetnue. On obtient alors une écriture de $f$ sous la forme 
-On obtient alors une expression de la forme 
+Notons $Q$ ($Q \le n_c$) le rang de l'approximation obtenue. La matrice $\mat{F}$ peut être approximée, à la précision machine, par  
 \begin{equation}
 \mat{F} \simeq \tilde{\mat{F}} = \sum_{j=1}^Q d_j \mat{C}^j \mat{R}^j
 \end{equation}
-Comme nous ne conaissons exactement la fonctions $f$ qu'aux points d'interpolation de Chebychev cela revient au même que d'écrire que nou avons décomposé $f$ comme une somme de produits de fonctions à une variable,
+Comme nous ne connaissons exactement la fonctions $f$ discrétisée qu'aux points d'interpolation cela revient au même que d'écrire que nous avons décomposé $f$ comme une somme de produits de fonctions à une variable,
 \begin{equation}
 f(x,y) \simeq \sum_{j=1}^Q d_jc^j(y)r^j(x)
 \end{equation}
-On peut alors décomposer les fonctions $c_j$ et $r_j$ sur une base de polynômes de Chebychev comme on peut le faire pour toute fonction d'une seule variable. La décomposition est ainsi un une opération de produit tensoriel. \\
+On peut alors décomposer les fonctions $c_j$ et $r_j$ sur une base de polynômes de Chebychev comme on peut le faire pour toute fonction d'une seule variable. La décomposition est dite "une opération de produit tensoriel". \\
 
 
-
-
+Afin de récupérer la valeur de $f$ en un point quelconque $(x,y) \in [a,b]^2 $ nous utilisons simplement la méthode de Clenshaw à une variable sur les fonctions $c^j$ et $r^j$ déjà mentionnée en \refsec{} avec cette méthode de décomposition. Ainsi l'algorithme de décomposition possède une complexité en $\mathcal{O}(Q n_c)$ et il en est de même pour le calcul de $f$ en $(x,y) \in [a,b]^2$. Le gain n'est pas très important pour ce qui est du temps de calcul par la suite mais il a eu son importance pour permettre d'atteindre des résultats convenables en des temps raisonnables. En effet nous avons pour une grande partie de la résolution $Q < n_c$ de par la régularité des fonctions. \\
 
 
 
@@ -1407,7 +1439,7 @@ Pour calculer numériquement les différentes intégrales nous nous servons des 
 
 \subsubsection{Le choix de la quadrature}
 
-On interpole les fonctions des polynômes de Tchebytchev et on utilise toujours une méthode pseudo-specrtrale\footnote{c'est à dire que l'on connait à chaque pas de temps la valeur de la fonction au points d'interpolation de Tchebythchev, ainsi que les coefficients de son développement en série de polynômes de Tchebytchev}. Il semble donc naturel de se demander si la quadrature de Gauss-Legendre est vraiment la mieux adaptée. En effet, pour gagner du temps et utiliser directement la connaissance de la fonction aux points d'interpolation nous avons penser au calcul d'intégrale par la \emph{première règle de Fejer} \cite{} qui permet cela.
+On interpole la partie en impulsion des fonctions avec des polynômes de Tchebytchev et on utilise toujours une méthode pseudo-specrtrale\footnote{c'est à dire que l'on connait à chaque pas de temps la valeur de la fonction au points d'interpolation de Tchebythchev, ainsi que les coefficients de son développement en série de polynômes de Tchebytchev}. Il semble donc naturel de se demander si la quadrature de Gauss-Legendre est vraiment la mieux adaptée. En effet, pour gagner du temps et utiliser directement la connaissance de la fonction aux points d'interpolation nous avons penser au calcul d'intégrale par la \emph{première règle de Fejer} \cite{} qui permet cela. En effet les points de quadrature de cette méthode sont ceux de 
  
 Cependant cette méthode c'est avérée être inéficace puisque il faut de manière générale plus de points pour obtenir la même précision qu'une quadrature de Gauss Legendre. Et de plus, afin d'assurer la compatibilité entre l'interpolation et la quadrature il est nécessaire que les deux se fassent sur le même nombre de point, ce qui est restrictif. 
 
@@ -1430,7 +1462,7 @@ On peut alors faire le changement de variable affine  $\(\tilde{x}, \tilde{y}\) 
  \frac{a^2}{4} \int_{-1}^{1} & \int_{-1}^{1} f\(\frac{a}{2}\(\tilde{x}+1\),\frac{\pi}{2}\(\tilde{y}+1\)\) \, \dd \tilde{x}  \, \dd \tilde{y} 
 \end{split}
 \end{equation}
-Les intégrales sur le carré unité $[-1,1] \times [-1, 1]$ sont alors calculées avec une quadrature \textit{tensorielle} obtenue à partir d'une quadrature 1D. Il vient des considérations précédentes, 
+Les intégrales sur le carré unité $[-1,1] \times [-1, 1]$ sont alors calculées avec une quadrature \textit{tensorielle} obtenue à partir d'une quadrature 1D :
 \begin{equation}
 \begin{split}
  \int_{-a}^{a} \int_{-a}^{a} f(x,y) \,&  \dd x \, \dd y \simeq \\ 
@@ -1463,7 +1495,7 @@ Soit $a>0$. Soit $(b,c) \in [0,a]^2$. Soit maintenant $g$ et $h$ deux fonctions 
 \end{split}
 \end{equation}
 
-Et on adopte encore la même quadrature que pour les intégrales $I$, $\bI$, $\tI$. Cependant remarquons qu'il va nous falloir connaitre les valeurs de $u$ en des points $(x\pm b, y\pm c)$ qui sont en dehors du carré $[0, a]^2$ et à cause de la discrétisation de $u$, comme $u$ est une fonction que l'on connait par sa décomposition en série de tchebytchev sur $[0,a]^2$, on ne peut pas connaitre la valeur de $u$ en tout $(x\pm b, y\pm c)$. Lorsque l'on s'intéresse au calcul de $J$ cela ne pose pas de problèmes car on peut utiliser la périodicité des fonctions (raison pour laquelle nous résolvons en premier lieu le système $\Ec_1$ dimensionné). En revanche pour $\bJ$ et $\tJ$ , la périodicité est brisée dans les équations et nous sommes obligé d'extrapoler le comportement de $u$ en dehors de $[0,a]^2$
+Et on adopte encore la même quadrature que pour les intégrales $I$, $\bI$, $\tI$. Cependant remarquons que ce calcul impose de connaitre les valeurs de $u$ en des points $(x \pm b, y\pm c)$ qui sont en dehors du carré $[0, a]^2$. Or, à cause de la discrétisation, $u$ est une fonction que l'on connait par sa décomposition en série de tchebytchev sur $[0,a]^2$, ainsi, on ne peut pas connaitre la valeur de $u$ en tout $(x\pm b, y\pm c)$. Lorsque l'on s'intéresse au calcul de $J$ cela ne pose pas de problèmes car on peut utiliser la périodicité des fonctions (raison pour laquelle nous résolvons en premier lieu le système $\Ec_1$ dimensionné). En revanche pour $\bJ$ et $\tJ$ , la périodicité est brisée dans les équations et nous sommes obligé d'extrapoler le comportement de $u$ en dehors de $[0,a]^2$
 
 
 
@@ -1471,13 +1503,20 @@ Et on adopte encore la même quadrature que pour les intégrales $I$, $\bI$, $\t
 
 \subsection{Dérivées numériques}
 
-Les dérivées numériques sont encore calculée sur 5 points pour essayer de ne pas perdre en précision. Cependant comme nous l'avons mentionné nous avons du dans des premières versions du code utilisé des dérivées sur trois points à cause d'instabilité en bords des grilles de discrétisation. Nous pouvons justifier rapidement la présence de telles instabilités. En effet, comme nous ne disposons pas de conditions aux bords pour nos équations il se trouve que nous sommes obligés d'utiliser des schémas de discrétisation à cinq points fortement décentrés sur les bords, n'utilisant que des points à l'intérieur de la grille. En utilisant une analyse de Von-Neumann nous pouvons donc calculer le facteur d'amplification de ces schémas qui devient rapidement extrêmement grand.
+Les dérivées numériques sont encore calculée sur 5 points pour essayer de ne pas perdre en précision. Cependant comme nous l'avons mentionné nous avons du dans des premières versions du code utilisé des dérivées sur trois points à cause d'instabilité en bords des grilles de discrétisation. Nous pouvons justifier rapidement la présence de telles instabilités. En effet, comme nous ne disposons pas de conditions aux bords pour nos équations il se trouve que nous sommes obligés d'utiliser des schémas de discrétisation à cinq points fortement décentrés sur les bords, n'utilisant que des points à l'intérieur de la grille.\\
+
+
+Or, pour étudier simplement ces schéma nous les appliquons à une équation d'advection du type $\partial_x u + a \partial_t u = 0$ et nous en faisons une analyse de Von-Neumann. Il est donc possible de calculer les facteurs d'amplification de ces schémas comme en \refig{FacAmp}
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=0.95\columnwidth]{ComplexiteTemps.pdf}
+	\includegraphics[width=0.95\columnwidth]{FacAmp.pdf}
 \end{center}
+\caption{(a) Facteur d'amplification $f_A$ du schéma décentré gauche à 3 points pour la dérivée première obtenu par analyse de Von-Neuman pour $a=1$ (bleu). Le cercle rouge représente le cercle unité. (b) Même chose pour le schéma décentré gauche à 5 points. Les courbes bleues restent dans le cercle rouge pour des modes de fréquence $|\theta| < \pi/4$ dans les deux cas, mais en dehors du cercle unité $f_A$ conserve une amplitude bien plus modérée dans le cas (a). Ainsi nous pouvons penser que dans notre schéma le schéma à 3 points à plus de chance d'être stable pour un même pas de discrétisation.}
+\label{fig:FacAmp}
 \end{figure}
+
+Bien que nos équations soient assez éloignées d'une simple équation d'advection cette rapide étude permet de donner une idée de la raison pour laquelle l'utilisation de dérivées à trois points a probablement permis de résoudre des problèmes d'instabilité en bord de grille en champ.
 
 \subsection{Complexité algorithmique et parallélisation - problème de rapidité} 
 

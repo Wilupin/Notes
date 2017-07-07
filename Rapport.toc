@@ -29,10 +29,11 @@
 \contentsline {subsubsection}{\numberline {4.5.1}Interpolation de Tchebytchev}{13}{subsubsection.4.5.1}
 \contentsline {subsubsection}{\numberline {4.5.2}Coefficients de la d\IeC {\'e}composition}{13}{subsubsection.4.5.2}
 \contentsline {subsubsection}{\numberline {4.5.3}M\IeC {\'e}thode de Clenshaw}{14}{subsubsection.4.5.3}
+\contentsline {subsubsection}{\numberline {4.5.4}Calcul des d\IeC {\'e}riv\IeC {\'e}es}{14}{subsubsection.4.5.4}
 \contentsline {subsection}{\numberline {4.6}Parall\IeC {\'e}lisation}{14}{subsection.4.6}
 \contentsline {section}{\numberline {5}Resulats : $O(N)$ continu}{14}{section.5}
 \contentsline {subsection}{\numberline {5.1}Pour $N = 1$, $d=2$}{14}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Pour $N = 2$ ou 3, $d=2$}{14}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.2}Pour $N = 2$ ou 3, $d=2$}{15}{subsection.5.2}
 \contentsline {section}{\numberline {6}Le mod\IeC {\`e}le d'Ising en dimension 2}{16}{section.6}
 \contentsline {subsection}{\numberline {6.1}Pr\IeC {\'e}sentation du mod\IeC {\`e}le d'ising}{16}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Mod\IeC {\'e}lisation avec des champs}{16}{subsection.6.2}
@@ -51,7 +52,7 @@
 \contentsline {subsubsection}{\numberline {7.3.2}D\IeC {\'e}composition m\IeC {\'e}thode 1}{20}{subsubsection.7.3.2}
 \contentsline {subsubsection}{\numberline {7.3.3}D\IeC {\'e}composition m\IeC {\'e}thode 2}{21}{subsubsection.7.3.3}
 \contentsline {subsection}{\numberline {7.4}Le calcul des int\IeC {\'e}grales}{21}{subsection.7.4}
-\contentsline {subsubsection}{\numberline {7.4.1}Le choix de la quadrature}{21}{subsubsection.7.4.1}
+\contentsline {subsubsection}{\numberline {7.4.1}Le choix de la quadrature}{22}{subsubsection.7.4.1}
 \contentsline {subsubsection}{\numberline {7.4.2}Calcul des int\IeC {\'e}grales $I$, $\mathaccentV {bar}016{I}$, $\mathaccentV {tilde}07E{I}$}{22}{subsubsection.7.4.2}
 \contentsline {subsubsection}{\numberline {7.4.3}Calcul des int\IeC {\'e}grales $J$,$\mathaccentV {bar}016{J}$,$\mathaccentV {tilde}07E{J}$ }{22}{subsubsection.7.4.3}
 \contentsline {subsection}{\numberline {7.5}D\IeC {\'e}riv\IeC {\'e}es num\IeC {\'e}riques}{22}{subsection.7.5}
