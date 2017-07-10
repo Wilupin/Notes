@@ -137,6 +137,8 @@ I would like to thank all the members of LPTMC whom I had the pleasure to meet f
 
 \vspace*{-11pt}
 \begin{abstract}
+
+ -- Abstract non fini d'un ancien rapport, à changer -- \\
 Nous montrons qu'un ensemble d'atomes froids isotropes dans un réseau optiques 2D peut permettre de stocker de la lumière sur des temps sous-radiant à l'aide d’interactions dipolaires collectives. Nous excitons les dipôles atomiques dans le plan du réseau par une lumière plane monochromatique proche résonance puis en manipulant correctement les niveaux d'énergie atomiques par effet Zeeman nous avons réussi à tourner les y rendre perpendiculaire. En réalisant un traitement exact sur des réseaux réalistes nous obtenons des temps d'émission spontané collectifs d'environ huit fois le temps d’émission spontané d'un atome unique. Nous montrons aussi que les distances interatomiques et la taille du réseau jouent un rôle important pour augmenter ce temps ; un total de 400 atomes étant suffisant pour obtenir la sous-radiance annoncée. De plus il serait très avantageux de parvenir à créer des réseaux avec un meilleur confinement des atomes puisque pour un confinement parfait nous obtenons un stockage cent fois plus long qu'avec un atome unique. Enfin l'étude de la transmission de la lumière diffusée met en avant les résonances du système ainsi que la possibilité de l'utiliser comme détecteur de champ magnétique. 
 \end{abstract}
 
@@ -164,18 +166,20 @@ We show that an atomic ensemble of colf atom in a 2D lattice can be used to stor
 
 \section{Introduction}
 
-La physique statistique établit un cadre permettant de calculer les grandeurs macroscopiques, dites aussi thermodynamiques, des problèmes mettant en jeu des systèmes avec un très grand nombre de degrés de liberté en interaction. Pour donner une image de ce que cela signifie, on considère un litre d'eau enfermé dans une boite. Ce litre d'eau est constitué de $\sim 10^{24}$ molécules qui peuvent vibrer, se déplacer ou tourner dans les trois directions de l'espace et avec une certaine vitesse. La position d'une seule de ces molécules représente trois degrés de libertés (un pour chaque projection de la position dans l'espace à trois dimensions) du système total, son orientation, ou sa vitesse aussi, etc. On remarque alors que, un seul litre d'eau, possède un nombre gigantesque de degrés de libertés qui peuvent interagir ensembles (ici par l'intermédiaire, entre autre, des collisions des molécules). Il n'est donc pas possible de déterminer les propriétés physiques macroscopiques de ce système en étudiant la dynamique individuelle de chaque degré de liberté le constituant, ce pourquoi on a recours aux statistiques. 
+\subsection{Physique statistique}
+
+La physique statistique établit un cadre permettant de calculer les grandeurs macroscopiques, dites aussi thermodynamiques, des problèmes mettant en jeu des systèmes avec un très grand nombre de degrés de liberté en interaction. Pour donner une image de ce que cela signifie, on considère un litre d'eau enfermé dans une boite. Ce litre d'eau est constitué de $\sim 10^{24}$ molécules qui peuvent vibrer, se déplacer ou tourner dans les trois directions de l'espace et avec une certaine vitesse. La position d'une seule de ces molécules représente trois degrés de libertés (un pour chaque projection de la position dans l'espace à trois dimensions) du système total, son orientation, ou sa vitesse aussi, etc. On remarque alors que, un seul litre d'eau, possède un nombre colossal de degrés de libertés qui peuvent interagir ensembles (ici par l'intermédiaire, entre autre, des collisions des molécules). Il n'est donc pas possible de déterminer les propriétés physiques macroscopiques de ce système en étudiant la dynamique individuelle de chaque degré de liberté le constituant, ce pourquoi on a recours aux statistiques. 
 
 Nous allons nous intéresser ici plus particulièrement à un domaine particulier de la physique statistique et de la thermodynamique qu'est l'étude des transitions de phase. Pour cela commençons par décrire ce dont il s'agit, puis nous expliciterons ce que que nous allons y étudier. \\
 
 
 \subsection{Transitions de phases}
 
-En thermodynamique on appelle phase un milieu possédant des propriétés physiques macroscopiques homogènes. Or, avec la modification de certains paramètres (comme la température, la pression, etc.), un système peut changer de phase ; il se produit alors une transition de phase. Landau a classé ces transitions suivant deux types : celles du premier ordre et celles du second \cite{toledano1987landau}. Cette classification se fonde sur la continuité ou non de certaines fonctions thermodynamiques, définies sur le système, au moment de la transition.
+En thermodynamique on appelle phase un milieu possédant des propriétés physiques et chimiques homogènes. Or, avec la modification de certains paramètres (comme la température, la pression, etc.), un système peut changer de phase ; il se produit alors une transition de phase. Ceci est dû à une réorganisation, au niveau microscopique, des constituants  du système (molécules, atomes, ...), ayant un effet macroscopique. Landau a classé ces transitions suivant deux types : celles du premier ordre et celles du second \cite{toledano1987landau}. La distinction se fonde sur la continuité ou non de certaines fonctions thermodynamiques, définies sur le système, au moment de la transition.
  
-Le passage de l'eau de l'état liquide à l'état gazeux par modification de la température extérieure à pression constante est un exemple de transition du premier ordre. En effet un volume d'eau pure à pression ambiante soumis à une température extérieure de plus de 100°C boue. Cependant il est bien connu que pendant cette transition de phase entre l'état liquide et l'état gazeux l'eau liquide en elle même se maintient à une température constante de 100°C exactement avant de s'évaporer. L'énergie du système augmente donc progressivement à cause de la température extérieure élevée mais la température du liquide ne varie pas, on dit que le système emmagasine de l'énergie sous forme de chaleur latente. Ce comportement est un point caractéristique des transitions du premier ordre.
-
-D'un autre côté, un métal aimanté à température ambiante voit son aimantation disparaitre lorsque lorsqu'il est chauffé au dessus d'une certaine température. Ceci correspond aussi à une transition de phase, en revanche, elle est du second ordre \cite{kochmanski2013curie} ; il n'existe par exemple pas de chaleur latente par exemple. On s'intéresse plus particulièrement ici aux phénomènes physiques particuliers qui se produisent lors des transitions du second ordre. \\
+Le passage de l'eau de l'état liquide à l'état gazeux par modification de la température extérieure à pression constante est un example de transition du premier ordre \footnote{Il est possible de définir une chaleur latente à la transition, comme la quantité d'énergie qu'il faut fournir à un volume d'eau à 100°C à pression ambiante pour passer entièrement dans la phase gazeuse. Toute l'eau ne passe pas instantanément de la phase liquide à la phase gazeuse. Ceci est associé à la discontinuité d'une fonction de la température nommé le paramètre d'ordre.}. 
+\commentout{ En effet un volume d'eau pure à pression ambiante soumis à une température extérieure de plus de 100°C boue. Cependant pendant cette transition de phase entre l'état liquide et l'état gazeux l'eau liquide en elle même se maintient à une température constante de 100°C exactement avant de s'évaporer. L'énergie du système augmente donc progressivement en recevant de la chaleur du milieu extérieur mais la température du liquide ne varie pas, on dit que le système emmagasine cette énergie sous forme de chaleur latente. Ce comportement est lié à la discontinuité de certaines fonctions thermodynamiques et est donc un point caractéristique des transitions du premier ordre.}
+D'un autre côté, un métal aimanté à température ambiante qui n'est soumis à aucun autre champ magnétique extérieur voit son aimantation disparaitre lorsque lorsqu'il est chauffé au dessus d'une certaine température. Ceci est aussi une transition de phase, en revanche, elle est du second ordre \cite{kochmanski2013curie}. On s'intéresse plus particulièrement ici aux phénomènes physiques qui se produisent lors des transitions du second ordre. \\
 
 Pour comprendre quels sont ces phénomènes considérons (comme dans toute la suite de cette étude) un système que l'on peut faire changer de phase en variant sa température $T$ uniquement. On appelle $T_c$, température critique, la température à laquelle se produit la transition. Il est alors possible de définir sur ce système une fonction de corrélation $G^{(2)}(r)$ qui décrit quantitativement l'influence que deux degrés de libertés du système séparés d'une distance $r$ ont l'un sur l'autre. Notons bien que plus la distance entre les deux sera grande moins cette influence sera forte et donc plus la fonction de corrélation sera faible. A cette fonction, qu'il est possible de déterminer expérimentalement \cite{Bellac2012}, on y associe une longueur $\xi$ qui définit approximativement la distance à partir de laquelle deux degrés de libertés du système n'ont plus d'influence l'un sur l'autre.\\
 
@@ -183,24 +187,24 @@ On observe expérimentalement qu'au moment d'une transition de phase du second o
 \begin{equation}
 	\xi \sim |T-T_c|^{-\nu} 	\quad \text{et} \quad G^{(2)}(r) \sim |r|^{2-d-\eta},
 \end{equation}
-où $d$ est la dimension physique du système et $\nu$ et $\eta$ sont deux réels positifs appelés les \emph{exposants critiques}. Notons qu'il existe aussi comme cela plusieurs autres grandeurs desquelles ont peut extraire différents exposants critiques. Le point essentiel étant que tous les systèmes ayant les mêmes propriétés de symétrie possèdent les mêmes exposants critiques, on dit qu'ils appartiennent à la même classe d'universalité. On dit qu'un système possède une certaine symétrie lorsque l'action de celle-ci sur les degrés de liberté du système n'en change pas l'énergie. Nous détaillerons plus en détails ce qu'est la symétrie $O(N)$ à laquelle nous nous sommes intéressés. 
+où $d$ est la dimension physique du système et $\nu$ et $\eta$ sont deux réels positifs appelés les \emph{exposants critiques}. Notons qu'il existe aussi comme cela plusieurs autres grandeurs desquelles ont peut extraire différents exposants critiques. Le point essentiel étant que tous les systèmes ayant les mêmes propriétés de symétrie possèdent les mêmes exposants critiques, on dit qu'ils appartiennent à la même classe d'universalité. En outre, un système possède une certaine symétrie lorsque l'action de celle-ci sur les degrés de liberté n'en change pas l'énergie. Nous détaillons plus en détails en \refsec{} à quoi correspond la symétrie $O(N)$ à laquelle nous nous sommes intéressés. 
 
-L'avantage est qu'il suffit d'étudier un système 'jouet' très simple, le plus simple possible, ayant la symétrie souhaitée pour trouver les exposants critiques de tous les autres systèmes physiques plus complexes avec la même symétrie. En revanche la température critique $T_c$ d'un système n'est pas une grandeur universelle, elle varie d'un système à l'autre, même s'ils ont les mêmes symétries, cela signifie que pour la calculer il n'est pas possible d'utiliser l'astuce précédente, il faut étudier précisément le système d'intérêt.
+L'avantage est qu'il suffit alors d'étudier un système 'jouet' très simple, le plus simple possible, ayant la symétrie souhaitée pour trouver les exposants critiques de tous les autres systèmes physiques plus complexes avec la même symétrie. Notons que la température critique $T_c$ n'est pas une grandeur universelle,elle est propre à chaque système et varie d'un système à l'autre, même s'ils ont les mêmes symétries. Pour la calculer il n'est donc pas possible d'utiliser l'astuce précédente, il faut étudier précisément le système d'intérêt.
 
 
 \subsection{Intérêt du groupe de renormalisation et des équations BMW}
 
-Le groupe de renormalisation (RG) permet de montrer l'effet d'universalité des exposants critiques et de les calculer. L'approche par le RG a permis d'obtenir déjà d'excellents résultats \cite{kadanoff1967scaling, wilson1971renormalization2} pour différents systèmes étudiés comparé aux expériences et autres méthodes comme les simulations Monte-Carlo. Cependant elle reste limitée dans ces applications car elle se fonde sur des approximations de "théorie des perturbations" pour pouvoir mener les calculs qui ne permettent de ne calculer par exemple que les exposants universels critiques mais pas les grandeurs non universelles comme la température critique $T_c$.\\
+Le groupe de renormalisation (RG) permet de montrer l'effet d'universalité des exposants critiques et de les calculer. L'approche par le RG a permis d'obtenir déjà d'excellents résultats \cite{kadanoff1967scaling, wilson1971renormalization2} pour différents systèmes étudiés comparé aux expériences et autres méthodes comme les simulations Monte-Carlo. Cependant elle reste limitée dans ces applications car elle se fonde sur des approximations de "théorie des perturbations" qui ne permettent de ne calculer par exemple que les exposants universels critiques mais pas les grandeurs non universelles comme la température critique $T_c$.\\
 
-Le groupe de renormalisation non perturbatif (NPRG) permet de répondre à ce problème en reprenant le principe du RG sous une approche différente permettant d'accéder à des équations exactes. Cependant, en pratique, ces équations ne sont pas solubles et il faut faire d'autres approximations, comme l'approximation BMW. Bien que cela reste compliqué en pratique, ces approximations peuvent permettre de récupérer à la fois les exposants critiques et les grandeurs non universelles. \\
+Le groupe de renormalisation non perturbatif (NPRG) permet de répondre à ce problème en reprenant le principe du RG sous une approche différente permettant d'accéder à des équations exactes. L'inconvénient est qu'alors ces équations exactes n'ont pas de solution a priori. Il faut faire d'autres approximations, comme l'approximation BMW, pour obtenir des équations solubles numériquement. Bien que cela reste compliqué en pratique, ces approximations peuvent alors permettre de récupérer à la fois les exposants critiques et la température critique. \\
 
-Le but de cette étude est d'appliquer l'approximation BMW à des systèmes connus grâces à d'autres méthodes afin de valider la qualité de cette approximation, de la méthode et de la résolution numérique.\\
-
-Pour cela nous avons repris une simulation numérique d'équations intégro-différentielles non linéaires obtenues par l'approximation BMW pour des systèmes régis par une certaine symétrie dite $O(N)$ à l'aide du système modèle générique de la "théorie $\varphiv^4$" \cite{LeonardThesis}. Elle a déjà permis de déterminer des exposants critiques avec précision pour certains systèmes, mettant bien en avant la qualité de l'approximation BMW. Cependant elle présente des comportements étranges et des résolutions instables dans d'autres cas. Le but était donc d'en rechercher les causes pour parvenir enfin à calculer avec ce code les exposants $\eta$ et $\nu$ dans toutes les configurations.\\
+Le but de cette étude est d'appliquer l'approximation BMW à des systèmes dont exposants et température critiques sont connus grâces à d'autres méthodes exactes ou numériques, afin de valider la qualité de cette approximation et de la résolution numérique.\\
 \indent
-De plus nous avons aussi réalisé la simulation des équations BMW pour un modèle précis ayant une symétrie $O(N=1)$, ceci afin d'essayer d'en récupérer la température critique. Ceci afin de la comparer à une valeur théorique connue, toujours dans l'objectif de valider la justesse de l'approximation BMW, en montrant sa capacité à calculer numériquement une grandeur non universelle, $T_c$, d'un système donné. \\
+Nous avons repris une simulation numérique d'équations intégro-différentielles non linéaires obtenues par l'approximation BMW pour des systèmes régis par une certaine symétrie dite $O(N)$ à l'aide du système modèle générique de la "théorie $\varphiv^4$" \cite{LeonardThesis}. Elle a déjà permis de déterminer des exposants critiques avec précision pour certains systèmes, mettant bien en avant la qualité de l'approximation BMW. Cependant elle présente des comportements étranges et des résolutions instables dans d'autres cas. Le but était donc d'en rechercher les causes pour parvenir enfin à calculer avec ce code les exposants $\eta$ et $\nu$ dans toutes les configurations.\\
+\indent
+De plus nous avons aussi réalisé la simulation des équations BMW pour un modèle précis, nommé Ising en deux dimensions (Ising 2D), ayant une symétrie $O(N=1)$, afin d'essayer d'en récupérer la température critique et de la comparer à la valeur théorique connue. L'objectif est alors bien de valider la justesse de l'approximation BMW, en montrant sa capacité à calculer numériquement une grandeur non universelle, $T_c$, d'un système donné. \\
 
-Dans une première partie nous rappelons les origines du modèle du RG et du NPRG puis nous l'utilisons pour expliquer la structure des équations BMW dans le cas de de la théorie $\varphiv^4$ et étudier numériquement leur résolution et la recherche des exposants critiques associés. Ensuite nous introduirons le modèle d'Ising à deux dimensions, système sur lequel nous avons recherché la température critique pour la comparer au résultat théorique d'Onsager.\cite{Onsager}. 
+Dans une première partie nous rappelons les origines du modèle du RG et du NPRG puis nous l'utilisons pour expliquer la structure des équations BMW dans le cas de de la théorie $\varphiv^4$ et étudier numériquement leur résolution et la recherche des exposants critiques associés. Enfin nous introduirons le modèle d'Ising à deux dimensions et les simulations numériques que nous avons réalisé dessus. 
 
 
 \vspace*{11pt}
@@ -212,7 +216,10 @@ Dans une première partie nous rappelons les origines du modèle du RG et du NPR
 
 Nous résumons dans cette sections quelques concepts fondamentaux de la thermodynamique et de la physique statistique \cite{diu2007thermodynamique} nécessaires à l'introduction du groupe de renormalisation. \\
 
-Considérons un système à $P$ corps dans un ouvert à $d$ dimensions $\Omega$ de volume $|\Omega|$. On considère que l'ensemble des $N$ degrés de liberté de chacun de ces $P$ corps peuvent être décrit suivant leur position $\rv$ grâce à un ensemble de vecteurs $\{{\varphiv_\rv}\}_\rv$. Le vecteur $\varphiv_\rv$ possède $N$ composantes représentant chacune la valeur d'un degré de liberté du corps situé en $\rv$. Cependant comme nous en avons déjà discuté, nous étudions des systèmes macroscopique, ou autrement dit, des systèmes dans la limite thermodynamique où le nombre $P$ de corps est très élevé. Suffisamment élevé pour considérer que l'ensemble de valeurs ${\{{\varphiv_\rv}\}}_\rv$ discrètes peut en réalité s'exprimer comme une fonction $\varphiv : \rv \in \Omega \rightarrow \varphiv(\rv) \in \R^N$, telle que $\varphiv \in \( \Cc^{0}(\Omega)\)^N$. \\
+Considérons un système à $P$ corps dans un ouvert à $d$ dimensions $\Omega$ de volume $|\Omega|$. Chacun de ces $P$ corps possèdent $N$ degrés de liberté. On considère que l'ensemble des $N$ degrés de liberté de chacun de ces $P$ corps peuvent être décrit suivant leur position $\rv$ grâce à une fonction $\varphiv : \rv \in \Omega \rightarrow \varphiv(\rv) \in \R^N$, telle que $\varphiv \in \( \Cc^{0}(\Omega)\)^N$. Si un corps se situe en $\rv$ les $N$ composantes du vecteur $\varphiv(\rv)$ représentent alors chacune la valeur de l'un de ces degrés de liberté. \\
+
+\commentout{
+ ensemble de vecteurs $\{{\varphiv_\rv}\}_\rv$. Le vecteur $\varphiv_\rv$ possède $N$ composantes représentant chacune la valeur d'un degré de liberté du corps situé en $\rv$. Cependant comme nous en avons déjà discuté, nous étudions des systèmes macroscopique, ou autrement dit, des systèmes dans la limite thermodynamique où le nombre $P$ de corps est très élevé. Suffisamment élevé pour considérer que l'ensemble de valeurs ${\{{\varphiv_\rv}\}}_\rv$ discrètes peut en réalité s'exprimer comme une fonction $\varphiv : \rv \in \Omega \rightarrow \varphiv(\rv) \in \R^N$, telle que $\varphiv \in \( \Cc^{0}(\Omega)\)^N$. }
 
 La dynamique du système est alors régie par un une fonctionnelle de $\varphiv$ : l'hamiltonien $H[\varphiv]$\footnote{Pour être plus précis ici $H = \beta H_\text{stat}$, où $\beta = 1/(k_b)T$ et $H_\text{stat}$ est classiquement le hamiltonien de la physique statistique}. Avec le formalisme canonique de la physique statistique \cite{rohtuA} nous savons que nous pouvons connaitre toutes l'information sur les propriétés macroscopiques du système en étudiant sa fonction de partition $\Zc$ définie par l'expression 
 \begin{equation}
@@ -245,7 +252,7 @@ Avec, en notant $\left< ... \right>$ la moyenne statistique,
 \end{equation}
 On introduit aussi une notation pour les tenseurs de dérivées fonctionnelles de $\Gamma$ avec 
 \begin{equation}
-  \Gamma^{(n)}_{\{i_j\}} [\{\xv_{j}\} ; \phiv] = \derd{^n \Gamma[\phiv]}{\phi_{i_1}(\xv_1) ... \delta \phi_{i_n}(\xv_n)}
+  \Gamma^{(n)}_{\{i_j\}} [\{\rv_{j}\} ; \phiv] = \derd{^n \Gamma[\phiv]}{\phi_{i_1}(\rv_1) ... \delta \phi_{i_n}(\rv_n)}
 \end{equation}
 On montre alors \cite{Delamotte2012}, qu'au sens d'inverse d'opérateur, comme définie en annexe,
 \begin{equation}
@@ -281,7 +288,7 @@ Dans la suite nous utiliserons alors une autre grandeurs scalaire invariante sou
 \begin{equation}
 	\rho = \frac{1}{2}  \phiv^2  
 \end{equation}
-Ainsi, pris en $\phiv$ uniforme le potentiel effectif $\Gamma^{(2)}$ devient une fonction de $\rho$ qui est un salaire et plus un vecteur comme $\phiv \text{ unif.}$ l'est. Il en est de même pour ses dérivées et pour $V_k$ ou tout autre grandeur fonction de $\phiv$. Notre étude porte uniquement sur des systèmes possédant cette symétrie.\\
+Ainsi, pris en $\phiv$ uniforme le potentiel effectif $\Gamma^{(2)}$ par exemple devient une fonction de $\rho$ qui est un salaire et plus un vecteur comme $\phiv \text{ unif.}$ l'est. Il en est pour $V_k$ ou tout autre grandeur fonction de $\phiv$. Notre étude porte uniquement sur des systèmes possédant cette symétrie.\\
 
 
 Développons à présent les théories du RG et du NPRG qui partent des quelques formules rappelées ici. 
@@ -428,7 +435,7 @@ En réalité, ce n'est pas vraiment à $\Zc$ que nous allons nous intéresser, m
 \begin{equation}
 	  W_k[\hv] = \text{ln}{\(\Zc_k[\hv]\)}
 \end{equation}
-Et de même pour le tenseur des fonctions de corrélation, que l'on exprime cette fois ci en fonction des transformées de Fourier (c.f.\refann{outils}) et en reprenant les mêmes notations qu'en \refsec{}.
+Et de même pour le tenseur des fonctions de corrélations, que l'on exprime cette fois ci en fonction des transformées de Fourier (c.f.\refann{outils}) et en reprenant les mêmes notations qu'en \refsec{}.
 \begin{equation}
   G^{(n)}_{k,\{i_j\}} [\{\pv_{j}\} ; \hv] = \derd{^n W_k[\hv]}{h_{i_1}(-\pv_1) ... \delta h_{i_n}(-\pv_n)}
 \end{equation}
@@ -440,7 +447,7 @@ Avec $\phiv$ défini comme
 \begin{equation}
   \phiv[\pv, \hv] = \left< \varphiv(\pv) \right> = \derd{W_k[\hv]}{\hv(-\pv)}
 \end{equation}
-Faire une pseudo-transformée de Legendre et non un vrai transformée de Legendre dans laquelle on n'aurait pas soustrait le terme en $\Delta S_k$ est utile pour obtenir une condition initiale de nos équations (c.f. \refeq{}). On s'intersse plus particulièrement alors à l'expression de $G^{(2)}_{k,ii}$ pour $i \in \bbrac{1,N}$ pris en $\{\pv, -\pv\}$. En effet seul ce cas là aura une utilité par la suite. On notera donc cette expression, pour être concis,
+Faire une pseudo-transformée de Legendre et non un vrai transformée de Legendre dans laquelle on n'aurait pas enlevé le terme en $\Delta S_k$ est utile pour obtenir une condition initiale de nos équations (c.f. \refeq{}). On s'intersse plus particulièrement alors à l'expression de $G^{(2)}_{k,ii}$ pour $i \in \bbrac{1,N}$ pris en $\{\pv, -\pv\}$. En effet seul ce cas là aura une utilité par la suite. On notera donc cette expression, pour être concis,
 \begin{equation}
 	G_{k,ii}[\pv; \hv] \equiv   G^{(2)}_{k, i i}[\pv, -\pv; \hv] = \derd{^2 W_k[\hv]}{h_{i}(-\pv)\delta h_{i}(\pv)}
 \end{equation}
@@ -498,7 +505,7 @@ Avant de s'occuper de l'application de l'écriture des équations BMW à un mod�
 \begin{equation}
 	Z_k \equiv {\left. \frac{\partial \Gamma_k^{(2)}[\pv ;\phiv]}{\partial \pv^2} \right|}_{\phiv \text{ unif.} = \phiv_0, \pv = \pv_0 }
 \end{equation}
-Où $\phi_0$ et $\pv_0$ sont des valeurs arbitraire du champ uniforme et de l'implusion. De cette manière  quand $k \to 0$ nous avons $Z_k \propto \pv^\eta$.
+Où $\phi_0$ et $\pv_0$ sont des valeurs arbitraire du champ uniforme et de l'implusion. De cette manière  quand $k \to 0$ nous avons $Z_k \propto \pv^{-\eta}$.
 On introduit alors $\eta_k$ tel que
 \begin{equation}
 	\eta_k = -k \partial_k \ln(Z_k)
@@ -689,7 +696,7 @@ Pour chercher un point fixe on résout le système différentiel précédent pou
 
 \subsection{Régulateur pour BMW continu}
 
-Il semble naturel, pour satisfaire à toutes les conditions précédentes, d'utiliser dans le régulateur une fonction de Heaviside (c.f. courbe en pointillés rouges \refig{RegDerReg} (a)) en écrivant 
+Il semble naturel, pour satisfaire à toutes les conditions  du régulateur, d'utiliser dans le régulateur une fonction de Heaviside (c.f. courbe en pointillés rouges \refig{RegDerReg} (a)) en écrivant 
 \begin{equation}
 	\forall q \in [0, \Lambda] \quad \Rc_k(q) = \alpha (k^2 - q^2) \Theta(k^2 - q^2)
 	\label{eq:RegHeav}
@@ -762,7 +769,7 @@ En posant
 h (\tp, \tq_1, \tq_2) \equiv f(\tq_1^2 + \tq_2^2) g(\tp^2 + \tq_1^2 + \tq_2^2 + 2\tp\tq_1)
 \end{equation}
 
-Le coefficient $S_{d-1}$ est une pré-facteur un réel. De ce fait, le calcul d'une intégrale à d dimensions se ramène au calcul de deux intégrales seulement, qui peut être fait sans problèmes avec une interpolation de Gauss-Legendre.
+Le coefficient $S_{d-1}$ est un pré-facteur réel. De ce fait, le calcul d'une intégrale à d dimensions se ramène au calcul de deux intégrales seulement, qui peut être fait chacun sans problèmes avec une interpolation de Gauss-Legendre.
 
 
 \subsection{Discrétisation en impulsion}
@@ -781,7 +788,7 @@ Où $T_j$ est le polynôme d'ordre $j$ de Tchebytchev de première espèce. On p
 \begin{equation}
 	\forall x \in [a,b] \quad \mathrm{Tch}_n[f](x) = \sum\limits_{j = 0}^{n-1} c_j T_j\(\frac{2x-a-b}{b-a}\)
 \end{equation}
-Ainsi on montre que
+Il vient alors
 \begin{equation}
 \mathrm{sup} |f(x) - \mathrm{Tch}_n[f](x)| \le \frac{(b-a)^{n}}{2^{2n-1} n!}\mathrm{sup} |f^{(n+1)}(x)|
 \end{equation}
@@ -1063,7 +1070,7 @@ Ainsi, il vient,
 \end{equation}
 En définissant le noyaux de Dirichlet $D_{N_S}$ par
 \begin{equation}
-  \forall \pv \in [-\pi, \pi]^2 \quad D_{N_S} (\pv) =  \sum_{\rv} e^{i \pv \rv} 
+  \forall \pv \in [-\pi, \pi]^d \quad D_{N_S} (\pv) =  \sum_{\rv} e^{i \pv \rv} 
 \end{equation}
 \commentout{
 \begin{equation}
@@ -1200,7 +1207,7 @@ Pour des raisons pratiques nous avons décomposé la résolution numérique des 
 En effet, comme nous travaillons sur un réseau, les fonctions que l'on considère sont alors $2\pi$ périodiques selon les composantes des impulsions lorsque l'on considère les variables et les fonctions dimensionnées. (i.e. les fonctions et variables notées de manière générale sans tilde). Ceci permet de s'affranchir de certaines approximations numériques dans le calcul des intégrales. Il est donc préférable de commencer par résoudre le système d'équation BMW brut, noté $\Ec_1$, sans réaliser d'adimensionnement (équivalent à \refeq{}) pour $k $ variant de $\Lambda$ à $k_a$ (ou $k_a$ a une valeur déterminée). Le problème BMW à résoudre est donc \\
 
 \noindent
-{\itshape Trouver $\Delta_k$, $X_k$, solution de $\Ec_1$, i.e tels que pour tout $p_x \in [0, \pi]$, $p_y \in [0, \pi]$, $\phi \in [0, \infty[$, $k\in [k_a, \Lambda]$}
+{\itshape Trouver $\Delta_k$, $X_k$, solution de $\Ec_1$, i.e tels que pour tout $p_x \in [-\pi, \pi]$, $p_y \in [-\pi, \pi]$, $\phi \in \R$, $k\in [k_a, \Lambda]$}
 
 
 \begin{align}
@@ -1233,7 +1240,7 @@ Dans un second temps pour $k \in [k_b, k_a]$ (où $k_b < k_a$) on utilise un nou
 
 
 \noindent
-{\itshape Trouver $\bDelta_k$, $\bX_k$, solution de $\Ec_2$, i.e tels que pour tout $\tp_x \in [0, \tp_{max}]$, $\tp_y \in [0, \tp_{max}]$, $\phi \in [0, \infty[$, $k\in [k_b, k_a]$}
+{\itshape Trouver $\bDelta_k$, $\bX_k$, solution de $\Ec_2$, i.e tels que pour tout $\tp_x \in [-\tp_{max}, \tp_{max}]$, $\tp_y \in [-\tp_{max}, \tp_{max}]$, $\phi \in \R$, $k\in [k_b, k_a]$}
 
 \begin{align}
 	\partial_t  \bDelta_k (\tp_x, \tp_y, \phi) & = 
@@ -1255,7 +1262,7 @@ On pourra se référer à \refann{} pour les différentes notations. Les conditi
 \bDelta_{k_a}(\tp_x, \tp_y, \phi) = \Delta_{k_a}(p_x, p_y, \phi) \quad \text{et} \quad \bX_{k_a}(\phi) = X_{k_a}(\phi)
 \end{equation*}
 
-Pour assurer la compatibilité entre les deux systèmes il faut alors respecter $k_a\tp_{max} = \pi$. 
+Pour assurer la compatibilité entre les deux systèmes il faut alors respecter $k_a\tp_{max} = \pi$.
 
 
 \begin{figure}[H]
@@ -1273,7 +1280,7 @@ Pour assurer la compatibilité entre les deux systèmes il faut alors respecter 
 Enfin les deux jeux d'équation précédents n'utilisent pas de variables adimensionnées et donc comme mentionné à plusieurs reprise, ce qui nous intéresse serait de trouver un point fixe du RG. En effet le but est de trouver la température critique du modèle d'Ising 2D et il faut, pour cela, essayer de se rapprocher d'un point fixe. On utilise alors, dans un dernier temps, un nouveau système $\Ec_3$ des équations totalement adimensionnées. On prend comme condition initiale le résultat donné par la simulation de $\Ec_2$ à $k = k_b$. Le problème à résoudre devient alors \\
 
 \noindent
-{\itshape Trouver $\tY_k$, $\tX_k$, solution de $\Ec_3$, i.e tels que pour tout $\tp_x \in [0, \tp_{max}]$, $\tp_y \in [0, \tp_{max}]$, $\tphi \in [0, \infty[$, $k\in ]0, k_b]$}
+{\itshape Trouver $\tY_k$, $\tX_k$, solution de $\Ec_3$, i.e tels que pour tout $\tp_x \in [-\tp_{max}, \tp_{max}]$, $\tp_y \in [-\tp_{max}, \tp_{max}]$, $\tphi \in \R$, $k\in ]0, k_b]$}
 
 \begin{equation}
 \begin{split}
@@ -1299,7 +1306,7 @@ Avec une relation supplémentaire sur $\eta_k$
 \eta_k = \frac{1}{2} \tI_2(0) \partial_{\tphi}^2 \tY_k(0,0,0) 
 \end{equation}
 
-En conclusion ici l'important est cette résolution numérique des équations que l'on découpe en trois parties distinctes pour utiliser au mieux les symétries du problème.
+En conclusion ici l'important est cette résolution numérique des équations que l'on découpe en trois parties distinctes pour utiliser au mieux les symétries du problème. Ici encore, comme dans le modèle $\varphiv^4$ nos équations ne possèdent pas de conditions aux bords, seulement des conditions initiales.
 
 
 
@@ -1334,9 +1341,82 @@ Détaillons alors maintenant les différentes techniques numériques utilisées.
 \vspace*{11pt}
 
 
+
+\subsection{Symétries et périodicité des fonctions}
+
+
+Commençons par étudier les symétries du problème. En effet les différents jeux d'équations permettent de déterminer les symétries des solutions que l'on suppose exister. Soit une fonction $ f : (q_x, q_y,\phi) \in [-\pi, \pi]^2 \times \R \to \R$ et $g : \phi \to \R$. On note les opérateurs de symétrie :
+\begin{equation}
+	\mathcal{S}_{q_x} [f](q_x, q_y, \phi) = f(-q_x, q_y, \phi)
+\end{equation} 
+\begin{equation}
+	\mathcal{S}_{q_y} [f](q_x, q_y, \phi) = f(q_x, -q_y, \phi)
+\end{equation} 
+\begin{equation}
+	\mathcal{S}_\phi [f](q_x, q_y, \phi) = f(q_x, q_y, -\phi)
+\end{equation} 
+\begin{equation}
+	\mathcal{S}_{q_xq_y}[f](q_x, q_y) = f(q_y, q_x, \phi)
+\end{equation}
+\begin{equation}
+\mathcal{S}_\phi [g](\phi) = g(-\phi)
+\end{equation} 
+
+
+La relation de dispersion est invariante par les opérateurs précédents portant sur les impulsions et le potentiel initial $\phi \to U(\phi)$ est invariant par le changement de $\phi$ en $- \phi$. Or comme nous le montrons en \refann{}, de manière générale, les fonctions des équations BMW satisfont aux symétries de la relation de dispersion et du potentiel initial. Ainsi, considérons le schéma semi-discrétisé en temps de $\Ec_1$. On note $\Delta_{k_n}$ la fonction $\Delta_k$ au pas de discrétisation $n$ en temps $t_n = \ln(k_n/\lambda)$ ainsi que de même $X_{k_n}$. 
+\begin{equation}
+\forall n \in \N \quad \nu =  q_x,q_y,q_xq_y,\phi \quad  \mathcal{S}_\nu[\Delta_{k_{n}}] = \Delta_{k_{n}} 
+\end{equation}
+\begin{equation}
+\forall n \in \N \quad   \mathcal{S}_\phi[X_{k_{n}}] = X_{k_{n}} 
+\end{equation}
+De même, avec les notations similaires, pour $\Ec_1$ et $\Ec_2$,
+\begin{equation}
+\forall n \in \N \quad \nu =  \tq_x,\tq_y,\tq_x\tq_y,\phi \quad  \mathcal{S}_\nu[\bDelta_{k_{n}}] = \bDelta_{k_{n}} 
+\end{equation}
+\begin{equation}
+\forall n \in \N \quad \nu =  \tq_x,\tq_y,\tq_x\tq_y,\tphi \quad  \mathcal{S}_\nu[\tY_{k_{n}}] = \tY_{k_{n}} 
+\end{equation}
+\begin{equation}
+\forall n \in \N \quad  \mathcal{S}_\phi[\bX_{k_{n}}] = \bX_{k_{n}}, \quad \mathcal{S}_{\tphi}[\tX_{k_{n}}] = \tX_{k_{n}}
+\end{equation}
+
+
+
+
+\commentout{
+Soit, $\nu = x,y,xy,\phi$, montrons que si $\mathcal{S}_\nu[\Delta_{k_{n}}] = \Delta_{k_{n}}$ alors $\mathcal{S}_\nu[\Delta_{k_{n+1}}] = \Delta_{k_{n+1}}$. \\
+
+En effet, la symétrie en champ $\phi$ est immédiate. Maintenant on sait que $J_{3,n}$ peut s'écrire sous la forme
+
+\begin{equation}
+\begin{split}
+J_{3,n}(p_x, p_y, \phi) \propto \int &  F\(\Delta_{k_n}(p_x + q_x, p_y+q_y, \phi), X_{k_n}(\phi)\) \\
+\times & G\(\Delta_{k_n}(q_x, q_y, \phi),  X_{k_n}(\phi)\) \dd \, q_x \, \dd \,q_y
+\end{split}
+\end{equation}
+}
+
+
+
+
+De cette manière on ne considère que $\phi \in [0, \infty[$ et des impulsions qui sont dans une zone restreinte de la zone du carré $[-\pi,\pi]^2$ (que l'on appelle première zone de Brillouin) détaillée en \refig{SurfUtile}.\\
+
+
+ Enfin mentionnons que puisque $\eo$ est une fonction $2\pi$-périodique alors $\Delta_{k_n}$ l'est aussi pour tout $n\in\N$ par rapport au variables $p_x$ et $p_y$. Cette propriété est perdu pour $\bDelta_{k_n}$ et $\tY_{k_n}$.
+ 
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.95\columnwidth]{SurfUtile.pdf}
+\end{center}
+\caption{Premier zone de Brillouin(rouge transparent). Zone considérée pour la quadrature des intégrales $J$, $\bJ$, $\tJ$ (hachurée noire). Zone dans laquelle est défini les fonctions de $p_x$, $p_y$ et $\tp_x$ et $\tp_y$ sur laquelle est appliqué la quadrature des intégrales  $I$, $\bI$, $\tI$ (bleue remplie). Les symétries permettent donc de "réduire" le problème à un espace plus petit en impulsion.}
+\label{fig:SurfUtile}
+\end{figure}
+
+
 \subsection{Interpolation de Tchebytchev}
 
-Afin de pouvoir calculer avec précision les intégrales $J$, $\bJ$, $\tJ$ apparaissant dans les équations nous avons choisi d'interpoler la fonction $\Delta_k$ ainsi que ces dérivées dans le plan des impulsions. Comme annoncé, pour cela nous réutilisons encore une interpolation de Tchébytchev adaptée en dimension 2. 
+Afin de pouvoir calculer avec précision les intégrales $J$, $\bJ$, $\tJ$ apparaissant dans les équations nous avons choisi d'interpoler la fonction $\Delta_k$ ainsi que ses dérivées et ses pendants adimensionnées dans le plan des impulsions. Comme annoncé, pour cela nous réutilisons encore une interpolation de Tchébytchev adaptée en dimension 2. 
 
 \subsubsection{Théorème de décomposition}
 
@@ -1344,13 +1424,13 @@ Nous rappelons ici un théorème justifiant l'utilisation des polynômes de Tche
 
 \noindent
 \textbf{Décomposition de Tchebytchev 2D.} 
-  Soient $a$, $b$ deux réels tels que $b>a$. Soit $f : [a,b]^2 \rightarrow \R$ une fonction continue aux variations bornées (comme définies en \cite{Tchebychev}). On suppose que l'une des dérivées partielles de de $f$ existe et est bornée dans $[a,b]$. Alors il existe une suite des coefficients réels $\{c_{ij}\}_{(i,j) \in \N^2}$ tels que la série $f_n$ définie par :
+{\itshape  Soient $a$, $b$ deux réels tels que $b>a$. Soit $f : [a,b]^2 \rightarrow \R$ une fonction continue aux variations bornées (comme définies en \cite{Tchebychev}). On suppose que l'une des dérivées partielles de de $f$ existe et est bornée dans $[a,b]$. Alors il existe une suite des coefficients réels $\{c_{ij}\}_{(i,j) \in \N^2}$ tels que la série $f_n$ définie par :
 \begin{equation}
 \begin{split}
 f_n(x,y) = \sum_{i=0} ^{n} \sum_{j=0} ^{n} c_{ij} T_i\(\frac{2x-a-b}{b-a}\)T_j\(\frac{2y-a-b}{b-a}\)
 \end{split}
 \end{equation}
-converge uniformément vers $f$ quand $n \rightarrow +\infty$.\\
+converge uniformément vers $f$ quand $n \rightarrow +\infty$.}\\
 
 
 Ce théorème et sa démonstrations se trouvent dans l'ouvrage \cite{Tchebychev, Masson1980} dans le cas $a=-1$, $b=1$. La généralisation à $a$ et $b$ ($b>a$) quelconques est immédiate. Considérons le schéma semi-discrétisés en temps des équations.Pour des raisons similaires à ce qui a été fait en \refsec{} (\refann{}) nous travaillons alors avec des fonctions de classe $\Cc^\infty$ (donc $\Cc^1$) selon les variables $\phi$, $p_x$ et $p_y$ (ou leur équivalent adimensionné). Il vient que la condition de variations bornées est satisfaite \cite{Masson1980}.
@@ -1390,7 +1470,7 @@ Avec la notation
   \end{cases}
 \end{align}
 
-Cette méthode est couteuse puisque pour calculer l'ensemble des coefficients de $((c_{ij}))_{i,j}$ cela demande un algorithme de complexité évoluant en $\mathcal{O}(n_c^2)$. En outre pour ensuite obtenir $f(x,y)$ en tout point $(x,y) \in [a,b]^2$, il faut utiliser un algorithme qui est aussi de complexité $\mathcal{O}(n_c^2)$. Ce pourquoi, afin d'obtenir de meilleures sur les interpolations tout en conservant un temps de calcul raisonnable nous avons implémenté la deuxième méthode suivante.
+Cette méthode est couteuse puisque pour calculer l'ensemble des coefficients de $((c_{ij}))_{i,j}$ cela demande un algorithme de complexité évoluant en $\mathcal{O}(n_c^2)$. En outre pour ensuite obtenir $f(x,y)$ en tout point $(x,y) \in [a,b]^2$, il faut utiliser un algorithme qui est aussi de complexité $\mathcal{O}(n_c^2)$. Ce pourquoi, afin d'obtenir de meilleurs temps de calcul sur les interpolations à précision fixée nous avons implémenté la deuxième méthode suivante.
 
 
 \vspace*{11pt}
@@ -1434,14 +1514,16 @@ Afin de récupérer la valeur de $f$ en un point quelconque $(x,y) \in [a,b]^2 $
 
 \subsection{Le calcul des intégrales} 
 
-Pour calculer numériquement les différentes intégrales nous nous servons des propriétés de symétries des différentes fonctions. En effet pour tout $\phi \in \R^+$  et $k \in ]0, \Lambda]$, les fonctions qui à $(p_x, p_y)$  associent $\eo(p_x,p_y)$, $\Rc_k(p_x,p_y)$, $\Delta_k(p_x,p_y,\phi)$ ainsi que leur pendant adimensionné, sont directement, de par la stucture des équations, des fonctions symétriques par l'échange de $p_x$ en $-p_x$, par l'échange de 
+Pour calculer numériquement les différentes intégrales nous nous servons des propriétés de symétrie que nous avons détaillées des différentes fonctions. Cependant il s'est aussi posé le choix de la méthode utilisée pour réaliser cette quadrature. Comme les intégrales sont à calculer sur une forme géométrique simple, un carré (ou la moitié d'un carré), nous avons opté pour utiliser une version "tensiorielle" d'une quadrature à une dimension de Gauss-Legendre. Cependant nous avions eu d'autres idées que nous n'avons pas retenues pour diverses raisons expliquées ci-dessous.
 
 
 \subsubsection{Le choix de la quadrature}
 
-On interpole la partie en impulsion des fonctions avec des polynômes de Tchebytchev et on utilise toujours une méthode pseudo-specrtrale\footnote{c'est à dire que l'on connait à chaque pas de temps la valeur de la fonction au points d'interpolation de Tchebythchev, ainsi que les coefficients de son développement en série de polynômes de Tchebytchev}. Il semble donc naturel de se demander si la quadrature de Gauss-Legendre est vraiment la mieux adaptée. En effet, pour gagner du temps et utiliser directement la connaissance de la fonction aux points d'interpolation nous avons penser au calcul d'intégrale par la \emph{première règle de Fejer} \cite{} qui permet cela. En effet les points de quadrature de cette méthode sont ceux de 
+On interpole la partie en impulsion des fonctions avec des polynômes de Tchebytchev et on utilise toujours une méthode pseudo-specrtrale\footnote{c'est à dire que l'on connait à chaque pas de temps la valeur de la fonction au points d'interpolation de Tchebythchev, ainsi que les coefficients de son développement en série de polynômes de Tchebytchev}. Il semble donc naturel de se demander si la quadrature de Gauss-Legendre est vraiment la mieux adaptée. En effet, pour gagner du temps et utiliser directement la connaissance de la fonction aux points d'interpolation nous avons penser au calcul d'intégrale par la \emph{première règle de Fejer} \cite{} qui permet cela. En effet les points de quadrature de cette méthode sont ceux de l'interpolation de Tchebytchev avec les polynômes de première espèce, comme nous le faisons ici. Ainsi on d'affranchi du calcul par la méthode de Clenshaw en $\mathcal{0}(n_c^2)$ de la fonction à intégrer. 
  
-Cependant cette méthode c'est avérée être inéficace puisque il faut de manière générale plus de points pour obtenir la même précision qu'une quadrature de Gauss Legendre. Et de plus, afin d'assurer la compatibilité entre l'interpolation et la quadrature il est nécessaire que les deux se fassent sur le même nombre de point, ce qui est restrictif. 
+Cependant cette méthode c'est avérée être inefficace puisque il faut de manière générale plus de points pour obtenir la même précision qu'une quadrature de Gauss Legendre. Et de plus, afin d'assurer la compatibilité entre l'interpolation et la quadrature il est nécessaire que les deux se fassent sur le même nombre de point, ce qui est restrictif. Enfin le passage le plus long du code est le calcul des intégrales $J_3$, $\bJ_3$, $\tJ_3$ et cette quadrature ne permet pas de réaliser ce calcul plus vite. En effet pour calculer cette intégrale il faut évaluer les fonctions $\Delta_k$, $\bDelta_k$, $\tY_k$ en des points $(p_x+q_x, p_y+q_y,\phi)$. ce qui, par la somme des impulsion nécessite, pour être précis dans le calcul d'interpoler. Et ce, avec n'importe quelle discrétisation en impulsion faite sur une grille de points non régulièrement espacés. \\
+
+Une alternative complètement différente aurait consisté à ne pas utiliser d'interpolation de Tchebytechv  mais de discrétiser en impulsion sur une grille de point régulièrement espacé. Il est alors possible d'écrire en deux dimensions une quadrature qui ne demande de connaitre la fonction à intégrer qu'aux points de discrétisations et ceux même pour la fonction $J_3$ et ses versions adimensionnées (en effet si alors $p_x$ et $q_x$ appartiennent à la grille de discrétisation alors $p_x+q_x$ aussi\footnote{En utilisant la périodicité des fonctions on se ramène encore à un point de la grille quand $p_x+q_x$ en dépasse}. Cependant les quadratures alors testées (basé sur une triangulation régulière de l'espace et des descriptions des fonctions par éléments finis) demandaient un nombre trop important de points de discrétisation pour obtenir des précision suffisante en comparaison de la quadrature de Gauss-Legendre.
 
 % Insert image of calculation by these two quadrature  
 
@@ -1506,7 +1588,9 @@ Et on adopte encore la même quadrature que pour les intégrales $I$, $\bI$, $\t
 Les dérivées numériques sont encore calculée sur 5 points pour essayer de ne pas perdre en précision. Cependant comme nous l'avons mentionné nous avons du dans des premières versions du code utilisé des dérivées sur trois points à cause d'instabilité en bords des grilles de discrétisation. Nous pouvons justifier rapidement la présence de telles instabilités. En effet, comme nous ne disposons pas de conditions aux bords pour nos équations il se trouve que nous sommes obligés d'utiliser des schémas de discrétisation à cinq points fortement décentrés sur les bords, n'utilisant que des points à l'intérieur de la grille.\\
 
 
-Or, pour étudier simplement ces schéma nous les appliquons à une équation d'advection du type $\partial_x u + a \partial_t u = 0$ et nous en faisons une analyse de Von-Neumann. Il est donc possible de calculer les facteurs d'amplification de ces schémas comme en \refig{FacAmp}
+Or, pour étudier simplement ces schéma nous les appliquons à une équation d'advection du type $\partial_x u + a \partial_t u = 0$ et nous en faisons une analyse de Von-Neumann. Il est donc possible de calculer les facteurs d'amplification de ces schémas, comme en \refig{FacAmp}, montrant que les schémas à 5 points peuvent rapidement introduire des instabilités.\\
+
+Bien que nos équations soient assez éloignées d'une simple équation d'advection cette rapide étude permet de donner une idée de la raison pour laquelle l'utilisation de dérivées à trois points a probablement permis de résoudre des problèmes d'instabilité en bord de grille en champ.
 
 \begin{figure}[H]
 \begin{center}
@@ -1515,8 +1599,6 @@ Or, pour étudier simplement ces schéma nous les appliquons à une équation d'
 \caption{(a) Facteur d'amplification $f_A$ du schéma décentré gauche à 3 points pour la dérivée première obtenu par analyse de Von-Neuman pour $a=1$ (bleu). Le cercle rouge représente le cercle unité. (b) Même chose pour le schéma décentré gauche à 5 points. Les courbes bleues restent dans le cercle rouge pour des modes de fréquence $|\theta| < \pi/4$ dans les deux cas, mais en dehors du cercle unité $f_A$ conserve une amplitude bien plus modérée dans le cas (a). Ainsi nous pouvons penser que dans notre schéma le schéma à 3 points à plus de chance d'être stable pour un même pas de discrétisation.}
 \label{fig:FacAmp}
 \end{figure}
-
-Bien que nos équations soient assez éloignées d'une simple équation d'advection cette rapide étude permet de donner une idée de la raison pour laquelle l'utilisation de dérivées à trois points a probablement permis de résoudre des problèmes d'instabilité en bord de grille en champ.
 
 \subsection{Complexité algorithmique et parallélisation - problème de rapidité} 
 
@@ -1540,6 +1622,7 @@ Comme pour le modèle continu $O(N)$ il est possible de paralléliser le code en
 \end{figure}
 
 
+\section{Conclusion}
 
 \pagebreak
 
@@ -1612,7 +1695,7 @@ Soit $f \in U$. On appelle, si elle existe, dérivée (au sens de Fréchet) de l
 \begin{equation}
 \forall h \in U \quad \lim_{ \eps \rightarrow 0 } \frac{\| F[f+\eps h] - F[f] - \eps D_fF.h\|_V}{\eps}  = 0
 \end{equation} 
-Dans le cas où $U = L^2(\R^d)^N$ et $V = \R$ alors $D_fF \in U'$ (espace des forme linéaires continues de $U$) et on sait qu'il existe, par le théorème de Frechet-Riesz, une quantité unique que l'on note $\delta F[f]/\delta f /in U'(=U)$ telle que 
+Dans le cas où $U = L^2(\R^d)^N$ et $V = \R$ alors $D_fF \in U'$ (espace des forme linéaires continues de $U$) et on sait qu'il existe, par le théorème de Frechet-Riesz, une quantité unique que l'on note $\delta F[f]/\delta f \in U'(\simeq U)$ telle que 
 \begin{equation}
 \forall h \in U \quad D_f F.h = {\left< \derd{F[f]}{f}, h \right>}_{U} = \int \derd{F[f]}{f(\rv)} h(\rv) \dd \, \rv	
 \end{equation}
@@ -1676,7 +1759,7 @@ On appelle $S$ un operateur a noyaux, une application de $(L^2(\R^d))^N$, telle 
 
 \vspace*{11pt}
 
-\subsubsection{TF d'un opérateur à noyaux}
+\subsubsection{TF d'un opérateur à noyau}
 
 Nous avons vu que $S$ définie comme précédemment était un endomorphisme de $(L^2(\R^d)^N$. Ainsi il est possible d'en définir la transformée de Fourier. Introduisons tout d'abord la transformée de Fourier du noyaux, pour $(i,j) \in \bbrac{1,N}^2$ et $(\qv, \qv') \in (\R^d)^2 $
 \begin{equation}
@@ -1759,6 +1842,11 @@ Nous abordons maintenant pour finir les expressions de la dérivation de la tran
 \section{Propriétés des fonctions à discrtiser}
 
 
+
+\subsection{Symétries}
+
+
+\subsection{Régularité}
 
 On considère le schéma semi-discret en temps de l'équation \refeq{}.  On veut montrer pour un pas de temps $n$ donné la fonction $\tY_{k_n}$ est une fonction de classe $\Cc^\infty$ sur $[0, +\infty[^2$ et $\tW_{k_n}$ sur $[0, +\infty[$.
 On suppose que l'on ne rencontre jamais de pôle du propagateur, c'est à dire qu'il n'existe aucun couple $(\tp,\trho)$ tel que $(\tG_{k_n}(\tp, \trho))^{-1} = 0$ 
