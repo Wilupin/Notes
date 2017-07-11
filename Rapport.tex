@@ -214,6 +214,8 @@ Dans une première partie nous rappelons les origines du modèle du RG et du NPR
 \section{Origine du modèle}
 \subsection{Concepts de physique statistique}
 
+\label{sec:Origin}
+
 Nous résumons dans cette sections quelques concepts fondamentaux de la thermodynamique et de la physique statistique \cite{diu2007thermodynamique} nécessaires à l'introduction du groupe de renormalisation. \\
 
 Considérons un système à $P$ corps dans un ouvert à $d$ dimensions $\Omega$ de volume $|\Omega|$. Chacun de ces $P$ corps possèdent $N$ degrés de liberté. On considère que l'ensemble des $N$ degrés de liberté de chacun de ces $P$ corps peuvent être décrit suivant leur position $\rv$ grâce à une fonction $\varphiv : \rv \in \Omega \rightarrow \varphiv(\rv) \in \R^N$, telle que $\varphiv \in \( \Cc^{0}(\Omega)\)^N$. Si un corps se situe en $\rv$ les $N$ composantes du vecteur $\varphiv(\rv)$ représentent alors chacune la valeur de l'un de ces degrés de liberté. \\
@@ -231,7 +233,7 @@ Considérons l'hypothèse physique selon laquelle $H$ peut se décomposer en deu
 \begin{equation}
 H[\varphiv] = S[\varphiv] - \int_{\Omega} \hv \varphiv,
 \end{equation} 
-où $S$ est l'hamiltonien du système isolé et le deuxième terme correspond à l'excitation du système par un champ $\hv$ extérieur. Ainsi $\Zc$ devient une fonctionnelle de $\hv$ et nous définissons l'énergie libre du système comme étant 
+où $S$ est l'hamiltonien du système non excité et le deuxième terme correspond à l'excitation du système par un champ $\hv$ extérieur. Ainsi $\Zc$ devient une fonctionnelle de $\hv$ et nous définissons l'énergie libre du système comme étant 
 \begin{equation}
   W[\hv] = \text{ln}{\(\Zc[\hv]\)}
 \end{equation}
@@ -243,7 +245,7 @@ Cependant ces grandeurs ne peuvent pas se calculer directement. Or, comme l'éne
 \begin{equation}
   \Gamma [\phiv] = - W[\hv] + \int_{\Omega} \hv \phiv,
 \end{equation}
-Avec, en notant $\left< ... \right>$ la moyenne statistique,
+Avec, en notant $\left< ... \right>$ la moyenne statistique, et en introduisant le champ moyen $\phiv$,
 \begin{equation}
   \phiv[\rv, \hv] = \left< \varphiv(\rv) \right> = \derd{W[\hv]}{\hv(\rv)}
 \end{equation}
@@ -281,17 +283,15 @@ et la position du minimum global de $V$ noté $\phiv_m$ est lié à la nature de
 
 On dit qu'un système est symétrique selon $O(N)$ s'il est invariant par l'action du groupe de rotation $O(N)$ sur ces degrés de libertés. Plus précisément, soit $J \in O(N)$, et on note $J.V$ l'action de $J$ sur un vecteur $V$ de $\R^N$. Le modèle est dit $O(N)$ si 
 \begin{equation}
-	H[J \varphiv] = H[\varphiv]	
+	H[J .\varphiv] = H[\varphiv]	
 \end{equation}
-
 Dans la suite nous utiliserons alors une autre grandeurs scalaire invariante sous $O(N)$ pour caractériser les champs $\phiv$ uniformes 
 \begin{equation}
 	\rho = \frac{1}{2}  \phiv^2  
 \end{equation}
-Ainsi, pris en $\phiv$ uniforme le potentiel effectif $\Gamma^{(2)}$ par exemple devient une fonction de $\rho$ qui est un salaire et plus un vecteur comme $\phiv \text{ unif.}$ l'est. Il en est pour $V_k$ ou tout autre grandeur fonction de $\phiv$. Notre étude porte uniquement sur des systèmes possédant cette symétrie.\\
+Ainsi, pris en $\phiv$ uniforme le potentiel effectif $\Gamma^{(2)}$ par exemple devient une fonction de $\rho$ qui est un salaire et plus un vecteur comme $\phiv \text{ unif.}$ l'est. Il en est pour $V$ ou tout autre grandeur fonction de $\phiv$. Notre étude porte uniquement sur des systèmes possédant cette symétrie.\\
 
-
-Développons à présent les théories du RG et du NPRG qui partent des quelques formules rappelées ici. 
+Développons à présent les concepts du RG et du NPRG avec lesquels nous avons travaillés.
 
 
 
@@ -301,6 +301,8 @@ Développons à présent les théories du RG et du NPRG qui partent des quelques
 
 \subsubsection{Transformée de Fourier}
 
+\label{sec:TF}
+
 Nous rappelons ici de manière synthétiques les principales idées du RG développé par Wilson \cite{wilson1971renormalization, wilson1971renormalization2,fisher1998renormalization}. Commençons pour cela par définir la transformée de Fourier du champ $\varphiv$ appartenant à $L^2(\Omega)$ par 
 \begin{equation}
 \begin{split}
@@ -308,7 +310,8 @@ Nous rappelons ici de manière synthétiques les principales idées du RG dével
 \varphiv(\rv) = \frac{1}{\sqrt{|\Omega|}}\sum_\pv \hat{\varphiv}_\pv \, e^{i \pv  .\rv}
 \end{split} 	
 \end{equation}
-On fait l'hypothèse qu'il existe un réel $\Lambda$ tel que pour $\|\pv\|_{\infty} > \Lambda$, $\hat{\varphiv}(\pv) \simeq 0$. On considère donc $\pv \in [0, \Lambda]^d$. Ceci signifie que $\varphiv$ est une fonction suffisamment régulière et cette valeur $\Lambda$ correspond physiquement à l'inverse de la plus petite longueur caractéristique du système, qui est classiquement la distance moyenne entre les corps par exemple. En pratique on suppose que comme dans la limite thermodynamique on étudie des systèmes macroscopiques tels que $|\Omega|\gg 1/\Lambda^d$. Ainsi on fait l'approximation physique selon laquelle les impulsions ne sont plus des variables discrètes mais des variables continues avec les équivalences  
+On fait l'hypothèse qu'il existe un réel $\Lambda$ tel que pour $\|\pv\|_{\infty} > \Lambda$, $\hat{\varphiv}(\pv) \simeq 0$. On considère donc $\pv \in [0, \Lambda]^d$. Ceci signifie que $\varphiv$ est une fonction suffisamment régulière et cette valeur $\Lambda$ correspond physiquement à l'inverse de la plus petite longueur caractéristique du système, qui est classiquement la distance moyenne entre les corps par exemple. En pratique on suppose que comme dans la limite thermodynamique on étudie des systèmes macroscopiques tels que $|\Omega|\gg 1/\Lambda^d$. Ainsi on fait l'approximation physique selon laquelle les impulsions ne sont plus des variables discrètes mais continues avec les équivalences  
+
 \begin{equation}
 \begin{split}
 	\frac{1}{|\Omega|} \sum_{\pv} & \rightarrow \frac{1}{(2\pi)^d} \int_{\R^d} ... \, \dd \, \pv  \equiv \int_\pv ... \\
@@ -324,6 +327,8 @@ Dès lors qu'il n'y aura pas d'ambiguïté possible, nous pourrons donc oublier 
 
 
 \subsubsection{Idée générale}
+
+\label{sec:RG}
 
 L'idée du RG est alors de ne pas considérer tous les degrés de liberté sur le même pied d'égalité. En effet, on commence d'abord, pour calculer $\Zc$, par intégrer les degrés de libertés de haute impulsion $\pv$ entre $k = \Lambda/s$ et $\Lambda$ où $k \in [0,\Lambda]$. En pratique on sépare $\varphiv$ en deux fonctions $\varphiv_>$ et $\varphiv_<$ telles que $\varphiv(\pv) = \varphiv_{k,>}(\pv) + \varphiv_{k,<}(\pv)$ et
 \begin{align}
@@ -370,7 +375,7 @@ Dans un calcul de RG on prend classiquement un nombre fini de constantes de coup
 \subsection{Le groupe de renormalisation non perturbatif (NPRG)}
 \subsubsection{Généralités}
 
-Contrairement au RG le NPRG développé par Wetterich \cite{wetterich} va plus loin puisqu'il permet un calcul sans approximations a priori. L'idée reste la même que dans le RG en intégrant les hautes impulsions en  premier lieu. Cependant l'astuce consiste à faire cela en introduisant un tenseur de fonctions  $\Rc \in \(H_1(]0, \Lambda], H_1([0,\Lambda]^d))\)^{N\times N} : (k,\qv) \to \Rc_{k, ij}(\qv)$, puis une nouvelle fonction de partition modifiée,  
+Contrairement au RG le NPRG développé par Wetterich \cite{wetterich} va plus loin puisqu'il permet un calcul sans approximations a priori. L'idée reste la même que dans le RG en intégrant les hautes impulsions en  premier lieu. Cependant l'astuce consiste à faire cela en introduisant un tenseur de fonctions  $\Rc \in \(H_1(]0, \Lambda[^{d+1})\)^{N\times N} : (k,\qv) \to \Rc_{k, ij}(\qv)$, puis une nouvelle fonction de partition modifiée,  
 \begin{equation}
   \Zc_k[\hv] = \int \Dc \varphiv \, \exp\left\{-S[\varphiv] - \Delta S_k[\varphiv] + \int_{\rv} \hv \varphiv \right\} \, ,
 \end{equation}
@@ -401,7 +406,7 @@ Ou l'on définit $\varphiv_0$ par
 	{\left. \derd{\(S[\varphiv] + \Delta S_k[\varphiv]\)}{\varphiv} \right|}_{\varphiv_0 \text{ unif.}} = \hv
 	\label{eq:meanPhi}
 \end{equation}
-L'intégrale a alors disparue dans l'expression de $Z_\Lambda$, qui s'exprime uniquement en fonction d'un champ bien défini $\varphiv_0$ appelé le champ moyen. De cette manière on dit que l'on "gèle les fluctuations" du champ autour de $\varphiv_0$ et on peut calculer analytiquement $\Zc_\Lambda$. \\
+L'intégrale a alors disparue dans l'expression de $Z_\Lambda$, qui s'exprime uniquement en fonction d'un champ bien défini $\varphiv_0$. De cette manière on dit que l'on "gèle les fluctuations" du champ autour de $\varphiv_0$ et on peut calculer analytiquement $\Zc_\Lambda$. \\
 
 Enfin, il faut aussi que $\Rc_{k,ij}$ soit une fonction possédant des symétries compatibles avec le système que l'on considère pour pouvoir effectuer des calculs.
 
@@ -410,7 +415,7 @@ Enfin, il faut aussi que $\Rc_{k,ij}$ soit une fonction possédant des symétrie
 
 \subsubsection{Choix du régulateur}
 
-Dans le modèle $O(N)$ il suffit de prendre $\Rc_{k,ij} = \Rc_k$ comme une simple fonction et pas un tenseur. De plus en guise d'illustration (et parce que cela correspond bien à ce que nous avons utilisé par la suite dans le cas de la théorie $\varphiv^4$) nous allons considérer que $\Rc_k(\qv) = \Rc_k(q)$ avec $q = \|\qv\|_2$ la norme 2 dans $\R^d$. La fonction $q \to \Rc_k(q)$ est appelée le régulateur.
+Dans le modèle $O(N)$ il suffit de prendre $\Rc_{k,ij} = \Rc_k$ comme une simple fonction et pas un tenseur. De plus en guise d'illustration (et parce que cela correspond bien à ce que nous avons utilisé par la suite dans le cas de la théorie $\varphiv^4$) nous considérons que $\Rc_k(\qv) = \Rc_k(q)$ avec $q = \|\qv\|_2$ la norme 2 dans $\R^d$. La fonction $q \to \Rc_k(q)$ est appelée le régulateur.
 
 
 \begin{figure}[H]
@@ -418,7 +423,7 @@ Dans le modèle $O(N)$ il suffit de prendre $\Rc_{k,ij} = \Rc_k$ comme une simpl
 	\includegraphics[width=0.95\columnwidth]{RegDerReg.pdf}
 \end{center}
 \vspace*{-22pt}
-\caption{(a - bleu continue) Allure du régulateur, choisi pour une valeur de $k$ donnée, ayant une décroissance exponentielle entre $\simeq k^2$ et $0$ . (b - rouge pointillé) régulateur avec une décroissance discontinue vers $0$ à grand $q$ que l'on peut exprimer avec une fonction de Heaviside. Ainsi ici nous avons approximativement intégrés les degrés de libertés correspondant à une impulsion dans $\simeq [k,\Lambda]$ uniquement. (b) Allure de la dérivée temporelle du régulateur choisi pour une valeur de $k$ donnée avec une décroissance exponentielle (ligne continue bleue). L'intégrale sur $\qv$ dans \refeq{} ne doit donc être faite seulement sur les $q$ appartenant dans la région rouge.}
+\caption{(a - bleu continue) Allure du régulateur, choisi pour une valeur de $k$ donnée, ayant une décroissance exponentielle entre $\simeq k^2$ et $0$. (b - rouge pointillé) régulateur avec une "décroissance" discontinue vers $0$ à grand $q$ que l'on peut exprimer avec une fonction de Heaviside. Ainsi ici nous avons approximativement intégrés les degrés de libertés correspondant à une impulsion dans $\simeq [k,\Lambda]$ uniquement. (b) Allure de la dérivée temporelle du régulateur choisi pour une valeur de $k$ donnée avec une décroissance exponentielle (ligne continue bleue). L'intégrale sur $\qv$ dans \refeq{} ne doit donc être faite seulement sur les $q$ appartenant dans la région rouge.}
 \label{fig:RegDerReg}
 \end{figure}
 
@@ -431,7 +436,7 @@ Nous choisirons le régulateur ayant l'allure de ceux présent sur la figure \re
 \vspace*{11pt}
 \subsubsection{Potentiels}
 
-En réalité, ce n'est pas vraiment à $\Zc$ que nous allons nous intéresser, mais plutôt aux potentiels qui en dérive, car ils contiennent toutes les informations dont nous avons besoin. 	On reprend alors les différentes définitions données dans la section ... que l'on adapte ici pour prendre en compte la présence du régulateur dans le cas de le limite thermodynamique $\Omega \gg 1/\Lambda^d$. Tout d'abord, pour $k$ fixé on définit une énergie libre 
+En réalité, ce n'est pas vraiment à $\Zc$ que nous allons nous intéresser, mais plutôt aux potentiels qui en dérive, car ils contiennent toutes les informations dont nous avons besoin. 	On reprend alors les différentes définitions données dans la section \refsec{Origine} dans le cas des notations de la limite thermodynamique $\Omega \gg 1/\Lambda^d$ (\refsec{TF}) et que l'on adapte pour prendre en compte la présence du régulateur. Tout d'abord, pour $k$ fixé, on définit une énergie libre 
 \begin{equation}
 	  W_k[\hv] = \text{ln}{\(\Zc_k[\hv]\)}
 \end{equation}
@@ -486,24 +491,24 @@ Quand $k$ varie de $\Lambda$ vers $0$, $t$ varie de $0$ vers $-\infty$, c'est do
 \end{equation}
 et nous avons aussi une condition initiale  en $k = \Lambda$ pour $\Gamma$ puisque, en définissant $\varphiv_0$ comme en \refeq{meanPhi}, d'après \refeq{MeanZ} il vient la relation
 \begin{equation}
-	\Gamma_\Lambda [\phiv] = S[\varphiv_0 = \phiv]
+	\Gamma_\Lambda [\phiv] = S[\phiv = \varphiv_0]
 \end{equation}
+Ainsi, nous avons une équation différentielle avec une condition initiale connue. Rappelons aussi que la connaissance de $\Gamma^{(2)}$ permet de connaitre les exposants critiques $\eta$ et $\nu$, cette équation est donc fondamentale car connaissant $\Gamma$ nous avons accès à $\Gamma^{(2)}$.
 
-Ainsi, nous avons une équation différentielle avec une condition initiale connue. Rappelons aussi que la connaissance de $\Gamma^{(2)}$ permet de connaitre les exposants critiques $\eta$ et $\nu$, cette équation est donc fondamentale car connaissant $\Gamma$ nous avons accès à $\Gamma^{(2)}$.\\
+Notons que l'intégrale dans cette équation de flot est en fait tronquée par la fonction $q \to \partial_t\Rc_k(q)$ qui pour un $k$ fixé limite, par sa décroissance, l'intervalle utile d'intégration qui n'est donc jamais véritablement faite sur un domaine infini et peut sans problème être réalisé numériquement comme illustré en \refig{RegDerReg}\, (b),  dans le cas simple ou $\Rc_k(\qv) = \Rc_k(q)$.
 
-Notons que l'intégrale dans cette équation de flot est en fait tronquée par la fonction $q \to \partial_t\Rc_k(q)$ qui pour un $k$ fixé limite, par sa décroissance, l'intervalle utile d'intégration qui n'est donc jamais véritablement faite sur un domaine infini et peut sans problème être réalisé numériquement comme illustré en \refig{RegDerReg}\, (b),  dans le cas simple ou $\Rc_k(\qv) = \Rc_k(q)$.\\
-
-
-
-Le problème maintenant est que pour connaitre $\partial_t \Gamma$ dans cette équation il nous faut connaitre la dérivée seconde $\Gamma^{(2)}$. Cependant si on voulait connaitre de façon similaire l'équation de flot exacte de $\Gamma^{(2)}$ il nous faudrait connaitre $\Gamma^{(3)}$ et $\Gamma^{(4)}$, et ainsi de suite. On dit alors que l'équation est ouverte et n'est pas soluble telle quelle. L'approximation BMW permet de répondre à ce problème. \\
+Le problème maintenant est que pour connaitre $\partial_t \Gamma_k$ dans cette équation il nous faut connaitre la dérivée seconde $\Gamma_k^{(2)}$. Cependant pour connaitre $\Gamma_k^{(2)}$ il faut, de façon similaire, résoudre l'équation de flot exacte de $\Gamma_k^{(2)}$ que l'on déduit de celle de $\Gamma_k$. Or cette équation fait intervenir $\Gamma_k^{(3)}$ et $\Gamma_k^{(4)}$, que nous ne connaissons pas et ainsi de suite. On dit alors que l'équation est ouverte et n'est pas soluble telle quelle. L'approximation BMW permet de répondre à ce problème. \\
 
 
 \vspace*{11pt}
 \subsubsection{La dimension anormale}
 
-Avant de s'occuper de l'application de l'écriture des équations BMW à un modèle concret introduisons le concept de dimension anormale. En effet nous avons mentionner que la fonction de corrélation à deux points évolue, à la transition de phase, schématiquement en $G^{(2)}[\rv_1, \rv_2; \hv] \sim |\rv_1 - \rv_2|^{2-d-\eta}$ pour $|\rv_1 - \rv_2| \to \infty$. Or cette grandeur $\eta$, qui est un exposant critique, possède aussi le nom de dimension anormale car elle viole à priori la dimension que devrait avoir $G^{(2)}$ d'une longueur à la puissance $2-d$. Pour la prendre en compte dans les équations cela ne découle donc pas naturellement des équations déjà écrite. Pour cela on remarque que cette évolution de $G^{(2)}$ implique aussi $\Gamma^{(2)}[\pv; \phiv] \sim \pv^{2-\eta}$ quand $\pv \to 0$. On introduit alors $Z_k$ une grandeur dimensionnée telle que
+\label{sec:DimAnorm}
+
+Avant de d'aborder le principe de l'approximation BMW introduisons le concept de dimension anormale. En effet nous avons mentionner que la fonction de corrélation à deux points évolue, à la transition de phase, schématiquement en $G^{(2)}[\rv_1, \rv_2; \hv] \sim |\rv_1 - \rv_2|^{2-d-\eta}$ pour $|\rv_1 - \rv_2| \to \infty$. Or cette grandeur $\eta$, qui est un exposant critique, possède aussi le nom de dimension anormale car elle viole à priori la dimension que devrait avoir $G^{(2)}$ d'une longueur à la puissance $2-d$. Pour la prendre en compte dans les équations cela ne découle donc pas naturellement des équations déjà écrite. Pour cela on remarque que cette évolution de $G^{(2)}$ implique aussi $\Gamma^{(2)}[\pv; \phiv] \sim \pv^{2-\eta}$ quand $\pv \to 0$. On introduit alors $Z_k$ une grandeur dimensionnée telle que
 \begin{equation}
 	Z_k \equiv {\left. \frac{\partial \Gamma_k^{(2)}[\pv ;\phiv]}{\partial \pv^2} \right|}_{\phiv \text{ unif.} = \phiv_0, \pv = \pv_0 }
+	\label{eq:defZk}
 \end{equation}
 Où $\phi_0$ et $\pv_0$ sont des valeurs arbitraire du champ uniforme et de l'implusion. De cette manière  quand $k \to 0$ nous avons $Z_k \propto \pv^{-\eta}$.
 On introduit alors $\eta_k$ tel que
@@ -514,7 +519,7 @@ Ainsi nous dirons que $\Gamma^{(2)}_k$ n'a pas vraiment la dimension de $\pv^2$ 
 \begin{equation}
  	\lim\limits_{k \to 0} \eta_k  = \eta
  \end{equation}
-Ceci est d'une très grande importance pour l'adimensionnement des équations qui est nécessaire pour trouver les points fixes du RG (c.f. \ref{}). Mais de plus c'est cette grandeur qui va nous donner l'exposant critique $\eta$ que l'on recherche.
+Ceci est d'une très grande importance pour l'adimensionnement des équations qui est nécessaire pour trouver les points fixes du RG (c.f. \refsec{RG}). Mais de plus c'est cette grandeur qui va nous donner l'exposant critique $\eta$ que l'on recherche.
 
 
 \vspace*{11pt}
@@ -533,7 +538,7 @@ Cependant il n'existe un point fixe qu'à la température critique. Or, la temp�
 
 \subsection{Approximation BMW pour $O(1)$} 
  
-Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$, i.e. lorsque le hamiltonien isolé vérifie $S[-\varphiv] = S[\varphiv]$. Nous verrons un exemple plus précis en \refsec{}. Le cas général des équations pour $N$ quelconque se trouve dans \cite{benitez2012nonperturbative}.\\ 
+Nous écrivons ici ce que donne les équations dans le cas particulier $O(1)$, i.e. lorsque le hamiltonien isolé vérifie $S[-\varphiv] = S[\varphiv]$. Un exemple plus précis et concret est donné en \refsec{IsingIntro}. Le cas général des équations pour $N$ quelconque se trouve dans \cite{benitez2012nonperturbative}.\\ 
 
 Le principe de l'approximation BMW \cite{Blaizot} est de considérer que certaines impulsions dans l'expression des $\Gamma_k^{(n)}$ ne jouent pas le même rôle que les autres et peuvent être omises. Il s'agit d'un raisonnement complexe permis avant tout par la présence du régulateur dans l'équation de flot exacte. Il est alors possible de développer à partir de cela une équation soluble formellement sur $\Gamma_k^{(2)}$ directement. Dans le cas $O(N=1)$, les tenseurs n'ont qu'une seule composante, et on consièdre $\phiv$ uniforme et scalaire que l'on écrit $\phi$ (en effet prendre les champs uniformes une fois que l'on a exprimé toutes les équations ne change rien au calcul des quantités que l'on souhaite obtenir). Les fonctionnelles $\Gamma_k$ et $G_k$ (ainsi que leurs dérivées) deviennent de simple fonctions de la variable $\phi$, par exemple : 
 \begin{equation}
@@ -565,6 +570,7 @@ Dans \refeq{} il n'apparait alors que $\Gamma_k^{(2)}$, le problème de l'équat
 La condition initiale découle, quant à elle, de \refeq{}. 
 \begin{equation}
 	\Gamma^{(2)}_\Lambda(\pv, \phi) = \partial_{\phi}^2  S(\phi)
+	\label{eq:initBMW}
 \end{equation}
 
 
@@ -580,8 +586,9 @@ La condition initiale découle, quant à elle, de \refeq{}.
 Il a été montré \cite{Bellac2012} que lorsque l'on cherche à déterminer les exposants critiques, et que l'on s'intéresse uniquement à ce qu'il peut se passer au voisinage de la température critique alors il suffit d'étudier les premiers ordres du hamiltonien du système isolé autour de $\varphiv \sim 0$, qui, pour respecter les symétries, dans le modèle $O(N)$ à nécessairement la forme 
 \begin{equation}
 		S[\varphiv; r_0, u_0] = \int_\rv \, \left\{ \frac{1}{2}(\nabla \varphiv)^2 + \frac{1}{2}r_0 \varphiv^2 + \frac{u_0}{4!}{\({\varphiv}^{2}\)}^{2} \right\}
+		\label{eq:hamiltCont}
 \end{equation}
-Où encore, en transformée de Fourier, par isométrie de la TF dans $(L^2(\Rv^d))^N$
+Où encore, en transformée de Fourier, par isométrie de la TF dans $(L^2(\R^d))^N$
 \begin{equation}
 		S[\varphiv; r_0, u_0] = \int_\pv \, \left\{ \frac{1}{2}(\pv \varphiv)^2 + \frac{1}{2}r_0 \varphiv^2 + \frac{u_0}{4!}{\({\varphiv}^{2}\)}^{2} \right\}
 \end{equation}
@@ -601,14 +608,16 @@ Ainsi c'est ce hamiltonien qui est injectée dans les équations du RG permettan
 On se concentre sur le cas simple $O(1)$ uniquement encore.
 On utilise à partir de maintenant la notation $\rho = \phi^2/2$. On applique BMW à notre hamiltonien continu. De par sa structure, les différentes grandeurs que la considère ne dépendent plus entièrement de l'impulsion $\pv$ (ou $\qv$, ou $\pv+\qv$) mais seulement de $\pv^2$ (ou $\qv^2$, ou $(\pv+\qv)^2$et donc de la norme $p = \| \pv \|_{2}$ (ou q, ou $\|\pv+\qv\|$). \\
 
-Tout d'abord, la condition initiale \refeq{} devient ici,
+Tout d'abord, la condition initiale \refeq{initBMW} devient ici,
 \begin{equation}
 	\Gamma^{(2)}_\Lambda(\pv, \phi) = \pv^2 + r_0 + \frac{u_0}{2} \phi^2
+	\label{eq:initBMWCont}
 \end{equation}
 
 De plus, parce que l'on a \refeq{}, et parce qu'il est plus précis d'utiliser en complément de l'équation sur $\Gamma^{(2)}_k$ l'équation de flot de $V_k$, on introduit une fonction $\Delta_k(p, \rho)$ telle que
 \begin{equation}
 	\Gamma^{(2)}_k(p, \rho) = p^2 + \Delta_k(p, \rho) + \partial_{\phi}^2 V_k|_\rho
+	\label{eq:gammaDecomp}
 \end{equation}
 L'équation BMW \refeq{flotBMW} peut alors se réécrire sous la forme du système couplé
 \begin{align}
@@ -633,7 +642,7 @@ Avec les notations
 	\end{split}	
 \end{equation}
 
-La condition initiale se déduit de \refeq{}. En effet, il vient directement de la décomposition,
+La condition initiale se déduit de \refeq{initBMWCont}. En effet, il vient directement par la décomposition \refeq{gammaDecomp},
 
 \begin{equation}
 \Delta_\Lambda (p,\rho) = 0 \quad \text{et} \quad V_\Lambda(\rho) = r_0 + u_0\rho
@@ -645,7 +654,7 @@ De plus, pour des raisons de stabilité numérique on travaille dans la suite av
 \end{equation}
 
 
-Il reste alors une dernière étape avant de parvenir aux équations finales. En effet, nous n'avons pas ici réalisé l'adimensionnement fondamental du RG. Pour cela il suffit d'introduire de nouvelles grandeurs notées d'un $\tilde{.}$ de la même manière qu'en en \refsec{}. On considère aussi que $k$ s'exprime en unité de $\Lambda$ et donc qu'il varie entre $1$ et $0$, ainsi $k$ et $s$ sont confondus. Concrètement cela revient à introduire, en utilisant le $Z_k$ défini en \refsec{} à cause de la présence de la dimension anormale, 
+Il reste alors une dernière étape avant de parvenir aux équations finales. En effet, nous n'avons pas ici réalisé l'adimensionnement fondamental du RG. Pour cela il suffit d'introduire de nouvelles grandeurs notées d'un $\tilde{.}$ de la même manière qu'en \refsec{RG}. On considère aussi que $k$ s'exprime en unité de $\Lambda$ et donc qu'il varie entre $1$ et $0$, ainsi $k$ et $s$ sont confondus. Concrètement cela revient à introduire, en utilisant le $Z_k$ défini en \refsec{DimAnorm}, 
 \begin{equation}
 \begin{split}
 	& \trho  = k^{2-d}Z_k\rho \quad \text{et} \quad \tp = k^{-1}p\\
@@ -665,7 +674,7 @@ Ce changement de variable en plus d'être nécessaire pour trouver le point fixe
 Ceci donne alors la nouvelle forme du problème que nous avons essayé de résoudre numériquement :\\
 
 \noindent
-{\itshape Trouver $\tY_k(\trho, \tp)$ et $\tW_k(\trho)$ tels que pour tout $k \in [1, 0[$,  $\trho \in [0, +\infty[$ et $\tp \in [0, +\infty[$,}
+{\itshape Trouver $\tY_k(\trho, \tp)$ et $\tW_k(\trho)$ tels que pour tout $k \in ]0 ,\Lambda]$,  $\trho \in [0, +\infty[$ et $\tp \in [0, +\infty[$,}
 \begin{align}
 	\partial_t \tY_k & = 
 	\begin{aligned}[t]
@@ -683,8 +692,8 @@ Ceci donne alors la nouvelle forme du problème que nous avons essayé de résou
 \begin{equation}
 	\tY_1(\trho, \tp) = 0 \quad  \text{et} \quad \tW_1(\trho) = r_0' + u_0'\trho
 \end{equation}
-où $r_0'$ et $u_0'$ viennent de $r_0$ et $u_0$ (c.f. \refeq{}). 
-Pour résoudre ce système il manque encore l'expression de $\eta_k$ pour $k$ fixé, découlant de la définition même de $Z_k$ en \refeq{} (en prenant arbitrairement $\phiv_0 = 0$ et $\pv_0 = 0$).
+où $r_0'$ et $u_0'$ viennent de $r_0$ et $u_0$ (c.f. \refeq{hamiltCont}). 
+Pour résoudre ce système il manque encore l'expression de $\eta_k$ pour $k$ fixé, découlant de la définition même de $Z_k$ en \refeq{defZk} (en prenant arbitrairement $\phiv_0 = 0$ et $\pv_0 = 0$).
 \begin{equation}
 \eta_k = \frac{1}{2}  \tI_2(\rho = 0)\partial_\rho\tY_k(\rho = 0)
 \end{equation}
@@ -733,9 +742,9 @@ La première partie de notre travail a été de reprendre le développement de c
 
 Nous avons a résoudre ici un système d'équations intégro-différentielle non linéaires couplées et sans conditions au bords. Pour cela nous utilisons différentes techniques numériques. \\
 
-Pour la discrétisation en temps, nous sommes dans l'obligation d'utiliser un schéma explicite à cause de la structure complexe des termes de gauches des équations. Il a été montré qu'un schéma d'Euler explicite d'un pas de temps est suffisant pour obtenir une résolution stable, c'est donc ce qui est utilisé. \\
+Pour la discrétisation en temps, nous sommes dans l'obligation d'utiliser un schéma explicite à cause de la structure complexe des termes de gauches des équations. Il a été mis en évidence dans ce code qu'un schéma d'Euler explicite d'un pas de temps est suffisant pour obtenir une résolution stable, c'est donc ce qui est utilisé. \\
 
-Ensuite nous allons différencier la dépendance en champs (i.e. en $\trho$) à celle en impulsion (i.e. $\tp$) des fonctions inconnues. Pour ce qui est de la dépendance en champ, il suffit de prendre une grille fixe régulièrement espacé de points. Les dérivées selon cette variable se calculent alors par des schémas de différences finies d'ordre 5. \\
+Ensuite nous différencions la dépendance en champs (i.e. en $\trho$) à celle en impulsion (i.e. $\tp$) des fonctions inconnues. Pour ce qui est de la dépendance en champ, il suffit de prendre une grille fixe régulièrement espacé de points. Les dérivées selon cette variable se calculent alors par des schémas de différences finies d'ordre 5. \\
 
 Enfin pour la dépendance en impulsion les choses sont plus compliquées car il faut à la fois pouvoir facilement calculer des dérivées selon $\tp$, mais aussi intégrer des expressions - dépendant des fonctions inconnues - afin d'obtenir les intégrales $\tI$ et $\tJ$. Le calcul des intégrales $\tJ(\tpv, \trho)$ pour tout $\tpv$ et $\trho$ de la discrétisation est ce qui demande le plus de temps de calcul et donne des complexités algorithmiques et des temps de calculs élevés comme nous l'avons constaté. Au premières versions de ce code, la discrétisation se faisait aussi sur une grille fixe de points régulièrement espacés et les intégrales étaient calculées par des méthodes de Simpsons. Cependant cela c'est avéré ne pas être assez précis dans certaines configurations, les algorithmes n'étaient pas robustes. Pour palier à ce problème c'est une décomposition pseudo spectrale qui a été mise en place à l'aide de décomposition en série sur des polynômes de Tchebytchev associé à une intégration de Gauss-Legendre. \\
 
@@ -920,14 +929,17 @@ Nous en avons déduit qu'il s'agissaient d'un problème de précisions sur les
 
 \section{Le modèle d'Ising en dimension 2}
 
-\subsection{Présentation du modèle d'ising}
+\subsection{Présentation du modèle d'Ising}
 
-On considère le modèle d'Ising classique sur un réseau hypercubique de dimension $d$ (nous avons uniquement travaillé numériquement dans le cas $d=2$ mais nous exposons le formalisme pour une dimension $d$ quelconque). Les longueurs sont exprimées en unité du pas du réseau. On note $\{\ev_\nu\}_{\nu\in\bbrac{1,d}}$ la base cartésienne associée. L'hamiltonien du système est alors donné par
+\label{sec:IsingIntro}
+
+
+On considère le modèle d'Ising classique sur un réseau hypercubique de dimension $d$ (nous avons uniquement travaillé numériquement dans le cas $d=2$ mais nous exposons le formalisme pour une dimension $d$ quelconque). Les longueurs sont exprimées en unité du pas du réseau. On note $\{\ev_\nu\}_{\nu\in\bbrac{1,d}}$ la base cartésienne associée. L'hamiltonien du système non excité, en contact seulement avec le milieu extérieur qui a une température fixe et dans lequel ne se trouve aucun champ magnétique, est donné par\footnote{Nous avions jusqu'à présent noté $H$ le hamiltonien du système total prenant en compte les excitations extérieures et $S$ celui du système non excité. Ici nous utilisons la notation $H$ pour le système non excité pour ne pas confondre hamiltonien et spin $S_\rv$.}
 \begin{equation}
 H = -J\beta \sum_{\left<\rv, \rv'\right>}S_\rv S_{\rv'}
+\label{eq:HamIsing}
 \end{equation}
-
-Où $S_\rv$ représente la valeur du spin (i.e. sa direction selon l'axe $z$, c.f. \refig{schemaIsing}) à la position $\rv$, comprise dans $\{-1,1\}$. La notation $\left<\rv, \rv'\right>$ signifie que le terme $S_\rv S_{\rv'}$ contribue à la somme si et seulement si ce sont deux spins plus proches voisins du réseau (i.e s'il existe $\nu \in \bbrac{1,d}$ tel que $\rv' = \rv \pm \ev_\nu$). 
+Où $S_\rv \in \{-1,1\}$ représente la valeur du spin (i.e. sa direction selon l'axe $z$, c.f. \refig{schemaIsing}) à la position $\rv$. La notation $\left<\rv, \rv'\right>$ signifie que le terme $S_\rv S_{\rv'}$ contribue à la somme si et seulement si ce sont deux spins plus proches voisins du réseau (i.e s'il existe $\nu \in \bbrac{1,d}$ tel que $\rv' = \rv \pm \ev_\nu$). La grandeur $J$ représentant une énergie est positive. La variable $\beta = 1/(k_BT)$ où $k_B$ est la constante de Boltzmann encode l'influence de la température $T$ à laquelle est soumis le système.
 \setlength{\unitlength}{1cm}
 \begin{figure}[H]
 \begin{center}
@@ -987,22 +999,21 @@ Où $S_\rv$ représente la valeur du spin (i.e. sa direction selon l'axe $z$, c.
 \put(5.1167,3.55){\vector(0,-1){0.4}}
 \put(6.1167,3.15){\vector(0,1){0.4}}
 
-
-
 \end{picture}
 \end{center}
-\caption{Exemple de réseau d'Ising en dimension $d=2$. On traite dans le modèle d'Ising des spins avec une seule composante, ce sont donc des vecteurs dont seule la direction peut changer mais pas l'orientation qui est fixé ici selon $z$, perpendiculairement au plan). Le système est dans la phase haute température ($T>T_c$) car les spins ont des directions aléatoire. Ici le nombre de spins représenté est faible, mais comme nous ferons une étude à la limite thermodynamique il est bien plus élevé dans le système étudié.}
+\caption{Exemple de réseau d'Ising en dimension $d=2$. On traite dans le modèle d'Ising des spins avec une seule composante, ce sont donc des vecteurs dont seule la direction peut changer mais pas l'orientation qui est fixé ici selon $z$, perpendiculairement au plan). On décrit donc un spin à la position $\rv$ du plan (xy) par une valeur $1$ (quand il pointe vers le haut) ou $-1$ (vers le bas). Le système est dans la phase haute température ($T>T_c$) car les spins ont des directions aléatoire. Le nombre de spins représenté est faible, mais comme nous ferons une étude à la limite thermodynamique il est bien plus élevé dans le système étudié.}
 	\label{fig:schemaIsing}
 \end{figure}
+Sur un tel système nous observons une transition de phase du second ordre. En effet il existe une phase (dite de symétrie brisée, ou encore basse température) dans laquelle les spins tendent tous à s'aligner dans une direction privilégiée lorsque la température et faible et que les fluctuations thermiques ne jouent pas un rôle important\footnote{En effet à température faible la configuration du système la plus stable et qui se produit expérimentalement est celle pour laquelle l'hamiltonien est minimal. Comme $J>0$ ceci se produit lorsque tous les $\S_\rv$ possède la même valeur, i.e.lorsque tous les spins sont alignés.}. Lorsque l'on dépasse la température critique $T_c$ l'énergie thermique que reçoit le système est suffisamment importante pour que les spins prennent une direction plus ou moins aléatoire le système est alors dans une nouvelle phase (dite symétrique). C'est ce modèle qui explique la perte d'aimantation d'un métal à haute température que nous avions mentionné dans l'introduction. \\
 
-Sur un tel système nous observons une transition de phase du second ordre. En effet il existe une phase (dite de symétrie brisée, ou encore basse température) dans laquelle les spins tendent tous à s'aligner dans une direction privilégiée lorsque la température et faible et que les fluctuations thermiques ne jouent pas un rôle important. Lorsque l'on dépasse la température critique $T_c$ les spins vont avoir une direction plus ou moins aléatoire le système est alors dans une nouvelle phase (dite symétrique). C'est ce modèle qui explique la perte d'aimantation d'un métal à haute température que nous avions mentionné dans l'introduction. \\
 
+Si l'on change l'axe $z$ en $-z$ alors l'hamltonien du système ne change pas. Ainsi ce système possède une symétrie $O(1)$. Il est donc possible de calculer ces exposants critiques en utilisant les équations BMW de la \refsec{} développée avec l'hamiltonien la théorie $\varphiv^4$. La température critique n'étant pas une quantité universelle, elle dépend entièrement du système et prendre un hamiltonien tronqué ne suffit pas, la forme même du réseau est importante, la forme exacte du hamiltonien doit être prise en compte.
 
-Si l'on change l'axe $z$ en $-z$ alors l'hamltonien du système ne change pas. Ainsi ce système possède une symétrie $O(1)$. Il est donc possible de calculer ces exposants critiques en utilisant les équations BMW de la \refsec{} développée avec l'hamiltonien la théorie $\varphiv^4$. La température critique n'étant pas une quantité universelle, elle dépend entièrement du système et prendre un hamiltonien tronqué ne suffit pas, la forme même du réseau est importante. Ce pourquoi nous allons réexprimer le hamiltonien exact complet \refeq{} afin de l'exprimer sous forme de champ et de pouvoir lui appliquer le NPRG pour $O(1)$. \\ 
+Or comme \refeq{HamIsing} ne correspond pas aux hamiltoniens dépendants d'un champ étudiés dans toute la première partie de cette étude, il ne semble donc pas possible a priori de lui appliquer le NPRG. En revanche il est tout de même possible de définir une nouvel hamiltonien exactement équivalent à $H$ en réécrivant avec des champ la fonction de partition du système à l'aide d'une transformée de Hubbard-Stratanovitch comme détaillé dans le paragraphe suivant. \\ 
 
 La particularité de ce modèle est aussi qu'il a déjà été complètement résolu analytiquement par Onsager \cite{Onsager} en 1944. Tout est donc déjà connu et notamment la température critique de la transition de phase. Avec l'approche BMW nous avons essayé de la retrouver pour valider la qualité de l'approximation et la possibilité de calculer la température critique $T_c$ par les équations du NPRG. 
 
-\vspace*{11pt} 
+%\vspace*{11pt} 
 
 \subsection{Modélisation avec des champs}
 
@@ -1011,7 +1022,11 @@ Pour des raisons pratiques on définit maintenant un hamiltonien légèrement mo
   H_\mu &= -J\beta \sum_{\left<\rv, \rv'\right>}S_\rv S_{\rv'} - \mu \beta N_S \\
   H_\mu  &= -J\beta \sum_{\left<\rv, \rv'\right>}S_\rv S_{\rv'} - \mu \beta \sum_\rv S_\rv^2 
 \end{align}
-Où $N_S$ est le nombre total de spins. Physiquement cela ne change rien car cela ne fait que décaler l'origine des énergies. En revanche cela a un avantage mathématique. En effet, on pose $A_{\rv, \rv'}^{(\mu)}$ la matrice définie implicitement dans $\mathscr{M}_{N_S}(\R)$ par
+Avec la notation sur la somme 
+\begin{equation}
+\sum_\rv \,\, \equiv \sum_{x_1=1}^{N_1}\sum_{x_2=1}^{N_1} ... \sum_{x_d=1}^{N_1} 
+\end{equation}
+Où $N_\nu$ est le nombre de spins dans la direction $\ev_\nu$, et $\rv \equiv (x_1, x_2, ..., x_d)$. Le nombre $N_S \equiv N_1N_1...N_d$ est le nombre total de spins. Physiquement, ajouter une constante à $H$ ne change rien car cela ne fait que décaler l'origine arbitraire des énergies. En revanche cela a un avantage mathématique. En effet, on pose $A_{\rv, \rv'}^{(\mu)}$ la matrice définie implicitement dans $\mathscr{M}_{N_S}(\R)$ par
 \begin{equation}
   H_\mu  = -\frac{1}{2} \sum_{\rv, \rv'} S_\rv A_{\rv, \rv'}^{(\mu)}S_{\rv'}
 \end{equation}
@@ -1022,9 +1037,7 @@ On peut alors réaliser une transformée de Hubbard-Stratanovitch. Pour cela com
 \begin{equation}
   \Zc = \sum_{\{S_\rv\}} e^{-H_{\mu}} =\sum_{\{S_\rv\}}  \exp\(\frac{1}{2} \sum_{\rv, \rv'} S_\rv A_{\rv, \rv'}^{(\mu)}S_{\rv'}\)
 \end{equation}
-
 Par integration gaussienne \textit{inverse} il vient, 
-
 \begin{equation}
 \begin{split}
   \Zc & \propto \sum_{\{S_\rv\}} \int_\R \prod_{\rv} \, \dd \varphi_\rv \, e^{ -\frac{1}{2} \sum\limits_{\rv, \rv'} \varphi_\rv {(A_{\rv, \rv'}^{(\mu)})}^{-1} \varphi_{\rv'} +\sum\limits_\rv  \varphi_\rv S_\rv  } \\
@@ -1032,27 +1045,31 @@ Par integration gaussienne \textit{inverse} il vient,
 \end{split}
 \end{equation}
 
-Cependant nous ne pouvons pas exprimer facilement ${(A_{\rv, \rv'}^{(\mu)})}^{-1}$ et pour cela il est pratique de réaliser une Transformée de Tourier Semi-Discrète  \refann{} en posant, pour $\qv \in [-\pi, \pi]^d$,
+Cependant nous ne pouvons pas exprimer facilement ${(A_{\rv, \rv'}^{(\mu)})}^{-1}$. Pour cela il est pratique de réaliser une transformée de Fourier Semi-Discrète (TFSD - c.f. \refann{TFSD}) en posant, pour $\qv \in [-\pi, \pi]^d$,
 \begin{equation}
   \hat{\varphi}(\qv) = \sum_\rv \varphi_\rv e^{-i\qv\rv} \quad \text{et} \quad \varphi_\rv = \int_\qv \hat{\varphi}(\qv)  e^{i\qv\rv}
 \end{equation}
-Il vient alors
+En effet comme expliqué ci-après, ${(A^{(\mu)})}^{-1}$ est " diagonal" en TFSD. Montrons le en commençant par poser $K_\mu$ l'expression
+\begin{equation}
+	K_\mu = \sum\limits_{\rv, \rv'} \varphi_\rv {(A_{\rv, \rv'}^{(\mu)})} \varphi_{\rv'}
+\end{equation} 
+En utilisant la définition implicite de ${(A_{\rv, \rv'}^{(\mu)})}$ et en passant en TFSD nous obtenons
 \begin{equation}
 \begin{split}
-  H_\mu = -J\beta & \sum_{\left<\rv, \rv'\right>} \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  e^{i(\qv\rv+\qv'\rv')} \\
+  K_\mu = -J\beta & \sum_{\left<\rv, \rv'\right>} \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  e^{i(\qv\rv+\qv'\rv')} \\
    -\mu\beta & \sum_\rv \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  e^{i(\qv+\qv')\rv}
 \end{split}
 \end{equation}
 \commentout{
 \begin{equation}
 \begin{split}
-  H_\mu = -J\beta & \sum_{\rv}\sum_{\nu}   \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  e^{i((\qv+\qv')\rv \pm \qv'\ev_\nu)} \\
+  K_\mu = -J\beta & \sum_{\rv}\sum_{\nu}   \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  e^{i((\qv+\qv')\rv \pm \qv'\ev_\nu)} \\
    -\mu\beta & \sum_\rv \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  e^{i(\qv+\qv')\rv}
 \end{split}
 \end{equation}
 \begin{equation}
 \begin{split}
-  H_\mu = -J\beta & \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  \sum_{\rv}  e^{i(\qv+\qv')\rv} \sum_{\nu} e^{ \pm i \qv'\ev_\nu}  \\
+  K_\mu = -J\beta & \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  \sum_{\rv}  e^{i(\qv+\qv')\rv} \sum_{\nu} e^{ \pm i \qv'\ev_\nu}  \\
    -\mu\beta & \sum_\rv \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')  e^{i(\qv+\qv')\rv}
 \end{split}
 \end{equation}
@@ -1063,10 +1080,10 @@ Notons donc simplement
 \end{equation}
 Ainsi, il vient, 
 \begin{equation}
-  H_\mu =   \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')   \lambda_\mu(\qv')   \sum_{\rv}  e^{i(\qv+\qv')\rv} \\
+  K_\mu =   \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')   \lambda_\mu(\qv')   \sum_{\rv}  e^{i(\qv+\qv')\rv} \\
 \end{equation}
 \begin{equation}
-  H_\mu =   \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')   \lambda_\mu(\qv')   D_{N_S}(\qv+\qv') \\
+  K_\mu =   \iint_{\qv,\qv'} \hat{\varphi}(\qv) \hat{\varphi}(\qv')   \lambda_\mu(\qv')   D_{N_S}(\qv+\qv') \\
 \end{equation}
 En définissant le noyaux de Dirichlet $D_{N_S}$ par
 \begin{equation}
@@ -1089,12 +1106,12 @@ On note $\Dc = \Dc([-\pi, \pi]^2)$, soit $f \in \mathcal{D}$, $D_{N_S}$ étant u
 
 Ainsi, en prenant la limite $N_S \rightarrow + \infty$ et en raisonnant au sens des distributions, par les propriétés du noyau de Dirichlet, il vient formellement
 \begin{equation}
- \lim_{N_S \rightarrow + \infty} H_\mu = - \int_\qv \hat{\varphi}(\qv)  \lambda_\mu(\qv) \hat{\varphi}(-\qv)
+ \lim_{N_S \rightarrow + \infty} K_\mu = - \int_\qv \hat{\varphi}(\qv)  \lambda_\mu(\qv) \hat{\varphi}(-\qv)
 \end{equation}
-Dans la suite nous ferons l'hypothèse de la limite thermodynamique, selon laquelle $N_S$ est suffisamment grand pour que l'on écrive, par abus de notation, $H_\mu = \lim\limits_{N_S \rightarrow + \infty} H_\mu$. \\
+Dans la suite nous ferons l'hypothèse de la limite thermodynamique, selon laquelle $N_S$ est suffisamment grand pour que l'on écrive, par abus de notation, $K_\mu = \lim\limits_{N_S \rightarrow + \infty} K_\mu$. \\
 Nous obtenons alors
 \begin{equation}
-  H_\mu = - \int_\qv \hat{\varphi}(\qv)  \lambda_{\mu}(\qv) \hat{\varphi}(-\qv)
+  K_\mu = - \int_\qv \hat{\varphi}(\qv)  \lambda_{\mu}(\qv) \hat{\varphi}(-\qv)
 \end{equation}
 Et on en déduit la transformée de Fourier de $A_{\rv, \rv'}^{(\mu)}$
 \begin{align}
@@ -1104,25 +1121,23 @@ Et on en déduit la transformée de Fourier de $A_{\rv, \rv'}^{(\mu)}$
     0 \quad & \text{si } \qv' \neq - \qv
   \end{cases}
 \end{align}
-
 Autrement dit, $\hat{A}$ est un operateur diagonal et bien inversible si $\mu > Jd$. Notons,
 \begin{equation}
 	\gamma(\qv ) = \frac{1}{d} \sum\limits_{\nu=1}^{d} \cos(q_\nu)
 \end{equation}
-Ainsi l'expression de $\lambda_\mu$ se trouve être 
+L'expression de $\lambda_\mu$ se trouve alors être 
 \begin{equation}
 	 \lambda_\mu(\qv) = 2\beta\(J d \gamma(\qv) + \mu\)
 \end{equation}
-
-En écrivant alors la conservation du produit scalaire de $\ell^2$ dans $L^2(\R)$ opérée par la transformation de Fourier semi-discrète,
+Par les propriétés de la TFSD il vient,
 \begin{equation}
-  \Zc  \propto \int_\R \prod_{\rv} \, \dd \varphi_\rv \, e^{-S_\mu[\varphi] }
+  \Zc  \propto \int_\R \prod_{\rv} \, \dd \varphi_\rv \, e^{-S_\mu[\varphi] } \, ,
 \end{equation}
-Avec l'action $S$ s'écrivant :
+avec l'hamiltonien $S_\mu$ s'écrivant :
 \begin{equation}
   S_\mu[\varphi] = \frac{1}{2} \int_\qv \varphi(\qv) \frac{1}{\lambda_\mu(\qv)} \varphi(-\qv) - \sum\limits_\rv \ln\(\cosh(\varphi_\rv)\)
 \end{equation}
-Par isometrie de la transformation de Fourier, et donc par le théorème de Parseval, nous réecrivons $S$ sous la forme 
+Par isometrie de la transformation de Fourier, et donc par le théorème de Parseval, nous réecrivons $S_\mu$ sous la forme 
 \begin{equation}
   \begin{split}
     S_\mu[\varphi] & = \frac{1}{2} \int_\qv \varphi(\qv) \[\frac{1}{\lambda_\mu(\qv)} - \frac{1}{\lambda_\mu(0)}\] \varphi(-\qv) \\
@@ -1145,14 +1160,14 @@ Avec, en posant $\tilde{\mu} = \mu/(Jd)$ et $\tilde{\beta} = \beta Jd$,
   U(\phi) = \delta^2 \frac{1}{1+\tilde{\mu}} \frac{1}{2}\phi^2 - \ln\(\cosh\(\delta\sqrt{2\tilde{\beta}}\phi\)\)
 \end{equation}
 
-On se retrouve donc ici avec la formulation d'un problème de théorie des champs que l'on peut résoudre avec le NPRG et notamment avec l'approximation BMW. La seule différence avec tout ce qui a été étudié précédemment c'est qu'ici, par Transformée de Fourier semi-discrète les intégrales sur les impulsions ne sont plus calculées sur un domaine infini mais sur "la première zone de Brillouin", i.e. sur un hypercube de longueur $2\pi$. Toutes les formules vu restent sinon valable en intégrant cet ajustement.\\
+On se retrouve donc ici avec la formulation d'un problème de théorie des champs que l'on peut résoudre avec le NPRG et notamment avec l'approximation BMW. Le nouvel hamiltonien $S_\mu$ est complètement équivalent à $H_\mu$ donc il permet d'en récupérer exactement toutes les informations physiques. Concernant la mise en pratique du NPRG, la seule différence avec tout ce qui a été étudié précédemment c'est qu'ici, par TFSD les intégrales sur les impulsions ne sont plus calculées sur un domaine infini mais sur "la première zone de Brillouin", i.e. sur l'hypercube $[-\pi, \pi]^d$. L'équation de flot BMW \refeq{flotBMW} reste sinon valable en prenant en compte cet ajustement.\\
 
 La fonction $U$ représente alors le potentiel du système dans l'approximation de champ moyen. Et ainsi le potentiel $V_k$ des équations BMW prend en $k=\Lambda$ la valeur $V_\Lambda = U$. La fonction $\eo$ s'appelle quant à elle la relation de dispersion. Dans le modèle continu $\varphiv^4$ il y avait de même une relation de dispersion qui valait alors $\varepsilon(\pv) = \pv^2$.\\
  
  
-Remarquons de plus que la fonction $U$ est de classe $\Cc^\infty$ dérivable sur $[0,+\infty[$. Ainsi il vient 
+Remarquons de plus que la fonction $U$ est de classe $\Cc^\infty$ dérivable sur $[0,+\infty[$, avec
 \begin{equation}
-\partial_\phi^2 U(\phi) = \delta^2 \frac{1}{1+\tilde{\mu}} - 
+\partial_\phi^2 U(\phi) = \delta^2 \frac{1}{1+\tilde{\mu}} - \frac{2\delta^2\tilde{\beta} }{\cosh^2\(\delta\sqrt{2\tilde{\beta}}\phi\)} 
 \end{equation}
 
 
@@ -1168,43 +1183,44 @@ Cette valeur nous donne déjà une borne supérieure sur la température critiqu
 
 \vspace*{11pt}
 
-\subsection{Application du NPRG et BMW}
-
-\subsubsection{Régulateur}
+\subsection{Régulateur}
 
 Dans le but de réécrire les équations BMW pour le hamiltonien que nous avons précédemment nous exprimons le nouveau régulateur à utiliser du à la présence d'une nouvelle relation de dispersion $\eo$. On utilise ici
 \begin{equation}
 	\Rc_k(\qv) = \alpha \frac{Z_k \eo(\qv)}{\exp{(\eo(\qv)/\varepsilon_k)} -1}
 \end{equation}
-Avec $\varepsilon_k = \| \eo \|_\infty k^2$. Les expressions de $\partial_t \Rc_k$ se trouvent en \refann{}. Notons aussi que dans certaines équations que nous avons utilisées le facteur $Z_k$ a pu être omis car il ne sert qu'à avoir des dimensions compatibles lors de l'adimensionnement des équations. 
-
+\vspace*{-22pt}
 \begin{figure}[H]
 \begin{center}
 	\includegraphics[width=0.95\columnwidth]{RegIsing.pdf}
 \end{center}
 \caption{Allure du régulateur choisi pour une valeur de $k\simeq 1$.}
 \end{figure}
+Avec $\varepsilon_k = \| \eo \|_\infty k^2$. Les expressions de $\partial_t \Rc_k$ se trouvent en \refann{}. Notons aussi que dans certaines équations que nous avons utilisées le facteur $Z_k$ a pu être omis car il ne sert qu'à avoir des dimensions compatibles lors de l'adimensionnement des équations. 
 
-\subsubsection{Application de BMW}
 
-On peut réécrire \refeq{} adaptée avec la relation de dispersion ici selon
-\begin{equation}
-\Gamma^{(2)}(\pv, \phiv) = \eo(\pv) + \Delta_k(\pv, \phi) + X_k(\phi)
-\end{equation} 
-où l'on introduit $X_k(\phi) = \partial_{\phi}^2 V_k(\phi)$.
-Cette décomposition insérée dans \refeq{} donne alors les équations BMW pour le système Ising 2D auquel il faut ajouter les conditions initiales.
+
 
 \vspace*{11pt}
 
 \subsection{Étapes de la résolution}
 
-Pour des raisons pratiques nous avons décomposé la résolution numérique des équations BMW du modèle d'Ising en 3 étapes, en procédant, comme détaillé ci-après, à un adimensionnement progressif des équations. \\
+Pour des raisons pratiques nous avons décomposé la résolution numérique des équations BMW du modèle d'Ising en 3 étapes, en procédant à un adimensionnement progressif des équations. 
 
+
+\subsubsection{Application de BMW}
+
+On commence par réécrire \refeq{gammaDecomp} adaptée avec la relation de dispersion $\eo$ selon
+\begin{equation}
+\Gamma^{(2)}(\pv, \phiv) = \eo(\pv) + \Delta_k(\pv, \phi) + X_k(\phi)
+\end{equation} 
+où l'on introduit $X_k(\phi) = \partial_{\phi}^2 V_k(\phi)$.
+Cette nouvelle écriture insérée dans \refeq{flotBMW} donne alors les trois jeux d'équations BMW pour le système Ising 2D auquel il faut ajouter les conditions initiales comme détaillé ci-après dans les trois étapes de la résolution.
 
 
 \subsubsection{Première étape}
 
-En effet, comme nous travaillons sur un réseau, les fonctions que l'on considère sont alors $2\pi$ périodiques selon les composantes des impulsions lorsque l'on considère les variables et les fonctions dimensionnées. (i.e. les fonctions et variables notées de manière générale sans tilde). Ceci permet de s'affranchir de certaines approximations numériques dans le calcul des intégrales. Il est donc préférable de commencer par résoudre le système d'équation BMW brut, noté $\Ec_1$, sans réaliser d'adimensionnement (équivalent à \refeq{}) pour $k $ variant de $\Lambda$ à $k_a$ (ou $k_a$ a une valeur déterminée). Le problème BMW à résoudre est donc \\
+Comme nous travaillons sur un réseau, les fonctions que l'on considère sont $2\pi$ périodiques selon les composantes des impulsions lorsque l'on considère les variables et les fonctions dimensionnées (c.f. \refsec{}). (i.e. les fonctions et variables notées de manière générale sans tilde). Ceci permet de s'affranchir de certaines approximations numériques dans le calcul des intégrales. Il est donc préférable de commencer par résoudre le système d'équation BMW brut, noté $\Ec_1$, sans réaliser d'adimensionnement (directement obtenu de \refeq{} et équivalent à \refeq{} dans le modèle continu) pour $k $ variant de $\Lambda$ à $k_a$ (ou $k_a$ a une valeur déterminée). Le problème BMW est donc \\
 
 \noindent
 {\itshape Trouver $\Delta_k$, $X_k$, solution de $\Ec_1$, i.e tels que pour tout $p_x \in [-\pi, \pi]$, $p_y \in [-\pi, \pi]$, $\phi \in \R$, $k\in [k_a, \Lambda]$}
@@ -1232,6 +1248,14 @@ Les conditions initiales de ce problème viennent de la décomposition \refeq{},
 	\Delta_\Lambda = 0 \quad \text{et} \quad X_\Lambda =  
 \end{equation}
 
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.95\columnwidth]{DerRegIsing.pdf}
+\end{center}
+\caption{Représentation de la surface d'intégration utile pour deux valeurs de $k$ notées $k_1$ (a) et $k_2$ (b). Nous avons choisi $k1>k2$. On représente en fait ici la fonction $(q_x, q_y) \to \partial_t \Rc_k(q_x, q_y)$ pour deux valeurs de $k$. Plus la couleur est bleue foncée plus la fonction est proche de 0. Ainsi on peut considérer que seule la partie dans la tache jaune contribue réellement à la valeur des intégrales.}
+\label{fig:DerRegIsing}
+\end{figure}
 
 \subsubsection{Deuxième étape}
 
@@ -1265,13 +1289,7 @@ On pourra se référer à \refann{} pour les différentes notations. Les conditi
 Pour assurer la compatibilité entre les deux systèmes il faut alors respecter $k_a\tp_{max} = \pi$.
 
 
-\begin{figure}[H]
-\begin{center}
-	\includegraphics[width=0.95\columnwidth]{DerRegIsing.pdf}
-\end{center}
-\caption{Représentation de la surface d'intégration utile pour deux valeurs de $k$ notées $k_1$ (a) et $k_2$ (b). Nous avons choisi $k1>k2$. On représente en fait ici la fonction $(q_x, q_y) \to \partial_t \Rc_k(q_x, q_y)$ pour deux valeurs de $k$. Plus la couleur est bleue foncée plus la fonction est proche de 0. Ainsi on peut considérer que seule la partie dans la tache jaune contribue réellement à la valeur des intégrales.}
-\label{fig:DerRegIsing}
-\end{figure}
+
 
 
 
@@ -1296,7 +1314,7 @@ Enfin les deux jeux d'équation précédents n'utilisent pas de variables adimen
 \end{equation}
 On pourra ici aussi se référer à \refann{} pour les différentes notations et plus de précision. Les conditions initiales sont
 \begin{equation*}
-\tY_{k_b}(\tp_x, \tp_y,\tphi) = \frac{1}{Z_k}\( 1+ \frac{\bDelta_{k_b}(\tp_x, \tp_y, \phi)}{k_b^2(\tp_x^2 +\tp_y^2)}\) -1
+\tY_{k_b}(\tp_x, \tp_y,\tphi) = \frac{1}{Z_k}\( 1+ \frac{\bDelta_{k_b}(\tp_x, \tp_y, \phi)}{\eo^0 k_b^2(\tp_x^2 +\tp_y^2)}\) -1
 \end{equation*}
 \begin{equation*}
 \tX_{k_b}(\tphi) = \bX_{k_b}(\phi)
@@ -1519,11 +1537,11 @@ Pour calculer numériquement les différentes intégrales nous nous servons des 
 
 \subsubsection{Le choix de la quadrature}
 
-On interpole la partie en impulsion des fonctions avec des polynômes de Tchebytchev et on utilise toujours une méthode pseudo-specrtrale\footnote{c'est à dire que l'on connait à chaque pas de temps la valeur de la fonction au points d'interpolation de Tchebythchev, ainsi que les coefficients de son développement en série de polynômes de Tchebytchev}. Il semble donc naturel de se demander si la quadrature de Gauss-Legendre est vraiment la mieux adaptée. En effet, pour gagner du temps et utiliser directement la connaissance de la fonction aux points d'interpolation nous avons penser au calcul d'intégrale par la \emph{première règle de Fejer} \cite{} qui permet cela. En effet les points de quadrature de cette méthode sont ceux de l'interpolation de Tchebytchev avec les polynômes de première espèce, comme nous le faisons ici. Ainsi on d'affranchi du calcul par la méthode de Clenshaw en $\mathcal{0}(n_c^2)$ de la fonction à intégrer. 
+On interpole la partie en impulsion des fonctions avec des polynômes de Tchebytchev et on utilise toujours une méthode pseudo-specrtrale\footnote{c'est à dire que l'on connait à chaque pas de temps la valeur de la fonction au points d'interpolation de Tchebythchev, ainsi que les coefficients de son développement en série de polynômes de Tchebytchev}. Il semble donc naturel de se demander si la quadrature de Gauss-Legendre est vraiment la mieux adaptée. En effet, pour gagner du temps et utiliser directement la connaissance de la fonction aux points d'interpolation nous avons penser au calcul d'intégrale par la \emph{première règle de Fejer} \cite{} qui permet cela. En effet les points de quadrature de cette méthode sont ceux de l'interpolation de Tchebytchev avec les polynômes de première espèce, comme nous le faisons ici. Ainsi on d'affranchi du calcul par la méthode de Clenshaw en $\mathcal{O}(n_c^2)$ de la fonction à intégrer. 
  
-Cependant cette méthode c'est avérée être inefficace puisque il faut de manière générale plus de points pour obtenir la même précision qu'une quadrature de Gauss Legendre. Et de plus, afin d'assurer la compatibilité entre l'interpolation et la quadrature il est nécessaire que les deux se fassent sur le même nombre de point, ce qui est restrictif. Enfin le passage le plus long du code est le calcul des intégrales $J_3$, $\bJ_3$, $\tJ_3$ et cette quadrature ne permet pas de réaliser ce calcul plus vite. En effet pour calculer cette intégrale il faut évaluer les fonctions $\Delta_k$, $\bDelta_k$, $\tY_k$ en des points $(p_x+q_x, p_y+q_y,\phi)$. ce qui, par la somme des impulsion nécessite, pour être précis dans le calcul d'interpoler. Et ce, avec n'importe quelle discrétisation en impulsion faite sur une grille de points non régulièrement espacés. \\
+Cependant cette méthode c'est avérée être inefficace puisque il faut de manière générale plus de points pour obtenir la même précision qu'une quadrature de Gauss Legendre. Et de plus, afin d'assurer la compatibilité entre l'interpolation et la quadrature il est nécessaire que les deux se fassent sur le même nombre de point, ce qui est restrictif. Enfin le passage le plus long du code est le calcul des intégrales $J_3$, $\bJ_3$, $\tJ_3$ et cette quadrature ne permet pas de réaliser ce calcul plus vite. En effet pour calculer cette intégrale il faut évaluer les fonctions $\Delta_k$, $\bDelta_k$, $\tY_k$ en des points $(p_x+q_x, p_y+q_y,\phi)$, ce qui, à cause de la somme des impulsion nécessite, d'interpoler. Et ce, avec n'importe quelle discrétisation en impulsion faite sur une grille de points non régulièrement espacés. \\
 
-Une alternative complètement différente aurait consisté à ne pas utiliser d'interpolation de Tchebytechv  mais de discrétiser en impulsion sur une grille de point régulièrement espacé. Il est alors possible d'écrire en deux dimensions une quadrature qui ne demande de connaitre la fonction à intégrer qu'aux points de discrétisations et ceux même pour la fonction $J_3$ et ses versions adimensionnées (en effet si alors $p_x$ et $q_x$ appartiennent à la grille de discrétisation alors $p_x+q_x$ aussi\footnote{En utilisant la périodicité des fonctions on se ramène encore à un point de la grille quand $p_x+q_x$ en dépasse}. Cependant les quadratures alors testées (basé sur une triangulation régulière de l'espace et des descriptions des fonctions par éléments finis) demandaient un nombre trop important de points de discrétisation pour obtenir des précision suffisante en comparaison de la quadrature de Gauss-Legendre.
+Une alternative complètement différente aurait alors consisté à ne pas utiliser une discrétisation en impulsion sur une base de polynôme de Tchebytechv mais plutôt une discrétisation en impulsion sur une grille de points régulièrement espacés. Il est alors possible d'écrire en deux dimensions une quadrature qui ne demande de connaitre la fonction à intégrer qu'aux points de discrétisations et ceux même pour la fonction $J_3$ et ses versions adimensionnées (en effet si alors $p_x$ et $q_x$ appartiennent à la grille de discrétisation alors $p_x+q_x$ aussi\footnote{En utilisant la périodicité des fonctions on se ramène encore à un point de la grille quand $p_x+q_x$ en dépasse}). Cependant les quadratures alors testées (basé sur une triangulation régulière de l'espace et des descriptions par éléments finis) demandaient un nombre trop important de points de discrétisation pour obtenir des précisions suffisantes en comparaison de la quadrature de Gauss-Legendre.
 
 % Insert image of calculation by these two quadrature  
 
@@ -1672,7 +1690,9 @@ Remarquons que lorsque l'on introduit la transformée de Fourier (\refsec{}) pou
 
 
 
-\subsection{Transformée de Fourier Semi Discrète}
+\subsection{Transformée de Fourier Semi-Discrète (TFSD)}
+
+\label{ann:TFSD}
 
 Dans le modèle d'Ising à deux dimensions nous introduisons une transformée de Fourier semi discrète car nous travaillons non pas avec des fonctions mais avec des suites. Ainsi soit $\varphi_\rv \in \ell^2$. On peut définir $\hat{\varphi} \in L^2(\R)$ par  
 \begin{equation}
@@ -1829,7 +1849,6 @@ Soit S un opérateur à noyau de noyaux A. On fait l'hypothèse, sans justificat
 \end{equation}
 
 Si $A$ est le noyau de $S$, on note $A^{-1}$ le noyau de $S^{-1}$.
-Nous abordons maintenant pour finir les expressions de la dérivation de la transformée de Fourier de ces inverses.
 
 \end{multicols}
 
@@ -1839,12 +1858,36 @@ Nous abordons maintenant pour finir les expressions de la dérivation de la tran
 
 
 
-\section{Propriétés des fonctions à discrtiser}
+\section{Propriétés des fonctions discrétisées}
 
 
 
-\subsection{Symétries}
+\subsection{Symétries des inconnues dans le cas $O(1)$}
 
+Partons de l'équation BMW \refeq{}. 
+\begin{equation}
+	\partial_t \Gamma_{k}^{(2)}(\pv, \phi) =  J_3(\pv, \phi) {\( \partial_\phi \Gamma_{k}^{(2)}(\pv, \phi) \)}^2 
+	- \frac{1}{2}  I_2(\phi) \, \partial_\phi^{2} \Gamma_{k}^{(2)}(\pv, \phi)
+\end{equation}
+
+On pose alors $\Gamma_{k}^{(2)}(\pv, \phi) = \varepsilon(\pv) + \Delta_k(\pv, \phi) + \partial_\phi^2 V_k(\phi)$. Les conditions initiales sont alors données par $\Delta_\Lambda = 0$, $V_\Lambda = U$, où $U$ est une fonction de $\R$ dans $\R$, appelée le potentiel initial. $\eo$ est la relation de dispersion. On considère alors le système équivalent à \refeq{} (pour $\varepsilon(\pv) = \pv$) ou encore \refeq{} (pour $\varepsilon(\pv) = \eo(\pv^2)$ défini en \refeq{}) semi discrétisé en temps
+\begin{align}
+	\Delta_{k_{n+1}}(\pv, \rho) & = \Delta_{k_{n}} + 
+	\begin{aligned}[t]
+	 & \delta t ... 2\rho J_3(\pv,\rho){\left[u_k(\rho) + \partial_\rho \Delta_k (\pv,\rho) \right]}^{2} \\
+	  & \, - \frac{1}{2}I_2(\rho) \left[\partial_\rho \Delta_k(\pv, \rho) +  2\rho \partial_\rho^2 \Delta_k(\pv,\rho) \right] \\
+	 & \, - 2\rho I_3 (\rho) u_k^2(\rho) 
+	 \end{aligned}
+	\label{eqn:sys1}\\
+	\partial_t V_k(\rho) & = 
+	\begin{aligned}[t]
+		& I_1(\rho)
+	\end{aligned}
+\end{align}
+
+
+
+On suppose maintenant qu'il existe un opérateur $\mathcal{S}$ agissant sur les composantes d'impulsion d'une fonction selon telle que $S[\eo](\pv) = \eo(f(\pv)) = \eo(\pv)$  
 
 \subsection{Régularité}
 
@@ -1876,22 +1919,30 @@ Avec l'expression des propagateurs
 \end{equation}
 
 Ainsi, comme on exclu la présence de pôle dans les propagateurs que l'on calcule on peut montrer facilement que
-$\trho \to \tG_{k_{n}}(\tp, \trho)$ est bien $\Cc^1$ pour tout $\tp$ et $\tpv \to \tG_{k_{n}}(\|\tpv + \tqv\|, \trho)$ est bien $\Cc^1$ pour tout $\trho$. En outre ce sont donc des fonctions bornées et
+$\trho \to \tG_{k_{n}}(\tp, \trho)$ est bien $\Cc^1$ pour tout $\tp$ et $\tpv \to \tG_{k_{n}}(\|\tpv + \tqv\|, \trho)$ est bien $\Cc^1$ pour tout $\trho$. En outre ce sont donc des fonctions bornées car par hypothèses physiques, on suppose qu'elle converge vers $0$ quand $\trho$ ou $\tp$ tendent vers 0. Ainsi,
 \begin{equation}
 	| \Rc_{k_{n}}(\tq) \tG_{k_{n}}^{m-1} (\tq, \rho) \tG_{k_{n}} (\| \tpv + \tqv \|, \rho) | \le \(\text{sup}(\tG_{k_{n}}) \) ^{m} | \Rc_{k_{n}}(\tq) |
 \end{equation}
+\begin{equation}
+	| \Rc_{k_{n}}(\tq) \tG_{k_{n}}^{m} (\tq, \rho) | \le \(\text{sup}(\tG_{k_{n}}) \) ^{m} | \Rc_{k_{n}}(\tq) |
+\end{equation}
 
-Ainsi, comme $\tq \to \partial_t \Rc_{k_{n}}(\tq) $ est une fonction $L^1$ et d'après le théorème de dérivation sous le signe somme, nous pouvons en conclure que $\tJ_m$ est bien de classe $\Cc^1$. Par récurrence immédiate on en déduit alors qu'elle est de classe $\Cc^\infty$. Enfin notons que $\tI_m$ est alors aussi de classe $\Cc^infty$ pour les mêmes raisons.\\ 
+Ainsi, comme $\tq \to \partial_t \Rc_{k_{n}}(\tq) $ est une fonction $L^1$ et d'après le théorème de dérivation sous le signe somme, nous pouvons en conclure que $\tJ_m$ est bien de classe $\Cc^1$. Par récurrence immédiate on en déduit alors qu'elle est de classe $\Cc^\infty$. Enfin notons que $\tI_m$ est alors aussi de classe $\Cc^\infty$ pour les mêmes raisons.\\ 
 
 
 
 Enfin le dernière point important est la présence de $\tp^{-2}$ dans l'équation de $\tY_{k_{n+1}}$. En effet ceci pourrait rompre la définition même de la fonction en $\tp = 0$. Cependant le terme qui pose problème est de la forme
-
 \begin{equation}
 (\tJ_3 - \tI_3)/\tp^2
 \end{equation}
-
-Ainsi on peut montre que 
+En effectuant un développement limité on montre alors qu'en $\tp \to 0$
+\begin{equation}
+	(\tJ_3 - \tI_3)/\tp^2 \sim C_0 + \mathcal{0}(p)
+\end{equation}
+Et de même pour les dérivées successives en faisant une développement limité à l'ordre $n$ de $\tJ_3$,
+\begin{equation}
+\partial_{\tp}^n \((\tJ_3 - \tI_3)/\tp^2 \) \simeq C_n + \mathcal{0}(p)
+\end{equation}
 
 
 \pagebreak
@@ -1930,11 +1981,11 @@ Schémas décentrés droits :
 \vspace*{11pt}
 \subsection{Propriétés élémentaires des polynômes de Tchebytchev}
 
-On rappelle ici quelques propriétés des polynômes de Tchebytchev. Tout d'abord on défini 
+On rappelle ici quelques propriétés des polynômes de Tchebytchev. Tout d'abord on définit
 \begin{equation}
 	T_n : x \rightarrow \cos(n(\arccos(x)) \quad \forall x \in [-1, 1], \quad \forall n \in \N
 \end{equation}
-La fonction $T_n$ est une fonction polynomiale associée à un polynôme de $\R_n[X]$ alors appelé polynôme de Tchebytchev de première espèce d'ordre $n$. Nous confondrons la fonction polynomiale et le polynôme qui lui est associé. Il est alors possible de montrer la relation de récurrence 
+La fonction $T_n$ est une fonction polynomiale associée à un polynôme de $\R_n[X]$ alors appelé polynôme de Tchebytchev de première espèce d'ordre $n$. Nous confondons dans les notations la fonction polynomiale et le polynôme qui lui est associé. Il est alors possible de montrer la relation de récurrence 
 \begin{equation}
 	T_n (X) = 2XT_{n}(X) - T_{n-1}(X) \quad \forall n \ge 1
 \end{equation}
@@ -1944,17 +1995,78 @@ Avec $T_0(X) = 1$ et $T_1(X) = X$. Le polynôme $T_n$ possède $n$ racines disti
 \end{equation}
 Enfin mentionnons que ces polynômes satisfont à une relation d'orthogonalité discrète. Soit $\{x_k\}_{k \in \bbrac{0,n-1}}$ les $n$ racines de $T_n$. Alors nous avons 
 \begin{equation}
-		\sum\limits_{k=0}^{n-1}T_i(x_k)T_j(x_k) = ...
+		\sum\limits_{k=0}^{n-1}T_i(x_k)T_j(x_k) = 
+		\begin{cases}
+		0 & \text{ si } i \neq j \\
+		n/2 & \text{ si } i = j \neq 0 \\
+		n & \text{ si } i = j = 0 \\
+		\end{cases}
+\end{equation}
+Enfin, soit $n_c \in \N$, posons $f$ une fonction de $[-1, 1]$ dans $\R$ de classe $\Cc^{n_c}$. On note $f_{n_c}$ le développement en série de polynômes de Tchebytchev de $f$ à l'ordre $n_c$ s'écrivant
+\begin{equation}
+	f_{n_c} = \sum_{j=0}^{n_c-1} c_jT_j
+\end{equation}
+Or il est possible de montrer la relation de récurrence
+\begin{equation}
+T_i'(x) = 2iT_{i-1}(x) + \frac{i}{i-2}T'_{i-2}(x) \quad \forall x \in [-1, 1], \quad \forall i \in \bbrac{3, n_c} \, ,
+\end{equation}
+et la dérivée de $f$ peut se mettre sous la forme
+\begin{equation}
+f' = \sum_{j=0}^{n_c-1} c'_jT_j\, ,
+\end{equation}
+avec les relations
+\begin{equation}
+\begin{split}
+& c'_{n_c-1} = 0, \quad c'_{n_c-2} = 2(n_c-1)c_{n_c-1}, \\
+& c'_i = 2(i+1)c_{i+1} + c'_{i+2} \quad \forall i \in \bbrac{0, n_c-2}
+\end{split}
 \end{equation}
 
 
-
 \vspace*{11pt}
-\subsection{Quadratures pour le calcul des intégrales}
+\subsection{Quadratures pour le calcul des intégrales à une dimension}
 
-On cherche à exprimer l'intégrale 
+Soit $f$ une fonction définie sur $[-1,1]$ suffisamment régulière. On souhaite exprimer l'intégrale de $f$ sous la forme d'une quadrature d'ordre $n \in \N$ comme :
+\begin{equation}
+	\int_{-1}^1 f(x) \dd \, x \simeq \sum_{i=1}^{n} f(\xi_i) w_i
+\end{equation}
+Les $\{\xi_i\}_i$ sont les points d'intégration et les $\{w_i\}_i$ les poids. Nous allons regarder différents types de quadratures auxquelles nous avons pensé.
 
 \subsubsection{Quadrature de Gauss-Legendre}
+
+On commence par poser $L_n$ le polynôme de Legendre d'ordre $n \in \N$ dans $\R_n[X]$ définit par la relation de récurrence
+\begin{equation}
+	L_{i+1}(X) = \frac{2i+1}{i+1}XL_i(X) - \frac{i}{i+1} L_{i-1}(X) \quad \forall i \in \bbrac{1,n-1}
+\end{equation}
+Avec $L_0 = 1$, et $L_1 = X$. On identifie encore dans les notations les polynômes et les fonctions polynômiales associées. La quadrature de Gauss-Legendre d'ordre $n$ utilise alors les points $\{\xi_i\}_i$ racines de $L_n$. Pour trouver ces points on part d'une approximation du i-ème zéro ($i \in \bbrac{1,n_c}$ de $L_n$ comme 
+\begin{equation}
+\xi_i \simeq  \cos\(\frac{\pi(i-1/4)}{n+1/2}\) \, ,
+\end{equation}
+et on utilise ensuite une méthode de Newton pour calculer ce zéro à la précision machine. On obtient les poids associées avec la formule
+\begin{equation}
+	w_i = \frac{2}{(1-\xi_i^2)\(L'_n(\xi_i)\)^2}
+\end{equation}
+
+
+\subsubsection{Première règle de Fejer}
+
+La première règle de Fejer d'ordre $n$ utilise les zéros du polynôme de Tchebytchev d'ordre $n$ de première espèce : $T_n$. Ainsi nous avons
+\begin{equation}
+\xi_i = \cos\(\frac{\pi(i-1/2)}{n}\) \quad \forall i \in \bbrac{1,n}
+\end{equation}
+Et, en notant $[n/2]$ la partie entière de $n/2$, les poids associées sont définis par
+\begin{equation}
+w_i = \frac{2}{N}\(1-2\sum_{j=1}^{[n/2]} \frac{\cos\(j\cos\( \frac{(2i-1)\pi}{n}\)  \)}{4j^2 -1} \) \quad \forall i \in \bbrac{1,n}
+\end{equation}
+
+
+\commentout{
+
+\subsection{Méthode pour le calcul des intégrales à deux dimensions}
+
+Soit $f$ une fonction définie sur $[0, 1]^2$ au moins $H^1([0, 1]^2)$. On souhaite obtenir une formule d'intégration de $f$. On peut décomposer $f$ sur une base 
+}
+
 
 \pagebreak
 
@@ -1984,23 +2096,19 @@ Enfin, soit $\delta \in \R^+_*$, on pose le changement de variable,
 \end{equation}
 On obtient alors 
 \begin{equation}
-S_\mu[\varphi] = \frac{1}{2} \int_\qv \hat{\varphi}(\qv)\eo(\qv)\hat{\varphi}(-\qv) + \sum_\rv V_0(\varphi(\rv))
+S_\mu[\varphi] = \frac{1}{2} \int_\qv \hat{\varphi}(\qv)\eo(\qv)\hat{\varphi}(-\qv) + \sum_\rv U(\varphi(\rv))
 \end{equation}
 Avec, en posant $\tilde{\mu} = \mu/(Jd)$ et $\tilde{\beta} = \beta Jd$,
 \begin{equation}
   \eo(\qv) = \delta^2\frac{1 - \gamma(\qv)}{(\gamma(\qv) + \tilde{\mu})(1+\tilde{\mu})}
 \end{equation}
 \begin{equation}
-  V_0(\rho) = \delta^2 \frac{1}{1+\tilde{\mu}} \rho - \ln\(\cosh\(2\delta\sqrt{\tilde{\beta}\rho}\)\)
+  U(\rho) = \delta^2 \frac{1}{1+\tilde{\mu}} \rho - \ln\(\cosh\(2\delta\sqrt{\tilde{\beta}\rho}\)\)
 \end{equation}
 
 De plus, on note $\tilde{\beta}_c^{\text{MF}}$ la valeur de $\tilde{\beta}$ en champ moyen à la temperature critique. En faisant un développement limité à l'ordre 1 en $\rho$ nous avons
 \begin{equation}
-V_0(\rho) = \delta^2\( \frac{1}{1+\tilde{\mu}} - 2\tilde{\beta}\)\rho + \mathcal{O}(\rho^2)
-\end{equation}
-Ainsi, nous obtenons 
-\begin{equation}
-\tilde{\beta}_c^{\text{MF}} \simeq \frac{1}{2(1+\tilde{\mu})}
+U(\rho) = \delta^2\( \frac{1}{1+\tilde{\mu}} - 2\tilde{\beta}\)\rho + \mathcal{O}(\rho^2) \quad \Rightarrow \quad \tilde{\beta}_c^{\text{MF}} \simeq \frac{1}{2(1+\tilde{\mu})}
 \end{equation}
 
 \vspace*{11pt}
@@ -2074,17 +2182,17 @@ Et nous pouvons calculer
 
 On rappelle les notations : 
 \begin{equation}
-  W(\phi) = \partial_{\phi} V(\phi) \quad \text{et} \quad X(\phi) = \partial^2_{\phi} V(\phi)
+  W(\phi) = \partial_{\phi} V(\phi) \quad \text{et} \quad X_k(\phi) = \partial^2_{\phi} V(\phi)
 \end{equation}
 On doit alors résoudre
 \begin{equation}
 \begin{split}
-\partial_t  \Delta_k (p_x, p_y, \phi) = &  J_3(p_x, p_y, \phi) {\(\partial_\phi \left\{ \Delta_k (p_x, p_y, \phi) + X(\phi) \right\}\)}^2 \\
-& - I_3(\phi){(\partial_\phi X(\phi))}^2 - \frac{1}{2} I_2(\phi) \partial_\phi^2 \Delta_k(p_x, p_y, \phi) 
+\partial_t  \Delta_k (p_x, p_y, \phi) = &  J_3(p_x, p_y, \phi) {\(\partial_\phi \left\{ \Delta_k (p_x, p_y, \phi) + X_k(\phi) \right\}\)}^2 \\
+& - I_3(\phi){(\partial_\phi X_k(\phi))}^2 - \frac{1}{2} I_2(\phi) \partial_\phi^2 \Delta_k(p_x, p_y, \phi) 
 \end{split}
 \end{equation}
 \begin{equation}
-\partial_t X(\phi) = \frac{1}{2} \partial_\phi^2 I_1(\phi)
+\partial_t X_k(\phi) = \frac{1}{2} \partial_\phi^2 I_1(\phi)
 \end{equation}
 On garde ici des expressions similaires pour les intégrales que ce que l'on avait en $\rho$,
 
@@ -2097,15 +2205,15 @@ I_n (\phi) = \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k
 G_k^{n}(q_x,q_y,\phi) \, \dd q_x \,\dd q_y
 \end{equation}
 \begin{equation}
-G_k(q_x,q_y,\phi) = \frac{1}{\eo(q_x, q_y) + \Delta_k(q_x, q_y, \phi) + X(\phi) + \Rc_k(q_x, q_y) }
+G_k(q_x,q_y,\phi) = \frac{1}{\eo(q_x, q_y) + \Delta_k(q_x, q_y, \phi) + X_k(\phi) + \Rc_k(q_x, q_y) }
 \end{equation}
 \begin{equation}
-\partial_\phi I_n(\phi) = - n \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) G_k^{n+1}(q_x,q_y,\phi)\(\partial_\phi \Delta_k(p_x, p_y, \phi) + \partial_\phi X(\phi) \) \, \dd q_x \,\dd q_y
+\partial_\phi I_n(\phi) = - n \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) G_k^{n+1}(q_x,q_y,\phi)\(\partial_\phi \Delta_k(p_x, p_y, \phi) + \partial_\phi X_k(\phi) \) \, \dd q_x \,\dd q_y
 \end{equation}
 \begin{equation}
 \begin{split}
-\partial_\phi^2 I_n(\phi) = & - n \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) G_k^{n+1}(q_x,q_y,\phi)\(\partial_\phi^2 \Delta_k(p_x, p_y, \phi) + \partial_\phi^2 X(\phi) \) \, \dd q_x \,\dd q_y \\
-& + n(n+1) \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) G_k^{n+2}(q_x,q_y,\phi){\(\partial_\phi \Delta_k(p_x, p_y, \phi) + \partial_\phi X(\phi) \)}^2 \, \dd q_x \,\dd q_y
+\partial_\phi^2 I_n(\phi) = & - n \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) G_k^{n+1}(q_x,q_y,\phi)\(\partial_\phi^2 \Delta_k(p_x, p_y, \phi) + \partial_\phi^2 X_k(\phi) \) \, \dd q_x \,\dd q_y \\
+& + n(n+1) \frac{1}{(2\pi)^2} \int_{-\pi}^\pi \int_{-\pi}^\pi \partial_t \Rc_k(q_x, q_y) G_k^{n+2}(q_x,q_y,\phi){\(\partial_\phi \Delta_k(p_x, p_y, \phi) + \partial_\phi X_k(\phi) \)}^2 \, \dd q_x \,\dd q_y
 \end{split}
 \end{equation}
 
@@ -2117,18 +2225,18 @@ G_k(q_x,q_y,\phi) = \frac{1}{\eo(q_x, q_y) + \Delta_k(q_x, q_y, \phi) + X(\phi) 
 
 On note $\tp_x = k^{-1}p_x$ et $\tp_y = k^{-1}p_y$. Ainsi que
 \begin{center}
-$\bDelta_k(\tp_x, \tp_y,\phi) = \Delta_k(p_x, p_y,\phi)$; $\bJ_n(\tp_x, \tp_y,\phi) = J_n(p_x, p_y,\phi)$ ; $\bRc_k(\tp_x, \tp_y) = \Rc_k(p_x, p_y) $ \\
+$\bDelta_k(\tp_x, \tp_y,\phi) = \Delta_k(p_x, p_y,\phi)$; $\bJ_n(\tp_x, \tp_y,\phi) = J_n(p_x, p_y,\phi)$ ; $\bRc_k(\tp_x, \tp_y) = \Rc_k(p_x, p_y) $;$ \bX_k(\phi) = X_k(\phi)$  \\
 $\beo(\tp_x, \tp_y) = \eo(p_x, p_y) $ ; $\btau(\tp_x, \tp_y) = \tau(p_x, p_y) = \beo(\tp_x, \tp_y)/(k^2 {\|\eo\|}_{\infty})$ ; $\bpRc(\tq_x, \tq_y) = \partial_t \Rc_k(q_x, q_y) $ \\
 \end{center}
 Les équations se réécrivent
 \begin{equation}
 \begin{split}
-\partial_t  \bDelta_k (\tp_x, \tp_y, \phi) = & - I_3(\phi){(\partial_\phi X(\phi))}^2 + \bJ_3(\tp_x, \tp_y, \phi) {\(\partial_\phi \left\{ \bDelta_k (\tp_x, \tp_y, \phi) + X(\phi) \right\}\)}^2 \\
+\partial_t  \bDelta_k (\tp_x, \tp_y, \phi) = & - I_3(\phi){(\partial_\phi \bX(\phi))}^2 + \bJ_3(\tp_x, \tp_y, \phi) {\(\partial_\phi \left\{ \bDelta_k (\tp_x, \tp_y, \phi) + \bX(\phi) \right\}\)}^2 \\
 & - \frac{1}{2} I_2(\phi) \partial_\phi^2 \bDelta_k(\tp_x, \tp_y, \phi) + \tp_x \partial_{\tp_x}  \bDelta_k + \tp_y \partial_{\tp_y}  \bDelta_k 
 \end{split}
 \end{equation}
 \begin{equation}
-\partial_t X(\phi) = \frac{1}{2} \partial_\phi^2 I_1(\phi)
+\partial_t \bX(\phi) = \frac{1}{2} \partial_\phi^2 I_1(\phi)
 \end{equation}
 En effet, l'expression de la nouvelle derivée par rapport au temps est : 
 \begin{equation}
@@ -2156,12 +2264,12 @@ I_n (\phi) = \frac{k^2}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\
 \bG_k^{n}(\tq_x,\tq_y,\phi) \, \dd \tq_x \,\dd \tq_y
 \end{equation}
 \begin{equation}
-\bG_k(\tq_x,\tq_y,\phi) = \frac{1}{\beo(\tq_x, \tq_y) + \bDelta_k(\tq_x, \tq_y, \phi) + X(\phi) + \bRc_k(\tq_x, \tq_y) }
+\bG_k(\tq_x,\tq_y,\phi) = \frac{1}{\beo(\tq_x, \tq_y) + \bDelta_k(\tq_x, \tq_y, \phi) + \bX(\phi) + \bRc_k(\tq_x, \tq_y) }
 \end{equation}
 \begin{equation}
 \begin{split}
-\partial_\phi^2 I_n(\phi) = & - n \frac{k^2}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}}  \bpRc(\tq_x, \tq_y) \bG_k^{n+1}(\tq_x,\tq_y,\phi)\(\partial_\phi^2 \bDelta_k(\tp_x, \tp_y, \phi) + \partial_\phi^2 X(\phi) \) \, \dd \tq_x \,\dd \tq_y \\
-& + n(n+1) \frac{k^2}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}}  \bpRc(\tq_x, \tq_y) \bG_k^{n+2}(\tq_x,\tq_y,\phi){\(\partial_\phi \bDelta_k(\tp_x, \tp_y, \phi) + \partial_\phi X(\phi) \)}^2 \, \dd \tq_x \,\dd \tq_y
+\partial_\phi^2 I_n(\phi) = & - n \frac{k^2}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}}  \bpRc(\tq_x, \tq_y) \bG_k^{n+1}(\tq_x,\tq_y,\phi)\(\partial_\phi^2 \bDelta_k(\tp_x, \tp_y, \phi) + \partial_\phi^2 \bX_k(\phi) \) \, \dd \tq_x \,\dd \tq_y \\
+& + n(n+1) \frac{k^2}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}}  \bpRc(\tq_x, \tq_y) \bG_k^{n+2}(\tq_x,\tq_y,\phi){\(\partial_\phi \bDelta_k(\tp_x, \tp_y, \phi) + \partial_\phi \bX_k(\phi) \)}^2 \, \dd \tq_x \,\dd \tq_y
 \end{split}
 \end{equation}
 
@@ -2198,7 +2306,7 @@ En outre par définition nous avons aussi
 On note $\tphi = \sqrt{Z_k}\phi$. Etant donnée que l'on effectue le changement à des valeurs de $k$ très faibles ($k \simeq \exp(-3)$), on considèrera que $\beo(\tp_x,\tp_y) \simeq \eo^0\,k^2(\tp_x^2+\tp_y^2)$. On adimensionne aussi les fonctions en plus des variables :
 
 \begin{equation*}
-1 + \frac{\bDelta_k(\tp_x, \tp_y,\phi)}{\eo^0 \pv^2} = Z_k(1+\tY_k(\tp_x, \tp_y,\tphi)) \quad \text{et} \quad \tX(\tphi) = \frac{1}{Z_k k^2} X(\phi)
+1 + \frac{\bDelta_k(\tp_x, \tp_y,\phi)}{\eo^0 \pv^2} = Z_k(1+\tY_k(\tp_x, \tp_y,\tphi)) \quad \text{et} \quad \tX_k(\tphi) = \frac{1}{Z_k k^2} \bX_k(\phi)
 \end{equation*}
 
 
@@ -2242,18 +2350,18 @@ Ainsi que pour les dérivées par rapport à $\phi$
 
 \vspace*{11pt}
 \noindent
-\textbf{Etude des termes en $X(\phi)$} \\
+\textbf{Etude des termes en $X_k(\phi)$} \\
 
-La dérivée de $X$ par rapport à $t$ devient de même que pour $\bDelta$
+La dérivée de $\bX_k$ par rapport à $t$ devient de même que pour $\bDelta$
 \begin{equation}
 \begin{split}
-\partial_t  X(\phi) {|}_{\phi} = & \partial_t (Z_k k^2\tX(\tphi)) {|}_{\tphi} + \partial_t \tphi  {|}_{\phi}\, \partial_{\tphi} (Z_k k^2\tX(\tphi)) \\ 
-\partial_t  X(\phi) {|}_{\phi} = & Z_k k^2\partial_t \tX(\tphi) - Z_k k^2 (\eta_k -2)\tX(\tphi) - \frac{1}{2} Z_k k^2  \eta_k\tphi \, \partial_{\tphi}\tX(\tphi)
+\partial_t  \bX_k(\phi) {|}_{\phi} = & \partial_t (Z_k k^2\tX_k(\tphi)) {|}_{\tphi} + \partial_t \tphi  {|}_{\phi}\, \partial_{\tphi} (Z_k k^2\tX_k(\tphi)) \\ 
+\partial_t  \bX_k(\phi) {|}_{\phi} = & Z_k k^2\partial_t \tX_k(\tphi) - Z_k k^2 (\eta_k -2)\tX_k(\tphi) - \frac{1}{2} Z_k k^2  \eta_k\tphi \, \partial_{\tphi}\tX_k(\tphi)
 \end{split}
 \end{equation}
 Et pour la dérivée en $\phi$ nous avons
 \begin{equation}
-\partial_{\phi} X(\phi) = k^2 Z_k^{\frac{3}{2}} \partial_{\tphi} \tX(\tphi)
+\partial_{\phi} \bX_k(\phi) = k^2 Z_k^{\frac{3}{2}} \partial_{\tphi} \tX_k(\tphi)
 \end{equation}
 
 
@@ -2303,12 +2411,12 @@ Et leurs équations deviennent
 \tG_k^{n}(\tq_x,\tq_y,\tphi) \, \dd \tq_x \,\dd \tq_y
 \end{equation}
 \begin{equation}
-\tG_k(\tq_x,\tq_y,\phi) = \frac{1}{\eo^0 \tq^2 \left\{  1 + \tY_k(\tq_x, \tq_y, \tphi)  + r_k(\tq) \right\} + \tX(\tphi) }
+\tG_k(\tq_x,\tq_y,\phi) = \frac{1}{\eo^0 \tq^2 \left\{  1 + \tY_k(\tq_x, \tq_y, \tphi)  + r_k(\tq) \right\} + \tX_k(\tphi) }
 \end{equation}
 \begin{equation}
 \begin{split}
-\partial_{\tphi}^2 & \tI_n(\tphi) =  - n \frac{1}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \eo^0 \tq^2 \left\{ -\eta_k r_k(\tq) - \tq \partial_{\tq} r_k(\tq) \right\}  \tG_k^{n+1}(\tq_x,\tq_y,\tphi)\( \eo^0 \tq^2 \partial_{\tphi}^2 \tY_k(\tp_x, \tp_y, \tphi) + \partial_{\tphi}^2 \tX(\tphi) \) \, \dd \tq_x \,\dd \tq_y \\
-& + n(n+1) \frac{1}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \eo^0 \tq^2 \left\{ -\eta_k r_k(\tq) - \tq \partial_{\tq} r_k(\tq) \right\}   \tG_k^{n+2}(\tq_x,\tq_y,\tphi){\(\eo^0 \tq^2\partial_{\tphi} \tY_k(\tp_x, \tp_y, \tphi) + \partial_{\tphi}   \tX(\tphi)\)}^2 \, \dd \tq_x \,\dd \tq_y
+\partial_{\tphi}^2 & \tI_n(\tphi) =  - n \frac{1}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \eo^0 \tq^2 \left\{ -\eta_k r_k(\tq) - \tq \partial_{\tq} r_k(\tq) \right\}  \tG_k^{n+1}(\tq_x,\tq_y,\tphi)\( \eo^0 \tq^2 \partial_{\tphi}^2 \tY_k(\tp_x, \tp_y, \tphi) + \partial_{\tphi}^2 \tX_k(\tphi) \) \, \dd \tq_x \,\dd \tq_y \\
+& + n(n+1) \frac{1}{(2\pi)^2} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \int_{-\frac{\pi}{k}}^{\frac{\pi}{k}} \eo^0 \tq^2 \left\{ -\eta_k r_k(\tq) - \tq \partial_{\tq} r_k(\tq) \right\}   \tG_k^{n+2}(\tq_x,\tq_y,\tphi){\(\eo^0 \tq^2\partial_{\tphi} \tY_k(\tp_x, \tp_y, \tphi) + \partial_{\tphi}   \tX_k(\tphi)\)}^2 \, \dd \tq_x \,\dd \tq_y
 \end{split}
 \end{equation}
 
@@ -2325,13 +2433,13 @@ En rassemblant toute les expressions précédents ceci nous permet d'écrire les
 \partial_t \tY(\tp_x, \tp_y,\tphi) & = 
 \begin{aligned}[t]
 & \eta_k(1+\tY_k(\tp_x, \tp_y,\tphi)) + \frac{1}{2} \eta_k \tphi \partial_{\tphi} \tY_k(\tp_x, \tp_y,\tphi) - \frac{1}{2} \tI_2(\tphi) \partial_{\tphi}^2 \tY_k(\tp_x, \tp_y, \tphi)\\
-& \quad + \frac{1}{\eo^0\tpv^2}\left\{ {\( \eo^0\tpv^2 \partial_{\tphi} \tY_k(\tp_x, \tp_y,\tphi) + \partial_{\tphi} \tX(\tphi)\)}^2 \tJ_3(\tp_x, \tp_y,\tphi) - {\( \partial_{\tphi} \tX(\tphi) \)}^2 \tI_3(\tphi)\right\} \\
+& \quad + \frac{1}{\eo^0\tpv^2}\left\{ {\( \eo^0\tpv^2 \partial_{\tphi} \tY_k(\tp_x, \tp_y,\tphi) + \partial_{\tphi} \tX_k(\tphi)\)}^2 \tJ_3(\tp_x, \tp_y,\tphi) - {\( \partial_{\tphi} \tX_k(\tphi) \)}^2 \tI_3(\tphi)\right\} \\
 & \quad + \tp_x \partial_{\tp_x} \tY_k(\tp_x, \tp_y,\tphi) + \tp_y \partial_{\tp_y} \tY_k(\tp_x, \tp_y,\tphi) \\ \\
 \end{aligned}
 \label{eqn} \\
-\partial_t \tX(\tphi) & = 
+\partial_t \tX_k(\tphi) & = 
 \begin{aligned}[t]
-(\eta_k -2)\tX(\tphi) + \frac{1}{2}\eta_k\tphi \, \partial_{\tphi}\tX(\tphi) + \frac{1}{2} \partial_{\tphi}^2 \tI_1(\tphi)
+(\eta_k -2)\tX_k(\tphi) + \frac{1}{2}\eta_k\tphi \, \partial_{\tphi}\tX_k(\tphi) + \frac{1}{2} \partial_{\tphi}^2 \tI_1(\tphi)
 \end{aligned}
 \end{align}
 On notera aussi l'équation de flot qui permet de récupérer le potentiel directement donnée par
@@ -2371,12 +2479,12 @@ Ainsi on en déduit directement les formules suivantes
 \partial_t \Rc_k(q_x, q_y) = \alpha Z_k \frac{\eo(q_x, q_y)}{\sinh(\tau(q_x, q_y)}   \left\{ \frac{\tau(q_x, q_y)}{\sinh(\tau(q_x, q_y))} - \eta_k \frac{1}{2\exp(\tau(q_x, q_y))} \right\}
 \end{equation}
 \begin{equation}
-\bpRc(\tq_x, \tq_y) = \alpha Z_k \frac{\beo(\tq_x, \tq_y)}{\sinh(\btau(\tq_x, \tq_y))}   \left\{ \frac{\btau(\tq_x, \tq_y)}{\sinh(\tau(\tq_x, \tq_y))} - \eta_k \frac{1}{2\exp(\btau(\tq_x, \tq_y))} \right\}
+\bpRc(\tq_x, \tq_y) = \alpha Z_k \frac{\beo(\tq_x, \tq_y)}{\sinh(\btau(\tq_x, \tq_y))}   \left\{ \frac{\btau(\tq_x, \tq_y)}{\sinh(\btau(\tq_x, \tq_y))} - \eta_k \frac{1}{2\exp(\btau(\tq_x, \tq_y))} \right\}
 \end{equation}
 
 \commentout{
 \begin{equation*}
-\tDelta_k(\tp_x, \tp_y,\tphi) = \frac{1}{Z_k k^2} \bDelta_k(\tp_x, \tp_y,\phi) \quad \text{et} \quad \tX(\tphi) = \frac{1}{Z_k k^2} X(\phi)
+\tDelta_k(\tp_x, \tp_y,\tphi) = \frac{1}{Z_k k^2} \bDelta_k(\tp_x, \tp_y,\phi) \quad \text{et} \quad \tX_k(\tphi) = \frac{1}{Z_k k^2} X_k(\phi)
 \end{equation*}
 Ainsi que pour les integrales
 \begin{equation*}
@@ -2386,12 +2494,12 @@ Il vient alors les équations
 \begin{equation}
 \begin{split}
 \partial_t  \tDelta_k (\tp_x, \tp_y, \tphi) = & (\eta_k -2)\tDelta_k(\tp_x, \tp_y, \tphi) + \frac{1}{2}\eta_k\tphi \, \partial_{\tphi}\tDelta_k(\tp_x, \tp_y, \tphi) \\
-& - \tI_3(\tphi){(\partial_\phi \tX(\tphi))}^2 + \tJ_3(\tp_x, \tp_y, \tphi) {\(\partial_{\tphi} \left\{ \tDelta_k (\tp_x, \tp_y, \tphi) + \tX(\tphi) \right\}\)}^2 \\
+& - \tI_3(\tphi){(\partial_\phi \tX_k(\tphi))}^2 + \tJ_3(\tp_x, \tp_y, \tphi) {\(\partial_{\tphi} \left\{ \tDelta_k (\tp_x, \tp_y, \tphi) + \tX_k(\tphi) \right\}\)}^2 \\
 & - \frac{1}{2} \tI_2(\tphi) \partial_{\tphi}^2 \tDelta_k(\tp_x, \tp_y, \tphi) + \tp_x \partial_{\tp_x}  \tDelta_k(\tp_x, \tp_y, \tphi) + \tp_y \partial_{\tp_y}  \tDelta_k(\tp_x, \tp_y, \tphi) 
 \end{split}
 \end{equation}
 \begin{equation}
-\partial_t \tX(\tphi) =  (\eta_k -2)\tX(\tphi) + \frac{1}{2}\eta_k\tphi \, \partial_{\tphi}\tX(\tphi) + \frac{1}{2} \partial_{\tphi}^2 \tI_1(\tphi)
+\partial_t \tX_k(\tphi) =  (\eta_k -2)\tX_k(\tphi) + \frac{1}{2}\eta_k\tphi \, \partial_{\tphi}\tX_k(\tphi) + \frac{1}{2} \partial_{\tphi}^2 \tI_1(\tphi)
 \end{equation}
 
 Avec pour expression des integrales
