@@ -25,10 +25,10 @@ eo   =  e0(qxMesh, qyMesh);
 derReg1 = tau1.*eo./sinh(tau1)./sinh(tau1);
 derReg2 = tau2.*eo./sinh(tau2)./sinh(tau2);
 
-[ha, h2, h1] = make_2_axes4();
+[ha, h2, h1] = make_2_axes3();
 
 h_s2 = surf(h2, qxMesh, qyMesh, derReg2);
-h_s1 = surf(h1, qxMesh, qyMesh, derReg1);
+h_s1 = surf(h1, qxMesh, qyMesh, derReg2);
 
 set(h_s1, 'EdgeColor', 'flat');
 set(h_s2, 'EdgeColor', 'flat');
@@ -66,17 +66,17 @@ set(h2, 'FontSize', fsz);
 set(h2, 'FontName', f_name);
 
 
-xlabel(h1,'$q_x$','Interpreter','LaTeX',...
+xlabel(h1,'$\tilde{q}_x$','Interpreter','LaTeX',...
     'FontSize',l_fsz);
 
 %ylabel(h1,'$q_y$','Interpreter','LaTeX',...
 %   'FontSize',l_fsz);
 
 
-xlabel(h2,'$q_x$','Interpreter','LaTeX',...
+xlabel(h2,'$\tilde{q}_x$','Interpreter','LaTeX',...
     'FontSize',l_fsz);
 
-ylabel(h2,'$q_y$','Interpreter','LaTeX',...
+ylabel(h2,'$\tilde{q}_y$','Interpreter','LaTeX',...
     'FontSize',l_fsz);
 
 zlabel(h2,'$\mathcal{R}_k(q_x, q_y)$','Interpreter','LaTeX',...
@@ -85,11 +85,11 @@ zlabel(h2,'$\mathcal{R}_k(q_x, q_y)$','Interpreter','LaTeX',...
 zticks(h1, []);
 xticks(h1, [-pi, 0, pi]);
 yticks(h1, [-pi, 0, pi]);
-xticklabels(h1, {'-\pi', '0', '\pi'});
-yticklabels(h1, {'-\pi', '0', '\pi'});
+xticklabels(h1, {'-\pi/k_a', '0', '\pi/k_a'});
+yticklabels(h1, {'-\pi/k_a', '0', '\pi/k_a'});
 
 zticks(h2, []);
 xticks(h2, [-pi, 0, pi]);
 yticks(h2, [-pi, 0, pi]);
-xticklabels(h2, {'-\pi', '0', '\pi'});
-yticklabels(h2, {'-\pi', '0', '\pi'});
+xticklabels(h2, {'-\pi/k_a', '0', '\pi/k_a'});
+yticklabels(h2, {'-\pi/k_a', '0', '\pi/k_a'});

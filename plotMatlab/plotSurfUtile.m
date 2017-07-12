@@ -21,7 +21,7 @@ plot([2.5, 2.5], [0, pi], 'color', 'black', 'LineWidth', 0.5);
 plot([2.75, 2.75], [0, pi], 'color', 'black', 'LineWidth', 0.5);
 plot([3, 3], [0, pi], 'color', 'black', 'LineWidth', 0.5);
 
-journal_axis(gca, '$p_x$', '$p_y$');
+journal_axis(gca, '$q_x$ ou $\tilde{q}_x$', '$q_y$ ou $\tilde{q}_y$');
 
 %p = patch(gca, 'vertices', [0, 0; 0, pi; pi, pi; pi, 0], ...
  %         'faces', [1, 2, 3, 4], ...
@@ -41,3 +41,7 @@ journal_axis(gca, '$p_x$', '$p_y$');
       set(gca,'dataaspectratio',[1 1 1]);
       xlim(X);
       ylim(Y);
+      
+  xticks(gca, []);
+  yticks(gca, []);
+  box off;

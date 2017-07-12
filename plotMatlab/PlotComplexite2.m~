@@ -8,15 +8,15 @@ NGL = [12 14 16 18]; % Pour NC=8;
 setFigure_bis('Ma Figure')
 % On cherche si t= alpha*N^6
 
-logalpha = log(t(end)) - 6*log(N(end));
-Y = 6*log(N) + logalpha;
+logalpha = log(t2(end)) - 2*log(NGL(end));
+Y = 2*log(NGL) + logalpha;
 
-plot(log(N),log(t), 'o', 'MarkerFaceColor', line_color_5, 'MarkerSize', 4);
+plot(log(NGL),log(t2), 'o', 'MarkerFaceColor', line_color_5, 'MarkerSize', 4);
 hold on
-plot(log(N), Y, '-', 'LineWidth', 1.5, 'COLOR', line_color_2);
+plot(log(NGL), Y, '-', 'LineWidth', 1.5, 'COLOR', line_color_2);
 
-logt = log(t);
-logN = log(N);
+logt = log(t2);
+logN = log(NGL);
 
 journal_axis(gca, '$\ln(n)$', '$\ln(\tau_c)$')
 

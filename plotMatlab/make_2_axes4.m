@@ -1,17 +1,17 @@
-function [h_fig, h_a, h_b] = make_2_axes2()
+function [h_fig, h_a, h_b] = make_2_axes4()
 %% This function produces a figure with 2 axes, and returns the figure and
 %% axis handles.  
 
 journal_plot_params;
-norm_ax_width = 0.395;
+norm_ax_width = 0.31;
 %norm_ax_height = 0.75;
 norm_ax_height = 0.68;
 norm_inset_left = 0.1;
 norm_inset_bottom = 0.55;
 norm_inset_width = 0.4;
 norm_inset_height = 0.4;
-left_space_1 = 0.10;
-left_space_2 = 0.08;
+left_space_1 = 0.16;
+left_space_2 = 0.12;
 v_space = 0.215;
 fig_b_start = left_space_1+norm_ax_width+left_space_2+0.01;
 v_space_bis = v_space + 0.045;
@@ -23,7 +23,7 @@ inset_width = norm_inset_width * norm_ax_width;
 inset_height = norm_inset_height * norm_ax_height;
 
 h_fig = figure('units','centimeters',...
-    'Position', [10 10 width_1 height_1_2]);
+    'Position', [10 10 width_1 height_1_2+0.8]);
 
 set(h_fig,'Renderer','painters');
 set(h_fig,'PaperUnits','centimeters');
