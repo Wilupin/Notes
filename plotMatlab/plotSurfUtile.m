@@ -42,6 +42,6 @@ journal_axis(gca, '$q_x$ ou $\tilde{q}_x$', '$q_y$ ou $\tilde{q}_y$');
       xlim(X);
       ylim(Y);
       
-  xticks(gca, []);
-  yticks(gca, []);
+  xticks(gca, [0]);
+  yticks(gca, [0]);
   box off;

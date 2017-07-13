@@ -523,7 +523,7 @@ Ainsi nous dirons que $\Gamma^{(2)}_k$ n'a pas vraiment la dimension de $\pv^2$ 
 \begin{equation}
  	\lim\limits_{k \to 0} \eta_k  = \eta
  \end{equation}
-Ceci est d'une très grande importance pour l'adimensionnement des équations qui est nécessaire pour trouver les points fixes du RG (c.f. \refsec{RG}). Mais de plus c'est cette grandeur qui va nous donner l'exposant critique $\eta$ que l'on recherche.
+Ceci est d'une très grande importance pour l'adimensionnement des équations qui est nécessaire pour trouver les points fixes du RG (c.f. \refsec{RG}). Mais de plus c'est cette grandeur qui va donne l'exposant critique $\eta$ que l'on recherche quand $k \to 0$.
 
 
 \vspace*{11pt}
@@ -596,7 +596,7 @@ Où encore, en transformée de Fourier, par isométrie de la TF dans $(L^2(\R^d)
 \end{equation}
 
 
-Avec $u_0$ et $r_0$ deux réels. Comprenons que cet hamiltonien n'est pas le vrai hamiltonien de tous les systèmes régit pas une symétrie $O(N)$ mais il suffit à en déduire les grandeurs universelles aux transition de phase. C'est seulement un modèle simplifié avec les même symétries que les systèmes qui nous intéresse. Ce modèle possède ainsi aussi une température critique qu'il va falloir déterminer pour atteindre un point fixe du RG. C'est le paramètre $r_0$ qui définit plus particulièrement la température à laquelle est soumise le système et sur lequel il faudra jouer pour le trouver.\\
+Avec $u_0$ et $r_0$ deux réels. Comprenons que cet hamiltonien n'est pas le vrai hamiltonien de tous les systèmes régit pas une symétrie $O(N)$ mais il suffit à en déduire les grandeurs universelles aux transition de phase. En effet il s'agit d'un modèle simplifié (système "jouet") avec les même symétries que les systèmes qui nous intéresse. La température à laquelle est soumise ce système "jouet" est encodée dans le paramètre $r_0$. Pour déterminer le point fixe du RG et donc la température critique de ce modèle il faut alors chercher par essais-erreurs quelle est la  bonne valeur du $r_0$ qui est à introduire dans les conditions initiales des équations. \\
 
 Ainsi c'est ce hamiltonien qui est injectée dans les équations du RG permettant d'obtenir les équations de flot et les équations BMW qui nous ont intéressées dans cette partie.
 
@@ -615,10 +615,13 @@ Tout d'abord, la condition initiale \refeq{initBMW} devient ici,
 	\Gamma^{(2)}_\Lambda(\pv, \phi) = \pv^2 + r_0 + \frac{u_0}{2} \phi^2
 	\label{eq:initBMWCont}
 \end{equation}
-
-De plus, parce que l'on a \refeq{}, et parce qu'il est plus précis d'utiliser en complément de l'équation sur $\Gamma^{(2)}_k$ l'équation de flot de $V_k$, on introduit une fonction $\Delta_k(p, \rho)$ telle que
+Dans les notations on note de la même manière fonction de $\rho$ et fonction de $\phi$, on écrit par exemple $V_k(\rho = \phi^2/2) = V_k(\rho)$. Il vient alors
 \begin{equation}
-	\Gamma^{(2)}_k(p, \rho) = p^2 + \Delta_k(p, \rho) + \partial_{\phi}^2 V_k|_\rho
+	\Gamma^{(2)}_k(p=0, \rho) = \partial_{\rho}V_k(\rho) + 2\rho\partial_{\rho}^2 V_k(\rho) = \partial_{\phi}^2 V_k(\phi)
+\end{equation}
+Parce qu'il est plus précis d'utiliser en complément de l'équation sur $\Gamma^{(2)}_k$ l'équation de flot de $V_k$, on introduit une fonction $\Delta_k(p, \rho)$ vérifiant la relation
+\begin{equation}
+	\Gamma^{(2)}_k(p, \rho) = p^2 + \Delta_k(p, \rho) + \partial_{\rho}V_k(\rho) + 2\rho\partial_{\rho}^2 V_k(\rho) 
 	\label{eq:gammaDecomp}
 \end{equation}
 L'équation BMW \refeq{flotBMW} peut alors se réécrire sous la forme du système couplé
@@ -648,7 +651,7 @@ Avec les notations
 La condition initiale se déduit de \refeq{initBMWCont}. En effet, il vient directement par la décomposition \refeq{gammaDecomp},
 
 \begin{equation}
-\Delta_\Lambda (p,\rho) = 0 \quad \text{et} \quad V_\Lambda(\rho) = r_0 + u_0\rho
+\Delta_\Lambda (p,\rho) = 0 \quad \text{et} \quad V_\Lambda(\rho) = r_0\rho + \frac{u_0}{6}\rho^2
 \end{equation}
 
 De plus, pour des raisons de stabilité numérique on travaille dans la suite avec
@@ -693,7 +696,7 @@ Ceci donne alors la nouvelle forme du problème que nous avons essayé de résou
 \end{align}
 \textit{Avec les conditions initiales,}
 \begin{equation}
-	\tY_1(\trho, \tp) = 0 \quad  \text{et} \quad \tW_1(\trho) = r_0' + u_0'\trho
+	\tY_\Lambda(\trho, \tp) = 0 \quad  \text{et} \quad \tW_\Lambda(\trho) = r_0' + u_0'\trho
 \end{equation}
 où $r_0'$ et $u_0'$ viennent de $r_0$ et $u_0$ (c.f. \refeq{hamiltCont}). 
 Pour résoudre ce système il manque encore l'expression de $\eta_k$ pour $k$ fixé, découlant de la définition même de $Z_k$ en \refeq{defZk} (en prenant arbitrairement $\phiv_0 = 0$ et $\pv_0 = 0$).
@@ -728,6 +731,7 @@ donc $\Rc_k$ converge même uniformément vers 0 quand $k$ tend vers 0, (C1) dé
 \end{equation}
 
 
+\vspace*{11pt}
 
 \section{Méthodes numériques pour la résolution de ces équations}
 
@@ -747,9 +751,9 @@ Nous avons a résoudre ici un système d'équations intégro-différentielle non
 
 Pour la discrétisation en temps, nous sommes dans l'obligation d'utiliser un schéma explicite à cause de la structure complexe des termes de gauches des équations. Il a été mis en évidence dans ce code qu'un schéma d'Euler explicite d'un pas de temps est suffisant pour obtenir une résolution stable, c'est donc ce qui est utilisé. \\
 
-Ensuite nous différencions la dépendance en champs (i.e. en $\trho$) à celle en impulsion (i.e. $\tp$) des fonctions inconnues. Pour ce qui est de la dépendance en champ, il suffit de prendre une grille fixe finie de points régulièrement espacés dans $[0, \rho_{max}$, où $\rho_{max}$ est suffisamment grand. Les dérivées selon cette variable se calculent alors par des schémas de différences finies d'ordre 5. \\
+Ensuite nous différencions la dépendance en champ (i.e. en $\trho$) à celle en impulsion (i.e. $\tp$) des fonctions inconnues. Pour ce qui est de la dépendance en champ, il suffit de prendre une grille fixe finie de points régulièrement espacés dans $[0, \rho_{max}$, où $\rho_{max}$ est suffisamment grand. Les dérivées selon cette variable se calculent alors par des schémas de différences finies d'ordre 5. \\
 
-Enfin pour la dépendance en impulsion les choses sont plus compliquées car il faut à la fois pouvoir facilement calculer des dérivées selon $\tp$, mais aussi intégrer des expressions - dépendant des fonctions inconnues - afin d'obtenir les intégrales $\tI$ et $\tJ$. Le calcul des intégrales $\tJ(\tp, \trho)$ pour tout $\tp$ et $\trho$ de la discrétisation est ce qui demande le plus de temps de calcul. Au premières versions de ce code, la discrétisation se faisait aussi sur une grille fixe de points régulièrement espacés et les intégrales étaient calculées par des méthodes de Simpsons. Cependant cela c'est avéré ne pas être assez précis dans certaines configurations, les algorithmes n'étaient pas robustes. Pour palier à ce problème et pour intégrer correctement $\tilde J_3$ c'est une décomposition pseudo spectrale de la partie en impulsion des fonctions inconnue qui a été mise en place à l'aide de décomposition en série sur des polynômes de Tchebytchev associé à une intégration de Gauss-Legendre. L'interpolation de la partie impulsion des fonctions se fait alors dans une boite $[0, \tp_{max}]$ où $\tp_{max}$ est choisi suffisamment grand. La décomposition pseudo-spectrale signifie qu'à chaque pas de temps on calcule et conserve en mémoire pour le pas de temps suivant la valeur de la fonction que l'on interpole au point d'interpolation ainsi que les coefficients de sa décomposition en série de polynôme de Tchebytchev. \\
+Enfin pour la dépendance en impulsion les choses sont plus compliquées car il faut à la fois pouvoir facilement calculer des dérivées selon $\tp$, mais aussi intégrer des expressions - dépendant des fonctions inconnues - afin d'obtenir les intégrales $\tI$ et $\tJ$. Le calcul des intégrales $\tJ(\tp, \trho)$ pour tout $\tp$ et $\trho$ de la discrétisation est ce qui demande le plus de temps de calcul. Au premières versions de ce code, la discrétisation se faisait aussi sur une grille fixe de points régulièrement espacés et les intégrales étaient calculées par des méthodes de Simpsons. Cependant cela c'est avéré ne pas être assez précis dans certaines configurations, les algorithmes n'étaient pas robustes. Pour palier à ce problème et pour intégrer correctement $\tilde J_3$ c'est une décomposition pseudo spectrale de la partie en impulsion des fonctions inconnues qui a été mise en place à l'aide de décomposition en série sur des polynômes de Tchebytchev associé à une intégration de Gauss-Legendre. L'interpolation de la partie impulsion des fonctions se fait alors dans une boite $[0, \tp_{max}]$ où $\tp_{max}$ est choisi suffisamment grand. La décomposition pseudo-spectrale signifie qu'à chaque pas de temps on calcule et conserve en mémoire pour le pas de temps suivant la valeur de la fonction que l'on interpole au point d'interpolation ainsi que les coefficients de sa décomposition en série de polynôme de Tchebytchev. \\
 
 Nous détaillons alors les différents aspects numériques des discrétisations que nous avons utilisé.
 
@@ -809,7 +813,7 @@ Il vient alors
 \end{equation}
 }
 
-Ceci justifie alors partiellement l'utilisation des polynômes de Tchebytchev pour l'interpolation des fonctions dépendant d'une impulsion. En effet les fonctions semi-discrétisée en temps étant $\Cc^\infty$ sur $[0, \infty[$ elles le sont sur $[0, p_{max}]$. On utilise donc le théorème précédent pour $a=0$ et $b = p_{max}$. \\
+Ceci justifie alors l'utilisation des polynômes de Tchebytchev pour l'interpolation des fonctions dépendant d'une impulsion. En effet les fonctions semi-discrétisée en temps étant $\Cc^\infty$ sur $[0, \infty[$ elles le sont sur $[0, p_{max}]$. On utilise donc le théorème précédent pour $a=0$ et $b = p_{max}$. \\
 
 \subsubsection{Coefficients de la décomposition}
 
@@ -1434,7 +1438,6 @@ De cette manière on ne considère que $\phi \text{ (ou } \tphi) \in [0, \infty[
 
 
  Enfin mentionnons que puisque $\eo$ est une fonction $2\pi$-périodique alors $\Delta_{k_n}$ l'est aussi pour tout $n\in\N$ par rapport au variables $p_x$ et $p_y$. Cette propriété est perdu pour les fonctions $\bDelta_{k_n}$ et $\tY_{k_n}$.
- 
 \begin{figure}[H]
 \begin{center}
 	\includegraphics[width=0.95\columnwidth]{SurfUtile.pdf}
@@ -1636,10 +1639,10 @@ Bien que nos équations soient assez éloignées d'une simple équation d'advect
 
 \subsection{Complexité algorithmique et parallélisation - problème de rapidité} 
 
-Comme pour le modèle continu $O(N)$ il est possible de paralléliser le code en utilisant de l'openMP \cite{} grain fin sur les boucles en champ. En revanche, à cause de la quadrature précise que l'on souhaite avoir sur le calcul des intégrales $J$, sans parallélisation, le temps de calcul se trouve évoluer en $\mathcal{O}( Q_\text{max} \times n_c^3 \times n_{gl}^2 \times n_{\phi})$. Où $n_{\phi}$ est le nombre de point de discrétisation en $\phi$ et $\tphi$, et $Q_{max}$ est le rang maximal nécessaire dans tout le code lors de l'approximation de rang faible de \refsec{GE}. Pour le vérifier nous avons tracé les courbes \refig{timeNc} et \refig{}. 
+Comme pour le modèle continu $O(N)$ il est possible de paralléliser le code en utilisant de l'openMP \cite{} grain fin sur les boucles en champ. En revanche, à cause de la quadrature précise que l'on souhaite avoir sur le calcul des intégrales $J$, sans parallélisation, le temps de calcul se trouve évoluer en $\mathcal{O}( Q_\text{max} \times n_c^3 \times n_{gl}^2 \times n_{\phi})$. Où $n_{\phi}$ est le nombre de point de discrétisation en $\phi$ et $\tphi$, et $Q_{max}$ est le rang maximal nécessaire dans tout le code lors de l'approximation de rang faible de \refsec{GE}. Pour le vérifier nous avons tracé la courbe \refig{timeNc}
 
 
-Ainsi nous pouvons bien constater la complexité catastrophique de cet algorithme de résolution. En revanche nous avons aussi étudié la "scalabilité" de la parallélisation sur les points de discrétisation en champ $\phi$ et comme attendu nous obtenons une décroissance en $1/n_{proc}$ ou $n_{proc}$ est le nombre de processeur utilisé. Le résultat est visible en \refig{}.
+Ainsi nous pouvons bien constater la complexité catastrophique de cet algorithme de résolution. En revanche nous avons aussi étudié la "scalabilité" de la parallélisation sur les points de discrétisation en champ $\phi$ et comme attendu nous obtenons une décroissance en $1/n_{proc}$ ou $n_{proc}$ est le nombre de processeur utilisé. Le résultat est visible en \refig{timeScal}.
 
 
 \begin{figure}[H]
@@ -1650,13 +1653,15 @@ Ainsi nous pouvons bien constater la complexité catastrophique de cet algorithm
 \label{fig:timeNc}
 \end{figure}
 
+
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=0.95\columnwidth]{ComplexiteTemps.pdf}
+	\includegraphics[width=0.95\columnwidth]{Scalabilite.pdf}
 \end{center}
-\caption{(Points bleus) Logarithme du temps de calcul mesuré $\tau_c$ de 10 pas de temps du code en fonction du nombre de points d'intégration et d'interpolation. Où l'on a pris $n = n_c = n_{gl}$. (Ligne rouge) droite d'équation $y=6x+b$ avec $b$ une constante. Il semble que les points se rapproche du comportement de la droite et ainsi que l'on ait $t_c \propto n^6$. Un interpolation linéaire sur les données dont on dispose donne plus précisément $t_c \propto n^{5,7} $   }
-\label{fig:timeNc}
+\caption{Évolution du temps de calcul $\tau_c$ avec le nombre $n_{proc}$ de processeurs utilisés.}
+\label{fig:timeScal}
 \end{figure}
+
 
 
 \subsection{Problème de précision des intégrales}
@@ -1912,36 +1917,108 @@ Si $A$ est le noyau de $S$, on note $A^{-1}$ le noyau de $S^{-1}$.
 
 
 
-\section{Propriétés des fonctions discrétisées}
+\section{Propriétés des fonctions à discrétiser}
 
 
 
-\subsection{Symétries des inconnues dans le cas $O(1)$}
+\subsection{Symétries et périodicité des fonctions inconnues}
 
-Partons de l'équation BMW \refeq{}. 
+Partons de l'équation BMW \refeq{flotBMW}. 
 \begin{equation}
 	\partial_t \Gamma_{k}^{(2)}(\pv, \phi) =  J_3(\pv, \phi) {\( \partial_\phi \Gamma_{k}^{(2)}(\pv, \phi) \)}^2 
 	- \frac{1}{2}  I_2(\phi) \, \partial_\phi^{2} \Gamma_{k}^{(2)}(\pv, \phi)
 \end{equation}
+Soit $u$ une application affine, difféomorphisme de classe $\Cc^1$ de $\R^d$ dans $\R^d$ tel que $\text{det(Jac(}u)) = \pm 1$. Supposons que $\Rc_k(u(\qv)) = \Rc_k(\qv)$ pour tout $\qv \in \R^d$ et $k \in ]0, \Lambda]$. On pose le schéma semi-discrétisé d'Euler en temps de l'équation précédente. Il vient, pour $n \in \N$,
+\begin{equation}
+	 \Gamma_{k_{n+1}}^{(2)}(\pv, \phi) = \Gamma_{k_n}^{(2)}(\pv, \phi) + \delta t \left\{ J_3(\pv, \phi) {\( \partial_\phi \Gamma_{k_n}^{(2)}(\pv, \phi) \)}^2 
+	- \frac{1}{2}  I_2(\phi) \, \partial_\phi^{2} \Gamma_{k_n}^{(2)}(\pv, \phi) \right\}
+\end{equation}
+Soit $\phi \in \R$ fixé. Supposons que pour tout $\pv \in \R^d$ nous ayons $ \Gamma_{k_{0}}^{(2)}(u(\pv), \phi) = \Gamma_{\Lambda}^{(2)}(u(\pv), \phi) = \Gamma_{\Lambda}^{(2)}(\pv, \phi)$.\\
+\noindent
+ Montrons par induction qu'alors pour tout $\pv \in \R^d$, $ \Gamma_{k_{n}}^{(2)}(u(\pv), \phi) = 
+\Gamma_{k_{n}}^{(2)}(\pv, \phi)$ pour tout $n \in \N$.\\
 
-On pose alors $\Gamma_{k}^{(2)}(\pv, \phi) = \varepsilon(\pv) + \Delta_k(\pv, \phi) + \partial_\phi^2 V_k(\phi)$. Les conditions initiales sont alors données par $\Delta_\Lambda = 0$, $V_\Lambda = U$, où $U$ est une fonction de $\R$ dans $\R$, appelée le potentiel initial. $\eo$ est la relation de dispersion. On considère alors le système équivalent à \refeq{} (pour $\varepsilon(\pv) = \pv$) ou encore \refeq{} (pour $\varepsilon(\pv) = \eo(\pv^2)$ défini en \refeq{}) semi discrétisé en temps
-\begin{align}
-	\Delta_{k_{n+1}}(\pv, \rho) & = \Delta_{k_{n}} + 
-	\begin{aligned}[t]
-	 & \delta t ... 2\rho J_3(\pv,\rho){\left[u_k(\rho) + \partial_\rho \Delta_k (\pv,\rho) \right]}^{2} \\
-	  & \, - \frac{1}{2}I_2(\rho) \left[\partial_\rho \Delta_k(\pv, \rho) +  2\rho \partial_\rho^2 \Delta_k(\pv,\rho) \right] \\
-	 & \, - 2\rho I_3 (\rho) u_k^2(\rho) 
-	 \end{aligned}
-	\label{eqn:sys1}\\
-	\partial_t V_k(\rho) & = 
-	\begin{aligned}[t]
-		& I_1(\rho)
-	\end{aligned}
-\end{align}
+Soit $n \in \N$,  $\pv \in \R^d$ supposons la propriété au vraie au rang $n$, il vient directement 
+\begin{equation}
+\partial_\phi \Gamma_{k_n}^{(2)}(u(\pv), \phi) = \partial_\phi \Gamma_{k_n}^{(2)}(\pv, \phi) \quad \text{et} \quad \partial_\phi^2 \Gamma_{k_n}^{(2)}(u(\pv), \phi) = \partial_\phi^2 \Gamma_{k_n}^{(2)}(\pv, \phi) 
+\end{equation}
+De plus nous avons 
+\begin{equation}
+\begin{split}
+	& J_3(u(\pv), \phi) = \int_\qv \partial_t \Rc_{k_n}(\qv) \frac{1}{\Gamma_{k_n}^{(2)}(u(\pv)+\qv, \phi) + \Rc_{k_n}(u(\pv)+\qv)} \(\frac{1}{\Gamma_{k_n}^{(2)}(\qv, \phi) + \Rc_{k_n}(\qv)}\)^2 \\
+	& J_3(u(\pv), \phi) = \int_\qv \partial_t \Rc_{k_n}(\qv) \frac{1}{\Gamma_{k_n}^{(2)}(u(\pv)+u\circ u^{-1}(\qv), \phi) + \Rc_{k_n}(u(\pv)+u\circ u^{-1}(\qv))} \(\frac{1}{\Gamma_{k_n}^{(2)}(\qv, \phi) + \Rc_{k_n}(\qv)}\)^2  \\
+	& J_3(u(\pv), \phi) = \int_\qv \partial_t \Rc_{k_n}(\qv) \frac{1}{\Gamma_{k_n}^{(2)}(u(\pv + u^{-1}(\qv)), \phi) + \Rc_{k_n}(u(\pv + u^{-1}(\qv)))} \(\frac{1}{\Gamma_{k_n}^{(2)}(\qv, \phi) + \Rc_{k_n}(\qv)}\)^2  \\
+	& J_3(u(\pv), \phi) = \int_\qv \partial_t \Rc_{k_n}(\qv) \frac{1}{\Gamma_{k_n}^{(2)}(\pv + u^{-1}(\qv), \phi) + \Rc_{k_n}(\pv + u^{-1}(\qv))} \(\frac{1}{\Gamma_{k_n}^{(2)}(\qv, \phi) + \Rc_{k_n}(\qv)}\)^2 
+	\end{split}
+\end{equation}
+On pose le changement de variable $\qv' = u^{-1}(\qv)$. Nous avons alors $\qv = u(\qv')$ et les relations 
+\begin{equation}
+	\Rc_{k_n}( u(\qv') ) =  \Rc_{k_n}(\qv'), \quad
+	\partial_t \Rc_{k_n}( u(\qv') ) = \partial_t \Rc_{k_n}(\qv') \quad \text{et} \quad
+	\Gamma_{k_n}^{(2)}(u(\qv'), \phi) = \Gamma_{k_n}^{(2)}(\qv', \phi)
+\end{equation}
+De plus si l'intégrale sur $\qv$ est effectué sur un domaine fini $\Dc$ alors on suppose aussi que $u(\Dc) = \Dc$ (i.e. que $u|_{\Dc}$ est aussi un $\Cc^1$ difféomorphisme). Il vient, par unitarité du jacobien de $u$, l'expression de l'intégrale
+\begin{equation}
+\begin{split}
+	& J_3(u(\pv), \phi) = \int_{\qv'} \partial_t \Rc_{k_n}(\qv') \frac{1}{\Gamma_{k_n}^{(2)}(\pv+\qv', \phi) + \Rc_{k_n}(\pv+\qv')} \(\frac{1}{\Gamma_{k_n}^{(2)}(\qv', \phi) + \Rc_{k_n}(\qv')}\)^2 \\
+	& J_3(u(\pv), \phi) = J_3(\pv, \phi)
+	\end{split}
+\end{equation}
+Or nous avons
+\begin{equation}
+\begin{split}
+	 & \Gamma_{k_{n+1}}^{(2)}(u(\pv), \phi) = \Gamma_{k_n}^{(2)}(u(\pv), \phi) + \delta t \left\{ J_3(u(\pv), \phi) {\( \partial_\phi \Gamma_{k_n}^{(2)}(u(\pv), \phi) \)}^2 
+	- \frac{1}{2}  I_2(\phi) \, \partial_\phi^{2} \Gamma_{k_n}^{(2)}(u(\pv), \phi) \right\} \\
+	& \Gamma_{k_{n+1}}^{(2)}(u(\pv), \phi) = \Gamma_{k_n}^{(2)}(\pv, \phi) + \delta t \left\{ J_3(\pv, \phi) {\( \partial_\phi \Gamma_{k_n}^{(2)}(\pv, \phi) \)}^2 
+	- \frac{1}{2}  I_2(\phi) \, \partial_\phi^{2} \Gamma_{k_n}^{(2)}(\pv, \phi) \right\} \\
+	& \Gamma_{k_{n+1}}^{(2)}(u(\pv), \phi) = \Gamma_{k_{n+1}}^{(2)}(\pv, \phi)
+	\end{split}
+\end{equation}
+Ainsi nous avons montré la propriété. \\
+
+Remarquons que l'hypothèse $\Rc_k(u(\pv)) = \Rc_k(\pv)$ est équivalente à l'hypothèse $\varepsilon(u(\pv)) = \varepsilon(\pv)$ pour tout $\pv \in \R^d$ de par l'expression du régulateur. Ainsi dans la première étude, pour le modèle $\varphi^4$, $\varepsilon(\pv) = \pv^2$, et nous pouvons appliquer la propriété précédente pour tout $u$ ayant la forme d'une rotation dans $\R^d$ : nous avons une symétrie centrale. Dans la deuxième partie, comme $\varepsilon(\pv) = \eo(\pv)$ nous pouvons appliquer la propriété précédente, avec $\varepsilon(u(\pv)) = \varepsilon(\pv)$ pour les fonction $u$ suivantes, 
+\begin{equation}
+\begin{split}
+	u & : (p_x, p_y) \in \R^2 \to (-p_x, p_y) \in \R^2 \\
+	u & : (p_x, p_y) \in \R^2 \to (p_x, -p_y) \in \R^2 \\
+	u & : (p_x, p_y) \in \R^2 \to (p_y, p_x) \in \R^2  
+	\end{split}
+\end{equation}
+De plus ceci fonctionne aussi pour montrer la périodicité des fonctions et montrer que dans le cas Ising 2D elles peuvent bien être définies sur $\R^2$ tout entier,
+\begin{equation}
+\begin{split}
+	u & : (p_x, p_y) \in \R^2 \to (p_x + 2\pi, p_y) \in \R^2 \\
+	u & : (p_x, p_y) \in \R^2 \to (p_x, p_y+ 2\pi) \in \R^2 
+	\end{split}
+\end{equation}
+
+\vspace*{11pt}
+Soit maintenant $\pv \in \R^d$. Supposons que pour pour tout $\phi \in \R$, nous ayons $ \Gamma_{k_{0}}^{(2)}(\pv, -\phi) = \Gamma_{\Lambda}^{(2)}(u(\pv), -\phi) = \Gamma_{\Lambda}^{(2)}(\pv, \phi)$ (i.e. que ce soit une fonction paire). 
+Montrons que pour tout $\phi \in \R$, $\Gamma_{k_{n}}^{(2)}(u(\pv), -\phi) = \Gamma_{k_{n}}^{(2)}(\pv, \phi)$. \\
+
+Soit $n \in \N$, $\phi \in \R$, supposons la propriété vraie au rang $n$, il vient
+\begin{equation}
+	\partial_\phi \Gamma_{k_{n}}^{(2)}(\pv, -\phi) = - \partial_\phi \Gamma_{k_{n}}^{(2)}(\pv, \phi) \quad \text{et} \quad \partial_\phi^2 \Gamma_{k_{n}}^{(2)}(\pv, -\phi) =  \partial_\phi^2 \Gamma_{k_{n}}^{(2)}(\pv, \phi) 
+\end{equation}
+De plus nous avons
+\begin{equation}
+	I_2(-\phi) = \int_\qv \partial_t \Rc_{k_n}(\qv) \(\frac{1}{\Gamma_{k_n}^{(2)}(\qv, - \phi) + \Rc_{k_n}(\qv)}\)^2  =  \int_\qv \partial_t \Rc_{k_n}(\qv) \(\frac{1}{\Gamma_{k_n}^{(2)}(\qv,  \phi) + \Rc_{k_n}(\qv)}\)^2 = I_2(\phi)
+\end{equation}
+Ce qui vaut aussi pour $J_3(\pv, -\phi) = J_3(\pv, \phi)$. Ainsi 
+\begin{equation}
+\begin{split}
+	 & \Gamma_{k_{n+1}}^{(2)}(\pv, -\phi) = \Gamma_{k_n}^{(2)}(\pv, -\phi) + \delta t \left\{ J_3(\pv, -\phi) {\( \partial_\phi \Gamma_{k_n}^{(2)}(\pv, -\phi) \)}^2 
+	- \frac{1}{2}  I_2(-\phi) \, \partial_\phi^{2} \Gamma_{k_n}^{(2)}(\pv, -\phi) \right\} \\
+	& \Gamma_{k_{n+1}}^{(2)}(\pv, \phi) = \Gamma_{k_n}^{(2)}(\pv, \phi) + \delta t \left\{ J_3(\pv, \phi) {\( -\partial_\phi \Gamma_{k_n}^{(2)}(\pv, \phi) \)}^2 
+	- \frac{1}{2}  I_2(\phi) \, \partial_\phi^{2} \Gamma_{k_n}^{(2)}(\pv, \phi) \right\} \\
+	& \Gamma_{k_{n+1}}^{(2)}(\pv, -\phi) = \Gamma_{k_{n+1}}^{(2)}(\pv, \phi)
+	\end{split}
+\end{equation}
+Nous avons donc montré la propriété de parité. Remarquons que lorsque l'on utilise des fonctions $\rho$ cette propriété ne tient plus puisque $\rho > 0$.
+
+\vspace*{11pt}
 
 
-
-On suppose maintenant qu'il existe un opérateur $\mathcal{S}$ agissant sur les composantes d'impulsion d'une fonction selon telle que $S[\eo](\pv) = \eo(f(\pv)) = \eo(\pv)$  
 
 \subsection{Régularité}
 
