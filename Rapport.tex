@@ -608,7 +608,7 @@ Ainsi c'est ce hamiltonien qui est injectée dans les équations du RG permettan
 
 \vspace*{11pt}
 On se concentre sur le cas simple $O(1)$ uniquement encore.
-On utilise à partir de maintenant la notation $\rho = \phi^2/2$. On applique BMW à notre hamiltonien continu. De par sa structure, les différentes grandeurs que la considère ne dépendent plus entièrement de l'impulsion $\pv$ (ou $\qv$, ou $\pv+\qv$) mais seulement de $\pv^2$ (ou $\qv^2$, ou $(\pv+\qv)^2$et donc de la norme $p = \| \pv \|_{2}$ (ou q, ou $\|\pv+\qv\|$). \\
+On utilise à partir de maintenant la notation $\rho = \phi^2/2$. On applique BMW à notre hamiltonien continu. De par sa structure, les différentes grandeurs que la considère ne dépendent plus entièrement de l'impulsion $\pv$ (ou $\qv$, ou $\pv+\qv$) mais seulement de $\pv^2$ (ou $\qv^2$, ou $(\pv+\qv)^2$et donc de la norme $p = \| \pv \|_{2}$ (ou q, ou $\|\pv+\qv\|_2$). \\
 
 Tout d'abord, la condition initiale \refeq{initBMW} devient ici,
 \begin{equation}
@@ -660,7 +660,7 @@ De plus, pour des raisons de stabilité numérique on travaille dans la suite av
 \end{equation}
 
 
-Il reste alors une dernière étape avant de parvenir aux équations finales. En effet, nous n'avons pas ici réalisé l'adimensionnement fondamental du RG. Pour cela il suffit d'introduire de nouvelles grandeurs notées d'un $\tilde{.}$ de la même manière qu'en \refsec{RG}. On considère aussi que $k$ s'exprime en unité de $\Lambda$ et donc qu'il varie entre $1$ et $0$, ainsi $k$ et $s$ sont confondus. Concrètement cela revient à introduire, en utilisant le $Z_k$ défini en \refsec{DimAnorm}, 
+Il reste alors une dernière étape avant de parvenir aux équations finales. En effet, nous n'avons pas ici réalisé l'adimensionnement fondamental du RG. Pour cela il suffit d'introduire de nouvelles grandeurs notées d'un $\tilde{.}$ de la même manière qu'en \refsec{RG}. Concrètement cela revient à introduire, en utilisant le $Z_k$ défini en \refsec{DimAnorm}, 
 \begin{equation}
 \begin{split}
 	& \trho  = k^{2-d}Z_k\rho \quad \text{et} \quad \tp = k^{-1}p\\
@@ -747,13 +747,15 @@ La première partie de notre travail a été de reprendre le développement de c
 
 \subsection{Structure de l'algorithme}
 
-Nous avons a résoudre ici un système d'équations intégro-différentielle non linéaires couplées et sans conditions au bords. Pour cela nous utilisons différentes techniques numériques. \\
+Nous avons à résoudre ici un système d'équations intégro-différentielle non linéaires couplées et sans conditions au bords. Pour cela nous utilisons différentes techniques numériques. \\
 
-Pour la discrétisation en temps, nous sommes dans l'obligation d'utiliser un schéma explicite à cause de la structure complexe des termes de gauches des équations. Il a été mis en évidence dans ce code qu'un schéma d'Euler explicite d'un pas de temps est suffisant pour obtenir une résolution stable, c'est donc ce qui est utilisé. \\
+Pour la discrétisation en temps, nous sommes dans l'obligation d'utiliser un schéma explicite à cause de la structure complexe des termes de gauche des équations. Il a été mis en évidence dans ce code qu'un schéma d'Euler explicite d'un pas de temps est suffisant pour obtenir une résolution stable, c'est donc ce qui est utilisé. \\
 
-Ensuite nous différencions la dépendance en champ (i.e. en $\trho$) à celle en impulsion (i.e. $\tp$) des fonctions inconnues. Pour ce qui est de la dépendance en champ, il suffit de prendre une grille fixe finie de points régulièrement espacés dans $[0, \rho_{max}$, où $\rho_{max}$ est suffisamment grand. Les dérivées selon cette variable se calculent alors par des schémas de différences finies d'ordre 5. \\
+Ensuite nous différencions la dépendance en champ (i.e. en $\trho$) à celle en impulsion (i.e. $\tp$) des fonctions inconnues. Pour ce qui est de la dépendance en champ, il suffit de prendre une grille fixe finie de points $\{ \trho_i \}_i$ régulièrement espacés dans $[0, \trho_{max}]$, où $\trho_{max}$ est choisi suffisamment grand. Les dérivées selon cette variable se calculent alors par des schémas différences finis d'ordre 5. \\
 
-Enfin pour la dépendance en impulsion les choses sont plus compliquées car il faut à la fois pouvoir facilement calculer des dérivées selon $\tp$, mais aussi intégrer des expressions - dépendant des fonctions inconnues - afin d'obtenir les intégrales $\tI$ et $\tJ$. Le calcul des intégrales $\tJ(\tp, \trho)$ pour tout $\tp$ et $\trho$ de la discrétisation est ce qui demande le plus de temps de calcul. Au premières versions de ce code, la discrétisation se faisait aussi sur une grille fixe de points régulièrement espacés et les intégrales étaient calculées par des méthodes de Simpsons. Cependant cela c'est avéré ne pas être assez précis dans certaines configurations, les algorithmes n'étaient pas robustes. Pour palier à ce problème et pour intégrer correctement $\tilde J_3$ c'est une décomposition pseudo spectrale de la partie en impulsion des fonctions inconnues qui a été mise en place à l'aide de décomposition en série sur des polynômes de Tchebytchev associé à une intégration de Gauss-Legendre. L'interpolation de la partie impulsion des fonctions se fait alors dans une boite $[0, \tp_{max}]$ où $\tp_{max}$ est choisi suffisamment grand. La décomposition pseudo-spectrale signifie qu'à chaque pas de temps on calcule et conserve en mémoire pour le pas de temps suivant la valeur de la fonction que l'on interpole au point d'interpolation ainsi que les coefficients de sa décomposition en série de polynôme de Tchebytchev. \\
+Enfin pour la dépendance en impulsion la discrétisation se fait dans une boite $[0, \tp_{max}]$ où $\tp_{max}$ est choisi aussi suffisamment grand. Cependant les choses sont plus compliquées car il faut à la fois pouvoir facilement calculer des dérivées selon $\tp$, mais aussi intégrer selon cette même variable afin d'obtenir les intégrales $\tI$ et $\tJ$.  Le calcul des intégrales $\tJ(\tp, \trho)$ pour tout $\tp$ et $\trho$ de la discrétisation est ce qui demande le plus de temps dans l'exécution. Au premières versions de ce code, la discrétisation se faisait aussi sur une grille fixe de points régulièrement espacés et les intégrales étaient calculées par des méthodes de Simpsons. Cependant cela s'est avéré ne pas être assez précis dans certaines configurations, les algorithmes n'étaient pas robustes. Pour palier à ce problème et pour calculer correctement $\tilde J_3$ c'est une décomposition pseudo spectrale de la partie en impulsion des fonctions inconnues qui a été mise en place. Plus précisément, nous avons décrit la partie en impulsion en décomposant des fonctions en série de polynômes de Tchebytchev. 
+
+La décomposition pseudo-spectrale signifie alors qu'à chaque pas de temps de la résolution on calcule et conserve en mémoire pour le pas de temps suivant la valeur de la fonction que l'on interpole au point d'interpolation ainsi que les coefficients de sa décomposition en série de polynôme de Tchebytchev. Les intégrales peuvent alors être calculées par une quadrature de Gauss-Legendre. \\
 
 Nous détaillons alors les différents aspects numériques des discrétisations que nous avons utilisé.
 
@@ -762,20 +764,67 @@ Nous détaillons alors les différents aspects numériques des discrétisations 
 
 \subsection{Discrétisation en champ}
 
-Comme nous l'avons mentionné la discrétisation en champ se fait sur une grille fixe de points régulièrement espacés. Les dérivées sont calculées sur 5 points avec des schémas différences finis (\refann{Der5}). Ce choix sur 5 points  a été fait pour essayer de calculer des dérivées le plus précisément possible. Le problème venant des points des bords de la grille de discrétisation, puisque ne possédant pas de condition de bords, nous utilisons des schémas complètements décentrés pour ne faire un calcul que sur les points connus dans la grille. Il s'avère que cette technique reste stable (nous détaillons en \refsec{Problemes} que cela nous a quand même posé des problèmes pour le modèle d'Ising en deux dimensions). \\
+Comme nous l'avons mentionné la discrétisation en champ se fait sur une grille fixe de points régulièrement espacés. Les dérivées sont calculées sur 5 points avec des schémas différences finis (\refann{Der5}). Ce choix sur 5 points  a été fait pour essayer de calculer des dérivées le plus précisément possible. Le problème vient alors des points des bords de la grille de discrétisation, puisque nous ne possédons pas de condition de bords à nos équations. Ainsi, nous utilisons des schémas complètements décentrés pour ne faire un calcul que sur les points connus dans la grille. Il s'avère que cette technique reste stable (nous détaillons en \refsec{Problemes} que cela nous a quand même posé des problèmes pour le modèle d'Ising en deux dimensions). \\
 
 Nous avons remarqué aussi que l'on retrouve l'équivalent d'une condition CFL \cite{} pour le choix du pas de discrétisation $\delta \rho$. En effet le rapport $\delta t / \delta\rho$ doit rester inférieur à une certaine valeur pour conserver la stabilité du schéma.\\
 
 Enfin il pourrait sembler étranger d'utiliser une discrétisation en champ d'ordre 5 couplée à une discrétisation temporelle d'ordre 1. Cependant l'implémentation d'un schéma de Runge-Kutta a été testé sans pour autant permettre un calcul avec plus de précision ou une plus grande rapidité. 
 
+
+\vspace*{11pt}
+
+\subsection{Discrétisation en impulsion}
+
+\subsubsection{Expression des coefficients}
+
+Pour la discrétisation en impulsion nous avons choisi d'utiliser des polynômes de Tchebytchev. Dans \cite{Tchebychev} il est démontré les propriétés suivantes : \\
+
+\noindent 
+\textbf{Décomposition sur une base de Tchebytchev}. {\itshape 
+Soient $a$, $b$, deux réels tels que $b>a$. Soit f une fonction de classe $\Cc^{0}$ de $[a,b]$ dans $\R$.
+On note $T_j$ est le polynôme d'ordre $j$ de Tchebytchev de première espèce. Soit $n \in N$ et $\{x_k\}_{k\in\bbrac{0, n}}$ les racines du polynôme $T_{n}$, on pose
+\begin{equation}
+c_j = \frac{A_j}{n} \sum\limits_{k = 0}^{n-1}f\(\frac{a+b}{2} + x_k \frac{b-a}{2}\) T_j(x_k) 
+\end{equation}
+\begin{equation}
+S_n[f](x) = \sum\limits_{j = 0}^{n - 1} c_j T_j\(\frac{2x-a-b}{b-a}\) \quad \forall x \in [a,b]
+\end{equation}
+Avec $A_j = 2$ si $j > 0$ et $A_0 = 1$. \\
+\noindent
+Nous avons alors, en norme $L^2$,
+\begin{equation}
+\lim\limits_{n\to \infty} \|f - S_n[f] \|_2 = 0
+\end{equation}
+De plus si $f$ est $\Cc^{1}$ alors
+\begin{equation}
+\lim\limits_{n \to \infty}  \|f - S_n[f] \|_\infty = 0
+\end{equation}
+On considère alors, pour $n$ suffisamment grand, $f \simeq S_n[f]$. \\
+}
+
+\commentout{
+\le \frac{(b-a)^{n}}{2^{2n-1} n!}\underset{x \in [a,b]}{\mathrm{Sup}} |f^{(n+1)}(x)
+
+\begin{equation}
+	c_j = \left< T_j, f \right>_T^{a,b}\equiv \frac{2}{b-a}\int_{a}^b{ \frac{f(y) T_j(\frac{2y-a-b}{b-a})}{\sqrt{1-{\( \frac{2y-a-b}{b-a} \)}^2}} \dd \, y}
+\end{equation}
+
+\underset{x \in [a,b]}{\mathrm{Sup}}
+}
+
+Cependant nous n'avons pas la connaissance de la régularité des fonctions inconnues avec lesquelles nous travaillons.
+Considérons alors simplement le schéma de résolution semi-discrétisé en espace. On note $\tY_{k_n}(\tp, \trho)$ la discrétisation en temps de la fonction $\tY$ au temps $t_n$. Alors pour tout $n \in \mathbb{N}$ la fonction $\tY_{k_n}$ est une fonction de classe $\Cc^1$ sur $[0, +\infty[^2$ et donc sur $[0, \tp_{max}]$ (c.f. la démonstration \refann{}). Ceci justifie alors l'utilisation des polynômes de Tchebytchev pour l'interpolation des fonctions dépendant d'une impulsion. On utilise donc les propriétés précédentes pour $a=0$ et $b = \tp_{max}$. 
+
+ \vspace*{11pt}
+
 \subsection{Calcul des intégrales}
 
 Le plus gros problème rencontré dans la formulation discrétisée du problème a été le calcul des intégrales $\tJ$. 
-Grâce aux propriétés des fonctions que l'on intègre on peut développer un à ce que la dimension $d$ devienne un simple paramètre. En effet calculer l'intégrale $\tJ$ revient à calculer une intégrale de la forme 
+Grâce aux propriétés des fonctions que l'on intègre on peut développer une expression de ces intégrales telle que la dimension $d$ devienne un simple paramètre. En effet calculer l'intégrale $\tJ$ revient à calculer une intégrale de la forme 
 \begin{equation}
-K = \int f(\tqv^2)g((\tpv+\tqv)^2)\dd^d \, \tqv
+K = \int_{\R^d} f(\tqv^2)g((\tpv+\tqv)^2) \, \dd \, \tqv \, ,
 \end{equation}
-Et il en est de même pour les intégrales $\tI$ en prenant $\pv = 0$ dans l'expression précédente. On pose alors $\tqv = \tq_1 \uv + \tqv_2$, où $\uv = \tpv/\|\tpv\|$ et $\tqv_2$ est orthogonal à $\uv$. Il vient alors
+où $f$ et $g$ sont deux fonctions. Et il en est de même pour les intégrales $\tI$ en prenant $\pv = 0$ dans l'expression précédente. On pose alors $\tqv = \tq_1 \uv + \tqv_2$, où $\uv = \tpv/\|\tpv\|$ et $\tqv_2$ est orthogonal à $\uv$. Il vient alors
 
 \begin{equation}
 K = S_{d-1} \int_0^{+\infty} \dd\tq_2 \, \tq_2^{d-2} \int_{-\infty}^{+\infty} \dd\tq_1 \, h (\tp, \tq_1, \tq_2)
@@ -785,51 +834,15 @@ En posant
 h (\tp, \tq_1, \tq_2) \equiv f(\tq_1^2 + \tq_2^2) g(\tp^2 + \tq_1^2 + \tq_2^2 + 2\tp\tq_1)
 \end{equation}
 
-Le coefficient $S_{d-1}$ est un pré-facteur réel. De ce fait, le calcul d'une intégrale à d dimensions se ramène au calcul de deux intégrales seulement, qui peut être fait chacun sans problèmes avec une interpolation de Gauss-Legendre.\\
-
-Enfin, il arrive que dans le calcul de l'intégrale, $\tp^2 + \tq_1^2 + \tq_2^2 + 2\tp\tq_1 > \tp_{max}$. Dans ces cas là $g$ n'est pas défini numériquement en ce point et nous l'extrapolons pour mener à bien le calcul.  \\
-
-%\vspace*{11pt}
-
-\subsection{Discrétisation en impulsion}
-\subsubsection{Interpolation de Tchebytchev}
-
-Pour la discrétisation en impulsion nous avons choisi d'utiliser des polynômes de Tchebytchev. En effet, nous n'avons aucune connaissance de la régularité des fonctions avec lesquelles nous travaillons cependant considérons simplement le schéma de résolution semi-discrétisé en espace. On note $\tY_{k_n}(\tp, \trho)$ la discrétisation en temps de la fonction $\tY$ au temps $t_n$. Alors pour tout $n \in \mathbb{N}$ la fonction $\tY_{k_n}$ est une fonction de classe $\Cc^{\infty}$ sur $[0, +\infty[^2$ (c.f. la démonstration \refann{}). Or dans \cite{Tchebychev} il est démontré le théorème : \\
-
-\noindent 
-\textbf{Décomposition sur une base de Tchebytchev}. {\itshape 
-Soient $a$, $b$, deux réels tels que $b>a$. Soit f une fonction de classe $\Cc^{(n+1)}$ avec $n\in\N$ de $[a,b]$ dans $\R$.
-Alors il existe un unique ensemble $\{c_j\}_{j\in\bbrac{0,n-1}}$ de coefficients réels
+Le coefficient $S_{d-1}$ est un pré-facteur réel. De ce fait, le calcul d'une intégrale à $d$ dimensions se ramène au calcul de deux intégrales seulement, qui peut être fait chacun sans problèmes avec une interpolation de Gauss-Legendre (\refann{}). En pratique, les intégrales étant coupés par le régulateur nous réalisons l'intégration jusqu'à une borne $\tq_{max}$ telle que $\|\tqv\|_2 < \tq_{max} < \tp_{max}$. En notant, $\{\xi_i\}_{i \in \bbrac{1, n_{gl}}}$ les points de la quadrature de Gauss-Legendre et $\{w_i\}_i$ les poids associées nous calculons 
 \begin{equation}
-	c_j = \left< T_j, f \right>_T^{a,b}\equiv \frac{2}{b-a}\int_{a}^b{ \frac{f(y) T_j(\frac{2y-a-b}{b-a})}{\sqrt{1-{\( \frac{2y-a-b}{b-a} \)}^2}} \dd \, y}
+\begin{split}
+K \simeq S_{d-1}\frac{\tq_{max}^2}{2} \sum_{i = 1}^{n_{gl}} w_i \left[ \frac{\tq_{max}}{2\sqrt{2}}\( 1+ \xi_i \) \right]^{d-2} \\
+\times \sum_{j=1}^{n_{gl}} w_j h\(\tp,\frac{\tq_{max}}{2\sqrt{2}}\( 1+ \xi_i \), \frac{\tq_{max}}{\sqrt{2}} \xi_j \)
+\end{split}
 \end{equation}
-Où $T_j$ est le polynôme d'ordre $j$ de Tchebytchev de première espèce. On pose 
-\begin{equation}
-	\forall x \in [a,b] \quad \mathrm{Tch}_n[f](x) = \sum\limits_{j = 0}^{n-1} c_j T_j\(\frac{2x-a-b}{b-a}\)
-\end{equation}
-Il vient alors
-\begin{equation}
-\underset{x \in [a,b]}{\mathrm{Sup}} |f(x) - \mathrm{Tch}_n[f](x)| \le \frac{(b-a)^{n}}{2^{2n-1} n!}\underset{x \in [a,b]}{\mathrm{Sup}} |f^{(n+1)}(x)|
-\end{equation}
-}
 
-Ceci justifie alors l'utilisation des polynômes de Tchebytchev pour l'interpolation des fonctions dépendant d'une impulsion. En effet les fonctions semi-discrétisée en temps étant $\Cc^\infty$ sur $[0, \infty[$ elles le sont sur $[0, p_{max}]$. On utilise donc le théorème précédent pour $a=0$ et $b = p_{max}$. \\
-
-\subsubsection{Coefficients de la décomposition}
-
-
-Soit $f$ une fonction $\Cc^\infty$ de $[a, b]$ dans $\R$. On souhaite décomposer $f$ sur une base de polynômes de Tchébytchev selon la somme
-
-\begin{equation}
-f(x) = \sum\limits_{j = 0}^{n_c - 1} c_j T_j\(\frac{2x-a-b}{b-a}\)
-\end{equation}
-Soit $\{x_k\}_{k\in\bbrac{0, n_c}}$ les racines du polynôme $T_{n_c}$.
-Les relations d'orthogonalités données en \refann{} permettent de montrer qu'alors il existe une relation plus simple qu'en \refeq{}, 
-\begin{equation}
-c_j = \frac{A_j}{n_c} \sum\limits_{k = 0}^{N_c-1}f\(\frac{a+b}{2} + x_k \frac{b-a}{2}\) T_j(x_k) 
-\end{equation}
-Avec $A_j = 2$ si $j > 0$ et $A_0 = 1$. Ainsi, maintenant que l'on sait comment décomposer $f$ sur une base de polynômes de Tchebytchev, regardons comment calculer la valeur de $f(x)$ pour $x \in [a, b]$.  
-
+C'est en corrigeant la manière donc cette borne $\tq_{max}$ était définie dans la version précédente du code que nous avons pu obtenir de bons résultats. \\ 
 
 \subsubsection{Méthode de Clenshaw}
 
@@ -883,13 +896,13 @@ Cette méthode \cite{clenshaw1955note} est plus robuste est légèrement plus ra
 
 \subsubsection{Calcul des dérivées}
 
-Un autre avantage d'exprimer les fonctions sous une décomposition en série de polynôme de Tchebytchev pour la variable d'impulsion $p$ est qu'il devient facile d'en calculer les dérivées par rapport à $p$ en tout point de la boite $[0, p_{max}]$ de discrétisation. En effet il existe une relation simple entre les coefficients de la décomposition d'une fonction $f$ par exemple et ceux de sa dérivée $\partial_p f$. Cette relation se trouve en \refann{}. \\
+Un autre avantage d'exprimer les fonctions sous une décomposition en série de polynôme de Tchebytchev pour la variable d'impulsion $\tp$ est qu'il devient facile d'en calculer les dérivées par rapport à $p$ en tout point de la boite $[0, \tp_{max}]$ de discrétisation. En effet il existe une relation simple entre les coefficients de la décomposition d'une fonction $f$ et ceux de sa dérivée $\partial_{\tp} f$. Cette relation se trouve en \refann{}. \\
 
 
 \subsection{Parallélisation}
 
 
-Le code a été écrit de manière à rendre sa parallélisation très simple. En effet pour chaque point de la grille en champ on a une fonction discrétisé en impulsion qui est complètement indépendante des autres à l'exception du moment ou l'on calcule les dérivées par rapport à $\rho$. Ainsi il suffit de réaliser l'ensemble des calculs dans des boucles parcourant l'ensemble quasi-indépendant des points de la grille en champs. En utilisant une architecture à mémoire partagée comme openMP on la parallélisation de toutes les parties vertes de \refig{} se fait tout naturellement à l'aide de quelques instructions seulement. 
+Le code a été écrit de manière à rendre sa parallélisation très simple. En effet pour chaque point de la grille en champ on a une fonction discrétisée en impulsion qui est complètement indépendante des autres à l'exception du moment où l'on calcule les dérivées par rapport à $\trho$. Ainsi il suffit de réaliser l'ensemble des calculs dans des boucles parcourant l'ensemble quasi-indépendant des points de la grille en champs. En utilisant une architecture à mémoire partagée comme openMP on la parallélisation de toutes les parties oranges claires de \refig{org} se fait tout naturellement à l'aide de quelques instructions seulement. 
 
 
 
@@ -1226,7 +1239,7 @@ Cette nouvelle écriture insérée dans \refeq{flotBMW} donne alors les trois je
 
 \subsubsection{Première étape}
 
-Comme nous travaillons sur un réseau, les fonctions que l'on considère sont $2\pi$ périodiques selon les composantes des impulsions lorsque l'on considère les variables et les fonctions dimensionnées (c.f. \refsec{RG}). (i.e. les fonctions et variables notées de manière générale sans tilde). Ceci permet de s'affranchir de certaines approximations numériques dans le calcul des intégrales. Il est donc préférable de commencer par résoudre le système d'équation BMW brut, noté $\Ec_1$, sans réaliser d'adimensionnement (directement obtenu de \refeq{flotBMW}) pour $k $ variant de $\Lambda$ à $k_a$ (où $k_a \in ]0, \Lambda]$ a une valeur déterminée). Le problème BMW ($\Pc_1$) à résoudre est donc \\
+Comme nous travaillons sur un réseau, les fonctions que l'on considère sont $2\pi$ périodiques selon les composantes des impulsions lorsque l'on considère les variables et les fonctions dimensionnées (c.f. \refsec{RG}). (i.e. les fonctions et variables notées de manière générale sans tilde). Ceci permet de s'affranchir de certaines approximations numériques dans le calcul des intégrales. Il est donc préférable de commencer par résoudre le système d'équation BMW brut, noté $\Ec_1$, sans réaliser d'adimensionnement (directement obtenu de \refeq{flotBMW}) pour $k $ variant de $\Lambda$ à $k_a$ (où $k_a \in ]0, 1]$ a une valeur déterminée). Le problème BMW ($\Pc_1$) à résoudre est donc \\
 
 \noindent
 {\itshape Trouver $\Delta_k$, $X_k$, solution de $\Ec_1$, i.e tels que pour tout $p_x \in [-\pi, \pi]$, $p_y \in [-\pi, \pi]$, $\phi \in \R$, $k\in [k_a, \Lambda]$}
@@ -1261,15 +1274,19 @@ Les conditions initiales de ce problème viennent de la décomposition \refeq{de
 \subsubsection{Deuxième étape}
 
 
-Dans un second temps pour $k \in [k_b, k_a]$ (où $ 0 < k_b < k_a$) on utilise un nouveau système équations $\Ec_2$ pour lesquelles nous avons adimensionné les impulsions. En fait ceci correspond seulement à écrire les équations en fonction de $\tilde{\pv} = \pv/k$ (ou $\tqv = \qv/k$) au lieu de $\pv$ (ou $\qv$). Ces nouvelles équations prennent pour conditions initiales le résultats de la résolution numérique de $\Ec_1$ en $k = k_a$. Cela permet d'améliorer la précision du calcul des intégrales à $k$ petit (i.e. $k<k_a$). 
-
+Dans un second temps pour $k \in [k_b, k_a]$ (où $ 0 < k_b < k_a < 1$) on utilise un nouveau système équations $\Ec_2$ pour lesquelles nous avons adimensionné les impulsions. En fait ceci correspond seulement à écrire les équations en fonction de $\tilde{\pv} = \pv/k$ (ou $\tqv = \qv/k$) au lieu de $\pv$ (ou $\qv$). Ces nouvelles équations prennent pour conditions initiales le résultats de la résolution numérique de $\Ec_1$ en $k = k_a$. Cela permet d'améliorer la précision du calcul des intégrales à $k$ petit (i.e. $k < k_a < 1$), même si, en contrepartie, on perd l'avantage de la périodicité des fonctions. \\
+\indent
 En effet pour un $k$ suffisamment faible la fonction $(k,\qv) \to \partial_t \Rc_k(\qv)$ possède une valeur non négligeable seulement pour des valeurs de $q_x$ et $q_y$ inférieures (voire très inférieure) à $\pi$ en valeur absolue. Or cette fonction apparait dans toutes les expressions des intégrales $I_n$ et $J_n$ de $\Ec_1$ qui sont calculées sur le carré $[-\pi, \pi]^2$ : 
 \begin{equation}
 	I_n, J_n \propto \int_\qv \partial_t \Rc_k(\qv)\times ... 
 \end{equation}
-Elle limite donc la zone utile d'intégration aux zones ou elle n'est pas "quasi-nulle" (c.f. \refig{DerRegIsing}). Ainsi pour $k$ décroissant l'intervalle d'intégration réellement utile (qui contient l'information) diminue, il se concentre dans un cercle autour de l'origine et ceci pose des problèmes de précision dans le calcul des intégrales pour un nombre de point de quadrature fixé. Autrement dit, l'échelle d'intégration ne correspond plus à l'échelle de variation des fonctions à intégrer. Seuls les points d'intégration présents dans la zone où $\Rc_k(\qv)$ possède une valeur non négligeable (zone jaune orange de \refig{DerRegIsing}) et apportent une contribution à l'intégrale.
+Elle limite donc la zone utile d'intégration aux zones où elle n'est pas "quasi-nulle" (c.f. \refig{DerRegIsing}). Ainsi pour $k$ décroissant l'intervalle d'intégration réellement utile (qui contient l'information) diminue, il se concentre dans un cercle autour de l'origine. Ceci pose des problèmes de précision dans le calcul des intégrales quand on travaille avec un nombre de point de quadrature fixé. Autrement dit, l'échelle d'intégration ne correspond plus à l'échelle de variation des fonctions à intégrer. Seuls les points d'intégration présents dans la zone où $\Rc_k(\qv)$ possède une valeur non négligeable (zone jaune orange de \refig{DerRegIsing}) et apportent une contribution à l'intégrale. \\
+\indent
+L'adimensionnement $\tilde{\pv} = \pv/k$ permet d'éviter ce problème : il est équivalent à construire une boite numérique de discrétisation en impulsion \textit{dynamique}, (i.e. dont les dimensions diminuent au fur et à mesure que $k$ diminue vers $0$ dans la résolution) sans modifier le nombre de points de discrétisation. 
+En effet, la nouvelle boite de discrétisation en $\tpv$ est définie par $[-\tp_{max}, \tp_{max}]^2$ ce qui correspondrait, pour la variable $\pv= k\tpv$, à une boite de dimension $[-k\tp_{max}, k\tp_{max}]^2 \subset [-\pi, \pi]^2$, diminuant avec $k$.
 
- L'adimensionnement $\tilde{\pv} = \pv/k$ permet d'éviter ce problème. En effet ceci est équivalent à construire une boite numérique de discrétisation en impulsion dynamique, dont les dimensions diminuent au fur et à mesure que $k$ diminue vers $0$ dans la résolution. On choisit $k_a$ de manière à ce que $(k,\tqv) \to \partial_t \Rc_k(k\tqv)$ ne soit quasi-nulle que sur les bords de cette nouvelle boite en $\tqv$ pour tout $k \le k_a$ et que tous les points d'intégration servent. On conserve ainsi une précision de calcul constante à faible $k$. Le problème ($\Pc_2$) à résoudre devient \\
+
+On peut choisir $k_a$ de manière à ce que $(k,\tqv) \to \partial_t \Rc_k(k\tqv)$ ne soit quasi-nulle que sur les bords de cette nouvelle boite en $\tqv$ pour tout $k \le k_a$ et que tous les points d'intégration servent. On conserve ainsi une précision de calcul constante à faible $k$. Le problème ($\Pc_2$) à résoudre devient \\
 
 
 \noindent
@@ -1290,7 +1307,7 @@ Elle limite donc la zone utile d'intégration aux zones ou elle n'est pas "quasi
 		& \frac{1}{2} \partial_{\phi}^2 \bI_1(\phi)
 	\end{aligned}
 \end{align}
-On pourra se référer à \refann{Ising2D} pour les différentes notations. Les conditions initiales sont
+On pourra se référer à \refann{Ising2D} pour les différentes notations. Les conditions de raccordement sont
 \begin{equation*}
 \bDelta_{k_a}(\tp_x, \tp_y, \phi) = \Delta_{k_a}(p_x, p_y, \phi) \quad \text{et} \quad \bX_{k_a}(\phi) = X_{k_a}(\phi)
 \end{equation*}
@@ -1326,7 +1343,7 @@ Enfin les deux jeux d'équation précédents utilise encore $\phi$ qui est dimen
 \begin{equation}
 \partial_t \tX_k(\tphi)  = (\eta_k -2)\tX_k(\tphi) + \frac{1}{2}\eta_k\tphi \, \partial_{\tphi}\tX(\tphi) + \frac{1}{2} \partial_{\tphi}^2 \tI_1(\tphi)
 \end{equation}
-On pourra ici aussi se référer à \refann{Ising2D} pour les différentes notations et plus de précision. Les conditions initiales sont
+On pourra ici aussi se référer à \refann{Ising2D} pour les différentes notations et plus de précision. Les conditions de raccordement sont
 \begin{equation*}
 \tY_{k_b}(\tp_x, \tp_y,\tphi) = \frac{1}{Z_k}\( 1+ \frac{\bDelta_{k_b}(\tp_x, \tp_y, \phi)}{\eo^0 k_b^2(\tp_x^2 +\tp_y^2)}\) -1
 \end{equation*}
@@ -1351,12 +1368,12 @@ Nous allons passé en revu et justifié ici les principales méthodes numérique
 
 La grosse différence entre les équations du modèle continu $\varphiv^4$ et ces nouvelles équations est qu'ici pour les dimensions d'impulsion les fonctions ne dépendent plus seulement de $p$ (i.e. la norme de $\pv$) mais de ces deux composantes $p_x$ et $p_y$. Ainsi nous avons conservé le choix de réaliser des intégrations avec la méthode de Gauss-Legendre tout en discrétisant les variables d'impulsion avec une méthode pseudo-spectrale de Tchebytchev pour des raisons détaillées dans les prochaines sections. La difficulté à alors résulté en la réécriture des méthodes à une dimension (i.e. pour des fonctions d'une variable en impulsion) déjà utilisées dans le modèle $ \varphiv^4$ en des méthodes à deux dimensions, pour des fonctions de deux variables d'impulsion. Le plus gros défit de ce code est encore de calculer les intégrales $J, \bJ, \tJ$. \\
 
-Concernant la discrétisation en champ nous avons privilégié la variable $\phi$ et non pas $\rho$ à causes de différents problèmes numériques mais nous sommes resté sur une discrétisation par une grille fixe et des calculs de dérivées par rapport à $\phi$ des fonctions inconnues à l'aide de schémas à 5 points. \\
+Concernant la discrétisation en champ nous avons privilégié la variable $\phi$ dans les équations et non pas $\rho$ à causes de différents problèmes numériques mais nous sommes resté sur une discrétisation par une grille fixe et des calculs de dérivées par rapport à $\phi$ des fonctions inconnues à l'aide de schémas à 5 points. \\
 
 
 Enfin, pour la discrétisation en temps $t$ le plus simple a été de conserver un schéma d'Euler explicite à cause de la non-linéarité des équations. Nous n'avons pas utilisé de schéma de Rung-Kutta car de manière générale le schéma d'Euler s'est avéré efficace.\\
 
-Ce nouveau code est donc structuré de la même manière que le code du modèle continu $\varphiv^4$. En effet, avoir réécrit le code de la simulation du modèle continu $\varphiv^4$ en C++ de façon modulable à l'aide de classes nous a alors permis, de manière générale, de reprendre ou d'adapter beaucoup des fonctions numériques. Pour avoir une vue générale de la structure il est donc possible de se reporter encore à la figure \refig{org}. Nous détaillons, maintenant, ci-après les problèmes que l'on a pu rencontrer dans l'écriture des codes de simulations ainsi que les techniques retenues qui ont fonctionné et leurs avantages comparés à celles qui ont échouées. 
+Ce nouveau code est donc structuré de la même manière que le code du modèle continu $\varphiv^4$. En effet, avoir réécrit le code de la simulation du modèle continu $\varphiv^4$ en C++ de façon modulable à l'aide de classes nous a alors permis, de manière générale, de reprendre ou d'adapter beaucoup des fonctions numériques. Pour avoir une vue générale de la structure il est donc possible de se reporter encore à la figure \refig{org}. Nous détaillons, maintenant, ci-après les problèmes que l'on a pu rencontrer dans l'écriture des codes de simulations ainsi que les techniques retenues qui ont fonctionnées et leurs avantages comparés à celles qui ont échouées. 
 
 
 
@@ -1366,11 +1383,11 @@ Ce nouveau code est donc structuré de la même manière que le code du modèle 
 
 \label{sec:Problemes}
 
-Tout d'abord le principal problème a résidé dans le choix de la variable de champ (on peut prendre indépendamment $\phi$ ou $\rho$ au choix puisque rappelons que $\phiv=\phi$ est un scalaire dans le cas présent $O(N=1)$). Nous avions aussi commencé par utiliser la variable $\rho = \phi^2/2$ comme cela était le cas pour le modèle continu $\varphiv^4$. Cependant nous avons pu observer des instabilités dans le calcul des dérivées en $\rho$ pour $\rho = \rho_{max}$ (avec $\rho_{max}$ la limite de la grille de discrétisation en $\rho$). Nous avons réussi à résoudre le problème en descendant en ordre dans les schémas de calcul des dérivées en passant d'un ordre 5 à l'ordre 3. Cependant nous avons ensuite eu  des instabilités au niveau du calcul des dérives $\partial_{\rho} . $ autour de $\rho = 0$. Pour régler le problème nous avons alors utilisé la variable $\phi$, selon laquelle les fonctions $\Delta_k$ et $X_k$ sont paires. En utilisant la parité nous avons pu donner des valeurs exactes aux dérivées en $\phi = 0$ (i.e. $\rho = 0$) et résoudre le problème. En outre la variable $\phi$ nous a aussi permis de repasser avec des dérivées en champs à 5 points sans difficultées. \\
+Tout d'abord nous avions écrit les équations en utilisant la variable $\rho$ pour résoudre $(\Pc_1)$. Cependant nous avons pu observer des instabilités dans le calcul des dérivées en $\rho$ pour $\rho = \rho_{max}$ (avec $\rho_{max}$ la limite de la grille de discrétisation en $\rho$). Nous avons réussi à résoudre le problème en descendant en ordre dans les schémas de calcul des dérivées en passant d'un ordre 5 à l'ordre 3. Cependant nous avons ensuite eu des instabilités au niveau du calcul des dérives $\partial_{\rho}$ autour de $\rho = 0$. Pour régler le problème nous avons alors utilisé la variable $\phi$. En effet il apparait alors des propriétés de parité des fonctions qui nous ont permis de donner des valeurs exactes aux dérivées en $\phi = 0$ (i.e. $\rho = 0$) et résoudre le problème. En outre la variable $\phi$ nous a aussi permis de repasser avec des dérivées en champs à 5 points sans difficultées. \\
 
 Le deuxième type de problème que nous avons rencontré a été la précision de l'interpolation et du calcul des intégrales. En effet, pour trouver un point fixe il faut regarder la solution des equations BMW pour des $k$ faibles (comme par exemple $k \sim \exp(-5)$ d'après les courbes en \refsec{}). Or comme nous l'avons vu la dérivée du régulateur se recentre autour de l'origine lorsque $k$ diminue. Or la dérivée du régulateur apparait dans toutes les intégrales à calculer ce qui fait que les intégrales sont coupées par une fonction qui possède une valeur non nulle seulement pour les plus petites impulsions, engendrant alors des pertes de régularité visible par des instabilités numériques pour $k \simeq \exp(-2)$. Ceci nous a imposé d'utiliser un nombre de point d'interpolation et d'intégration supérieur à ce que nous utilisions en premier lieu ou alors de trouver de meilleures techniques. \\
 
-Détaillons alors maintenant les différentes techniques numériques utilisées. Pour cela nous faisons allusions dans les sections suivantes à des fonctions $f$, $g$ ou $u$ génériques qui représentent $\Delta$, $X$, etc. et leurs pendant adimensoionné de nos équations.
+Détaillons alors maintenant les différentes techniques numériques utilisées.
 
 \vspace*{11pt}
 
@@ -1379,7 +1396,11 @@ Détaillons alors maintenant les différentes techniques numériques utilisées.
 \subsection{Symétries et périodicité des fonctions}
 
 
-Commençons par étudier les symétries du problème. En effet les différents jeux d'équations permettent de déterminer les symétries des fonctions inconnues. On considère une fonction $ f : (q_x, q_y,\phi) \to \R$ et $g : \phi \to \R$. On note les opérateurs de symétrie :
+Commençons par étudier les symétries du problème. En effet les différents jeux d'équations permettent de déterminer les symétries des fonctions inconnues.
+
+
+\commentout{
+On considère une fonction $ f : (q_x, q_y,\phi) \to \R$ et $g : \phi \to \R$. On note les opérateurs de symétrie :
 \begin{equation}
 	\mathcal{S}_{q_x} [f](q_x, q_y, \phi) = f(-q_x, q_y, \phi)
 \end{equation} 
@@ -1396,44 +1417,12 @@ Commençons par étudier les symétries du problème. En effet les différents j
 \mathcal{S}_\phi [g](\phi) = g(-\phi)
 \end{equation} 
 
-
-La relation de dispersion est invariante par les opérateurs précédents portant sur les impulsions et le potentiel initial $\phi \to U(\phi)$ est invariant par le changement de $\phi$ en $- \phi$. Or comme nous le montrons en \refann{}, de manière générale, les fonctions des équations BMW satisfont aux symétries de la relation de dispersion et du potentiel initial. Ainsi, considérons le schéma semi-discrétisé en temps de $\Ec_1$. On note $\Delta_{k_n}$ la fonction $\Delta_k$ au pas de discrétisation $n$ en temps $t_n = \ln(k_n/\lambda)$ ainsi que de même $X_{k_n}$. 
-\begin{equation}
-\forall n \in \N \quad \nu =  q_x,q_y,q_xq_y,\phi \quad  \mathcal{S}_\nu[\Delta_{k_{n}}] = \Delta_{k_{n}} 
-\end{equation}
-\begin{equation}
-\forall n \in \N \quad   \mathcal{S}_\phi[X_{k_{n}}] = X_{k_{n}} 
-\end{equation}
-De même, avec les notations complètement similaires, pour les inconnues de ($\Pc_1$) et ($\Pc_2$), ont peut aussi décrire les mêmes propriétés de symétries,
-\begin{equation}
-\forall n \in \N \quad \nu =  \tq_x,\tq_y,\tq_x\tq_y,\phi \quad  \mathcal{S}_\nu[\bDelta_{k_{n}}] = \bDelta_{k_{n}} 
-\end{equation}
-\begin{equation}
-\forall n \in \N \quad \nu =  \tq_x,\tq_y,\tq_x\tq_y,\tphi \quad  \mathcal{S}_\nu[\tY_{k_{n}}] = \tY_{k_{n}} 
-\end{equation}
-\begin{equation}
-\forall n \in \N \quad  \mathcal{S}_\phi[\bX_{k_{n}}] = \bX_{k_{n}}, \quad \mathcal{S}_{\tphi}[\tX_{k_{n}}] = \tX_{k_{n}}
-\end{equation}
-
-
-
-
-\commentout{
-Soit, $\nu = x,y,xy,\phi$, montrons que si $\mathcal{S}_\nu[\Delta_{k_{n}}] = \Delta_{k_{n}}$ alors $\mathcal{S}_\nu[\Delta_{k_{n+1}}] = \Delta_{k_{n+1}}$. \\
-
-En effet, la symétrie en champ $\phi$ est immédiate. Maintenant on sait que $J_{3,n}$ peut s'écrire sous la forme
-
-\begin{equation}
-\begin{split}
-J_{3,n}(p_x, p_y, \phi) \propto \int &  F\(\Delta_{k_n}(p_x + q_x, p_y+q_y, \phi), X_{k_n}(\phi)\) \\
-\times & G\(\Delta_{k_n}(q_x, q_y, \phi),  X_{k_n}(\phi)\) \dd \, q_x \, \dd \,q_y
-\end{split}
-\end{equation}
 }
 
+Considérons le schéma semi-discrétisé en temps des équations de $\Ec_1$. On note $\Delta_{k_n}$ la fonction $\Delta_k$ au pas de discrétisation en temps $n$ ($t_n = \ln(k_n/\Lambda)$, et de même $X_{k_n}$. Alors, par les symétries de la relation de dispersion et du potentiel $U$ initial (\refann{}), la fonction $\Delta_{k_n}$ est paire selon toutes ces variables (par exemple, $\Delta_{k_n}(-p_x, p_y, \phi) = \Delta_{k_n}(p_x, p_y, \phi)$. De plus il y aussi la symétrie supplémentaire $\Delta_{k_n}(p_y, p_x, \phi) = \Delta_{k_n} (p_x, p_y, \phi)$. De même, $X_{k_n}$ est aussi une fonction paire. 
 
-
-
+Ces propriétés se transmettent aux fonctions des système d'équation $\Ec_1$ et $\Ec_2$ que sont $\bDelta_{k_n}$, $\tY_{k_n}$, $\bX_{k_n}$ et $\tX_{k_n}$ tout naturellement grâce aux conditions de raccordement.\\
+\indent
 De cette manière on ne considère que $\phi \text{ (ou } \tphi) \in [0, \infty[$ ainsi que des impulsions définies sur une zone restreinte de $[-\pi, \pi]^2$ pour les fonctions inconnues de ($\Pc_1$), ou de $[-\tp_{max}, \tp_{max}]^2$ pour celles de ($\Pc_2$) ou ($\Pc_3$). On détaille plus précisément en \refig{SurfUtile} quelles sont ces zones. \\
 
 
@@ -1443,7 +1432,7 @@ De cette manière on ne considère que $\phi \text{ (ou } \tphi) \in [0, \infty[
 	\includegraphics[width=0.95\columnwidth]{SurfUtile.pdf}
 \end{center}
 \vspace*{-22pt}
-\caption{(rouge transparent) Zone complète de définition et d'intégration des fonctions dépendantes des impulsions. (hachures noires) Zone utile pour la quadrature des intégrales $J$. (bleue remplie) Zone dans laquelle il suffit de définir numériquement les fonctions dépendante en impulsion et sur laquelle est appliqué la quadrature des intégrales  $I$. Les symétries permettent donc de "réduire" le problème à un espace plus petit en impulsion.}
+\caption{(rouge transparent) Zone complète sur laquelle il faudrait définir les fonctions sans symétrie. (bleue) Zone dans laquelle il suffit de définir numériquement les fonctions. Les symétries permettent donc de "réduire" le problème à un espace plus petit en impulsion.}
 \label{fig:SurfUtile}
 \end{figure}
 
@@ -1452,9 +1441,9 @@ De cette manière on ne considère que $\phi \text{ (ou } \tphi) \in [0, \infty[
 
 Afin de pouvoir calculer avec précision les intégrales $J$, $\bJ$, $\tJ$ apparaissant dans les équations nous avons choisi d'interpoler la fonction $\Delta_k$ ainsi que ses dérivées et ses pendants adimensionnées dans le plan des impulsions. Comme annoncé, pour cela nous réutilisons encore une interpolation de Tchébytchev adaptée en dimension 2. 
 
-\subsubsection{Théorème de décomposition}
+\subsubsection{Décomposition}
 
-Nous rappelons ici un théorème justifiant l'utilisation des polynômes de Tchebytchev comme pôlynomes d'interpolation en dimension 2.\\
+Nous rappelons ici une propriété justifiant l'utilisation des polynômes de Tchebytchev comme polynômes d'interpolation en dimension 2.\\
 
 \noindent
 \textbf{Décomposition de Tchebytchev 2D.} 
@@ -1467,13 +1456,13 @@ f_n(x,y) = \sum_{i=0} ^{n} \sum_{j=0} ^{n} c_{ij} T_i\(\frac{2x-a-b}{b-a}\)T_j\(
 converge uniformément vers $f$ quand $n \rightarrow +\infty$.}\\
 
 
-Ce théorème et sa démonstrations se trouvent dans l'ouvrage \cite{Tchebychev, Masson1980} dans le cas $a=-1$, $b=1$. La généralisation à $a$ et $b$ ($b>a$) quelconques est immédiate. Considérons le schéma semi-discrétisés en temps des équations.Pour des raisons similaires à ce qui a été fait en \refsec{} (\refann{}) nous travaillons alors avec des fonctions de classe $\Cc^\infty$ (donc $\Cc^1$) selon les variables $\phi$, $p_x$ et $p_y$ (ou leur équivalent adimensionné). Il vient que la condition de variations bornées est satisfaite \cite{Masson1980}.
+Ce théorème et sa démonstrations se trouvent dans l'ouvrage \cite{Tchebychev, Masson1980} dans le cas $a=-1$, $b=1$. La généralisation à $a$ et $b$ ($b>a$) quelconques est immédiate. Considérons le schéma semi-discrétisés en temps des équations. Pour des raisons similaires à ce qui a été fait en \refsec{} (\refann{}) nous travaillons alors avec des fonctions de classe $\Cc^1$ selon les variables $\phi$, $p_x$ et $p_y$ (ou leurs équivalents adimensionnés). Il semble alors possible de tirer profit de cette propriété avec nos fonctions \cite{Masson1980} en utilisant une telle décomposition. 
 
 \vspace*{11pt}
 
 \subsubsection{Décomposition méthode 1}
 
-Soient $a$, $b$ deux réels ($b>a$). Soit $f$ une fonction de $[a,b]^2$ dans $\R$. Dans un premier temps nous avons opté pour un algorithme de recherche direct des coefficients $c_{ij}$ de sa décomposition en série de polynômes de Tchebytchev très inspiré de la méthode 1D. Supposons, en effet, que l'on veuille effectuer une décomposition à l'ordre $n_c -1$ et donc écrire
+Soient $a$, $b$ deux réels ($b>a$). Soit $f$ une fonction de $[a,b]^2$ dans $\R$. Dans un premier temps nous avons opté pour un algorithme de recherche direct des coefficients $c_{ij}$ de sa décomposition en série de polynômes de Tchebytchev basée sur la méthode 1D. Supposons, en effet, que l'on veuille effectuer une décomposition à l'ordre $n_c -1$ et donc écrire
 \begin{equation}
   f(x,y) \simeq \sum_{i=0}^{n_c-1}\sum_{j=0}^{n_c-1} c_{ij} T_i\(\frac{2x-a-b}{b-a} \)T_j\( \frac{2y-a-b}{b-a}\)
   \label{eq:dec}
@@ -1483,7 +1472,7 @@ Pour trouver la valeur des coefficients de la matrice $((c_{i,j}))_{i,j}$ on pre
 \begin{equation}
 \begin{split}
    f\(\frac{a+b}{2} + x_m\frac{a-b}{2}, \frac{a+b}{2} + y_n\frac{a-b}{2}\) =  \\
-    \sum_{i=0}^{n_C-1} \sum_{j=0}^{N_C-1}  c_{ij} T_i\(x_m\) T_j\(y_n\)
+    \sum_{i=0}^{n_C-1} \sum_{j=0}^{n_c-1}  c_{ij} T_i\(x_m\) T_j\(y_n\)
 \end{split}
 \end{equation}
 En utilisant les relations des polynômes de Tchebytchev on peut alors determiner les coefficients de la matrice $((c_{ij}))_{i,j}$ avec les formules
@@ -1542,7 +1531,7 @@ f(x,y) \simeq \sum_{j=1}^Q d_jc^j(y)r^j(x)
 On peut alors décomposer les fonctions $c_j$ et $r_j$ sur une base de polynômes de Chebychev comme on peut le faire pour toute fonction d'une seule variable. La décomposition est dite "une opération de produit tensoriel". \\
 
 
-Afin de récupérer la valeur de $f$ en un point quelconque $(x,y) \in [a,b]^2 $ nous utilisons simplement la méthode de Clenshaw à une variable sur les fonctions $c^j$ et $r^j$ déjà mentionnée en \refsec{} avec cette méthode de décomposition. Ainsi l'algorithme de décomposition possède une complexité en $\mathcal{O}(Q n_c)$ et il en est de même pour le calcul de $f$ en $(x,y) \in [a,b]^2$. Le gain n'est pas très important pour ce qui est du temps de calcul par la suite mais il a eu son importance pour permettre d'atteindre des résultats convenables en des temps raisonnables. En effet nous avons pour une grande partie de la résolution $Q < n_c$ de par la régularité des fonctions. \\
+Afin de récupérer la valeur de $f$ en un point quelconque $(x,y) \in [a,b]^2 $ nous utilisons simplement la méthode de Clenshaw à une variable sur les fonctions $c^j$ et $r^j$ déjà mentionnée en \refsec{}. Ainsi l'algorithme de décomposition possède une complexité en $\mathcal{O}(Q n_c)$ et il en est de même pour le calcul de $f$ en $(x,y) \in [a,b]^2$. Le gain n'est pas extrêmement important pour ce qui est du temps de calcul mais il a eu son importance pour permettre d'atteindre des résultats convenables en des temps raisonnables. En effet nous avons pour une grande partie de la résolution $Q < n_c$ de par la régularité des fonctions. \\
 
 
 
@@ -1557,11 +1546,11 @@ On interpole la partie en impulsion des fonctions avec des polynômes de Tchebyt
  
 Cependant cette méthode s'est avérée être inefficace puisque il faut de manière générale plus de points pour obtenir la même précision qu'une quadrature de Gauss Legendre. De plus le passage le plus long du code est le calcul des intégrales $J_3$, $\bJ_3$, $\tJ_3$ et cette quadrature ne permet pas de réaliser ce calcul plus vite. En effet pour calculer cette intégrale il faut évaluer les fonctions $\Delta_k$, $\bDelta_k$, $\tY_k$ en des points $(p_x+q_x, p_y+q_y,\phi)$, ce qui, à cause de la somme des impulsion nécessite, d'interpoler. Et ce, avec n'importe quelle discrétisation en impulsion faite sur une grille de points non régulièrement espacés. \\
 
-Une alternative complètement différente aurait alors consisté à ne pas utiliser une discrétisation en impulsion sur une base de polynôme de Tchebytechv mais plutôt une discrétisation en impulsion sur une grille de points régulièrement espacés. Il est alors possible d'écrire en deux dimensions une quadrature qui ne demande de connaitre la fonction à intégrer qu'aux points de discrétisations et ceux même pour la fonction $J_3$ et ses versions adimensionnées (en effet si alors $p_x$ et $q_x$ appartiennent à la grille de discrétisation alors $p_x+q_x$ aussi\footnote{En utilisant la périodicité des fonctions on se ramène encore à un point de la grille quand $p_x+q_x$ en dépasse}). Cependant les quadratures alors testées (basé sur une triangulation régulière de l'espace et des descriptions par éléments finis) demandaient un nombre trop important de points de discrétisation pour obtenir des précisions suffisantes en comparaison de la quadrature de Gauss-Legendre.
+Une alternative complètement différente aurait alors consisté à ne pas utiliser une discrétisation en impulsion sur une base de polynôme de Tchebytechv mais plutôt une discrétisation en impulsion sur une grille de points régulièrement espacés. Il est alors possible d'écrire en deux dimensions une quadrature qui ne demande de connaitre la fonction à intégrer qu'aux points de discrétisations et ceci même pour la fonction $J_3$ et ses versions adimensionnées (en effet si  $p_x$ et $q_x$ appartiennent à la grille de discrétisation alors $p_x+q_x$ aussi\footnote{En utilisant la périodicité des fonctions on se ramène encore à un point de la grille quand $p_x+q_x$ en dépasse}). Cependant les quadratures alors testées (basé sur une triangulation régulière de l'espace et des descriptions par éléments finis) demandaient un nombre trop important de points de discrétisation pour obtenir des précisions suffisantes en comparaison de la quadrature de Gauss-Legendre.
 
 % Insert image of calculation by these two quadrature  
 
-
+\vspace*{11pt}
 
 
 
@@ -1571,6 +1560,7 @@ Soit $a>0$ un réel. Soit $f$ une fonction de $[-a, a]^2$ à valeurs dans $\R$. 
 \begin{equation}
 \int_{-a}^{a} \int_{-a}^{a} f(x,y) \, \dd x \, \dd y = 4 \int_{0}^{a}  \int_{0}^{a} f(x,y) \, \dd x \, \dd y
 \end{equation} 
+\commentout{
 On peut alors faire le changement de variable affine  $\(\tilde{x}, \tilde{y}\) \rightarrow \(2x/a -1, 2y/a -1\) $ donnant,  
 \begin{equation}
 \begin{split} 
@@ -1579,21 +1569,25 @@ On peut alors faire le changement de variable affine  $\(\tilde{x}, \tilde{y}\) 
 \end{split}
 \end{equation}
 Les intégrales sur le carré unité $[-1,1] \times [-1, 1]$ sont alors calculées avec une quadrature \textit{tensorielle} obtenue à partir d'une quadrature 1D :
+}
+
+Ce qui se calcule en utilisant une quadrature de Gauss-Legendre sur chaque dimension d'intégration, 
 \begin{equation}
 \begin{split}
  \int_{-a}^{a} \int_{-a}^{a} f(x,y) \,&  \dd x \, \dd y \simeq \\ 
- a^2\sum_{i=0}^{N_{GL}} & \sum_{j=0}^{N_{GL}}w_i w_j f(\frac{a}{2}\(\xi_i+1\), \frac{a}{2}\(\xi_j+1\))
+ a^2\sum_{i=0}^{n_{gl}} & \sum_{j=0}^{n_{gl}}w_i w_j f(\frac{a}{2}\(\xi_i+1\), \frac{a}{2}\(\xi_j+1\))
 \end{split}
 \end{equation}
-Où $\{w_i\}_{i \in \bbrac {1, N_{GL}}}$ sont les poids d'intégration 1D et  $\{\xi_i\}_{i \in \bbrac {1, N_{GL}}}$ les poids d'intégration correspondants. Par construction, $((w_i w_j))_{i,j}$ est une matrice symétrique et par symétrie de $f$ par rapport à la première bissectrice nous pouvons alors réduire la double somme par, 
+
+Où $\{\xi_i\}_{i \in \bbrac {1, n_{gl}}}$ sont les points de la quadrature et  $\{w_i\}_{i \in \bbrac {1, n_{gl}}}$ les poids correspondants. Par construction, $((w_i w_j))_{i,j}$ est une matrice symétrique et par symétrie de $f$ par rapport à la première bissectrice nous pouvons alors réduire la double somme par, 
 \begin{equation}
 \begin{split}
  \int_{-a}^{a} \int_{-a}^{a} f(x,y) \,&  \dd x \, \dd y \simeq \\ 
- a^2\sum_{i=0}^{N_{GL}} & \sum_{j=0}^{i-1}w_i w_j 2 f(\frac{a}{2}\(\xi_i+1\), \frac{a}{2}\(\xi_j+1\)) \, + \\
-a^2\sum_{i=0}^{N_{GL}} & w_i^2f(\frac{a}{2}\(\xi_i+1\), \frac{a}{2}\(\xi_i+1\))
+ a^2\sum_{i=0}^{n_{gl}} & \sum_{j=0}^{i-1}w_i w_j 2 f(\frac{a}{2}\(\xi_i+1\), \frac{a}{2}\(\xi_j+1\)) \, + \\
+a^2\sum_{i=0}^{n_{gl}} & w_i^2f(\frac{a}{2}\(\xi_i+1\), \frac{a}{2}\(\xi_i+1\))
 \end{split}
 \end{equation}
-Ce qui permet de réduire le temps de calcul en réduisant légèrement la complexité algorithmique.
+Ce qui permet de réduire le temps de calcul en réduisant légèrement le nombre d'opérations à effectuer.
 
 \vspace*{11pt}
 
@@ -1602,7 +1596,7 @@ Ce qui permet de réduire le temps de calcul en réduisant légèrement la compl
 
 \subsubsection{Calcul des intégrales $J$,$\bJ$,$\tJ$ }
 
-Soit $a>0$. Soit $(b,c) \in [0,a]^2$. Soit maintenant $g$ et $h$ deux fonctions de $\R^2$ dans $\R$ et  $g$ définie sur $[-a, a]^2$  par $g : (x,y) \rightarrow u(x+a, y+b)$. On suppose, comme précédemment, que $g$ et $h$ sont symétriques par rapport à l'axe $x=0$, à l'axe $y=0$ et à l'axe $x=y$. On fait aussi l'hypothèse qu'elles sont $2\pi$ periodiques. Nous cherchons alors une formule pour intégrer $g\times h$ sur $[-a, a]^2$. Pour cela remarquons que
+Soit $a>0$. Soit $(b,c) \in [0,a]^2$. Soit maintenant $g$ et $h$ deux fonctions de $\R^2$ dans $\R$ et  $g$ définie sur $[-a, a]^2$  par $g : (x,y) \rightarrow u(x+b, y+c)$. On suppose, comme précédemment, que $g$ et $h$ sont symétriques par rapport à l'axe $x=0$, à l'axe $y=0$ et à l'axe $x=y$. On fait aussi l'hypothèse qu'elles sont $2\pi$ periodiques. Nous cherchons alors une formule pour intégrer $g\times h$ sur $[-a, a]^2$. Pour cela remarquons que
 \begin{equation}
 \begin{split}
  & \int_{-a}^{a} \int_{-a}^{a} g(x,y) h(x,y) \,  \dd x \, \dd y  = \\
@@ -1642,8 +1636,9 @@ Bien que nos équations soient assez éloignées d'une simple équation d'advect
 Comme pour le modèle continu $O(N)$ il est possible de paralléliser le code en utilisant de l'openMP \cite{} grain fin sur les boucles en champ. En revanche, à cause de la quadrature précise que l'on souhaite avoir sur le calcul des intégrales $J$, sans parallélisation, le temps de calcul se trouve évoluer en $\mathcal{O}( Q_\text{max} \times n_c^3 \times n_{gl}^2 \times n_{\phi})$. Où $n_{\phi}$ est le nombre de point de discrétisation en $\phi$ et $\tphi$, et $Q_{max}$ est le rang maximal nécessaire dans tout le code lors de l'approximation de rang faible de \refsec{GE}. Pour le vérifier nous avons tracé la courbe \refig{timeNc}
 
 
-Ainsi nous pouvons bien constater la complexité catastrophique de cet algorithme de résolution. En revanche nous avons aussi étudié la "scalabilité" de la parallélisation sur les points de discrétisation en champ $\phi$ et comme attendu nous obtenons une décroissance en $1/n_{proc}$ ou $n_{proc}$ est le nombre de processeur utilisé. Le résultat est visible en \refig{timeScal}.
+Ainsi nous pouvons bien constater l'évolution  problématique du temps de calcul de cet algorithme de résolution. En revanche nous avons aussi étudié l'effet de la parallélisation sur les points de discrétisation en champ $\phi$. Comme attendu nous obtenons une décroissance en $\sim 1/n_{proc}$ ou $n_{proc}$ est le nombre de processeur utilisé. Le résultat est visible en \refig{timeScal}.
 
+Enfin, le nombre de processeurs sur lesquels peuvent être parallélisé le programme est bridé par le nombre de point de la discrétisation en champ. Ainsi pour tenter d'augmenter la vitesse d'exécution nous avons réalisé une version du code avec une parallélisation MPI \cite{} de la boucle en champ et une parallélisation OpenMP des boucles de la quadrature de l'intégrale $J$, $\bJ$ ou $\tJ$. Il s'avère qu'alors il faut communiquer un nombre de données trop important entre les processeurs, le code s'en trouvait alors ralenti, voire inutilisable. 
 
 \begin{figure}[H]
 \begin{center}
@@ -1658,7 +1653,7 @@ Ainsi nous pouvons bien constater la complexité catastrophique de cet algorithm
 \begin{center}
 	\includegraphics[width=0.95\columnwidth]{Scalabilite.pdf}
 \end{center}
-\caption{Évolution du temps de calcul $\tau_c$ avec le nombre $n_{proc}$ de processeurs utilisés.}
+\caption{Évolution du temps de calcul $\tau_c$ avec le nombre $n_{proc}$ de processeurs utilisés. (points verts) En exécutant le code sur les ordinateurs du laboratoires limitées, pour celles que nous avons pu utiliser, à 10 ou 12 cœurs. () En exécutant le code sur le calculateur Mesu. Les courbes continues représentent les régressions linéaires. Nous obtenons $\tau_c \sim n_{proc}^{0.88}$ et $\tau_c \sim n_{proc}^{0.98}$ sur Mesu. }
 \label{fig:timeScal}
 \end{figure}
 
@@ -1673,11 +1668,11 @@ A cause de la complexité des algorithmes il n'est pas possible de choisi $n_c$ 
 \begin{center}
 	\includegraphics[width=0.95\columnwidth]{EtakErrMesu.pdf}
 \end{center}
-\caption{Évolution de $\eta_k$ en fonction de $t$ pour différentes valeurs du nombre de point d'interpolation et d'intégration. (rouge discontinu) $n=14$, (bleu continu) $n=20$, (jaune pointillé) $n=22$. Le trait vertical noir se trouve à $t_b = \ln(k_b/\Lambda)$ correspondant au passage du problème ($\Pc_2$) au ($\Pc_3$). Avec une précision suffisante les courbes devraient être continues cependant ce n'est clairement pas le cas pour $n<22$. Même pour $n=22$ il y a une légère différence, mais surtout un épaulement proche de $t=-8$ que l'on ne saurait expliquer.}
+\caption{Évolution de $\eta_k$ en fonction de $t$ pour différentes valeurs du nombre de point d'interpolation et d'intégration. (rouge discontinu) $n=14$, (bleu continu) $n=20$, (jaune pointillé) $n=22$. Le trait vertical noir se trouve à $t_b = \ln(k_b/\Lambda)$ correspondant au passage du problème ($\Pc_2$) au ($\Pc_3$). Avec une précision suffisante les courbes devraient être continues cependant ce n'est clairement pas le cas pour $n<22$. Même pour $n=22$ il y a une légère différence, mais surtout un épaulement proche de $t=-6$ que l'on ne saurait expliquer.}
 \label{fig:etaErr}
 \end{figure}
 
-Ainsi pour $n=22$ les résultats sembles être correct avec touts fois quelques irrégularités. Ceci nous confirme qu'une partie des imprécisions sur les résultats que peut permettre de sortir ce code de simulation sont dues au calcul des intégrales. Malheureusement il n'est pas vraiment possible de quantifier cette erreur et de la comparer aux erreurs qui peuvent provenir aussi d'un discrétisation en champ pas assez précise ou d'un pas de temps trop élevé. \\
+Ainsi pour $n=22$ les résultats semblent être correct avec toutefois quelques irrégularités. Ceci nous confirme qu'une partie des imprécisions sur les résultats que peut permettre de sortir ce code de simulation sont dues au calcul des intégrales. Malheureusement il n'est pas vraiment possible de quantifier cette erreur et de la comparer aux erreurs qui peuvent provenir aussi d'une discrétisation en champ pas assez précise ou d'un pas de temps trop élevé. \\
 
 
 
@@ -1694,6 +1689,18 @@ Nous savons que la température critique théorique attendu est de $T_c^{th} = 2
 \begin{equation}
 	err = \frac{ |T_c^{BMW} - T_c^{th}|}{T_c^{th}} = 3.5 \%
 \end{equation}
+
+
+Comme nous pouvons le voir en \refig{etaMesu}, en plus de nous donner la température critique, le code nous permet aussi de retrouver $\eta$ autour de $0.25$ pour $d=2, N=1$ comme nous l'avions déjà déterminé en \refsec{}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.95\columnwidth]{MesuRes.pdf}
+\end{center}
+\caption{Évolution de $\eta_k$ en fonction de $t$ pour différentes valeurs de la températue $T$ du système (la courbe se lit de droite à gauche). $n_c=22$, $n_{gl} = 22$.  Le trait vertical noir se trouve à $t_b = \ln(k_b/\Lambda)$ correspondant au passage du problème ($\Pc_2$) au ($\Pc_3$). Le trait horizontal noir correspond à la valeur théorique $\eta = 0.25$ attendue. }
+\label{fig:etaMesu}
+\end{figure}
+
 
 \section{Conclusion}
 
@@ -1928,7 +1935,7 @@ Partons de l'équation BMW \refeq{flotBMW}.
 	\partial_t \Gamma_{k}^{(2)}(\pv, \phi) =  J_3(\pv, \phi) {\( \partial_\phi \Gamma_{k}^{(2)}(\pv, \phi) \)}^2 
 	- \frac{1}{2}  I_2(\phi) \, \partial_\phi^{2} \Gamma_{k}^{(2)}(\pv, \phi)
 \end{equation}
-Soit $u$ une application affine, difféomorphisme de classe $\Cc^1$ de $\R^d$ dans $\R^d$ tel que $\text{det(Jac(}u)) = \pm 1$. Supposons que $\Rc_k(u(\qv)) = \Rc_k(\qv)$ pour tout $\qv \in \R^d$ et $k \in ]0, \Lambda]$. On pose le schéma semi-discrétisé d'Euler en temps de l'équation précédente. Il vient, pour $n \in \N$,
+Soit $u$ une application linéaire, difféomorphisme de classe $\Cc^1$ de $\R^d$ dans $\R^d$ tel que $\text{det(Jac(}u)) = \pm 1$. Supposons que $\Rc_k(u(\qv)) = \Rc_k(\qv)$ pour tout $\qv \in \R^d$ et $k \in ]0, \Lambda]$. On pose le schéma semi-discrétisé d'Euler en temps de l'équation précédente. Il vient, pour $n \in \N$,
 \begin{equation}
 	 \Gamma_{k_{n+1}}^{(2)}(\pv, \phi) = \Gamma_{k_n}^{(2)}(\pv, \phi) + \delta t \left\{ J_3(\pv, \phi) {\( \partial_\phi \Gamma_{k_n}^{(2)}(\pv, \phi) \)}^2 
 	- \frac{1}{2}  I_2(\phi) \, \partial_\phi^{2} \Gamma_{k_n}^{(2)}(\pv, \phi) \right\}
@@ -1984,13 +1991,7 @@ Remarquons que l'hypothèse $\Rc_k(u(\pv)) = \Rc_k(\pv)$ est équivalente à l'h
 	u & : (p_x, p_y) \in \R^2 \to (p_y, p_x) \in \R^2  
 	\end{split}
 \end{equation}
-De plus ceci fonctionne aussi pour montrer la périodicité des fonctions et montrer que dans le cas Ising 2D elles peuvent bien être définies sur $\R^2$ tout entier,
-\begin{equation}
-\begin{split}
-	u & : (p_x, p_y) \in \R^2 \to (p_x + 2\pi, p_y) \in \R^2 \\
-	u & : (p_x, p_y) \in \R^2 \to (p_x, p_y+ 2\pi) \in \R^2 
-	\end{split}
-\end{equation}
+De plus le même raisonnement fonctionne aussi pour montrer la $2\pi$-périodicité des fonctions en impulsion dans le cas Ising 2D et montrer qu'elles peuvent bien être définies sur $\R^2$ tout entier.
 
 \vspace*{11pt}
 Soit maintenant $\pv \in \R^d$. Supposons que pour pour tout $\phi \in \R$, nous ayons $ \Gamma_{k_{0}}^{(2)}(\pv, -\phi) = \Gamma_{\Lambda}^{(2)}(u(\pv), -\phi) = \Gamma_{\Lambda}^{(2)}(\pv, \phi)$ (i.e. que ce soit une fonction paire). 

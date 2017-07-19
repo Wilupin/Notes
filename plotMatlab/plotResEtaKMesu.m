@@ -30,13 +30,13 @@ etak3    = donnee3(:,4);
 
 setFigure_bis('Ma figure');
 
-plot(temps1 -6, etak1, '-', 'LineWidth', 1.5);
+plot(temps1 -4, etak1, '-', 'LineWidth', 1.5);
 hold on
-plot(temps2 -6, etak2, '-.', 'LineWidth', 1.5);
-plot(temps3 -6, etak3, ':', 'LineWidth', 1.5);
-plot([-9 -9], [0, 0.7], '--', 'Color', 'black');
+plot(temps2 -4, etak2, '-.', 'LineWidth', 1.5);
+plot(temps3 -4, etak3, ':', 'LineWidth', 1.5);
+plot([-7 -7], [0, 0.7], '--', 'Color', 'black');
 
-xlim(gca, [-11 -5]);
+xlim(gca, [-9 -3]);
 ylim(gca, [0, 0.7]);
 
 journal_axis(gca, 'Temps de RG : $t=\ln(k/\Lambda)$', '$\eta_k$')

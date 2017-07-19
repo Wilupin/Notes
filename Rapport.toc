@@ -25,12 +25,11 @@
 \contentsline {subsection}{\numberline {4.1}Travail r\IeC {\'e}alis\IeC {\'e} sur ces \IeC {\'e}quations}{12}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Structure de l'algorithme}{12}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Discr\IeC {\'e}tisation en champ}{13}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Calcul des int\IeC {\'e}grales}{13}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Discr\IeC {\'e}tisation en impulsion}{13}{subsection.4.5}
-\contentsline {subsubsection}{\numberline {4.5.1}Interpolation de Tchebytchev}{13}{subsubsection.4.5.1}
-\contentsline {subsubsection}{\numberline {4.5.2}Coefficients de la d\IeC {\'e}composition}{14}{subsubsection.4.5.2}
-\contentsline {subsubsection}{\numberline {4.5.3}M\IeC {\'e}thode de Clenshaw}{14}{subsubsection.4.5.3}
-\contentsline {subsubsection}{\numberline {4.5.4}Calcul des d\IeC {\'e}riv\IeC {\'e}es}{14}{subsubsection.4.5.4}
+\contentsline {subsection}{\numberline {4.4}Discr\IeC {\'e}tisation en impulsion}{13}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Expression des coefficients}{13}{subsubsection.4.4.1}
+\contentsline {subsection}{\numberline {4.5}Calcul des int\IeC {\'e}grales}{13}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}M\IeC {\'e}thode de Clenshaw}{14}{subsubsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.2}Calcul des d\IeC {\'e}riv\IeC {\'e}es}{14}{subsubsection.4.5.2}
 \contentsline {subsection}{\numberline {4.6}Parall\IeC {\'e}lisation}{14}{subsection.4.6}
 \contentsline {section}{\numberline {5}Resulats : $O(N)$ continu}{14}{section.5}
 \contentsline {subsection}{\numberline {5.1}Pour $N = 1$, $d=2$}{14}{subsection.5.1}
@@ -42,19 +41,19 @@
 \contentsline {subsection}{\numberline {6.4}\IeC {\'E}tapes de la r\IeC {\'e}solution}{18}{subsection.6.4}
 \contentsline {subsubsection}{\numberline {6.4.1}Premi\IeC {\`e}re \IeC {\'e}tape}{18}{subsubsection.6.4.1}
 \contentsline {subsubsection}{\numberline {6.4.2}Deuxi\IeC {\`e}me \IeC {\'e}tape}{19}{subsubsection.6.4.2}
-\contentsline {subsubsection}{\numberline {6.4.3}Troisi\IeC {\`e}me \IeC {\'e}tape}{19}{subsubsection.6.4.3}
+\contentsline {subsubsection}{\numberline {6.4.3}Troisi\IeC {\`e}me \IeC {\'e}tape}{20}{subsubsection.6.4.3}
 \contentsline {section}{\numberline {7}M\IeC {\'e}thodes et outils num\IeC {\'e}riques pour la r\IeC {\'e}solution d'Ising 2D}{20}{section.7}
 \contentsline {subsection}{\numberline {7.1}Structure du code}{20}{subsection.7.1}
 \contentsline {subsection}{\numberline {7.2}Probl\IeC {\`e}mes rencontr\IeC {\'e}s}{20}{subsection.7.2}
 \contentsline {subsection}{\numberline {7.3}Sym\IeC {\'e}tries et p\IeC {\'e}riodicit\IeC {\'e} des fonctions}{21}{subsection.7.3}
 \contentsline {subsection}{\numberline {7.4}Interpolation de Tchebytchev}{21}{subsection.7.4}
-\contentsline {subsubsection}{\numberline {7.4.1}Th\IeC {\'e}or\IeC {\`e}me de d\IeC {\'e}composition}{21}{subsubsection.7.4.1}
+\contentsline {subsubsection}{\numberline {7.4.1}D\IeC {\'e}composition}{21}{subsubsection.7.4.1}
 \contentsline {subsubsection}{\numberline {7.4.2}D\IeC {\'e}composition m\IeC {\'e}thode 1}{22}{subsubsection.7.4.2}
 \contentsline {subsubsection}{\numberline {7.4.3}D\IeC {\'e}composition m\IeC {\'e}thode 2}{22}{subsubsection.7.4.3}
-\contentsline {subsection}{\numberline {7.5}Le calcul des int\IeC {\'e}grales}{23}{subsection.7.5}
+\contentsline {subsection}{\numberline {7.5}Le calcul des int\IeC {\'e}grales}{22}{subsection.7.5}
 \contentsline {subsubsection}{\numberline {7.5.1}Le choix de la quadrature}{23}{subsubsection.7.5.1}
 \contentsline {subsubsection}{\numberline {7.5.2}Calcul des int\IeC {\'e}grales $I$, $\mathaccentV {bar}016{I}$, $\mathaccentV {tilde}07E{I}$}{23}{subsubsection.7.5.2}
-\contentsline {subsubsection}{\numberline {7.5.3}Calcul des int\IeC {\'e}grales $J$,$\mathaccentV {bar}016{J}$,$\mathaccentV {tilde}07E{J}$ }{24}{subsubsection.7.5.3}
+\contentsline {subsubsection}{\numberline {7.5.3}Calcul des int\IeC {\'e}grales $J$,$\mathaccentV {bar}016{J}$,$\mathaccentV {tilde}07E{J}$ }{23}{subsubsection.7.5.3}
 \contentsline {subsection}{\numberline {7.6}D\IeC {\'e}riv\IeC {\'e}es num\IeC {\'e}riques en champ }{24}{subsection.7.6}
 \contentsline {section}{\numberline {8}Resultats : Ising 2D}{24}{section.8}
 \contentsline {subsection}{\numberline {8.1}Complexit\IeC {\'e} algorithmique et parall\IeC {\'e}lisation - probl\IeC {\`e}me de rapidit\IeC {\'e}}{24}{subsection.8.1}

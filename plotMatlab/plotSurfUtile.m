@@ -5,21 +5,21 @@ setFigure_bis('a');
 
 journal_plot_params;
 
-plot(X, [0,0], '--', 'color', 'black', 'LineWidth', 1.2);
-hold on
-plot([0,0], Y, '--', 'color', 'black', 'LineWidth', 1.2);
-plot([0.25, 0.25], [0, pi], 'color', 'black', 'LineWidth', 0.5);
-plot([0.5, 0.5], [0, pi], 'color', 'black', 'LineWidth', 0.5);
-plot([0.75, 0.75], [0, pi], 'color', 'black', 'LineWidth', 0.5);
-plot([1, 1], [0, pi], 'color', 'black', 'LineWidth', 0.5);
-plot([1.25, 1.25], [0, pi], 'color', 'black', 'LineWidth', 0.5);
-plot([1.5, 1.5], [0, pi], 'color', 'black', 'LineWidth', 0.5);
-plot([1.75, 1.75], [0, pi], 'color', 'black', 'LineWidth', 0.5);
-plot([2, 2], [0, pi], 'color', 'black', 'LineWidth', 0.5);
-plot([2.25, 2.25], [0, pi], 'color', 'black', 'LineWidth', 0.5);
-plot([2.5, 2.5], [0, pi], 'color', 'black', 'LineWidth', 0.5);
-plot([2.75, 2.75], [0, pi], 'color', 'black', 'LineWidth', 0.5);
-plot([3, 3], [0, pi], 'color', 'black', 'LineWidth', 0.5);
+ plot(X, [0,0], '--', 'color', 'black', 'LineWidth', 1.2);
+ hold on
+ plot([0,0], Y, '--', 'color', 'black', 'LineWidth', 1.2);
+% plot([0.25, 0.25], [0, pi], 'color', 'black', 'LineWidth', 0.5);
+% plot([0.5, 0.5], [0, pi], 'color', 'black', 'LineWidth', 0.5);
+% plot([0.75, 0.75], [0, pi], 'color', 'black', 'LineWidth', 0.5);
+% plot([1, 1], [0, pi], 'color', 'black', 'LineWidth', 0.5);
+% plot([1.25, 1.25], [0, pi], 'color', 'black', 'LineWidth', 0.5);
+% plot([1.5, 1.5], [0, pi], 'color', 'black', 'LineWidth', 0.5);
+% plot([1.75, 1.75], [0, pi], 'color', 'black', 'LineWidth', 0.5);
+% plot([2, 2], [0, pi], 'color', 'black', 'LineWidth', 0.5);
+% plot([2.25, 2.25], [0, pi], 'color', 'black', 'LineWidth', 0.5);
+% plot([2.5, 2.5], [0, pi], 'color', 'black', 'LineWidth', 0.5);
+% plot([2.75, 2.75], [0, pi], 'color', 'black', 'LineWidth', 0.5);
+% plot([3, 3], [0, pi], 'color', 'black', 'LineWidth', 0.5);
 
 journal_axis(gca, '$q_x$ ou $\tilde{q}_x$', '$q_y$ ou $\tilde{q}_y$');
 
